@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Infrathon</title>
+<meta name="description" content="In this work, we study whether frontier models can sustain progress on real-world AI infrastructure optimization over long horizons.">
+<meta property="og:title" content="Infrathon">
+<meta property="og:description" content="Can frontier models solve long-horizon AI infrastructure tasks? 25 tasks, 6 configurations, 150 runs on H100s.">
+<meta name="theme-color" content="#ffffff">
+<script src="assets/js/theme.js"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060709'/%3E%3Cpath d='M7 22h4v-8h4v5h4V9h4v10h3' fill='none' stroke='%23ededef' stroke-width='2.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body data-page="index">
+<main>
+  <section class="hero" id="overview">
+    <div class="wrap">
+      <h1 class="paper-title"><span>Infrathon: Benchmarking Language Agents</span><span class="paper-subtitle">for Real-World, Long-Horizon AI Infra Optimization</span></h1>
+      <div class="paper-team">
+        <div class="authors" role="group" aria-label="Authors, in paper order">
+          <ul class="author-row">
+          <li><a href="https://huzhengyu477.github.io/">Zhengyu Hu</a><sup>1</sup></li>
+          <li><a href="https://zxia545.github.io/">Zheyuan Xiao</a><sup>1</sup></li>
+          <li><a href="https://yikee.github.io/">Yike Wang</a><sup>1,2</sup></li>
+          <li><a href="https://why2011btv.github.io/">Haoyu Wang</a><sup>3</sup></li>
+          <li><a href="https://yuanyige.github.io/">Yige Yuan</a><sup>1</sup></li>
+          <li><a href="https://ivison.id.au/">Hamish Ivison</a><sup>1</sup></li>
+          <li><a href="https://rulinshao.github.io/">Rulin Shao</a><sup>1</sup></li>
+          </ul>
+          <ul class="author-row">
+          <li><a href="https://yuetl9.github.io/">Yuetai Li</a><sup>1</sup></li>
+          <li>Niqi Lyu<sup>4</sup></li>
+          <li>Kevin Ding<sup>4</sup></li>
+          <li><a href="https://shuyhere.github.io/">Shu Yang</a><sup>5</sup></li>
+          <li><a href="https://zhichenzzz.github.io/">Zhichen Zeng</a><sup>1,6</sup></li>
+          <li><a href="https://jiaxin-pei.github.io/">Jiaxin Pei</a><sup>5,7</sup></li>
+          <li><a href="https://banghua.me/">Banghua Zhu</a><sup>1,6</sup></li>
+          <li><a href="https://pdasigi.github.io/">Pradeep Dasigi</a><sup>2</sup></li>
+          </ul>
+          <ul class="author-row">
+          <li><a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a><sup>3</sup></li>
+          <li><a href="https://hannaneh.ai/">Hannaneh Hajishirzi</a><sup>1</sup></li>
+          <li><a href="https://nasmith.github.io/">Noah A. Smith</a><sup>1,2</sup></li>
+          <li><a href="https://kaize0409.github.io/">Kaize Ding</a><sup>8,†</sup></li>
+          <li><a href="https://tengxiao1.github.io/">Teng Xiao</a><sup>1,2,†</sup></li>
+          <li><a href="https://people.ece.uw.edu/radha/">Radha Poovendran</a><sup>1,†</sup></li>
+          </ul>
+        </div>
+        <div class="affiliations" aria-label="Author affiliations">
+          <span><sup>1</sup>University of Washington</span>
+          <span><sup>2</sup>Allen Institute for AI</span>
+          <span><sup>3</sup>University of Pennsylvania</span>
+          <span><sup>4</sup>Pyromind</span>
+          <span><sup>5</sup>Stanford University</span>
+          <span><sup>6</sup>RadixArk</span>
+          <span><sup>7</sup>The University of Texas at Austin</span>
+          <span><sup>8</sup>Northwestern University</span>
+        </div>
+        <p class="team-note">† Project Leader</p>
+        <div class="institution-logos" aria-label="Institutions">
+          <img src="assets/img/institutions/paper-uw.svg" alt="University of Washington" width="140" height="42">
+          <img src="assets/img/institutions/paper-ai2.svg" alt="Allen Institute for AI" width="140" height="42">
+          <img src="assets/img/institutions/paper-penn.svg" alt="University of Pennsylvania" width="140" height="42">
+          <img src="assets/img/institutions/paper-pyromind.png" alt="Pyromind" width="140" height="42">
+          <img src="assets/img/institutions/paper-stanford.svg" alt="Stanford University" width="140" height="42">
+          <img src="assets/img/institutions/paper-radixark.svg" alt="RadixArk" width="140" height="42">
+          <img src="assets/img/institutions/paper-ut.svg" alt="The University of Texas at Austin" width="140" height="42">
+          <img src="assets/img/institutions/paper-northwestern.svg" alt="Northwestern University" width="140" height="42">
+        </div>
+      </div>
+      <div class="paper-resources">
+        <div class="resource-links" aria-label="Project resources">
+          <button class="resource-button" type="button" disabled title="Coming soon" aria-label="Paper: coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg>Paper</button>
+          <button class="resource-button" type="button" disabled title="Coming soon" aria-label="Code: coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5 m8-10 5 5-5 5 m-3-13-2 16"/></svg>Code</button>
+          <button class="resource-button" type="button" disabled title="Coming soon" aria-label="Docker: coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 7 9-4 9 4v10l-9 4-9-4z M3 7l9 5 9-5 M12 12v9"/></svg>Docker</button>
+          <button class="resource-button" type="button" disabled title="Coming soon" aria-label="HuggingFace: coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c0-4 16-4 16 0v12c0 4-16 4-16 0z M4 6c0 4 16 4 16 0 M4 12c0 4 16 4 16 0"/></svg>HuggingFace</button>
+        </div>
+        <p class="resource-status">Coming soon</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec home-results" id="leaderboard"><div class="wrap">
+    <div class="card">
+      <div class="card-head"><div><h2>Leaderboard</h2><p id="lb-sub">Rank score across 25 tasks.</p></div><a class="more" href="#score-notes">Scoring details ↗</a></div>
+      <div class="lb-controls"><div class="toolbar">
+        <span class="tool"><span class="tool-label">Stage</span><span class="seg" id="seg-stage"></span></span>
+        <span class="tool"><span class="tool-label">Level</span><span class="seg" id="seg-level"></span></span>
+      </div></div>
+      <div class="scroll-x"><table class="lb" id="lb">
+        <caption class="sr-only">Rank-score leaderboard</caption>
+        <thead><tr>
+          <th scope="col">#</th><th scope="col">Model</th><th scope="col">Rank score</th><th scope="col">95% CI</th>
+          <th scope="col" class="n">Wins</th><th scope="col" class="n">First valid score</th><th scope="col" class="n">Visible output tokens</th>
+        </tr></thead><tbody></tbody>
+      </table></div>
+      <div class="card-foot">100 = first on every task.</div>
+    </div>
+    <details class="notes" id="score-notes" style="margin-top:12px">
+      <summary>Scoring and token definitions</summary>
+      <p>Rank the six models by each task’s best valid within-budget score, then average 100 × (6 − rank) / 5 equally across tasks. Exact ties share average rank; a run without a valid scored submission receives zero. The 95% task-bootstrap confidence intervals use 10,000 resamples for the full suite and 3,000 for filtered groups.</p>
+      <p>Visible tokens use <code>o200k_base</code> for agent text and tool-call content, excluding tool responses, repeated code-diff displays, and reasoning traces. Full-suite totals aggregate all 25 tasks; filtered totals sum rounded per-task values (≈). First-score time is the median across scored runs in the selected tasks.</p>
+    </details>
+  </div></section>
+
+  <section class="sec home-results" id="map"><div class="wrap">
+    <div class="card die">
+      <div class="card-head"><div><h2>Task map</h2><p>Colour shows each task’s top configuration.</p></div></div>
+      <div class="die-body" id="task-map" tabindex="0" role="region" aria-label="Task map; scroll horizontally on a small screen"></div>
+      <div class="die-legend" id="die-legend"></div>
+    </div>
+  </div></section>
+
+  <section class="sec home-results" id="results"><div class="wrap">
+    <div class="home-chart-head"><div><h2>Results by task</h2><p>Select a model to highlight its curves.</p></div><p class="task-detail-hint">Select a task for results.</p></div>
+    <div class="task-result-controls">
+      <div class="toolbar">
+        <span class="tool"><span class="tool-label">Stage</span><span class="seg" id="f-stage"></span></span>
+        <span class="tool"><span class="tool-label">Level</span><span class="seg" id="f-level"></span></span>
+      </div>
+      <label class="sr-only" for="f-q">Search tasks</label>
+      <input class="search" id="f-q" type="search" placeholder="Search tasks" autocomplete="off">
+    </div>
+    <div class="legend" id="results-legend" aria-label="Highlight a model"></div>
+    <div id="task-results"></div>
+    <p class="task-result-count" id="task-foot" role="status"></p>
+  </div></section>
+</main>
+<script src="data/infrathon.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/home-results.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

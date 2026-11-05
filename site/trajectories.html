@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Run log · Infrathon</title>
+<meta name="description" content="An Infrathon task's run log: scores, failed checks, integrity rejections and infrastructure failures for the selected configuration.">
+<meta property="og:title" content="Infrathon">
+<meta property="og:description" content="Can frontier models solve long-horizon AI infrastructure tasks? 25 tasks, 6 configurations, 150 runs on H100s.">
+<meta name="theme-color" content="#ffffff">
+<script src="assets/js/theme.js"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060709'/%3E%3Cpath d='M7 22h4v-8h4v5h4V9h4v10h3' fill='none' stroke='%23ededef' stroke-width='2.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="trajectories">
+<main>
+  <header class="page-head"><div class="wrap">
+    <a class="btn primary task-back" id="r-back" href="index.html#results">← Back to results</a>
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span><a href="index.html#results">Results</a><span>/</span><a id="r-tasklink" href="index.html#results">Task</a><span>/</span><span>Run log</span></div>
+    <h1>Run log</h1>
+    <p class="lede" id="r-lede">Scores and submission history for the selected task and configuration.</p>
+  </div></header>
+  <section class="sec"><div class="wrap stack" id="explorer">
+    <div class="card">
+      <div class="card-head">
+        <div class="run-controls">
+          <span class="tool-label">Configuration</span>
+          <span class="seg" id="r-model"></span>
+        </div>
+      </div>
+      <div class="kpis" id="r-kpis"></div>
+      <div class="card-body">
+        <div class="chart" id="r-chart"></div>
+        <div class="trace-keys" style="margin-top:8px"><span class="key"><i></i>line: best so far · dots: scored submissions</span><span class="key"><i class="bad"></i>failed checks / rejected</span><span class="key"><i class="infra"></i>infrastructure failure</span></div>
+      </div>
+      <div class="log"><table class="data" id="r-log"></table></div>
+    </div>
+  </div></section>
+</main>
+<script src="data/infrathon.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/trajectories.js"></script>
+</body>
+</html>
