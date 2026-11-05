@@ -2,6 +2,19 @@
 
 Paper website for **Infrathon: Benchmarking Language Agents for Real-World, Long-Horizon AI Infra Optimization**. Plain HTML, CSS, and JavaScript, with committed measurements and original figure assets from the author-supplied Overleaf archive.
 
+## Deployment
+
+Live website: https://infrathonx.github.io/ (redirects to `/site/`).
+
+GitHub Pages publishes the `main` branch from the repository root. The root
+`index.html` redirects to the website in `site/`; `.nojekyll` preserves the
+static files. The `Site checks` workflow validates the data, JavaScript,
+links, and figures. GitHub's built-in Pages workflow handles deployment,
+so there is only one publishing source.
+
+Initial content was copied from `deepebe952/deepebe952.github.io` at
+commit `99bbc32`, preserving its source data and attribution.
+
 ```
 site/
   index.html                 paper identity, leaderboard, task map, all task trajectories
