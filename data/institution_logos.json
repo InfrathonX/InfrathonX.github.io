@@ -74,15 +74,25 @@
   {
     "key": "pyromind",
     "filename": "paper-pyromind.png",
-    "width": 1280,
-    "height": 1237,
+    "width": 2000,
+    "height": 494,
     "source": {
-      "document": "_AI_Infra____New_Template_Version___Zhengyu_Hu.pdf",
-      "sha256": "94201e9962a18a7b359713149c5b0e9b46d75341a6bc551f345557918433c4dd",
+      "document": "\u6e90\u6587\u4ef6 3.pdf",
+      "sha256": "305deebb22f21e146039db58e0e6b90bfffb6aba1c8eacad85f6967e16b3c270",
       "page": 1,
-      "method": "Original embedded PNG pixels with original soft-mask transparency; no resizing or recoloring.",
-      "image_xref": 1142,
-      "mask_xref": 1143
+      "method": "Ghostscript pngalpha @300dpi from author-supplied vector PDF; trimmed transparent padding; no recoloring.",
+      "pdf_mediabox": [
+        0.0,
+        0.0,
+        586.25,
+        150.063
+      ],
+      "pdf_artbox": [
+        2.22639,
+        3.7529,
+        584.024,
+        144.31
+      ]
     }
   },
   {
