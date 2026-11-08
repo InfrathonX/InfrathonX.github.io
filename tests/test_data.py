@@ -1,7 +1,8 @@
 """Regression tests for the data pipeline.
 
-The extraction is checked against all 150 best-so-far results in the current paper's Table 5.
+Checks cover 144 archived table scores and six updated quality-weighted QVG scores.
 """
+import copy
 import json
 import math
 import sys
@@ -12,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_data  # noqa: E402
+from import_qvg_scores import rescore_run
 
 REGISTRY, RAW, TOKENS = build_data.load()
 DATA = build_data.compute(REGISTRY, RAW, TOKENS)
@@ -117,6 +119,33 @@ class SiteData(unittest.TestCase):
         self.assertEqual(opd["results"]["astra"]["n_sub"], 11)
         self.assertEqual(opd["results"]["astra"]["elapsed_h"], 24)
         self.assertEqual(RAW["tasks"]["opd"]["runs"]["astra"]["id"], "opd-astra-max-24h-20261018-102917")
+
+    def test_qvg_rescore_keeps_submission_timing_and_validity(self):
+        qvg = next(t for t in DATA["tasks"] if t["key"] == "qvg")
+        originals = RAW["tasks"]["qvg"]["runs"]
+        self.assertEqual(sum(r["n_sub"] for r in qvg["results"].values()), 108)
+        for model, original in originals.items():
+            actual = qvg["results"][model]
+            self.assertEqual([p[0] for p in actual["subs"]], [round(p[0], 3) for p in original["points"]])
+            self.assertEqual([p[2] for p in actual["subs"]], [build_data.STATUS_CODE[p[2]] for p in original["points"]])
+        # Failed quality gates stay invalid, even when a raw formula value exists.
+        self.assertEqual(qvg["results"]["deepseek"]["subs"][18], [22.614, None, "x"])
+        # Valid scores may decline; the chart carries forward the preceding best.
+        self.assertEqual(qvg["results"]["claude"]["subs"][9][1], 17.78)
+        self.assertEqual(max(p[1] for p in qvg["results"]["claude"]["traj"] if p[0] <= 12), 18.72)
+        self.assertEqual(qvg["metric"], "Score")
+        self.assertEqual(qvg["ranks"]["sol"], 5)
+        self.assertEqual(qvg["ranks"]["glm"], 6)
+        # The original compression-only archive is preserved.
+        self.assertAlmostEqual(originals["claude"]["points"][-1][1], 19.62428208827866)
+
+    def test_qvg_import_rejects_unmatched_submissions(self):
+        original = RAW["tasks"]["qvg"]["runs"]["claude"]
+        for field, value in ((0, 99), (1, 2.5), (2, 100), (4, True)):
+            update = copy.deepcopy(REGISTRY["qvg_score_update"]["runs"]["claude"])
+            update["rows"][0][field] = value
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                rescore_run(original, update)
 
     def test_no_final_artifact_fields(self):
         bundle = (ROOT / "site/data/infrathon.js").read_text()

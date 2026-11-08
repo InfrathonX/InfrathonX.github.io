@@ -124,9 +124,11 @@
       "sha256": "bc5015493a18ce067aa9779569771813cd723aa53c194d2aeae31d53c422f360"
     }
   ],
-  "mock_resources": {
-    "code": "https://example.com/infrathon/code",
-    "containers": "https://example.com/infrathon/containers",
-    "data": "https://example.com/infrathon/data"
+  "resources": {
+    "code": "https://github.com/InfrathonX/Infrathon",
+    "containers": "https://hub.docker.com/r/infrathon/infrathon",
+    "data": "https://huggingface.co/datasets/Infrathon/Infrathon",
+    "website": "https://infrathonx.github.io/",
+    "paper": "https://infrathonx.github.io/"
   }
 }

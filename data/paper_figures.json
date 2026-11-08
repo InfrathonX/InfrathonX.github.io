@@ -1,0 +1,157 @@
+{
+  "source_tex": "main.tex",
+  "source_tex_sha256": "f4cb3617563566935cd21bb436bb46298efb37a6100f1bf8918cc61acd2e3c81",
+  "method": "Original one-page manuscript PDFs, converted with pdftocairo -svg. Text remains vector outlines; embedded image content, colors, and geometry are retained.",
+  "figures": [
+    {
+      "name": "framework",
+      "source_member": "images/ultrainfrabench_framework.pdf",
+      "pdf": "assets/img/paper/framework.pdf",
+      "svg": "assets/img/paper/framework.svg",
+      "pdf_sha256": "d0b4db097c4e212c4111b3d11084437fec382863d7f7d6cc7a7257e19ad8bed9",
+      "svg_sha256": "446ee6e768e0ef7e35189f62aab1a97cc080dd999a6ca0eb81578d8d35bb3188",
+      "width_pt": 541.16,
+      "height_pt": 242.95
+    },
+    {
+      "name": "taskstat",
+      "source_member": "images/taskstat.pdf",
+      "pdf": "assets/img/paper/taskstat.pdf",
+      "svg": "assets/img/paper/taskstat.svg",
+      "pdf_sha256": "ddd57e6ba25f265fd67ca5df7ebb0995b6e2eac0f23850b4db2c573111fb1830",
+      "svg_sha256": "b9da3327dab758d1a9f5ffb7178fdc982622dcd5141fca9e8b86d5caf628a7af",
+      "width_pt": 390.96,
+      "height_pt": 390.96
+    },
+    {
+      "name": "task_trajectories",
+      "source_member": "images/task_trajectories.pdf",
+      "pdf": "assets/img/paper/task_trajectories.pdf",
+      "svg": "assets/img/paper/task_trajectories.svg",
+      "pdf_sha256": "d624800b88cc4936a898b7c9690db67bfa9078621cd9829bb9cc06301bafc944",
+      "svg_sha256": "576d34e195859619c77958e86d1fd6e60c1e2d501be3e9020311ebeeef9f2c34",
+      "width_pt": 486.0,
+      "height_pt": 540.0
+    },
+    {
+      "name": "rank_performance",
+      "source_member": "images/rank_performance.pdf",
+      "pdf": "assets/img/paper/rank_performance.pdf",
+      "svg": "assets/img/paper/rank_performance.svg",
+      "pdf_sha256": "ed08fea6ee507f1cb32fe8b65d8d61990f05d8431d10b157e4cb4ef7632647e1",
+      "svg_sha256": "69d75ff000ab5ca3d5527560a350511a7a005152e3018750ba5994f5ce68bdd1",
+      "width_pt": 486.0,
+      "height_pt": 284.953846
+    },
+    {
+      "name": "qvg_submission_comparison",
+      "source_member": "images/qvg_submission_comparison.pdf",
+      "pdf": "assets/img/paper/qvg_submission_comparison.pdf",
+      "svg": "assets/img/paper/qvg_submission_comparison.svg",
+      "pdf_sha256": "2ff9ae25c80597f7dd18d546224a2b275c3c2e918c5ca6e97bcb738a66dd517e",
+      "svg_sha256": "e735763fe19847b90a3ccdb386c60ce816ecd8a5ab965cc59df083f331b80056",
+      "width_pt": 514.8,
+      "height_pt": 460.661538
+    },
+    {
+      "name": "analysis_summary",
+      "source_member": "images/analysis_summary.pdf",
+      "pdf": "assets/img/paper/analysis_summary.pdf",
+      "svg": "assets/img/paper/analysis_summary.svg",
+      "pdf_sha256": "f8123be2bff3b1c2eeef938c9c49ba66608ee31fb4916a62e52f1a6481523861",
+      "svg_sha256": "c1ec00734a49a4a02fad720d5b6955ca34fe702ad359b79c6a2d7ce40d23c9ff",
+      "width_pt": 876.0,
+      "height_pt": 231.0
+    },
+    {
+      "name": "long_vs_short_runs",
+      "source_member": "images/long_vs_short_runs.pdf",
+      "pdf": "assets/img/paper/long_vs_short_runs.pdf",
+      "svg": "assets/img/paper/long_vs_short_runs.svg",
+      "pdf_sha256": "3716d92a8fefe1d9d603ca97d6dc117331022ca07c524224202555fce32f3899",
+      "svg_sha256": "a704782662d997ac51d25f7a405d42da485df9d2e2d3d109461fcb4bc0510ea2",
+      "width_pt": 486.0,
+      "height_pt": 561.6
+    },
+    {
+      "name": "behavior_task_fidelity",
+      "source_member": "images/behavior_task_fidelity.pdf",
+      "pdf": "assets/img/paper/behavior_task_fidelity.pdf",
+      "svg": "assets/img/paper/behavior_task_fidelity.svg",
+      "pdf_sha256": "cf79dd42621bb62e59a83f0416b5645df0eb08dae5df63a635549f662b8042c4",
+      "svg_sha256": "26988cc7bf6107889b5cb5a9b48108c744a67e9adf01c82c3e8c64b308c7dc0c",
+      "width_pt": 244.8,
+      "height_pt": 176.4
+    },
+    {
+      "name": "appendix_task_trajectories_1",
+      "source_member": "images/appendix_task_trajectories_1.pdf",
+      "pdf": "assets/img/paper/appendix_task_trajectories_1.pdf",
+      "svg": "assets/img/paper/appendix_task_trajectories_1.svg",
+      "pdf_sha256": "15191b82bec65a91455c5c133f06a2786c1968ed0e032cbc7f158ef4a387c064",
+      "svg_sha256": "ffcd3329d8eef17299d8f6c1a641bd37acb7dc20be65ae9dd4deeaf0bc57c970",
+      "width_pt": 486.0,
+      "height_pt": 540.0
+    },
+    {
+      "name": "appendix_task_trajectories_2",
+      "source_member": "images/appendix_task_trajectories_2.pdf",
+      "pdf": "assets/img/paper/appendix_task_trajectories_2.pdf",
+      "svg": "assets/img/paper/appendix_task_trajectories_2.svg",
+      "pdf_sha256": "3d957d45a1de6a40cdaa85b254a241041d22f57672a257c99e1d108b271f4d26",
+      "svg_sha256": "d317643a51d62fc70dd9b424ef8ed12c79142fec3ad625d64f4ad274de75818f",
+      "width_pt": 486.0,
+      "height_pt": 475.2
+    }
+  ],
+  "previews": [
+    {
+      "task": "opcd",
+      "source": "assets/img/paper/task_trajectories.svg",
+      "view_box": [
+        326,
+        24,
+        160,
+        129
+      ],
+      "svg": "assets/img/paper/preview-opcd.svg",
+      "svg_sha256": "3aef51718fbe9401d9ce05d89a41db858391554725fcd6043e2012bfc1aa0b44"
+    },
+    {
+      "task": "sageattention",
+      "source": "assets/img/paper/task_trajectories.svg",
+      "view_box": [
+        0,
+        279,
+        164,
+        127
+      ],
+      "svg": "assets/img/paper/preview-sageattention.svg",
+      "svg_sha256": "84091f7f4858ca750721d22d6f744109a420b2ed5560313f994992e374c34460"
+    },
+    {
+      "task": "qvg",
+      "source": "assets/img/paper/task_trajectories.svg",
+      "view_box": [
+        164,
+        405,
+        161,
+        135
+      ],
+      "svg": "assets/img/paper/preview-qvg.svg",
+      "svg_sha256": "45b16f2a42b92cc320647eaac21cfbdd017b5501cb7494b1bcaca65e4a58e028"
+    },
+    {
+      "task": "legend",
+      "source": "assets/img/paper/task_trajectories.svg",
+      "view_box": [
+        0,
+        0,
+        486,
+        24
+      ],
+      "svg": "assets/img/paper/preview-legend.svg",
+      "svg_sha256": "9384daabfc1866cdc1c5062ec2b40432aa951fd55c195b244fa716e29b3f05fd"
+    }
+  ]
+}

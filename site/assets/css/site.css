@@ -1,4 +1,4 @@
-/* Infrathon: light research pages, with an explicit dark theme. */
+/* Infrathon: light research pages. */
 :root {
   color-scheme: light;
   --bg: #ffffff;
@@ -8,9 +8,9 @@
   --hair: rgba(24, 40, 67, 0.09);
   --hair-2: rgba(24, 40, 67, 0.16);
   --hair-3: rgba(24, 40, 67, 0.28);
-  --ink: #1f2937;
-  --ink-2: #4b5563;
-  --ink-3: #6b7280;
+  --ink: #111111;
+  --ink-2: var(--ink);
+  --ink-3: var(--ink);
   --crit: #bd3333;
   --m-sol: #2674cb;
   --m-claude: #c24e22;
@@ -503,8 +503,6 @@ html[data-theme="dark"] .task-detail-hint { color: #ff8e8e; }
 .map-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
 @media (max-width: 980px) { .map-grid { grid-template-columns: minmax(0, 1fr); } }
 
-.theme-toggle { cursor: pointer; background: var(--panel); min-width: 78px; justify-content: center; }
-.theme-toggle:hover { border-color: var(--hair-3); color: var(--ink); }
 @media (max-width: 600px) {
   .nav .wrap { flex-wrap: wrap; height: auto; padding-block: 10px 8px; gap: 7px 12px; }
   .nav-links { order: 3; width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }

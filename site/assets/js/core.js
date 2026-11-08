@@ -336,28 +336,42 @@ window.IX = (() => {
   }
 
   /* ---------- chrome ---------- */
-  const PAGES = [["framework.html", "Framework"], ["experimental-results.html", "Experimental Results"], ["agent-behavior.html", "Agent Behavior"], ["tasks.html", "Tasks"], ["docs.html", "Docs"]];
+  const PAGES = [["tasks.html", "Task List"], ["docs.html", "Docs"], ["index.html", "Blog"]];
   function chrome() {
     const page = document.body.dataset.page;
     const activePage = page === "task" ? "tasks" : page;
+    const usesSidebar = page === "index" || document.body.classList.contains("paper-page");
+    const navigationIcons = {
+      "Task List": "M9 5h12 M9 12h12 M9 19h12 M3 5h1 M3 12h1 M3 19h1",
+      Docs: "M12 5v16 M3 3h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v16h-5a4 4 0 0 0-4 2 4 4 0 0 0-4-2H3z",
+      Blog: "M5 3h10l4 4v14H5z M15 3v5h4 M8 12h8 M8 16h8"
+    };
+    function navigationLink(href, label) {
+      const attributes = { href, "aria-current": label !== "Blog" && href === `${activePage}.html` ? "page" : null };
+      if (!usesSidebar) return h("a", { ...attributes, text: label });
+      const icon = s("svg", { class: "nav-icon", viewBox: "0 0 24 24", "aria-hidden": "true" });
+      s("path", { d: navigationIcons[label], fill: "none", stroke: "currentColor", "stroke-width": 1.6, "stroke-linecap": "round", "stroke-linejoin": "round" }, icon);
+      return h("a", attributes, icon, h("span", { text: label }));
+    }
     const logo = s("svg", { width: 22, height: 22, viewBox: "0 0 32 32", "aria-hidden": "true" });
     s("rect", { x: 1, y: 1, width: 30, height: 30, rx: 8, fill: "none", stroke: C.hair2 }, logo);
     s("path", { d: "M7 22h4v-8h4v5h4V9h4v10h3", fill: "none", stroke: C.ink, "stroke-width": 2.2, "stroke-linejoin": "round" }, logo);
     const nav = h("header", { class: "nav" }, h("div", { class: "wrap" },
       h("a", { class: "brand", href: "index.html", "aria-label": "Infrathon home", "aria-current": page === "index" ? "page" : null }, logo, "Infrathon"),
-      h("nav", { class: "nav-links", "aria-label": "Pages" }, PAGES.map(([href, label]) => h("a", { href, "aria-current": href === `${activePage}.html` ? "page" : null, text: label }))),
-      h("div", { class: "nav-right" }, h("a", { class: "nav-community", href: "https://discord.gg/k9geNtHek", target: "_blank", rel: "noopener noreferrer", text: "Discord ↗" }), h("button", { id: "theme-toggle", class: "pill theme-toggle", type: "button", onclick: () => window.InfrathonTheme.toggle(), "aria-label": "Switch to dark theme", "aria-pressed": "false", text: "☾ Dark" }))));
+      h("nav", { class: "nav-links", "aria-label": "Pages" },
+        PAGES.map(([href, label]) => navigationLink(href, label))),
+      h("div", { class: "nav-right" }, h("a", { class: "nav-community", href: "https://discord.gg/k9geNtHek", target: "_blank", rel: "noopener noreferrer", text: "Discord ↗" }))));
     document.body.prepend(nav);
     const sectionNav = document.querySelector(".subnav");
     const measureNavigation = () => {
-      document.documentElement.style.setProperty("--nav-height", `${nav.getBoundingClientRect().height}px`);
+      const sideNavigation = usesSidebar && getComputedStyle(nav).position === "fixed";
+      document.documentElement.style.setProperty("--nav-height", sideNavigation ? "0px" : `${nav.getBoundingClientRect().height}px`);
       document.documentElement.style.setProperty("--section-nav-height", `${sectionNav?.getBoundingClientRect().height || 0}px`);
     };
     measureNavigation();
     const navigationObserver = new ResizeObserver(measureNavigation);
     navigationObserver.observe(nav);
     if (sectionNav) navigationObserver.observe(sectionNav);
-    window.InfrathonTheme.sync();
   }
 
   function wireTabs(btnA, btnB, panelA, panelB) {

@@ -8,12 +8,12 @@
 <meta property="og:title" content="Infrathon">
 <meta property="og:description" content="Can frontier models solve long-horizon AI infrastructure tasks? 25 tasks, 6 configurations, 150 runs on H100s.">
 <meta name="theme-color" content="#ffffff">
-<script src="assets/js/theme.js"></script>
+<script src="assets/js/theme.js?v=d4109bb8b0d1"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060709'/%3E%3Cpath d='M7 22h4v-8h4v5h4V9h4v10h3' fill='none' stroke='%23ededef' stroke-width='2.4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
 <link rel="stylesheet" href="assets/css/docs.css">
 </head>
 <body data-page="docs">
@@ -22,7 +22,7 @@
   <aside class="docs-sidebar" id="docs-sidebar"><nav id="docs-nav" aria-label="Documentation"></nav></aside>
   <main class="doc-article" id="main-content">
     <header class="doc-header"><div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Docs</span></div><h1>Setup guide</h1><p class="lede">Install Infrathon and an agent CLI, prepare a task, and start a run.</p>
-      <div class="doc-resource-links"><a href="https://example.com/infrathon/code" data-mock-resource>Code ↗</a><a href="https://example.com/infrathon/containers" data-mock-resource>Docker Hub ↗</a><a href="https://example.com/infrathon/data" data-mock-resource>Hugging Face ↗</a></div><p class="doc-resource-status">Release links coming soon.</p>
+      <div class="doc-resource-links"><a href="https://github.com/InfrathonX/Infrathon" target="_blank" rel="noopener noreferrer">Code ↗</a><a href="https://hub.docker.com/r/infrathon/infrathon" target="_blank" rel="noopener noreferrer">Docker Hub ↗</a><a href="https://huggingface.co/datasets/Infrathon/Infrathon" target="_blank" rel="noopener noreferrer">Hugging Face ↗</a></div>
     </header>
     <section class="doc-section" id="requirements"><h2>Requirements</h2>
 <p>Linux x86-64 with H100 NVL or H100 SXM GPUs. The first-run example uses two GPUs: one for Worker and one for Judge.</p>
@@ -87,7 +87,7 @@ chmod 600 "$HOME/.config/infrathon/claude.token"</code></pre></div><p><a href="t
       <p>Miles stores its runtime and version settings in the task’s <code>run.env</code>.</p>
     </section>
     <section class="doc-section" id="configuration"><h2>Configuration</h2>
-<p>After Codex login, enter a model ID available to your account. This example uses the same model and credentials for the Worker and the submission reviewer.</p><div class="doc-code"><pre><code>read -rp 'Model ID: ' MODEL
+<p>After Codex login, enter a model ID available to your account. Worker and reviewer use the same model and credentials.</p><div class="doc-code"><pre><code>read -rp 'Model ID: ' MODEL
 CODEX_CLI_VERSION="${CODEX_CLI_VERSION:-0.159.3}"
 CODEX_RUNTIME_DIR="$(realpath -m "../agent_runtimes/codex-$CODEX_CLI_VERSION")"
 cat &gt; launch/mlsysforge.env &lt;&lt;EOF
@@ -167,7 +167,7 @@ WORK_GPU=0 JUDGE_GPU=1 launch/standalone-fp8/run.sh \
   --legacy-dual-gpu --judge-port 18096 --run-id "$RUN_ID" \
   --auth "$CODEX_AUTH_JSON_PATH"</code></pre></div><p>This starts the agent in the foreground. Add <code>--tmux</code> to run it in a detached session.</p>
 <details class="metric-details"><summary>Submit from the Work container</summary><p>The agent submits candidates during its run. In an interactive Work container session, these commands submit the current implementation and list submissions:</p><div class="doc-code"><pre><code>sforge-submit --details
-sforge-submit --list</code></pre></div></details><p>Other tasks have their setup and launch commands under <a href="tasks.html">Tasks</a>.</p>
+sforge-submit --list</code></pre></div></details><p>Other tasks have their setup and launch commands under <a href="tasks.html">Task List</a>.</p>
     </section>
     <section class="doc-section" id="outputs"><h2>Results and logs</h2>
       <p>Runs are saved under <code>outputs/&lt;task-directory&gt;/runs/&lt;run-id&gt;/</code>.</p>
@@ -182,8 +182,8 @@ sforge-submit --list</code></pre></div></details><p>Other tasks have their setup
     </section>
   </main>
 </div>
-<script src="data/infrathon.js"></script>
-<script src="assets/js/core.js"></script>
+<script src="data/infrathon.js?v=936c1bac49ec"></script>
+<script src="assets/js/core.js?v=fed79310f448"></script>
 <script src="assets/js/docs.js"></script>
 <script src="assets/js/docs-sections.js"></script>
 </body>

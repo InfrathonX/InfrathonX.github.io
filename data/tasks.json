@@ -40,8 +40,8 @@
   "flag_legend": {
     "H": "Run on different hardware from the rest of the cohort",
     "†": "Agent edited the submission-hook state during the run",
-    "n": "No submission during the run; performance is zero under the paper’s no-valid-result convention",
-    "e": "Different deployment and review settings"
+    "n": "No submission; score = 0.",
+    "e": "GLM’s QVG run used PyroMind with eight Judge GPUs and no LLM integrity review."
   },
   "tasks": [
     {
@@ -359,11 +359,11 @@
       "stage": "inference",
       "level": "module",
       "budget_h": 24,
-      "metric": "Ratio",
+      "metric": "Score",
       "start": "scratch",
       "gpus": "1×H100 + Judge",
       "target": "Persistent KV cache encoding and decoding",
-      "summary": "Design a persistent KV-cache codec for autoregressive video generators that works unchanged across two hidden workloads, preserving generation quality while storing as few GPU bytes as possible. Score is the compression ratio, geometric mean over both models.",
+      "summary": "Design one persistent KV-cache codec for two autoregressive video generators. The paper's quality-weighted score combines cache compression with frame fidelity and VBench video quality relative to the human codec, with equal geometric weight across the two models.",
       "flags": {
         "glm": "e"
       }

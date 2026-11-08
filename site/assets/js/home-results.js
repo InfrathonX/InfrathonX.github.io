@@ -1,9 +1,8 @@
-/* Homepage results: the full suite leaderboard, task map, and all 25 trajectories. */
 (() => {
   "use strict";
   const X = window.IX;
   if (!X) return;
-  const { D, MODELS, MODEL, COLOR, C, STAGES, LEVELS, s, st, h, $, fmt, withUnit, unitOf, cap } = X;
+  const { D, MODELS, MODEL, COLOR, C, STAGES, LEVELS, s, h, $, fmt, withUnit, unitOf, cap } = X;
 
   /* ---------------- leaderboard ---------------- */
   const state = { stage: "all", level: "all" };
@@ -45,88 +44,20 @@
         h("td", { class: "barcell" }, scoreBar(r.m, r.score ?? 0, r.ci)),
         h("td", { class: "n" }, `${r.wins}`, h("small", { text: `of ${r.cov}` })),
         h("td", { class: "n first-time" }, firstMedian == null ? "—" : `${fmt(firstMedian, 2)} h`, h("small", { text: `median · ${first.length} runs` })),
-        h("td", { class: "n visible-tokens", title: `Agent text and tool-call tokens across ${ts.length} runs (o200k_base).` }, tokens, h("small", { text: `total · ${ts.length} runs` }))));
+        h("td", { class: "n visible-tokens", title: `Visible output tokens across ${ts.length} runs.${fullSuite ? "" : " Filtered totals are approximate."}` }, tokens, h("small", { text: `total · ${ts.length} runs` }))));
     });
     const scope = [state.stage !== "all" ? state.stage : null, state.level !== "all" ? `${state.level}-level` : null].filter(Boolean).join(" ");
-    $("#lb-sub").textContent = `Rank score across ${ts.length} ${scope ? scope + " " : ""}task${ts.length === 1 ? "" : "s"}.`;
+    const subtitle = $("#lb-sub");
+    if (subtitle) subtitle.textContent = `Rank score across ${ts.length} ${scope ? scope + " " : ""}task${ts.length === 1 ? "" : "s"}.`;
   }
-  if ($("#lb tbody") && $("#seg-stage") && $("#seg-level") && $("#lb-sub")) { drawSegs(); render(); }
-
-  /* ---------------- task map ---------------- */
-  (function renderTaskMap() {
-    const map = $("#task-map");
-    if (!map) return;
-    const TW = 56, TH = 40, G = 6, GAP = 16, COLS = 3;
-    const span = COLS * TW + (COLS - 1) * G;
-    const X0 = Object.fromEntries(LEVELS.map((level, i) => [level, 46 + i * (span + GAP)]));
-    const W = X0.system + span + 34;
-    const rowsOf = (stage, level) => Math.ceil(X.filterTasks(D.tasks, stage, level).length / COLS);
-    const maxRows = Object.fromEntries(STAGES.map((stage) => [stage, Math.max(...LEVELS.map((level) => rowsOf(stage, level)))]));
-    const blockH = (stage) => maxRows[stage] * TH + (maxRows[stage] - 1) * G;
-    const Y0 = { training: 62 };
-    Y0.inference = Y0.training + blockH("training") + 30;
-    const H = Y0.inference + blockH("inference") + 36;
-    const svg = s("svg", { viewBox: `0 0 ${W} ${H}`, role: "group", "aria-label": `Task map: ${D.tasks.length} tasks grouped by training or inference and optimization level. Tile colors identify the configuration with the best score.` });
-    s("rect", { x: 12, y: 12, width: W - 24, height: H - 24, rx: 12, fill: C.panel, stroke: C.hair2 }, svg);
-    for (let x = 40; x <= W - 46; x += 16) {
-      s("rect", { x, y: 5, width: 6, height: 4, rx: 1, fill: C.hair2 }, svg);
-      s("rect", { x, y: H - 9, width: 6, height: 4, rx: 1, fill: C.hair2 }, svg);
-    }
-    for (let y = 36; y <= H - 42; y += 16) {
-      s("rect", { x: 5, y, width: 4, height: 6, rx: 1, fill: C.hair2 }, svg);
-      s("rect", { x: W - 9, y, width: 4, height: 6, rx: 1, fill: C.hair2 }, svg);
-    }
-    for (const level of LEVELS) st(svg, X0[level], 44, `${level.toUpperCase()} ${level === "operator" ? 12 : 24}H`, { fill: C.ink3, "font-size": 9.5, "letter-spacing": 0.8 });
-    for (const stage of STAGES) {
-      const y = Y0[stage] + blockH(stage) / 2;
-      st(svg, 30, y, stage.toUpperCase(), { fill: C.ink3, "font-size": 9.5, "letter-spacing": 1.5, "text-anchor": "middle", transform: `rotate(-90 30 ${y})` });
-    }
-    s("line", { x1: 40, x2: W - 26, y1: Y0.inference - 15, y2: Y0.inference - 15, stroke: C.hair, "stroke-dasharray": "2 4" }, svg);
-    for (const stage of STAGES) for (const level of LEVELS) {
-      const tasks = X.filterTasks(D.tasks, stage, level);
-      const offset = ((maxRows[stage] - rowsOf(stage, level)) * (TH + G)) / 2;
-      s("rect", { x: X0[level] - 5, y: Y0[stage] - 5, width: span + 10, height: blockH(stage) + 10, rx: 8, fill: "none", stroke: C.hair }, svg);
-      tasks.forEach((task, i) => {
-        const x = X0[level] + (i % COLS) * (TW + G);
-        const y = Y0[stage] + offset + Math.floor(i / COLS) * (TH + G);
-        const winner = task.winner, color = COLOR[winner];
-        const tile = s("a", { class: "tile", href: X.taskHref(task.key), tabindex: 0, role: "link", "data-task": task.key, "aria-label": `${task.name}, ${cap(stage)} ${level}: top configuration ${MODEL[winner].name}, ${withUnit(task, task.results[winner].best)}. Open task results.` }, svg);
-        s("rect", { class: "bg", x, y, width: TW, height: TH, rx: 5, fill: color, "fill-opacity": 0.2, stroke: color, "stroke-opacity": 0.55 }, tile);
-        st(tile, x + 6, y + 15, task.short, { fill: C.ink, "font-size": task.short.length > 7 ? 8.4 : 9.4, "font-weight": 500 });
-        X.marker(tile, winner, x + 9.5, y + 29, 3, { ring: "transparent", ringW: 0 });
-        st(tile, x + 16, y + 32, MODEL[winner].short, { fill: C.ink2, "font-size": 8.6 });
-        const show = (event) => {
-          const bounds = tile.getBoundingClientRect();
-          const order = Object.keys(task.ranks).sort((a, b) => task.ranks[a] - task.ranks[b]).slice(0, 3);
-          X.showTip(event.clientX ?? bounds.right, event.clientY ?? bounds.bottom,
-            `${task.name} · ${cap(stage)} ${level}`,
-            order.map((model) => ({ color: COLOR[model], value: withUnit(task, task.results[model].best), label: MODEL[model].name })),
-            "Best score during the run");
-        };
-        tile.addEventListener("pointermove", show);
-        tile.addEventListener("focus", show);
-        tile.addEventListener("pointerleave", X.hideTip);
-        tile.addEventListener("blur", X.hideTip);
-        tile.addEventListener("click", X.hideTip);
-        tile.addEventListener("keydown", (event) => { if (event.key === "Escape") X.hideTip(); });
-      });
-    }
-    map.replaceChildren(svg);
-    const legend = $("#die-legend");
-    if (legend) {
-      legend.replaceChildren();
-      const counts = {};
-      D.tasks.forEach((task) => { counts[task.winner] = (counts[task.winner] || 0) + 1; });
-      MODELS.filter((model) => counts[model]).sort((a, b) => counts[b] - counts[a]).forEach((model) => {
-        legend.append(h("span", { class: "who" }, X.swatch(model, 10), `${MODEL[model].short} · ${counts[model]} task${counts[model] > 1 ? "s" : ""}`));
-      });
-    }
-  })();
+  if ($("#lb tbody") && $("#seg-stage") && $("#seg-level")) { drawSegs(); render(); }
 
   /* ---------------- task rows and filters ---------------- */
   const results = $("#task-results"), legend = $("#results-legend");
   const stageControl = $("#f-stage"), levelControl = $("#f-level"), search = $("#f-q"), count = $("#task-foot");
-  if (!results || !legend || !stageControl || !levelControl || !search || !count) return;
+  const additionalResults = $("#task-results-extra"), moreResults = $("#more-task-results"), toggleLabel = $("#task-results-toggle-label");
+  if (!results || !legend || !stageControl || !levelControl || !search || !count || !additionalResults || !moreResults || !toggleLabel) return;
+  const featuredKeys = new Set(["opd", "sageattention", "qvg"]);
 
   const saved = history.state?.infrathonTasks;
   const taskFilter = {
@@ -136,11 +67,11 @@
   };
   const highlight = MODELS.includes(saved?.highlight) ? saved.highlight : null;
   results.replaceChildren();
+  additionalResults.replaceChildren();
+  moreResults.open = saved?.expanded === true;
   legend.replaceChildren();
   X.makeLegend(legend);
 
-  // Construct each chart once; filtering only changes row visibility, so the
-  // shared chart focus listeners and selected model remain intact.
   const taskRows = D.tasks.map((task) => {
     const winner = task.winner;
     const row = h("a", { class: "card task-result-row", href: X.taskHref(task.key), id: `task-result-${task.key}`, "data-task": task.key, "data-stage": task.stage, "data-level": task.level },
@@ -159,20 +90,35 @@
 
   function saveTaskState() {
     const active = legend.querySelector('button[aria-pressed="true"]');
-    history.replaceState({ ...history.state, infrathonTasks: { ...taskFilter, highlight: active?.dataset.m || null } }, "");
+    history.replaceState({ ...history.state, infrathonTasks: { ...taskFilter, highlight: active?.dataset.m || null, expanded: moreResults.open } }, "");
   }
   function renderTaskRows() {
     const query = taskFilter.q.trim().toLowerCase();
-    let visible = 0;
+    const filtersActive = taskFilter.stage !== "all" || taskFilter.level !== "all" || !!query;
+    let matched = 0;
+    let featured = 0;
+    let additional = 0;
     for (const { task, row } of taskRows) {
       const matches = (taskFilter.stage === "all" || task.stage === taskFilter.stage)
         && (taskFilter.level === "all" || task.level === taskFilter.level)
         && (!query || `${task.name} ${task.target} ${task.summary}`.toLowerCase().includes(query));
       row.hidden = !matches;
-      if (matches) visible++;
+      if (matches && (filtersActive || featuredKeys.has(task.key))) {
+        results.append(row);
+        featured++;
+      } else {
+        additionalResults.append(row);
+        if (matches) additional++;
+      }
+      if (matches) matched++;
     }
-    empty.hidden = visible > 0;
-    count.textContent = `${visible} of ${D.tasks.length} tasks.`;
+    results.append(empty);
+    empty.hidden = matched > 0;
+    moreResults.hidden = filtersActive || additional === 0;
+    toggleLabel.textContent = moreResults.open ? `Hide ${additional} additional tasks` : `Show ${additional} more tasks`;
+    count.textContent = filtersActive ? `${matched} of ${D.tasks.length} tasks match your filters.`
+      : moreResults.open ? `All ${matched} tasks are visible.`
+      : `${featured} of ${matched} tasks shown.`;
     X.hideTip();
     saveTaskState();
   }
@@ -181,5 +127,10 @@
   search.value = taskFilter.q;
   search.addEventListener("input", () => { taskFilter.q = search.value; renderTaskRows(); });
   legend.addEventListener("click", saveTaskState);
+  moreResults.addEventListener("toggle", renderTaskRows);
+  $("#collapse-task-results").addEventListener("click", () => {
+    moreResults.open = false;
+    moreResults.querySelector("summary").focus();
+  });
   renderTaskRows();
 })();

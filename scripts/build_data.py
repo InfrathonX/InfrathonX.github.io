@@ -5,6 +5,7 @@ Inputs (all under ``data/``):
   tasks.json      task registry: names, levels, metrics, flags, ranking eligibility
   task_metrics.json  source-checked metric descriptions and calculation details
   raw/runs.json   per-run scores and submissions (scripts/extract_dashboard.py)
+  qvg_scores.json quality-weighted QVG score update, matched to original submissions
   tokens.json     token and turn analysis summary
 
 Output: ``site/data/infrathon.js``, which sets ``window.INFRATHON``.
@@ -15,7 +16,7 @@ valid score within its time budget. On a task, every configuration with a run is
 ranks last) and earns 100 (n - rank) / (n - 1), where n is the number of configurations
 that ran the task. A model's rank score is the mean over the tasks it ran.
 
-The tests compare all 150 best-so-far results against Table 5 of the current paper.
+Tests compare 144 archived task scores plus the six latest quality-weighted QVG scores.
 """
 from __future__ import annotations
 
@@ -25,6 +26,8 @@ import random
 import statistics
 import sys
 from pathlib import Path
+
+from import_qvg_scores import rescore_run
 
 ROOT = Path(__file__).resolve().parents[1]
 FLASH_KMEANS_WORK_TFLOP_MS = 4694.344299  # equivalent TFLOP/s = this / weighted latency (ms)
@@ -42,6 +45,7 @@ def load():
     for task in registry["tasks"]:
         task["metric_info"] = {k: v for k, v in metrics[task["key"]].items() if k != "sources"}
     raw = json.loads((ROOT / "data/raw/runs.json").read_text())
+    registry["qvg_score_update"] = json.loads((ROOT / "data/qvg_scores.json").read_text())
     tokens = json.loads((ROOT / "data/tokens.json").read_text())
     return registry, raw, tokens
 
@@ -191,7 +195,13 @@ def compute(registry, raw, tokens) -> dict:
     tasks_out = []
     for t in registry["tasks"]:
         src = raw["tasks"][t["key"]]
-        results = {m: run_summary(t["key"], r) for m, r in src["runs"].items()}
+        runs = src["runs"]
+        if t["key"] == "qvg":
+            updates = registry["qvg_score_update"]["runs"]
+            if set(updates) != set(runs):
+                raise ValueError("QVG score update must cover all six original runs")
+            runs = {m: rescore_run(r, updates[m]) for m, r in runs.items()}
+        results = {m: run_summary(t["key"], r) for m, r in runs.items()}
         for m, r in results.items():
             r["flag"] = t["flags"].get(m)
         # Every configuration that ran the task is ranked; a run with no valid score ranks last.
@@ -202,7 +212,7 @@ def compute(registry, raw, tokens) -> dict:
             "metric_info": t["metric_info"],
             "note": t.get("note"),
             "flags": t["flags"],
-            "unit": "TFLOP/s (equiv.)" if t["key"] == "flash-kmeans" else (src["metric"] or {}).get("unit"),
+            "unit": "" if t["key"] == "qvg" else "TFLOP/s (equiv.)" if t["key"] == "flash-kmeans" else (src["metric"] or {}).get("unit"),
             "cohort": src["cohort"],
             "winner": min(ranks, key=ranks.get),
             "results": results,
@@ -220,6 +230,7 @@ def compute(registry, raw, tokens) -> dict:
     return {
         "snapshot": raw.get("snapshot") or "2026-10-23",
         "source": raw["source"],
+        "score_updates": {"qvg": registry["qvg_score_update"]["source"]},
         "models": registry["models"],
         "flag_legend": registry["flag_legend"],
         "tasks": tasks_out,

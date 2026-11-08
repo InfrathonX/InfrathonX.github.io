@@ -13,13 +13,24 @@ DATA = json.loads((ROOT / "data/behavior_figures.json").read_text())
 
 
 class BehaviorFigures(unittest.TestCase):
-    def test_current_paper_figure_mapping(self):
+    def test_archived_paper_figure_mapping(self):
         self.assertEqual(DATA["figure_numbers"], [9, 10, 11, 12])
         self.assertEqual([DATA[f"fig{n}"]["page"] for n in DATA["figure_numbers"]], [15, 16, 16, 17])
+
+    def test_current_page_uses_latest_paper_figure(self):
         html = (ROOT / "site/agent-behavior.html").read_text()
-        sources = re.findall(r'<img src="assets/img/(behavior_[^"]+)"', html)
-        self.assertEqual(sources, ["behavior_task_fidelity.svg", "behavior_execution_mismatch.svg",
-                                   "behavior_workload_reversal.svg", "behavior_search.svg"])
+        sources = re.findall(r'<img src="assets/img/paper/(behavior_[^"]+)"', html)
+        self.assertEqual(sources, ["behavior_task_fidelity.svg"])
+        self.assertNotIn("behavior_execution_mismatch.svg", html)
+        self.assertNotIn("behavior_workload_reversal.svg", html)
+        self.assertNotIn("behavior_search.svg", html)
+
+    def test_current_page_completion_examples(self):
+        html = (ROOT / "site/agent-behavior.html").read_text()
+        self.assertIn("365.43 → 456.03", html)
+        self.assertIn("219.28 → 235.19", html)
+        self.assertIn("40.81 → 46.53", html)
+        self.assertNotIn("Claude/GKD", html)
 
     def test_contract_figures(self):
         rows = DATA["fig9"]["logprob"]

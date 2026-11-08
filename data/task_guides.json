@@ -2840,7 +2840,7 @@
         "Host: git-lfs on PATH and about 200 GiB free under INFRATHON_ASSETS_ROOT.",
         "Before fetching assets, accept the FLUX.1-Redux-dev license and authenticate with hf auth login or HF_TOKEN."
       ],
-      "evaluation": "Measures persistent-cache compression across both models. Reconstructed-cache correctness, video fidelity/quality, complete compression coverage, runtime, and memory checks must pass.",
+      "evaluation": "The paper reports a quality-weighted score combining persistent-cache compression, frame fidelity, and VBench quality across both models. Reconstructed-cache correctness, quality gates, complete compression coverage, runtime, and memory checks must pass.",
       "sources": [
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/README.md",
@@ -2876,7 +2876,7 @@
         }
       ],
       "result_intro": "Implement a persistent KV-cache codec that compresses CUDA BF16 key and value tensors and reconstructs them for video generation.",
-      "metric_summary": "Each model’s compression factor is total original BF16 bytes divided by total stored payload bytes across its cases and compression calls. The score is the geometric mean of the two model factors, including all reconstruction metadata.",
+      "metric_summary": "The paper's task score is the geometric mean of R × (1 + q) across LongCat-Video and HY-WorldPlay, where R is total BF16 bytes divided by stored bytes including metadata, and q combines frame fidelity and VBench quality relative to the human codec. Submitted solutions were rescored after the original compression-only runs.",
       "setting": "The codec receives contiguous four-dimensional tensors in batch, head, sequence, and feature order. Formal evaluation covers six LongCat-Video continuation cases and eleven HY-WorldPlay image-conditioned camera-trajectory cases, using one implementation for both models. The public end-to-end workload instead uses Self-Forcing with Wan2.1-1.3B to test transfer on a third model. Frozen BF16 generations provide reconstruction and video-quality references, while the evaluator accounts for every persistent payload allocation.",
       "interface": [
         {
@@ -2947,8 +2947,8 @@
         }
       ],
       "reader_metric": {
-        "meaning": "Measures persistent KV-cache storage reduction across both video models. All reconstruction metadata counts toward stored size. A score of 1 means no compression.",
-        "rule": "Per-model compression = original BF16 bytes ÷ stored bytes; score = geometric mean of the two model factors."
+        "meaning": "Combines KV-cache storage savings with generated-video quality relative to the human codec. The human codec scores 6.82; Claude's best submitted solution scores 28.45.",
+        "rule": "Per-model score = R × (1 + q), where q averages normalized frame fidelity and relative VBench margin. Take the geometric mean across both video models."
       },
       "reader_compute": "Worker: 1 GPU; Judge: 6 separate GPUs (8 for GLM). H100 NVL (94 GB)."
     },

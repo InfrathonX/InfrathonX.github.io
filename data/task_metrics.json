@@ -717,14 +717,17 @@
       ]
     },
     "qvg": {
-      "label": "Persistent KV compression",
-      "home_label": "Compression ratio",
-      "formula": "R_m = [Σ_{i in cases(m)} Σ_{c in calls(i)} BF16_bytes(m,i,c)] / [Σ_{i in cases(m)} Σ_{c in calls(i)} stored_bytes(m,i,c)]\nscore = √(R_LongCat × R_HY)",
+      "label": "Quality-weighted KV codec score",
+      "home_label": "Quality-weighted score",
+      "formula": "R_m = total BF16 KV bytes / total stored payload bytes\nq_m = (f_m + v_m) / 2\nscore = √[R_LongCat × (1 + q_LongCat) × R_HY × (1 + q_HY)]",
       "details": [
         "Each model pools bytes across all compression calls and cases.",
         "Stored bytes include complete tensor storage and reconstruction metadata; aliased storage counts once within each payload.",
         "Only codec inputs enter the ratio. HY’s newest BF16 chunk and text KV are excluded; LongCat’s condition-frame KV is included.",
-        "The model ratios have equal geometric weight. A BF16 identity codec scores 1×."
+        "Frame fidelity f averages normalized PSNR, SSIM, and LPIPS improvements over the human codec, each capped at 1 toward the targets 40 dB, 1, and 0.",
+        "Video quality v is the minimum normalized VBench margin across four dimensions, minus the human codec's corresponding minimum margin.",
+        "Both video models have equal geometric weight. The human codec has q = 0 and a task score of 6.82.",
+        "Scores were recomputed after the original runs. Agents optimized the original compression-only metric."
       ],
       "conditions": [
         "PSNR, SSIM, LPIPS, and VBench must pass model-average and individual-case quality gates against BF16 references.",
@@ -735,7 +738,7 @@
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/README.md",
           "section": "Task definition and evaluation",
-          "paper": "Quant-VideoGen KV Codec — main.tex lines 1703–1720"
+          "paper": "Current author-supplied main.tex: eq:qvg_task_score and app:qvg_quality_score; quality-weighted submission values and source hash in data/qvg_scores.json"
         }
       ],
       "example": ""

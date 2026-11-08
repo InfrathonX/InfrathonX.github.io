@@ -26,7 +26,7 @@ class PaperRankingAudit(unittest.TestCase):
             ("training", "module"): [60, 90, 40, 10, 10, 90],
             ("training", "system"): [52, 92, 44, 32, 8, 72],
             ("inference", "operator"): [60, 95, 37.5, 35, 7.5, 65],
-            ("inference", "module"): [53.3, 80, 33.3, 40, 6.7, 86.7],
+            ("inference", "module"): [60, 80, 33.3, 40, 0, 86.7],
             ("inference", "system"): [45, 90, 45, 25, 20, 75],
         }
         rows = {}
@@ -39,8 +39,8 @@ class PaperRankingAudit(unittest.TestCase):
             for model, value in zip(MODEL_ORDER, printed):
                 self.assertAlmostEqual(actual[model], value, delta=.051, msg=f"{group}: {model}")
         overall = build_data.rank_score([row for group in rows.values() for row in group], MODEL_ORDER)
-        self.assertEqual(overall, {"sol": 53.6, "claude": 91.2, "qwen": 40.8,
-                                   "deepseek": 30.4, "glm": 8.8, "astra": 75.2})
+        self.assertEqual(overall, {"sol": 54.4, "claude": 91.2, "qwen": 40.8,
+                                   "deepseek": 30.4, "glm": 8.0, "astra": 75.2})
 
     def test_exact_ties_receive_average_ranks(self):
         scores = dict(zip(MODEL_ORDER, [10, 10, 6, 5, 0, 0]))

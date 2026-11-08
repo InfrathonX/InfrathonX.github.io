@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Interactive Results · Infrathon</title>
+<meta name="description" content="Explore model rankings and task trajectories.">
+<meta name="theme-color" content="#f6f7f9">
+<script src="assets/js/theme.js?v=d4109bb8b0d1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
+<link rel="stylesheet" href="assets/css/home.css?v=45f285fc3753">
+<link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
+</head>
+<body class="paper-page" data-page="archived-results">
+<main>
+<header class="paper-page-head"><div class="wrap">
+  <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Interactive Results</span></div>
+  <h1>Interactive Results</h1>
+  <p><a class="link" href="main-results.html">Main Results ↗</a></p>
+  <p class="lede">Explore model rankings and task trajectories.</p>
+
+
+</div></header>
+<section class="sec home-results" id="leaderboard"><div class="wrap">
+    <div class="home-section-head"><div><p class="section-kicker">Benchmark results</p><h2>Leaderboard</h2><p id="lb-sub">Rank score across 25 tasks.</p></div><a href="#score-notes">Scoring details ↗</a></div>
+    <div class="card">
+      <div class="lb-controls"><div class="toolbar">
+        <span class="tool"><span class="tool-label">Stage</span><span class="seg" id="seg-stage"></span></span>
+        <span class="tool"><span class="tool-label">Level</span><span class="seg" id="seg-level"></span></span>
+      </div></div>
+      <div class="scroll-x"><table class="lb" id="lb">
+        <caption class="sr-only">Rank-score leaderboard</caption>
+        <thead><tr>
+          <th scope="col">#</th><th scope="col">Model</th><th scope="col">Rank score</th><th scope="col">95% CI</th>
+          <th scope="col" class="n">Wins</th><th scope="col" class="n">First valid score</th><th scope="col" class="n">Visible output tokens</th>
+        </tr></thead><tbody></tbody>
+      </table></div>
+      <div class="card-foot">100 = first on every task.</div>
+    </div>
+    <details class="notes" id="score-notes" style="margin-top:12px">
+      <summary>Scoring and token definitions</summary>
+      <p>Rank the six models by each task’s best valid within-budget score, then average 100 × (6 − rank) / 5 equally across tasks. Exact ties share average rank; a run without a valid scored submission receives zero. The 95% task-bootstrap confidence intervals use 10,000 resamples for the full suite and 3,000 for filtered groups.</p>
+      <p>Visible tokens use <code>o200k_base</code> for agent text and tool-call content, excluding tool responses, repeated code-diff displays, and reasoning traces. Full-suite totals aggregate all 25 tasks. First-score time is the median across scored runs in the selected tasks.</p>
+    </details>
+  </div></section>
+<section class="sec home-results" id="results"><div class="wrap">
+    <div class="home-chart-head"><div><h2>All Results</h2><p class="task-result-hint">Click a task below to view its details.</p></div><a href="tasks.html">Task documentation ↗</a></div>
+    <div class="task-result-controls">
+      <div class="toolbar">
+        <span class="tool"><span class="tool-label">Stage</span><span class="seg" id="f-stage"></span></span>
+        <span class="tool"><span class="tool-label">Level</span><span class="seg" id="f-level"></span></span>
+      </div>
+      <label class="sr-only" for="f-q">Search tasks</label>
+      <input class="search" id="f-q" type="search" placeholder="Search tasks" autocomplete="off">
+    </div>
+    <div class="legend" id="results-legend" aria-label="Highlight a model"></div>
+    <div id="task-results"></div>
+    <details class="task-result-more" id="more-task-results">
+      <summary><span id="task-results-toggle-label">Show more tasks</span></summary>
+      <div class="task-results-extra" id="task-results-extra"></div>
+      <button class="task-results-collapse" id="collapse-task-results" type="button">Show fewer tasks ↑</button>
+    </details>
+    <p class="task-result-count" id="task-foot" role="status"></p>
+  </div></section>
+
+</main>
+<dialog class="paper-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title"><div class="paper-dialog-head"><h2 id="figure-dialog-title">Figure</h2><button type="button" id="figure-dialog-close" aria-label="Close expanded figure">Close ×</button></div><div class="paper-dialog-body"><img id="figure-dialog-image" alt=""></div></dialog>
+<script src="data/infrathon.js?v=936c1bac49ec"></script>
+<script src="assets/js/core.js?v=fed79310f448"></script>
+<script src="assets/js/paper.js"></script>
+<script src="assets/js/home-results.js?v=afa98fc0985b"></script>
+<script src="assets/js/home.js?v=5c1eeaf2de75"></script>
+</body>
+</html>

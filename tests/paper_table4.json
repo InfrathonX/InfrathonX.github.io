@@ -160,12 +160,12 @@
     "astra": 97.81
   },
   "qvg": {
-    "sol": 4.24,
-    "claude": 19.62,
-    "qwen": 8.34,
-    "deepseek": 7.62,
-    "glm": 4.66,
-    "astra": 8.73
+    "sol": 7.13,
+    "claude": 28.45,
+    "qwen": 11.28,
+    "deepseek": 8.83,
+    "glm": 5.82,
+    "astra": 11.34
   },
   "eagle3": {
     "sol": 640.49,

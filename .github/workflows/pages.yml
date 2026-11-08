@@ -39,3 +39,4 @@ jobs:
           python scripts/check_site.py
           python scripts/extract_experimental_figures.py --check
           python scripts/export_behavior_figures.py --check
+          python scripts/export_paper_figures.py --check

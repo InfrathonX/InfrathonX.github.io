@@ -2,11 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agent Behavior · Infrathon</title>
-<link rel="canonical" href="https://deepebe952.github.io/agent-behavior.html">
-<script src="assets/js/redirect.js" data-target="agent-behavior.html" data-redirect-group=""></script>
-<noscript><meta http-equiv="refresh" content="0;url=agent-behavior.html"></noscript>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Analysis · Infrathon</title>
+<meta name="description" content="Long and short optimization runs, rankings over time, late gains, and agent activity.">
+<meta name="theme-color" content="#f6f7f9">
+<script src="assets/js/theme.js?v=d4109bb8b0d1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
+<link rel="stylesheet" href="assets/css/home.css?v=45f285fc3753">
+<link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
 </head>
-<body><p><a href="agent-behavior.html">Continue to Agent Behavior</a></p></body>
+<body class="paper-page" data-page="analysis">
+<main>
+<header class="paper-page-head"><div class="wrap">
+  <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Analysis</span></div>
+  <h1>Analysis</h1>
+  <p class="lede">Long and short optimization runs, rankings over time, late gains, and agent activity.</p>
+
+  <nav class="paper-toc" aria-label="Page sections"><a href="#long-vs-short">Long vs. short</a><a href="#summary">Summary figure</a><a href="#ranking-budget">Rankings</a><a href="#second-half">Late gains</a><a href="#interactions">Activity</a></nav>
+</div></header>
+<section class="paper-section" id="long-vs-short"><div class="wrap"><h2>Long horizon versus short horizon</h2><div class="paper-prose"><p><strong>Longer horizons are more effective for module and system tasks, while short-horizon TTS (test-time scaling) remains competitive on operators.</strong> Best-of-four achieves 102.6% of long-run performance on operators, 96.9% on modules, and 77.3% on systems.</p><p>The long run wins <strong>nine of 12 task–model comparisons, including all four system comparisons</strong>. Claude’s short runs win on both operators and Qwen3 ORPO; Astra’s long run wins on all six tasks.</p></div>
+<details class="paper-disclosure" id="budget-setup"><summary>Experiment setup</summary><div class="paper-prose"><p>GPT-6 Astra and Claude Opus 5.5 each optimize six tasks. The allocations are <strong>one T-hour run, two T/2-hour runs, or four T/4-hour runs</strong>. Each setting receives equal GPU-hours, including Work and the continuously allocated Judge. T is 12 hours for operators and 24 hours for modules and systems.</p><p>Group percentages are geometric means of task–model score ratios. The study reuses 12 main runs and adds 72 short runs.</p></div></details>
+<figure class="paper-figure" id="long_vs_short_runs">
+  <div class="paper-figure-head"><h3>Long and short optimization runs</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Long and short optimization runs">Expand ↗</button></div>
+  <div class="paper-art compact"><img src="assets/img/paper/long_vs_short_runs.svg" width="486" height="562" alt="Curves take the highest private-test score across each allocation’s one, two, or four runs. The first half of the budget occupies 75% of each horizontal axis and the shaded second half 25%; ticks show actual hours." loading="lazy" decoding="async"></div>
+  <figcaption>Curves take the highest private-test score across each allocation’s one, two, or four runs. The first half of the budget occupies 75% of each horizontal axis and the shaded second half 25%; ticks show actual hours.</figcaption>
+</figure></div></section><section class="paper-section" id="summary"><div class="wrap"><h2>Rankings, late gains, and interaction counts</h2><figure class="paper-figure" id="analysis_summary">
+  <div class="paper-figure-head"><h3>How results change over the budget</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: How results change over the budget">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/paper/analysis_summary.svg" width="876" height="231" alt="The four panels show model rank scores over time, half-budget scores relative to final scores, the budget fraction needed to reach 90% of final performance, and each model’s visible output tokens and actions." loading="lazy" decoding="async"></div>
+  <figcaption>The four panels show model rank scores over time, half-budget scores relative to final scores, the budget fraction needed to reach 90% of final performance, and each model’s visible output tokens and actions.</figcaption>
+</figure></div></section><section class="paper-section" id="ranking-budget"><div class="wrap"><h2>Model rankings over time</h2><div class="paper-prose"><p>Astra leads at <strong>25% of the budget</strong> with a mean rank score of 84.0 versus Claude’s 79.2. Claude leads at <strong>50%</strong>, with 89.6 versus Astra’s 80.0. All six models keep the same overall order at the later evaluated fractions.</p><p>Individual task winners can still change: at halfway, three tasks have leaders different from their final winners; at 75%, two tasks still do.</p></div></div></section><section class="paper-section" id="second-half"><div class="wrap"><h2>Performance gains in the second half</h2><div class="paper-prose"><p>Best-so-far scores improve after halfway in <strong>135 of 150 runs (90.0%)</strong>.</p><p>Among runs with a positive first-half score, the median later gain is <strong>3.05%</strong>; <strong>33 runs improve by more than 10%</strong>.</p><p>System runs reach 90% of their final performance at a median of <strong>40.8% of the budget</strong>, compared with 24.6% for operators and 11.5% for modules.</p></div>
+<details class="paper-disclosure" id="gain-statistics"><summary>Statistics</summary><div class="paper-prose"><p>Best scores start at zero. The second-half gain count includes runs whose first scored submission arrives after halfway.</p><p>The time to reach 90% of final performance is computed for runs with positive final scores.</p></div></details>
+</div></section><section class="paper-section" id="interactions"><div class="wrap"><h2>Visible output tokens and actions</h2><div class="paper-prose"><p>The 150 runs produce <strong>36.39 million visible output tokens and 203,266 actions</strong>.</p><p>Among Qwen, DeepSeek, and GLM, the model with the most visible output tokens has the highest final score on <strong>15 of 25 tasks</strong>; the model with the most actions does so on <strong>12</strong>.</p><div class="paper-table"><table class="data"><thead><tr><th scope="col">Model</th><th scope="col">Visible output tokens</th></tr></thead><tbody><tr><td>Qwen 3.8 Flash</td><td>8.18 million</td></tr><tr><td>DeepSeek V4.1 Flash</td><td>5.94 million</td></tr><tr><td>GLM 5.3 Flash</td><td>3.60 million</td></tr></tbody></table></div><p>On K-grouped FP8 Wgrad, GLM takes <strong>1,715 actions</strong> versus Qwen’s <strong>884</strong>, but reaches <strong>118.15</strong> versus <strong>295.57 TFLOP/s</strong>.</p></div>
+<details class="paper-disclosure" id="interaction-definitions"><summary>Token and action definitions</summary><div class="paper-prose"><p>Visible tokens use o200k_base for agent text and tool-call content. Tool responses, repeated code-diff displays, and hidden reasoning are excluded.</p><p>An action is one emitted text block or tool invocation.</p></div></details>
+</div></section>
+<div class="paper-next"><div class="wrap"><a href="agent-behavior.html">Agent Behavior Analysis →</a></div></div>
+</main>
+<dialog class="paper-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title"><div class="paper-dialog-head"><h2 id="figure-dialog-title">Figure</h2><button type="button" id="figure-dialog-close" aria-label="Close expanded figure">Close ×</button></div><div class="paper-dialog-body"><img id="figure-dialog-image" alt=""></div></dialog>
+<script src="data/infrathon.js?v=936c1bac49ec"></script>
+<script src="assets/js/core.js?v=fed79310f448"></script>
+<script src="assets/js/paper.js"></script>
+
+</body>
 </html>
