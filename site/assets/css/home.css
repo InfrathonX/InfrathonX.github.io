@@ -1,5 +1,19 @@
-/* Home: paper identity, followed directly by the interactive results. */
 body[data-page="index"] .hero .wrap { gap: 22px; padding-top: clamp(32px, 4vw, 48px); padding-bottom: 28px; }
+.home-intro { padding-block: clamp(28px, 4vw, 48px) 10px; }
+.home-intro > .wrap { display: grid; gap: clamp(30px, 4vw, 48px); max-width: 1120px; }
+.home-paper-figure { width: 100%; margin: 0; }
+.home-figure-art { display: block; padding: clamp(10px, 2vw, 22px); background: #fff; border: 1px solid var(--hair-2); border-radius: var(--r); }
+.home-figure-art img { width: 100%; height: auto; }
+.home-paper-figure figcaption { max-width: none; margin: 14px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.7; }
+.home-paper-figure figcaption strong { color: var(--ink); font-weight: 600; }
+.home-abstract { padding: clamp(22px, 3vw, 36px); background: var(--panel-2); border: 1px solid var(--hair-2); border-radius: var(--r); }
+.home-abstract h2, .home-framework h2 { margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -.02em; }
+.home-abstract h2 { margin-bottom: 18px; }
+.home-abstract p { margin: 0; color: var(--ink-2); font-size: 15.5px; line-height: 1.85; }
+.home-abstract code { font-family: var(--f-mono); font-size: .95em; }
+.home-section-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 18px; }
+.home-section-head a { color: var(--ink-2); font-size: 13px; }
+.home-section-head a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 body[data-page="index"] .home-results { padding-block: 30px; }
 body[data-page="index"] .home-results + .home-results { border-top: 0; }
 .home-results h2 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -.015em; }

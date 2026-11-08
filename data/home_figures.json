@@ -1,0 +1,29 @@
+{
+  "source_tex": "main.tex",
+  "source_tex_sha256": "a38989847f9d5c1425fc2aaab4b19286dda97a1caa7bab2b05a51e767f9bcc0f",
+  "method": "Original one-page figure PDFs from the author-supplied Overleaf source, exported with pdftocairo -svg. Vector paths, embedded images, geometry, and colors are retained; the website supplies a white background.",
+  "figures": [
+    {
+      "figure": 1,
+      "label": "fig:qvg_case_study",
+      "anchor": "optimization-example",
+      "source_member": "images/qvg_intro.pdf",
+      "source_pdf_sha256": "223ce2dcca9c09a2c1f32db414d96cb7114b9f595038973a02beffd22b94cff2",
+      "svg": "assets/img/homepage/qvg-intro.svg",
+      "svg_sha256": "00298efaf58678c984d90ea49c69250d07d46c47b1329791d2a0e049077709ca",
+      "width_pt": 514.8,
+      "height_pt": 251.28
+    },
+    {
+      "figure": 2,
+      "label": "fig:benchmark_framework",
+      "anchor": "framework-overview",
+      "source_member": "images/ultrainfrabench_framework.pdf",
+      "source_pdf_sha256": "d0b4db097c4e212c4111b3d11084437fec382863d7f7d6cc7a7257e19ad8bed9",
+      "svg": "assets/img/homepage/framework.svg",
+      "svg_sha256": "446ee6e768e0ef7e35189f62aab1a97cc080dd999a6ca0eb81578d8d35bb3188",
+      "width_pt": 541.16,
+      "height_pt": 242.95
+    }
+  ]
+}

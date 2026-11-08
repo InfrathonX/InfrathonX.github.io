@@ -48,6 +48,7 @@ site/
   assets/js/task-results.js  task charts and per-model results
   assets/js/<page>.js        page rendering
   assets/img/institutions/   institution artwork extracted from the paper
+  assets/img/homepage/       latest paper optimization example and framework SVGs
   assets/img/experimental-results/  original figure PDFs and vector SVG conversions
   data/infrathon.js          generated results and cost bundle
   data/docs.js               generated guides for all 25 tasks
@@ -65,6 +66,7 @@ data/
   author_links.json          verified author homepage links; null when unconfirmed
   institution_logos.json     paper logo extraction provenance
   framework_figure.json      original Overleaf framework figure provenance
+  home_figures.json          latest homepage figure sources, dimensions, and hashes
 scripts/
   extract_dashboard.py      dashboard ZIP → selected runs
   build_data.py             results, ranks, summaries → infrathon.js
@@ -118,7 +120,7 @@ The homepage (`index.html`) follows the paper title and author order, with 21 na
 
 The brand opens Home; the top-level navigation links are Framework (`framework.html`), Experimental Results (`experimental-results.html`), Agent Behavior (`agent-behavior.html`), Tasks (`tasks.html`), and Docs (`docs.html`). Discord links to the author-provided invite. There is no Task Results tab or standalone trajectory navigation. Task descriptions and results share `task.html#<key>` with `/<section>` anchors. Homepage task rows, map tiles, and the task directory open this unified page. Its per-model Run log links open `trajectories.html#<task>/<model>`. The log page supports switching models and returns to the task page. The global all-runs directory is removed.
 
-Home keeps the paper title in two equally sized lines, three author rows, institutions, and resource links, followed by a filterable leaderboard, a full-width task map, and 25 task rows. Each row pairs the task name and optimization target with its category, budget, metric, best configuration, and a compact trajectory chart. Rows omit Start and All six columns, open individual task results, and stack their content on small screens. Stage, level, and search filters share saved history state with the selected model highlight; filtering hides existing rows without rebuilding charts. The leaderboard omits mean-relative performance and bootstrap first-place probability; visible output tokens are totals across the selected main runs, explicitly excluding reasoning traces. Scoring and token definitions remain collapsed at `#score-notes`. The homepage citation block and shared site footer are removed.
+Home keeps the paper title in two equally sized lines, three author rows, institutions, and resource links. Below them, the latest paper's Quant-VideoGen optimization example, an Abstract panel, and the framework figure appear in that order before the filterable leaderboard, full-width task map, and 25 task rows. Both figures link to their full-size SVGs and retain white artwork backgrounds in either theme. The abstract is one paragraph following the author-supplied `main.tex`, with minor grammar corrections for readability. `data/home_figures.json` records the latest figure source hashes separately from the archived framework and experimental figures. Regenerate the homepage artwork with `pdftocairo -svg /path/to/overleaf/images/qvg_intro.pdf site/assets/img/homepage/qvg-intro.svg` and `pdftocairo -svg /path/to/overleaf/images/ultrainfrabench_framework.pdf site/assets/img/homepage/framework.svg`, then update the manifest hashes. Each task row pairs the task name and optimization target with its category, budget, metric, best configuration, and a compact trajectory chart. Rows omit Start and All six columns, open individual task results, and stack their content on small screens. Stage, level, and search filters share saved history state with the selected model highlight; filtering hides existing rows without rebuilding charts. The leaderboard omits mean-relative performance and bootstrap first-place probability; visible output tokens are totals across the selected main runs, explicitly excluding reasoning traces. Scoring and token definitions remain collapsed at `#score-notes`. The homepage citation block and shared site footer are removed.
 
 Framework follows Section 3: original Figure 1; Section 3.1's W/P/E/R/T definitions and complete Table 2 inventory; Section 3.2's Work/Controller/Judge roles, integrity checks, and private evaluation. `data/framework_figure.json` records the original extraction and verifies that the latest archive's figure is unchanged. Inventory rows link to task details.
 

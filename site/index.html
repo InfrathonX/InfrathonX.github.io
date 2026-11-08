@@ -85,6 +85,34 @@
     </div>
   </section>
 
+  <section class="home-intro" aria-label="Paper overview">
+    <div class="wrap">
+      <figure class="home-paper-figure" id="optimization-example">
+        <a class="home-figure-art" href="assets/img/homepage/qvg-intro.svg" target="_blank" rel="noopener" aria-label="Open the optimization example at full size">
+          <img src="assets/img/homepage/qvg-intro.svg" width="1030" height="503" loading="lazy" decoding="async" alt="Two video cases compare the BF16 reference, human codec, and Claude Opus 5.5 codec. Below, Claude's quality-weighted Quant-VideoGen KV Codec score improves over 24 hours, with five submissions annotated by their code changes and compression ratios.">
+        </a>
+        <figcaption><strong>An example of optimization with Infrathon.</strong> Top: two video cases, with the method and compression ratio above each image. Bottom: Claude Opus 5.5’s results on Quant-VideoGen KV Codec over time. The score combines compression ratio and video quality; the dashed line shows the human solution. Numbered points mark five selected submissions, and boxes summarize their code changes. Red values show compression ratios.</figcaption>
+      </figure>
+
+      <section class="home-abstract" id="abstract" aria-labelledby="abstract-title">
+        <h2 id="abstract-title">Abstract</h2>
+        <p>In this work, we study whether frontier models can continually improve real-world AI infrastructure over long horizons. Existing evaluations often focus on individual components or short optimization budgets, limiting our understanding of sustained optimization across the infrastructure stack. To address this gap, we introduce <code>Infrathon</code>, a benchmark of diverse, long-horizon AI infrastructure optimization tasks. We evaluate six models across 150 runs with 12- or 24-hour budgets, totaling over 10,000 GPU-hours. Our results show that model rankings vary with the evaluation horizon, while 135 of the 150 runs achieve further improvements during the second half of their budgets. These findings indicate that shorter evaluations can overlook both optimization gains and changes in relative model performance. We also find agents can discover solutions that outperform human-designed baselines: Claude Opus 5.5 increases the mean KV-cache compression ratio from 6.82× with the human-designed Quant-VideoGen codec to 19.86×. Analysis of agent trajectories identifies task violations, unreliable testing, and premature completion as barriers to sustained improvement. Together, our <code>Infrathon</code> framework provides resources for constructing long-horizon tasks, evaluating frontier agents, and discovering good infrastructure solutions.</p>
+      </section>
+
+      <section class="home-framework" id="framework-overview" aria-labelledby="framework-title">
+        <div class="home-section-head">
+          <h2 id="framework-title">Framework</h2>
+          <a href="framework.html#overview">Framework details ↗</a>
+        </div>
+        <figure class="home-paper-figure">
+          <a class="home-figure-art" href="assets/img/homepage/framework.svg" target="_blank" rel="noopener" aria-label="Open the Infrathon framework figure at full size">
+            <img src="assets/img/homepage/framework.svg" width="1082" height="486" loading="lazy" decoding="async" alt="Infrathon framework. Task Definition specifies the workspace, public tests, private tests, resources, and time budget. During Task Execution, the agent edits and publicly tests solutions in the Work environment, the Controller reviews submissions, and the Judge environment runs private tests, validates results, and returns performance feedback.">
+          </a>
+          <figcaption><strong>Framework of Infrathon.</strong> (a) Task Definition specifies task requirements. (b) Task Execution coordinates iterative development and evaluation through the Work environment, Controller, and Judge environment.</figcaption>
+        </figure>
+      </section>
+    </div>
+  </section>
 
   <section class="sec home-results" id="leaderboard"><div class="wrap">
     <div class="card">
