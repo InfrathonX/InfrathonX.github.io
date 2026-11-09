@@ -37,7 +37,7 @@ html[data-theme="dark"] body:is([data-page="index"], .paper-page) {
 .nav .wrap { display: flex; flex-direction: column; align-items: stretch; gap: 0; height: 100dvh; max-width: none; padding: 26px 16px 18px; overflow-y: auto; }
 .brand { font-size: 22px; font-weight: 700; letter-spacing: -.04em; gap: 10px; }
 .nav .brand { padding: 0 8px 26px; }
-.brand > svg { width: 32px; height: 32px; border-radius: 8px; background: #345cce; }
+.brand > svg { width: 32px; height: 32px; border-radius: 8px; background: #060709; }
 .brand > svg path { stroke: #fff; }
 .brand > svg rect { stroke: transparent; }
 .nav-links { display: grid; gap: 4px; flex: none; padding-block: 18px; border-top: 1px solid var(--hair); overflow: visible; }
