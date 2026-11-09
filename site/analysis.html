@@ -11,8 +11,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
-<link rel="stylesheet" href="assets/css/home.css?v=45f285fc3753">
+<link rel="stylesheet" href="assets/css/home.css?v=65ea3259b586">
 <link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
+<link rel="stylesheet" href="assets/css/tts.css?v=9bb98cd83bb3">
 </head>
 <body class="paper-page" data-page="analysis">
 <main>
@@ -23,13 +24,12 @@
 
   <nav class="paper-toc" aria-label="Page sections"><a href="#long-vs-short">Long vs. short</a><a href="#summary">Summary figure</a><a href="#ranking-budget">Rankings</a><a href="#second-half">Late gains</a><a href="#interactions">Activity</a></nav>
 </div></header>
-<section class="paper-section" id="long-vs-short"><div class="wrap"><h2>Long horizon versus short horizon</h2><div class="paper-prose"><p><strong>Longer horizons are more effective for module and system tasks, while short-horizon TTS (test-time scaling) remains competitive on operators.</strong> Best-of-four achieves 102.6% of long-run performance on operators, 96.9% on modules, and 77.3% on systems.</p><p>The long run wins <strong>nine of 12 task–model comparisons, including all four system comparisons</strong>. Claude’s short runs win on both operators and Qwen3 ORPO; Astra’s long run wins on all six tasks.</p></div>
-<details class="paper-disclosure" id="budget-setup"><summary>Experiment setup</summary><div class="paper-prose"><p>GPT-6 Astra and Claude Opus 5.5 each optimize six tasks. The allocations are <strong>one T-hour run, two T/2-hour runs, or four T/4-hour runs</strong>. Each setting receives equal GPU-hours, including Work and the continuously allocated Judge. T is 12 hours for operators and 24 hours for modules and systems.</p><p>Group percentages are geometric means of task–model score ratios. The study reuses 12 main runs and adds 72 short runs.</p></div></details>
-<figure class="paper-figure" id="long_vs_short_runs">
-  <div class="paper-figure-head"><h3>Long and short optimization runs</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Long and short optimization runs">Expand ↗</button></div>
-  <div class="paper-art compact"><img src="assets/img/paper/long_vs_short_runs.svg" width="486" height="562" alt="Curves take the highest private-test score across each allocation’s one, two, or four runs. The first half of the budget occupies 75% of each horizontal axis and the shaded second half 25%; ticks show actual hours." loading="lazy" decoding="async"></div>
-  <figcaption>Curves take the highest private-test score across each allocation’s one, two, or four runs. The first half of the budget occupies 75% of each horizontal axis and the shaded second half 25%; ticks show actual hours.</figcaption>
-</figure></div></section><section class="paper-section" id="summary"><div class="wrap"><h2>Rankings, late gains, and interaction counts</h2><figure class="paper-figure" id="analysis_summary">
+<section class="paper-section" id="long-vs-short"><div class="wrap"><h2>Long Horizon vs. Short Horizon</h2><div class="paper-prose"><p><strong>Longer horizons are more effective for module and system tasks, while short-horizon TTS (test-time scaling) remains competitive on operators.</strong> Best-of-four (T/4) achieves 102.6% of long-run performance on operators, 96.9% on modules, and 77.3% on systems. <strong>Best-of-two (T/2) follows the same pattern.</strong></p><p>Long-horizon optimization (T) wins <strong>nine of 12 task–model comparisons, including all four system comparisons</strong>.</p></div>
+    <div class="tts-viewer" id="long_vs_short_runs" data-tts-viewer>
+      <p>Loading optimization trajectories…</p>
+      <noscript><img src="assets/img/tts/astra.svg" alt="GPT-6 Astra: six long- and short-horizon task trajectories"><img src="assets/img/tts/claude.svg" alt="Claude Opus 5.5: six long- and short-horizon task trajectories"></noscript>
+    </div>
+</div></section><section class="paper-section" id="summary"><div class="wrap"><h2>Rankings, late gains, and interaction counts</h2><figure class="paper-figure" id="analysis_summary">
   <div class="paper-figure-head"><h3>How results change over the budget</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: How results change over the budget">Expand ↗</button></div>
   <div class="paper-art"><img src="assets/img/paper/analysis_summary.svg" width="876" height="231" alt="The four panels show model rank scores over time, half-budget scores relative to final scores, the budget fraction needed to reach 90% of final performance, and each model’s visible output tokens and actions." loading="lazy" decoding="async"></div>
   <figcaption>The four panels show model rank scores over time, half-budget scores relative to final scores, the budget fraction needed to reach 90% of final performance, and each model’s visible output tokens and actions.</figcaption>
@@ -41,9 +41,11 @@
 <div class="paper-next"><div class="wrap"><a href="agent-behavior.html">Agent Behavior Analysis →</a></div></div>
 </main>
 <dialog class="paper-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title"><div class="paper-dialog-head"><h2 id="figure-dialog-title">Figure</h2><button type="button" id="figure-dialog-close" aria-label="Close expanded figure">Close ×</button></div><div class="paper-dialog-body"><img id="figure-dialog-image" alt=""></div></dialog>
-<script src="data/infrathon.js?v=936c1bac49ec"></script>
+<script src="data/infrathon.js?v=ade45e4def30"></script>
 <script src="assets/js/core.js?v=fed79310f448"></script>
 <script src="assets/js/paper.js"></script>
+<script src="data/tts.js?v=c379df8be2fa"></script>
+<script src="assets/js/tts.js?v=e0ea749d06ee"></script>
 
 </body>
 </html>

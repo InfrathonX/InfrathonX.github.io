@@ -1,0 +1,240 @@
+{
+  "source": {
+    "file": "TTS.html",
+    "sha256": "77d1b2da92907889c019795366c5d597f0f7899318845c38f8b5241e62a83dac"
+  },
+  "source_version": 19,
+  "data_sha256": "5ac89929102a4b3b0d1a917986617fb7db22b6f95be9ae600aadaff64d11e838",
+  "summary": {
+    "n_runs": 84,
+    "n_comparisons": 12,
+    "long_wins": 9,
+    "system_long_wins": 4,
+    "model_long_wins": {
+      "gpt-6-astra": 6,
+      "claude-opus-5-5": 3
+    },
+    "geometric_means_pct": {
+      "Operator": {
+        "2": 101.3378167385009,
+        "4": 102.5725999475415
+      },
+      "Module": {
+        "2": 96.54516737923258,
+        "4": 96.87261743787232
+      },
+      "System": {
+        "2": 79.39273704303226,
+        "4": 77.30654130973227
+      }
+    },
+    "comparisons": [
+      {
+        "model": "gpt-6-astra",
+        "task": "flux",
+        "level": "Operator",
+        "scores": {
+          "1": 361.4301070922075,
+          "2": 356.4969758186164,
+          "4": 354.2069999074539
+        },
+        "ratios": {
+          "2": 0.9863510781841631,
+          "4": 0.9800152033739933
+        },
+        "long_wins": true
+      },
+      {
+        "model": "gpt-6-astra",
+        "task": "orpo",
+        "level": "Module",
+        "scores": {
+          "1": 173.15942884796513,
+          "2": 153.65991692146156,
+          "4": 152.85159309278157
+        },
+        "ratios": {
+          "2": 0.8873898345805689,
+          "4": 0.882721744404609
+        },
+        "long_wins": true
+      },
+      {
+        "model": "gpt-6-astra",
+        "task": "sd35m",
+        "level": "System",
+        "scores": {
+          "1": 121.76165943496699,
+          "2": 81.26904322316818,
+          "4": 88.46154804122618
+        },
+        "ratios": {
+          "2": 0.6674436238820649,
+          "4": 0.7265139819195185
+        },
+        "long_wins": true
+      },
+      {
+        "model": "gpt-6-astra",
+        "task": "lmcache",
+        "level": "Operator",
+        "scores": {
+          "1": 302.1561951679643,
+          "2": 299.0668719364908,
+          "4": 296.6478128758452
+        },
+        "ratios": {
+          "2": 0.9897757408887276,
+          "4": 0.9817697522665154
+        },
+        "long_wins": true
+      },
+      {
+        "model": "gpt-6-astra",
+        "task": "kvzip",
+        "level": "Module",
+        "scores": {
+          "1": 97.81143972085137,
+          "2": 95.2218496964277,
+          "4": 93.95400527220886
+        },
+        "ratios": {
+          "2": 0.9735246712264514,
+          "4": 0.960562542994445
+        },
+        "long_wins": true
+      },
+      {
+        "model": "gpt-6-astra",
+        "task": "llada",
+        "level": "System",
+        "scores": {
+          "1": 340.0675930300143,
+          "2": 284.3081441219846,
+          "4": 271.1697975619565
+        },
+        "ratios": {
+          "2": 0.8360342177529736,
+          "4": 0.7973997026468298
+        },
+        "long_wins": true
+      },
+      {
+        "model": "claude-opus-5-5",
+        "task": "flux",
+        "level": "Operator",
+        "scores": {
+          "1": 345.9361124845493,
+          "2": 372.2847891724451,
+          "4": 391.61841220661137
+        },
+        "ratios": {
+          "2": 1.0761663085667952,
+          "4": 1.132054151253441
+        },
+        "long_wins": false
+      },
+      {
+        "model": "claude-opus-5-5",
+        "task": "orpo",
+        "level": "Module",
+        "scores": {
+          "1": 155.60852435404036,
+          "2": 160.0256950970261,
+          "4": 162.55421599815662
+        },
+        "ratios": {
+          "2": 1.0283864316644749,
+          "4": 1.0446356757957131
+        },
+        "long_wins": false
+      },
+      {
+        "model": "claude-opus-5-5",
+        "task": "sd35m",
+        "level": "System",
+        "scores": {
+          "1": 152.77261056391697,
+          "2": 134.43023452155188,
+          "4": 125.37466506448109
+        },
+        "ratios": {
+          "2": 0.8799367506082446,
+          "4": 0.8206619275647375
+        },
+        "long_wins": true
+      },
+      {
+        "model": "claude-opus-5-5",
+        "task": "lmcache",
+        "level": "Operator",
+        "scores": {
+          "1": 296.6927710931162,
+          "2": 297.814211618976,
+          "4": 301.5246055959321
+        },
+        "ratios": {
+          "2": 1.0037798040098114,
+          "4": 1.016285649579576
+        },
+        "long_wins": false
+      },
+      {
+        "model": "claude-opus-5-5",
+        "task": "kvzip",
+        "level": "Module",
+        "scores": {
+          "1": 95.94587208688364,
+          "2": 93.82762092270953,
+          "4": 95.39291189671779
+        },
+        "ratios": {
+          "2": 0.9779224356598069,
+          "4": 0.9942367485110238
+        },
+        "long_wins": true
+      },
+      {
+        "model": "claude-opus-5-5",
+        "task": "llada",
+        "level": "System",
+        "scores": {
+          "1": 653.4135240039656,
+          "2": 528.7143753261655,
+          "4": 490.87256560179185
+        },
+        "ratios": {
+          "2": 0.8091573802855001,
+          "4": 0.7512433513678127
+        },
+        "long_wins": true
+      }
+    ]
+  },
+  "time_axis": "Paper layout: the first half occupies 75% of the axis, the shaded second half 25%. Tick labels are actual hours; short curves end at T/n.",
+  "aggregation": "Geometric mean of short/long final-score ratios over four task–model comparisons per level.",
+  "figures": [
+    {
+      "name": "astra",
+      "width_pt": 1008.0,
+      "height_pt": 518.4,
+      "svg": "assets/img/tts/astra.svg",
+      "svg_sha256": "c4c8100ce3368b0c23121a58c7efe386f7981ecd06b8164143f6d303c0938685",
+      "pdf": "assets/img/tts/astra.pdf",
+      "pdf_sha256": "1053537b0a9dd8a1884b4e734c340b480644155b5076aba750cfb4d45bda7391",
+      "png": "assets/img/tts/astra.png",
+      "png_sha256": "4723faefd5294d5c7f8f1e861638aaf9ba8bd97b6274bd13335a39bff1965a4f"
+    },
+    {
+      "name": "claude",
+      "width_pt": 1008.0,
+      "height_pt": 518.4,
+      "svg": "assets/img/tts/claude.svg",
+      "svg_sha256": "2844e57523beefa6933508a72ace1ef227783b519f9c4cb03adf1f0fb4262d4c",
+      "pdf": "assets/img/tts/claude.pdf",
+      "pdf_sha256": "16e1b1a158eb5973fcc6ccbeb2f1fb4ce6ec2bce10247cd87712eae9d618e563",
+      "png": "assets/img/tts/claude.png",
+      "png_sha256": "b43c0b0337bbc6d7a32e1553a5a7f04b4bafb7f7a95972411fd4977bdbd5123c"
+    }
+  ]
+}
