@@ -4,6 +4,7 @@
 .tts-setup-note p + p { margin-top: 4px; }
 .tts-setup-note ul { margin: 8px 0; padding-left: 22px; }
 .tts-setup-note li + li { margin-top: 4px; }
+.tts-viewer > .horizon-takeaways { margin: 0 0 24px; }
 .tts-axis { display: flex; align-items: center; gap: 10px; color: var(--ink); font-size: 13px; }
 .tts-model + .tts-model { margin-top: 30px; }
 .tts-model-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 16px; }

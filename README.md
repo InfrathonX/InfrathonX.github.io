@@ -4,13 +4,19 @@ Paper website for **Infrathon: Benchmarking Language Agents for Real-World, Long
 
 ## Deployment
 
-Live website: https://infrathonx.github.io/ (redirects to `/site/`).
+Live website: https://infrathonx.github.io/
 
 GitHub Pages publishes the `main` branch from the repository root. The root
-`index.html` redirects to the website in `site/`; `.nojekyll` preserves the
-static files. The `Site checks` workflow validates the data, JavaScript,
-links, and figures. GitHub's built-in Pages workflow handles deployment,
-so there is only one publishing source.
+homepage and frontend files mirror `site/`, so both `/` and the existing
+`/site/` URLs show the website. `.nojekyll` preserves the static files.
+The `Site checks` workflow validates data, JavaScript, links, figures, and
+the root mirror. GitHub's built-in Pages workflow handles deployment.
+
+Edit the source files in `site/`, then run `python3 scripts/sync_root_site.py`
+before committing. The script synchronizes only the frontend files listed in
+`data/root_site_files.json`, preserving the repository's research data.
+CI rejects stale root copies. To preview the published root layout, serve
+the repository directory with `python3 -m http.server 8000`.
 
 Initial content was copied from `deepebe952/deepebe952.github.io` at
 commit `99bbc32`, preserving its source data and attribution.
@@ -73,6 +79,7 @@ data/
   experimental_figures.json  Figures 2–8 source archive, hashes, and display assets
   author_links.json          verified author homepage links; null when unconfirmed
   institution_logos.json     paper logo extraction provenance
+  resource_icons.json        official arXiv, GitHub, Docker, and Hugging Face SVG sources and hashes
   framework_figure.json      original Overleaf framework figure provenance
   home_figures.json          latest homepage figure sources, dimensions, and hashes
   paper_figures.json         current manuscript source hash and original figure provenance
@@ -89,6 +96,7 @@ scripts/
   extract_paper_distributions.py  archived 41-page manuscript Figure 5 extraction
   export_paper_figures.py    current Overleaf directory → original PDFs, SVGs, and source manifest
   build_tts_figures.py       author TTS HTML → validated data and SVG/PDF/PNG comparisons
+  sync_root_site.py          site/ → committed domain-root frontend, with a CI freshness check
   check_site.py              local links, anchors, bundle structure, leaked local paths
   check_documentation_sources.py  task and setup sources against the public repository and paper
 ```
@@ -138,11 +146,11 @@ Research pages lead with findings. Experiment settings, statistical definitions,
 
 Research pages follow the current manuscript in this order: Main Results, Knowledge Discovery with Infrathon, Analysis, and Agent Behavior Analysis. Each page has section links, original figures, and a figure-expansion dialog. The standalone Framework article explains task construction and execution.
 
-The homepage (`index.html`) follows the paper title and author order, with 21 names in three desktop rows (7 / 8 / 6), numbered affiliations, and eight unlinked logos. Each author group can wrap on narrower screens. Author names, superscripts, and role notes follow the author-supplied `main.tex`: † marks the project leader and * marks corresponding authors. `data/author_links.json` records all 21 author links in paper order. Affiliation numbers and logo order follow the latest author-supplied reference: Washington, Ai2, Penn, Pyromind Dynamics, Stanford, RadixArk, UT Austin, Northwestern. Zheyuan Xiao is affiliated with Washington. Seven logos preserve the PDF’s vector paths; Pyromind Dynamics uses its original transparent image. `data/institution_logos.json` records the original PDF hash and extraction positions, not the display order. Resource buttons use the author-provided GitHub, Docker Hub, and Hugging Face URLs; Paper temporarily links to the project homepage.
+The homepage (`index.html`) follows the paper title and author order, with 21 names in three desktop rows (7 / 8 / 6), numbered affiliations, and eight unlinked logos. Each author group can wrap on narrower screens. Author names, superscripts, and role notes follow the author-supplied `main.tex`: † marks the project leader and * marks corresponding authors. `data/author_links.json` records all 21 author links in paper order. Affiliation numbers and logo order follow the latest author-supplied reference: Washington, Ai2, Penn, Pyromind Dynamics, Stanford, RadixArk, UT Austin, Northwestern. Zheyuan Xiao is affiliated with Washington. Seven logos preserve the PDF’s vector paths; Pyromind Dynamics uses its original transparent image. `data/institution_logos.json` records the original PDF hash and extraction positions, not the display order. Resource buttons use the author-provided GitHub, Docker Hub, and Hugging Face URLs; the arXiv entry temporarily links to the project homepage until a preprint URL is available.
 
 The brand opens Home; primary navigation contains Task List, Docs, and Blog, with Discord in the sidebar footer. Blog temporarily links to `index.html` until its destination is supplied. Research articles remain available through the homepage finding links and article links. Task descriptions and results share `task.html#<key>` with `/<section>` anchors. Homepage task rows and the task directory open this unified page; per-model Run log links open `trajectories.html#<task>/<model>`.
 
-Home uses a 280px fixed left navigation on wide screens, with Task List, Docs, Blog, and Discord. An always-expanded Contents outline below the page links jumps to Overview, Leaderboard, All Results, Knowledge Discovery, and Long Horizon vs. Short Horizon. All five entries appear at the same level. The main content uses a centered maximum width of 1720px, with equal left/right gutters in the space beside the sidebar. It highlights the current section while scrolling and is hidden when the navigation becomes a top bar on smaller screens. A horizontal row of institution logos sits above the single-line paper title. The authors and affiliations are centered in a readable column, with four benchmark-scale statistics below. Paper, Code, Docker, and HuggingFace form a centered horizontal action row beneath the hero card; the former right-side Resources panel is removed. Smaller screens return to a top navigation and let the title and institution logos wrap; resource buttons use two columns.
+Home uses a 280px fixed left navigation on wide screens, with Task List, Docs, Blog, and Discord. An always-expanded Contents outline below the page links jumps to Overview, Leaderboard, All Results, Knowledge Discovery, and Long Horizon vs. Short Horizon. All five entries appear at the same level. The main content uses a centered maximum width of 1720px, with equal left/right gutters in the space beside the sidebar. It highlights the current section while scrolling and is hidden when the navigation becomes a top bar on smaller screens. A horizontal row of institution logos sits above the single-line paper title. The authors and affiliations are centered in a readable column, with four benchmark-scale statistics below. arXiv, GitHub, Docker Hub, and Hugging Face use dark capsule buttons and unmodified official SVG artwork in a resource bar beneath the hero card. Source URLs and hashes are recorded in `data/resource_icons.json`. Author names use the same blue as their hover state. The resource bar also includes named mail links for Zhengyu Hu (`zhu7@uw.edu`) and Teng Xiao (`tengxiao01@gmail.com`); the former right-side Resources panel is removed. Smaller screens return to a top navigation and let the title and institution logos wrap; resource buttons use two columns.
 
 The homepage and research pages use DM Sans, a light-gray canvas, white panels, black text, and blue accents. Author and affiliation text uses gray. Section headings sit outside panels. After the paper header, Home presents three parts: Leaderboard with Claude's performance finding between its heading and table, followed by scoring definitions and expandable task results; Infrathon can support knowledge discovery with the original optimization example below its conclusion; and Long Horizon vs. Short Horizon. The task results belong to the first part and appear immediately after Scoring and token definitions. The Main Results kicker, leaderboard subtitle, separate Key findings grid, homepage Abstract and Framework sections are removed. Finding summaries use a horizontal layout on desktop and stack on mobile. Detailed research analysis remains on the article pages. Interactive results include the quality-weighted QVG scores.
 

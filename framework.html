@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Infrathon Framework · Infrathon</title>
+<meta name="description" content="Task Definition specifies what can be optimized and how it is evaluated. Task Execution connects development, submission review, private tests, and feedback.">
+<meta name="theme-color" content="#f6f7f9">
+<script src="assets/js/theme.js?v=d4109bb8b0d1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
+<link rel="stylesheet" href="assets/css/home.css?v=3ddb40d1e79b">
+<link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
+</head>
+<body class="paper-page" data-page="framework">
+<main>
+<header class="paper-page-head"><div class="wrap">
+  <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Infrathon Framework</span></div>
+  <h1>Infrathon Framework</h1>
+  <p class="lede">Task Definition specifies what can be optimized and how it is evaluated. Task Execution connects development, submission review, private tests, and feedback.</p>
+
+  <nav class="paper-toc" aria-label="Page sections"><a href="#overview">Overview</a><a href="#definition">Task definition</a><a href="#protocol">KVzip example</a><a href="#execution">Task execution</a><a href="#task-inventory">All tasks</a></nav>
+</div></header>
+<section class="paper-section" id="overview"><div class="wrap"><h2>Task definition and execution</h2><figure class="paper-figure" id="framework">
+  <div class="paper-figure-head"><h3>Framework of Infrathon</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Framework of Infrathon">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/paper/framework.svg" width="541" height="243" alt="Task Definition specifies the workspace, public tests, private tests, resources, and time budget. Task Execution coordinates iterative development through the Work environment, Controller, and Judge." loading="lazy" decoding="async"></div>
+  <figcaption>Task Definition specifies the workspace, public tests, private tests, resources, and time budget. Task Execution coordinates iterative development through the Work environment, Controller, and Judge.</figcaption>
+</figure></div></section><section class="paper-section" id="definition"><div class="wrap"><h2>Task Definition</h2><div class="paper-prose"><p>Human experts use <strong>Infrathon-build</strong> to construct 25 tasks from real AI infrastructure projects. The suite has <strong>10 training tasks and 15 inference tasks</strong>, spanning 11 operators, five modules, and nine systems.</p><p class="paper-equation">τ = (W, P, E, R, T)</p><dl class="paper-list"><div><dt>W · Workspace</dt><dd>Initial code or an implementation interface, with the files and behavior the agent may change.</dd></div><div><dt>P · Public tests</dt><dd>Visible correctness cases and a runner for local checks and profiling.</dd></div><div><dt>E · Private tests</dt><dd>Hidden cases, task-specific checks, scoring rules, and permitted feedback. Cases and scoring code remain inaccessible to the agent.</dd></div><div><dt>R · Resources</dt><dd>Hardware allocation and software runtime for development and evaluation.</dd></div><div><dt>T · Time budget</dt><dd>T can be any positive duration or infinity. Experiments use 12 hours for operators and 24 hours for modules and systems, including tool execution and feedback waits.</dd></div></dl></div><figure class="paper-figure" id="taskstat">
+  <div class="paper-figure-head"><h3>Task coverage across the infrastructure stack</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Task coverage across the infrastructure stack">Expand ↗</button></div>
+  <div class="paper-art compact"><img src="assets/img/paper/taskstat.svg" width="391" height="391" alt="The task distribution spans operator, module, and system levels in training and inference." loading="lazy" decoding="async"></div>
+  <figcaption>The task distribution spans operator, module, and system levels in training and inference.</figcaption>
+</figure></div></section><section class="paper-section" id="protocol"><div class="wrap"><h2>A concrete task: KVzip KV Scoring</h2><div class="paper-prose"><p>The agent implements a query-agnostic KV-importance scorer for a <strong>frozen Qwen3-8B</strong>, following the KVzip protocol. Private evaluation uses disjoint samples and additional task types.</p><div class="paper-table"><table class="data"><thead><tr><th scope="col">Specification</th><th scope="col">Public tests</th><th scope="col">Private tests</th></tr></thead><tbody><tr><td>Model</td><td>Qwen3-8B</td><td>Qwen3-8B</td></tr><tr><td>Contexts</td><td>63</td><td>1,812</td></tr><tr><td>Questions</td><td>419</td><td>6,956</td></tr><tr><td>Task types</td><td>9</td><td>12</td></tr><tr><td>Context length</td><td>73–29,580 tokens</td><td>70–29,991 tokens</td></tr><tr><td>Resources</td><td>One H100 GPU</td><td>Seven H100 GPUs</td></tr></tbody></table></div><p>Each GPU has 80 GB of memory; the time budget is 24 hours. Both evaluations include SQuAD, GSM8K, RULER, generated NIAH, and SCBench data; private evaluation additionally includes RepoQA.</p></div></div></section><section class="paper-section" id="execution"><div class="wrap"><h2>Task Execution</h2><div class="paper-grid"><div class="paper-prose"><h3>Work environment</h3><p>The agent inspects files, edits code, profiles, runs public tests, saves solution versions, and requests private evaluation. It can revise a solution or restore an earlier version from the feedback history.</p><p>Runs continue until the budget ends. A stop hook prompts further work when the agent attempts to finish early.</p></div><div class="paper-prose"><h3>Controller</h3><p>The Controller checks submitted files and enforces task submission limits before private evaluation.</p><p>GPT-6.1 Sol in Codex reviews instruction following and reward hacking. Rejection returns a reason and no private score; accepted submissions go to the Judge.</p></div><div class="paper-prose"><h3>Judge environment</h3><p>Separate Work and Judge containers keep private cases and scoring code hidden. Accepted solutions are checked using exact comparisons, numerical tolerances, or downstream quality thresholds.</p><p>The Judge returns the private score, execution and validation status, and permitted diagnostics, enabling further revisions within the remaining time.</p></div></div></div></section><section class="paper-section" id="task-inventory"><div class="wrap"><h2>Task inventory</h2><div class="paper-table"><table class="data"><caption class="sr-only">All 25 task definitions</caption><thead><tr><th scope="col">Task</th><th scope="col">Stage</th><th scope="col">Level</th><th scope="col">Budget</th></tr></thead><tbody><tr><td><a class="link" href="task.html#attn-qat">Attn-QAT NVFP4 attention</a></td><td>training</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#wgrad">K-grouped FP8 Wgrad</a></td><td>training</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#flux-moe">Flux/Comet MoE primitive</a></td><td>training</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#orpo">Qwen3 ORPO</a></td><td>training</td><td>module</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#gkd">Qwen3 GKD</a></td><td>training</td><td>module</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#opcd">Miles Qwen3 OPCD</a></td><td>training</td><td>system</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#opd">Miles Qwen3 OPD</a></td><td>training</td><td>system</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#alfworld">Miles ALFWorld RL</a></td><td>training</td><td>system</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#sd35">Miles SD3.5-M multi-teacher OPD</a></td><td>training</td><td>system</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#wan22">Miles Wan2.2 DanceGRPO</a></td><td>training</td><td>system</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#grouped-fp8">Dynamic grouped FP8 GEMM</a></td><td>inference</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#sparse-mla">Sparse-MLA prefill</a></td><td>inference</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#paged-gqa">Paged-GQA decode</a></td><td>inference</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#sageattention">SageAttention</a></td><td>inference</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#minference">MInference</a></td><td>inference</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#lmcache">LMCache KV block transfer</a></td><td>inference</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#flash-kmeans">Flash-KMeans</a></td><td>inference</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#mamba2">Mamba-2 SSD forward</a></td><td>inference</td><td>operator</td><td>12 h</td></tr>
+<tr><td><a class="link" href="task.html#kvpress">kvpress KV eviction</a></td><td>inference</td><td>module</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#kvzip">KVzip KV scoring</a></td><td>inference</td><td>module</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#qvg">Quant-VideoGen KV codec</a></td><td>inference</td><td>module</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#eagle3">EAGLE-3 speculative decoding</a></td><td>inference</td><td>system</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#llada">LLaDA decoding</a></td><td>inference</td><td>system</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#sdv2">StreamDiffusionV2</a></td><td>inference</td><td>system</td><td>24 h</td></tr>
+<tr><td><a class="link" href="task.html#serving">Concurrent agent serving</a></td><td>inference</td><td>system</td><td>24 h</td></tr></tbody></table></div></div></section>
+<div class="paper-next"><div class="wrap"><a href="main-results.html">Main Results →</a></div></div>
+</main>
+<dialog class="paper-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title"><div class="paper-dialog-head"><h2 id="figure-dialog-title">Figure</h2><button type="button" id="figure-dialog-close" aria-label="Close expanded figure">Close ×</button></div><div class="paper-dialog-body"><img id="figure-dialog-image" alt=""></div></dialog>
+<script src="data/infrathon.js?v=ade45e4def30"></script>
+<script src="assets/js/core.js?v=fed79310f448"></script>
+<script src="assets/js/paper.js"></script>
+
+</body>
+</html>

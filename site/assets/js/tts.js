@@ -10,6 +10,7 @@
   const label = { 1: "T (1 run)", 2: "T/2 (best of 2)", 4: "T/4 (best of 4)" };
 
   document.querySelectorAll("[data-tts-viewer]").forEach((root) => {
+    const takeaways = root.querySelector(".horizon-takeaways");
     const state = { axis: "paper", visible: new Set(modes) };
     const charts = [], legendButtons = [];
     let views = [], modalPanel = null;
@@ -118,6 +119,7 @@
         h("li", {}, h("strong", { text: "T/2 (best of 2): " }), "short-horizon TTS (test-time scaling) with 2 independent runs, each lasting T/2 hours; take the best score."),
         h("li", {}, h("strong", { text: "T/4 (best of 4): " }), "short-horizon TTS with 4 independent runs, each lasting T/4 hours; take the best score.")),
       h("p", {}, "All three settings use the ", h("strong", { text: "same total GPU-hour budget" }), ": 1 × T = 2 × (T/2) = 4 × (T/4).")));
+    if (takeaways) root.append(takeaways);
     for (const model of ["gpt-6-astra", "claude-opus-5-5"]) {
       const panels = data.panels.filter((panel) => panel.model === model);
       const grid = h("div", { class: "tts-grid" });

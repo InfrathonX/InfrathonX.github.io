@@ -1,0 +1,31 @@
+{
+  "note": "Unmodified official brand SVGs, downloaded from the owners\u2019 websites. Their trademarks remain the property of their respective owners.",
+  "icons": [
+    {
+      "brand": "github",
+      "file": "assets/img/resources/github.svg",
+      "source": "https://brand.github.com/GitHub_Logos.zip",
+      "archive_member": "GitHub Logos/SVG/GitHub_Invertocat_White.svg",
+      "sha256": "ccd84c89b1056345608fc3489357f8acc7397e49a3cdc2d418b6c8016911d47b"
+    },
+    {
+      "brand": "docker",
+      "file": "assets/img/resources/docker.svg",
+      "source": "https://www.docker.com/static/Docker-Logos-1.zip",
+      "archive_member": "docker-logos/SVG/docker-mark-white.svg",
+      "sha256": "67abdc0a4b48f9ad283e85839c849911af9bdc7e93797a0c477a488687583a0b"
+    },
+    {
+      "brand": "arxiv",
+      "file": "assets/img/resources/arxiv.svg",
+      "source": "https://static.arxiv.org/static/browse/0.3.4/images/arxiv-logo-one-color-white.svg",
+      "sha256": "a2fb517a6fa919f35b48f224a417b63d3c7794f4687e7081b4bdd32136c99f2f"
+    },
+    {
+      "brand": "huggingface",
+      "file": "assets/img/resources/huggingface.svg",
+      "source": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
+      "sha256": "3613c73f07ccae19118bfe6d2f8cd127183d08cf99468a708e090953e116ed0a"
+    }
+  ]
+}

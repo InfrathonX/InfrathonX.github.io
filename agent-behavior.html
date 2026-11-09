@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agent Behavior Analysis · Infrathon</title>
+<meta name="description" content="We examine all 150 trajectories for task violations despite passing public tests, performance tests that execute the wrong code, and premature completion.">
+<meta name="theme-color" content="#f6f7f9">
+<script src="assets/js/theme.js?v=d4109bb8b0d1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
+<link rel="stylesheet" href="assets/css/home.css?v=3ddb40d1e79b">
+<link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
+</head>
+<body class="paper-page" data-page="agent-behavior">
+<main>
+<header class="paper-page-head"><div class="wrap">
+  <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Agent Behavior Analysis</span></div>
+  <h1>Agent Behavior Analysis</h1>
+  <p class="lede">We examine all 150 trajectories for task violations despite passing public tests, performance tests that execute the wrong code, and premature completion.</p>
+
+  <nav class="paper-toc" aria-label="Page sections"><a href="#requirements">Task compliance</a><a href="#validation">Testing the intended code</a><a href="#improvement">Premature completion</a></nav>
+</div></header>
+<section class="paper-section" id="requirements"><div class="wrap"><h2>Passing public tests can still violate the task</h2><div class="paper-prose"><p>On Attn-QAT NVFP4 Attention, DeepSeek and Claude sum attention probabilities before rounding, although the task requires <strong>rounding first</strong>. Both solutions pass the public tests with error-to-tolerance ratios below 0.4. The Controller rejects them for changing the required computation.</p><p>The Controller rejects the following five submissions <strong>before private evaluation</strong>.</p><div class="paper-table"><table class="data"><thead><tr><th scope="col">Model</th><th scope="col">Task</th><th scope="col">Reason for rejection</th></tr></thead><tbody><tr><td>DeepSeek</td><td>Attn-QAT</td><td>Sums probabilities before the required rounding.</td></tr><tr><td>Claude</td><td>Attn-QAT</td><td>Makes the same forbidden change to rounding order.</td></tr><tr><td>DeepSeek</td><td>Miles Wan2.2 DanceGRPO</td><td>Reports logs saved before the required disk write completes.</td></tr><tr><td>GLM</td><td>LLaDA Decoding</td><td>Replaces an output layer that must remain unchanged.</td></tr><tr><td>Claude</td><td>Quant-VideoGen KV Codec</td><td>Downloads human-codec weights and submits them as its own.</td></tr></tbody></table></div><p>After rejection feedback, agents correct their solutions or restore earlier versions.</p></div><figure class="paper-figure" id="task-fidelity">
+  <div class="paper-figure-head"><h3>Public-test errors on Attn-QAT</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Public-test errors on Attn-QAT">Expand ↗</button></div>
+  <div class="paper-art compact"><img src="assets/img/paper/behavior_task_fidelity.svg" width="245" height="176" alt="Maximum error-to-tolerance ratio across outputs and gradients for each public test case. The passing threshold is 1." loading="lazy" decoding="async"></div>
+  <figcaption>Maximum error-to-tolerance ratio across outputs and gradients for each public test case. The passing threshold is 1.</figcaption>
+</figure></div></section><section class="paper-section" id="validation"><div class="wrap"><h2>Performance tests can run the wrong code</h2><div class="paper-prose"><p><strong>Qwen / Mamba-2:</strong> All twenty configuration trials reuse the same cached implementation. Qwen clears the cache and repeats the comparison.</p><p><strong>GLM / Mamba-2:</strong> the model modifies a function while its performance tests call another, unchanged function with the same name.</p><p><strong>Sol / Sparse-MLA:</strong> the implementation passes public tests but does not execute the intended memory prefetching.</p></div></div></section><section class="paper-section" id="improvement"><div class="wrap"><h2>Completion decisions can be premature</h2><div class="paper-prose"><p>In <strong>three case studies</strong>, the stop hook prompts further work after declared completion. Subsequent code changes produce further valid gains within the original budget.</p><div class="paper-table"><table class="data"><thead><tr><th scope="col">Model</th><th scope="col">Task</th><th scope="col">Before → after</th><th scope="col">Gain</th></tr></thead><tbody><tr><td>GLM</td><td>SageAttention</td><td>365.43 → 456.03</td><td>24.8%</td></tr><tr><td>GPT-6 Astra</td><td>Flux/Comet MoE Primitive</td><td>219.28 → 235.19</td><td>7.3%</td></tr><tr><td>DeepSeek</td><td>Miles SD3.5-M Multi-teacher OPD</td><td>40.81 → 46.53</td><td>14.0%</td></tr></tbody></table></div><p>For DeepSeek, loading data in parallel with training supports the later improvement.</p></div></div></section>
+<div class="paper-next"><div class="wrap"><a href="index.html#findings">Homepage findings →</a></div></div>
+</main>
+<dialog class="paper-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title"><div class="paper-dialog-head"><h2 id="figure-dialog-title">Figure</h2><button type="button" id="figure-dialog-close" aria-label="Close expanded figure">Close ×</button></div><div class="paper-dialog-body"><img id="figure-dialog-image" alt=""></div></dialog>
+<script src="data/infrathon.js?v=ade45e4def30"></script>
+<script src="assets/js/core.js?v=fed79310f448"></script>
+<script src="assets/js/paper.js"></script>
+
+</body>
+</html>

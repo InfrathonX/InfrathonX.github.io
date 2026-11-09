@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Main Results · Infrathon</title>
+<meta name="description" content="Six models optimize 25 tasks over 12–24 hours. Claude Opus 5.5 leads with 17 task wins.">
+<meta name="theme-color" content="#f6f7f9">
+<script src="assets/js/theme.js?v=d4109bb8b0d1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
+<link rel="stylesheet" href="assets/css/home.css?v=3ddb40d1e79b">
+<link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
+</head>
+<body class="paper-page" data-page="main-results">
+<main>
+<header class="paper-page-head"><div class="wrap">
+  <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Main Results</span></div>
+  <h1>Main Results</h1>
+  <p class="lede">Six models optimize 25 tasks over 12–24 hours. Claude Opus 5.5 leads with 17 task wins.</p>
+  <div class="paper-facts"><span><strong>6</strong> models</span><span><strong>25</strong> tasks</span><span><strong>150</strong> runs</span><span><strong>80 GB</strong> H100 GPUs</span></div>
+  <nav class="paper-toc" aria-label="Page sections"><a href="#setup">Setup</a><a href="#trajectories">Trajectories</a><a href="#plateaus">Long plateaus</a><a href="#rankings">Final rankings</a><a href="#complete-trajectories">All tasks</a></nav>
+</div></header>
+<section class="paper-section" id="setup"><div class="wrap"><h2>Experimental setup</h2><div class="paper-prose"><p>We evaluate GPT-6.1 Sol, Claude Opus 5.5, Qwen 3.8 Flash, DeepSeek V4.1 Flash, GLM 5.3 Flash, and GPT-6 Astra on every task, yielding <strong>150 task–model runs</strong>. Claude uses Claude Code; the other five models use Codex CLI. Reasoning effort is set to <code>max</code>.</p><p>Experiments use <strong>NVIDIA H100 GPUs with 80 GB per GPU</strong>. Operators receive 12-hour budgets; modules and systems receive 24 hours. We report the best valid private-test score within each run’s budget. The main-experiment allocation totals <strong>10,512 GPU-hours</strong>, including Work, the continuously allocated Judge, and dedicated serving backends.</p></div></div></section><section class="paper-section" id="trajectories"><div class="wrap"><h2>Performance over time</h2><figure class="paper-figure" id="task_trajectories">
+  <div class="paper-figure-head"><h3>Performance on 12 tasks</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Performance on 12 tasks">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/paper/task_trajectories.svg" width="486" height="540" alt="Twelve tasks span training and inference at operator, module, and system levels. Curves show valid best-so-far private-test scores over each task’s budget." loading="lazy" decoding="async"></div>
+  <figcaption>Twelve tasks span training and inference at operator, module, and system levels. Curves show valid best-so-far private-test scores over each task’s budget.</figcaption>
+</figure></div></section><section class="paper-section" id="plateaus"><div class="wrap"><h2>Progress after long plateaus</h2><div class="paper-prose"><p><strong>51 of 150 runs</strong> set a new best score after at least a quarter of their budget without improvement. In <strong>29</strong> of those runs, the new score is more than 1% above the preceding best.</p><p>For Qwen on Quant-VideoGen KV Codec, the best score stays at <strong>6.05 for 6.78 hours</strong> before rising to <strong>8.58</strong>.</p></div>
+<details class="paper-disclosure" id="plateau-statistics"><summary>Statistics</summary><div class="paper-prose"><p>A run contributes once to each plateau statistic. A long plateau lasts at least a quarter of the run’s budget; the larger-gain statistic requires a new best score more than 1% above the preceding best.</p></div></details>
+</div></section><section class="paper-section" id="rankings"><div class="wrap"><h2>Final performance</h2><div class="paper-prose"><p><strong>Claude Opus 5.5 leads overall</strong>, with 17 task wins and a mean rank score of 91.2.</p><div class="paper-table"><table class="data paper-score-table"><caption class="sr-only">Overall rank scores across 25 tasks</caption><thead><tr><th scope="col">#</th><th scope="col">Model</th><th scope="col">Rank score</th><th scope="col">Task wins</th></tr></thead><tbody><tr><td>1</td><td><strong>Claude Opus 5.5</strong></td><td>91.2</td><td>17 / 25</td></tr>
+<tr><td>2</td><td><strong>GPT-6 Astra</strong></td><td>75.2</td><td>6 / 25</td></tr>
+<tr><td>3</td><td><strong>GPT-6.1 Sol</strong></td><td>54.4</td><td>1 / 25</td></tr>
+<tr><td>4</td><td><strong>Qwen 3.8 Flash</strong></td><td>40.8</td><td>1 / 25</td></tr>
+<tr><td>5</td><td><strong>DeepSeek V4.1 Flash</strong></td><td>30.4</td><td>0 / 25</td></tr>
+<tr><td>6</td><td><strong>GLM 5.3 Flash</strong></td><td>8.0</td><td>0 / 25</td></tr></tbody></table></div><p>Each task ranks the six models by its final valid score, with average ranks for exact ties. Rank score rescales the mean rank to 0–100 with equal task weights; 100 means first on every task.</p></div><figure class="paper-figure" id="rank_performance">
+  <div class="paper-figure-head"><h3>Rank-based final performance</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Rank-based final performance">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/paper/rank_performance.svg" width="486" height="285" alt="Markers show mean rank scores across the tasks in each group. Error bars show ±1 standard error of the mean. Higher is better." loading="lazy" decoding="async"></div>
+  <figcaption>Markers show mean rank scores across the tasks in each group. Error bars show ±1 standard error of the mean. Higher is better.</figcaption>
+</figure></div></section><section class="paper-section" id="task-differences"><div class="wrap"><h2>Strengths differ across tasks</h2><div class="paper-prose"><p>Claude wins <strong>nine operators, two modules, and six systems</strong>. Astra wins six tasks; Sol and Qwen win one each. The three inference-module tasks have three different winners: Sol on kvpress KV Eviction, Astra on KVzip KV Scoring, and Claude on Quant-VideoGen KV Codec.</p><p>Astra has the highest mean rank score on inference modules, <strong>86.7</strong>, compared with Claude’s 80.0. Qwen wins Concurrent Agent Serving at <strong>154.33 valid steps/min</strong>, compared with Claude’s 151.17.</p></div></div></section><section class="paper-section" id="complete-trajectories"><div class="wrap"><h2>Complete task trajectories</h2><details class="paper-disclosure"><summary>View all 25 tasks and 150 runs</summary><figure class="paper-figure" id="appendix_task_trajectories_1">
+  <div class="paper-figure-head"><h3>Complete trajectories: first task group</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Complete trajectories: first task group">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/paper/appendix_task_trajectories_1.svg" width="486" height="540" alt="Task score trajectories across six models." loading="lazy" decoding="async"></div>
+  <figcaption>Task score trajectories across six models.</figcaption>
+</figure><figure class="paper-figure" id="appendix_task_trajectories_2">
+  <div class="paper-figure-head"><h3>Complete trajectories: remaining tasks</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Complete trajectories: remaining tasks">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/paper/appendix_task_trajectories_2.svg" width="486" height="475" alt="Task score trajectories across six models." loading="lazy" decoding="async"></div>
+  <figcaption>Task score trajectories across six models.</figcaption>
+</figure></details><p class="source-label"><a class="link" href="index.html#results">Interactive task results ↗</a></p></div></section>
+<div class="paper-next"><div class="wrap"><a href="knowledge-discovery.html">Knowledge Discovery with Infrathon →</a></div></div>
+</main>
+<dialog class="paper-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title"><div class="paper-dialog-head"><h2 id="figure-dialog-title">Figure</h2><button type="button" id="figure-dialog-close" aria-label="Close expanded figure">Close ×</button></div><div class="paper-dialog-body"><img id="figure-dialog-image" alt=""></div></dialog>
+<script src="data/infrathon.js?v=ade45e4def30"></script>
+<script src="assets/js/core.js?v=fed79310f448"></script>
+<script src="assets/js/paper.js"></script>
+
+</body>
+</html>

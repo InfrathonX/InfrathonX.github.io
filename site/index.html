@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Infrathon</title>
+<link rel="canonical" href="https://infrathonx.github.io/">
 <meta name="description" content="In this work, we study whether frontier models can sustain progress on real-world AI infrastructure optimization over long horizons.">
 <meta property="og:title" content="Infrathon">
 <meta property="og:description" content="Can frontier models solve long-horizon AI infrastructure tasks? 25 tasks, 6 configurations, 150 runs on H100s.">
@@ -14,9 +15,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
-<link rel="stylesheet" href="assets/css/home.css?v=3d9cedf846c0">
+<link rel="stylesheet" href="assets/css/home.css?v=3ddb40d1e79b">
 <link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
-<link rel="stylesheet" href="assets/css/tts.css?v=9bb98cd83bb3">
+<link rel="stylesheet" href="assets/css/tts.css?v=d604fde94ae9">
 </head>
 <body data-page="index">
 <main>
@@ -86,12 +87,14 @@
         <div><dt>GPU-hours</dt><dd>10,000+</dd></div>
       </dl>
     </div>
-    <aside class="paper-resources" aria-label="Paper and project resources">
-      <div class="resource-links" aria-label="Project resources">
-        <a class="resource-button" href="https://infrathonx.github.io/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg>Paper</a>
-        <a class="resource-button" href="https://github.com/InfrathonX/Infrathon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5 m8-10 5 5-5 5 m-3-13-2 16"/></svg>Code</a>
-        <a class="resource-button" href="https://hub.docker.com/r/infrathon/infrathon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 7 9-4 9 4v10l-9 4-9-4z M3 7l9 5 9-5 M12 12v9"/></svg>Docker</a>
-        <a class="resource-button" href="https://huggingface.co/datasets/Infrathon/Infrathon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c0-4 16-4 16 0v12c0 4-16 4-16 0z M4 6c0 4 16 4 16 0 M4 12c0 4 16 4 16 0"/></svg>HuggingFace</a>
+    <aside class="paper-resources" aria-label="Project resources and contacts">
+      <div class="resource-links" aria-label="Project resources and contacts">
+        <a class="resource-button" href="https://infrathonx.github.io/" target="_blank" rel="noopener noreferrer" aria-label="arXiv"><img class="resource-brand resource-brand--wordmark" src="assets/img/resources/arxiv.svg" width="74" height="32" alt="arXiv"></a>
+        <a class="resource-button" href="https://github.com/InfrathonX/Infrathon" target="_blank" rel="noopener noreferrer"><img class="resource-brand" src="assets/img/resources/github.svg" width="24" height="24" alt="">GitHub</a>
+        <a class="resource-button" href="https://hub.docker.com/r/infrathon/infrathon" target="_blank" rel="noopener noreferrer"><img class="resource-brand" src="assets/img/resources/docker.svg" width="24" height="24" alt="">Docker Hub</a>
+        <a class="resource-button" href="https://huggingface.co/datasets/Infrathon/Infrathon" target="_blank" rel="noopener noreferrer"><img class="resource-brand" src="assets/img/resources/huggingface.svg" width="24" height="24" alt="">Hugging Face</a>
+        <a class="resource-button resource-button--contact" href="mailto:zhu7@uw.edu" aria-label="Email Zhengyu Hu at zhu7@uw.edu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z M3 5l9 7 9-7"/></svg><span class="resource-contact-text"><span class="resource-contact-name">Zhengyu Hu</span><span class="resource-contact-address">zhu7@uw.edu</span></span></a>
+        <a class="resource-button resource-button--contact" href="mailto:tengxiao01@gmail.com" aria-label="Email Teng Xiao at tengxiao01@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z M3 5l9 7 9-7"/></svg><span class="resource-contact-text"><span class="resource-contact-name">Teng Xiao</span><span class="resource-contact-address">tengxiao01@gmail.com</span></span></a>
       </div>
     </aside>
   </section>
@@ -169,11 +172,11 @@
     <div class="tts-viewer" id="horizon-trajectories" data-tts-viewer>
       <p>Loading optimization trajectories…</p>
       <noscript><img src="assets/img/tts/astra.svg" alt="GPT-6 Astra: six long- and short-horizon task trajectories"><img src="assets/img/tts/claude.svg" alt="Claude Opus 5.5: six long- and short-horizon task trajectories"></noscript>
-    </div>
-    <div class="horizon-takeaways">
-      <p><strong>Longer horizons are <span class="finding-emphasis">more effective for module and system tasks</span>, while short-horizon TTS remains <span class="finding-emphasis">competitive on operators</span>.</strong></p>
-      <p>Best-of-four (T/4) achieves <strong class="finding-emphasis">102.6%</strong> of long-horizon performance on operators, <strong class="finding-emphasis">96.9%</strong> on modules, and <strong class="finding-emphasis">77.3%</strong> on systems. Best-of-two (T/2) follows the same pattern.</p>
-      <p>Long-horizon optimization (T) wins <strong class="finding-emphasis">9 of 12 comparisons</strong>, including <strong class="finding-emphasis">all four system comparisons</strong>.</p>
+      <div class="horizon-takeaways">
+        <p><strong>Longer horizons are <span class="finding-emphasis">more effective for module and system tasks</span>, while short-horizon TTS remains <span class="finding-emphasis">competitive on operators</span>.</strong></p>
+        <p>Best-of-four (T/4) achieves <strong class="finding-emphasis">102.6%</strong> of long-horizon performance on operators, <strong class="finding-emphasis">96.9%</strong> on modules, and <strong class="finding-emphasis">77.3%</strong> on systems. Best-of-two (T/2) follows the same pattern.</p>
+        <p>Long-horizon optimization (T) wins <strong class="finding-emphasis">9 of 12 comparisons</strong>, including <strong class="finding-emphasis">all four system comparisons</strong>.</p>
+      </div>
     </div>
   </div></section>
 
@@ -184,7 +187,7 @@
 <script src="assets/js/home-results.js?v=afa98fc0985b"></script>
 <script src="assets/js/paper.js"></script>
 <script src="data/tts.js?v=c379df8be2fa"></script>
-<script src="assets/js/tts.js?v=e0ea749d06ee"></script>
+<script src="assets/js/tts.js?v=1bce8e496262"></script>
 <script src="assets/js/home.js?v=5c1eeaf2de75"></script>
 </body>
 </html>

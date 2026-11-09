@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Knowledge Discovery with Infrathon · Infrathon</title>
+<meta name="description" content="Claude’s Quant-VideoGen codec improves compression and video quality over the human codec.">
+<meta name="theme-color" content="#f6f7f9">
+<script src="assets/js/theme.js?v=d4109bb8b0d1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
+<link rel="stylesheet" href="assets/css/home.css?v=3ddb40d1e79b">
+<link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
+</head>
+<body class="paper-page" data-page="knowledge-discovery">
+<main>
+<header class="paper-page-head"><div class="wrap">
+  <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Knowledge Discovery with Infrathon</span></div>
+  <h1>Knowledge Discovery with Infrathon</h1>
+  <p class="lede">Claude’s Quant-VideoGen codec improves compression and video quality over the human codec.</p>
+
+  <nav class="paper-toc" aria-label="Page sections"><a href="#setup">Evaluation</a><a href="#comparison">Results</a><a href="#optimization">Codec design</a><a href="#iterations">Submissions</a></nav>
+</div></header>
+<section class="paper-section" id="setup"><div class="wrap"><h2>Codec comparison</h2><div class="paper-prose"><p>We compare the codec developed by <strong>Claude Opus 5.5 during a 24-hour run</strong> with the human Quant-VideoGen codec. The evaluation uses HY-WorldPlay on WorldScore and LongCat-Video on MovieGen, with <strong>200 samples per dataset</strong>.</p></div>
+<details class="paper-disclosure" id="codec-evaluation"><summary>Evaluation setup</summary><div class="paper-prose"><p>Both codecs and the uncompressed BF16 reference use the same inputs and generation settings.</p><p>PSNR, SSIM, and LPIPS compare the first segment generated with compressed KV against the BF16 reference.</p></div></details>
+</div></section><section class="paper-section" id="comparison"><div class="wrap"><h2>Human versus Claude</h2><div class="paper-prose"><p>Entries report <strong>Human → Claude</strong>. Higher compression, PSNR, and SSIM are better; lower LPIPS is better.</p><div class="paper-table"><table class="data"><thead><tr><th scope="col">Video model</th><th scope="col">Dataset</th><th scope="col">Compression ↑</th><th scope="col">PSNR (dB) ↑</th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th></tr></thead><tbody><tr><td>HY-WorldPlay</td><td>WorldScore</td><td>6.75× → <b>20.89×</b></td><td>31.15 → <b>36.33</b></td><td>0.923 → <b>0.975</b></td><td>0.059 → <b>0.023</b></td></tr><tr><td>LongCat-Video</td><td>MovieGen</td><td>6.88× → <b>18.83×</b></td><td>23.67 → <b>26.95</b></td><td>0.836 → <b>0.884</b></td><td>0.126 → <b>0.085</b></td></tr></tbody></table></div><p>Mean compression across the two evaluations increases from <strong>6.82× to 19.86×</strong>. Both datasets also show improvements in PSNR, SSIM, and LPIPS.</p></div></div></section><section class="paper-section" id="optimization"><div class="wrap"><h2>What the agent discovers</h2><div class="paper-prose"><p>The human codec quantizes the residuals left after clustering the cache one value at a time. Claude instead transforms those residuals using <strong>principal component analysis</strong> and applies <strong>entropy coding after quantization</strong>.</p><p>Claude’s codec improves compression and video quality. Mean PSNR increases by approximately 5.2 dB on WorldScore and 3.3 dB on MovieGen.</p></div><figure class="paper-figure" id="qvg_intro">
+  <div class="paper-figure-head"><h3>An example of optimization with Infrathon</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: An example of optimization with Infrathon">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/homepage/qvg-intro.svg" width="1030" height="503" alt="The upper examples compare BF16, the human codec, and Claude’s codec. The lower trajectory combines compression and video quality; red annotations report compression ratios." loading="lazy" decoding="async"></div>
+  <figcaption>The upper examples compare BF16, the human codec, and Claude’s codec. The lower trajectory combines compression and video quality; red annotations report compression ratios.</figcaption>
+</figure></div></section><section class="paper-section" id="iterations"><div class="wrap"><h2>Improvements across submissions</h2><figure class="paper-figure" id="qvg_submission_comparison">
+  <div class="paper-figure-head"><h3>Iterative optimization of the KV codec</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Iterative optimization of the KV codec">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/paper/qvg_submission_comparison.svg" width="515" height="461" alt="Claude Opus 5.5’s 6th, 7th, 16th, and 22nd submissions are compared with BF16 and the human codec on two LongCat-Video samples. Parentheses show compression ratios." loading="lazy" decoding="async"></div>
+  <figcaption>Claude Opus 5.5’s 6th, 7th, 16th, and 22nd submissions are compared with BF16 and the human codec on two LongCat-Video samples. Parentheses show compression ratios.</figcaption>
+</figure><div class="paper-prose"><p>From submission 16 to 22, compression rises from approximately <strong>16.6× to 18.8×</strong> on both displayed samples while mushroom textures and facial details become clearer.</p></div></div></section><section class="paper-section" id="build"><div class="wrap"><h2>Building new discovery tasks</h2><div class="paper-prose"><p><strong>Infrathon-build</strong> helps researchers turn their own infrastructure problems into tasks. Infrathon then supplies an execution and feedback loop for comparing agent solutions with existing implementations and iterating from test feedback.</p><p><a href="framework.html#definition">Task definition and execution ↗</a></p></div></div></section>
+<div class="paper-next"><div class="wrap"><a href="analysis.html">Analysis →</a></div></div>
+</main>
+<dialog class="paper-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title"><div class="paper-dialog-head"><h2 id="figure-dialog-title">Figure</h2><button type="button" id="figure-dialog-close" aria-label="Close expanded figure">Close ×</button></div><div class="paper-dialog-body"><img id="figure-dialog-image" alt=""></div></dialog>
+<script src="data/infrathon.js?v=ade45e4def30"></script>
+<script src="assets/js/core.js?v=fed79310f448"></script>
+<script src="assets/js/paper.js"></script>
+
+</body>
+</html>
