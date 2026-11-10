@@ -1,43 +1,43 @@
 {
   "project": "https://github.com/InfrathonX/Infrathon",
-  "revision": "eb72a9ce8a4067766b0ffaf99ea23659102b617a",
+  "revision": "ad760e7d033028857d5c77e118a4829027934548",
   "checkout": "../Infrathon",
   "sources": [
     {
       "path": "README.md",
-      "sha256": "dbfa6255834bf407f3e89c48e29b76c0505420a7f810cde53f6d4fe38cc68540"
+      "sha256": "0f97b85da8f9efef8917ec2880bc4dcda5004bd859485ee54bab02b1505a4a37"
     },
     {
       "path": "docs/HOST_PREREQUISITES.md",
-      "sha256": "5a910d69ffebd435214cfb8668e00930d7c9b088bd0083237d393af6edd8d20c"
+      "sha256": "58ec4fa0c4052194894fd0043162f5269e3b7366a83d8dbda79fd64ed10d825f"
     },
     {
       "path": "scripts/infrathon/README.md",
-      "sha256": "524cadf6dcfa66278627e00ca95598b94ec8a4f94a097a1e35a3e0ebf435dd02"
+      "sha256": "c78137ae8cb69fc52fa0dbc993bcab62ef8a5bc0a81cf5544c49d5ac4ec5c1d8"
     },
     {
       "path": "scripts/infrathon/registry.json",
-      "sha256": "58e30eb5bfd2aa2cece886abdd3b240e3efacbf7138d5d8dfce4e0a1f3458af2"
+      "sha256": "4dfa241c990300c1ab0d79d576492aa4db121b08a288d11fc13c68638b934a2d"
     },
     {
       "path": "scripts/infrathon/tasks.json",
-      "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+      "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
     },
     {
       "path": "scripts/infrathon/assets.py",
-      "sha256": "d427226c34ffb242eeb198c7103e135d931c89363441df7d4b2410a3a8f892cc"
+      "sha256": "f8b0a39bc1b2e70fec3ddda7b6d1e8deea4ebf9e837e92b310ba19268e58af54"
     },
     {
       "path": "scripts/infrathon/images.sh",
-      "sha256": "390894ccbd1941c934d49b33ece27e6cae8f2ef96089d942722a5faa5a819274"
+      "sha256": "0ce4749b75d09b86bdc0be172c3f11796db897aa54bcbe3783ec5d183a86c761"
     },
     {
       "path": "scripts/infrathon/pull_images.sh",
-      "sha256": "fba75ad54f3bbd5d626bc091c15a81d225afdfd3ca8347b7fad18b228c0ac7ea"
+      "sha256": "0d7686bdd82a5418b1d29858f1c9fa18d8ab4a667dd828c0f731df56220f0e86"
     },
     {
       "path": "pyproject.toml",
-      "sha256": "93e45e0ee26c65bf782047d07635593af8846b4c5a58f558922948a0c3752846"
+      "sha256": "0dd200ea9444299a62dea6986ff078f1c750bf522ebb91598363d2ad432121ac"
     },
     {
       "path": "uv.lock",
@@ -45,11 +45,11 @@
     },
     {
       "path": "docs/LLM_JUDGE.md",
-      "sha256": "5ee49bdd1abfec613ded476a655d2255ffea2df597a805dc9ac6770d56d27bcb"
+      "sha256": "0e39ce56c4e21baeaeddd8dce01cc38b9ad065a5b710fc2084e71a52e1484f59"
     },
     {
       "path": "launch/common.sh",
-      "sha256": "e0bd20e4918d2e44b965ad0aaecacca51293fd84dbddc3a8a32d3dbe34b6414a"
+      "sha256": "ba313ad855920382d99db2793e26fed250dea7941eecc432b8f647b3ebf945f8"
     },
     {
       "path": "launch/build-agent-runtime.sh",
@@ -57,19 +57,19 @@
     },
     {
       "path": "launch/standalone-fp8/run.sh",
-      "sha256": "565b059d615f37b6337af4d598dfc88226225eb654dfb635ff02962600e2cc8f"
+      "sha256": "f73847a30db9d16db2ee38ebaaa069ec86387eea170eca300f9e3ca8ed174e9d"
     },
     {
       "path": "launch/mlsysforge.env.example",
-      "sha256": "f0dd1e14c77acd85e7136a8bbbc9923d5985ee25234b9ac7e6d7c24edee1430f"
+      "sha256": "6485b1fe6ded51244de975cc55b343dc9b97e55eda8c1dacc8fe867d3564490a"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/images/published.json",
-      "sha256": "114b82e0075f6deb32589727e7411a215cba89019e24fec54063d9a3acf3b905"
+      "sha256": "e3682a5229e91fa3ef773f130f0a27ae902cb3aafdd429fc348a5d5a06ee57d9"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/assets/manifest.json",
-      "sha256": "3185cca2edd1a05abccfff4fa89c576d25b4d4390bcf956d37cd315513ce24f3"
+      "sha256": "3ab14fe11373204382bcdd78ccbd6d84dd79773b3b798367a6dd6adfac8ccca4"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/assets/fetch.sh",
@@ -77,35 +77,35 @@
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/scripts/build_images.sh",
-      "sha256": "bc21902bcd606b42431660c4e84dd24062b5b4db9742f4eff27e5368ee7ae3c7"
+      "sha256": "05b75ba53301c1815a4ebc14cf5a33136c7d11a8984f1e44b0f9ab247767df07"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/scripts/eval_archive.sh",
-      "sha256": "2cf2e7833edce85d0c1aac7ceb2c6189b18f2607480459f1d4e3c43e4dfeb113"
+      "sha256": "5232cc4a82fe259e9720b0647661ec8fe9839da8f944c947bafd4373c8a1bf12"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/scripts/run_fixed_budget.sh",
-      "sha256": "2cf95c0469ea78ca4725791493eb6d7b11b90e41fb1d72ee4c90dd5bf22d121d"
+      "sha256": "a1d869e845be25562f6e4f5882c5c4a66b9eca1b0413d24e56e290edf476475f"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/tasks/standalone_dynamic_grouped_fp8_h100_scratch_v3.json",
-      "sha256": "54a75bbcb9f03cde0bb1aee064050ea15f228af7be476f2a32feaa943df56320"
+      "sha256": "f9e8f439ef36db3760be4333712ebf59f6215fa816a276968db9372553ed426f"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/README.md",
-      "sha256": "de19714197495d359f6393416eaf743ff11d3d12d336f446e7e4e9f92315174e"
+      "sha256": "cf825033910c8d057e648088142e3487feebf2addf6bc8021e21cf3e4fda67a0"
     },
     {
       "path": "sforge/harness/evolve_scripts.py",
-      "sha256": "a4e3dd5954023b6c1d8eb5e0d8b91d6b52c1f5b4d159b904c92fe771c842a67a"
+      "sha256": "3b1b2f6804071383e96dc54296a240a993ce827b179e3effdb8d1c63f23782c2"
     },
     {
       "path": "launch/README.md",
-      "sha256": "d8ebdc21a5fd56a2ae36253f22dc471ba88868c238a35f17be3905082e370f7f"
+      "sha256": "a44d4cbef7c5f24fb994d9de95f6133dcb2a3b91eaf2223bd84cc1f6939b9d53"
     },
     {
       "path": "sforge/harness/version_store.py",
-      "sha256": "508678ac35575c453500b8b9986c973047280d56553b31f899daf449776f79a4"
+      "sha256": "6750ffb9eb1c8960a683081b5c8377328b69cbc52713dcf0cf0b8d622b752fab"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/scripts/run_single_gpu_fixed_budget.sh",
@@ -113,15 +113,15 @@
     },
     {
       "path": "scripts/infrathon/publish_images.sh",
-      "sha256": "7aa254dc63ada8f03bfb7eb8ac77694c0e1f40fe89e68d28a53d104daad9e22a"
+      "sha256": "a57e40892138a6979057153b374f23716d59eaf9f425fec425fd1d9ca8f23a3f"
     },
     {
       "path": "sforge/harness/llm_judge/config.py",
-      "sha256": "8cedcc940dc71f6b6f515f21a49e4e1e5813bbd79e468a73f317b7ac22c10ea9"
+      "sha256": "3d1bcf2b1821a034388d63cd8d2c64c28262871958de0c2adb2a4080085db348"
     },
     {
       "path": "launch/flux-moe-ag/run.sh",
-      "sha256": "bc5015493a18ce067aa9779569771813cd723aa53c194d2aeae31d53c422f360"
+      "sha256": "613f38d6e525cb1d4d179f64b400c2467771d4f6984f4870cd6e96b4ed1fde75"
     }
   ],
   "resources": {

@@ -1,7 +1,7 @@
 {
   "source": {
     "project": "https://github.com/InfrathonX/Infrathon",
-    "revision": "eb72a9ce8a4067766b0ffaf99ea23659102b617a",
+    "revision": "ad760e7d033028857d5c77e118a4829027934548",
     "checkout": "../Infrathon"
   },
   "tasks": {
@@ -24,15 +24,15 @@
       "sources": [
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/README.md",
-          "sha256": "8c01bd51323dbca1369976b878c3d56b7b38c2ffb806c15fa1c622a8033e127a"
+          "sha256": "deea52d06ff61a115d7dfbf6e19a42a63fc809133aaedb6fdd907eb976c9e288"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/images/work/AGENT_TASK.md",
-          "sha256": "cce86d7a6a89654846f17f712902481d35d5ef3baf43c41bef8ed265fa6b531f"
+          "sha256": "9cb24119ee56ef13da3e7ff7b2330ca8d347c1768602f2968d7264ea4287b037"
         },
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/images/work/workdir/attn_qat_lab/tools/run_public_tests.sh",
@@ -40,19 +40,19 @@
         },
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/images/work/benchmark/run_public_tests.sh",
-          "sha256": "08a34f45975fb17f0a6a8545f7534eaf6332c56c599d698f97ac624c0f928284"
+          "sha256": "3f9a487fce5fb832fb46c85760cf3642828cf86251b5e3cd0f81136bef281f51"
         },
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/assets/manifest.json",
-          "sha256": "1b0061c96fd8235190453bf18da9af69e11e78c5fcba1f92d2b88e8956cba993"
+          "sha256": "a80d93aeb40b495374d20c1a090100190d11e43bc9050446a7b8fc123ea3d014"
         },
         {
           "doc": "launch/attn-qat-train/run.sh",
-          "sha256": "fe43df858852a9ee62b14bd2a1f0e7caf86884339572b61b991b78811cafa0b5"
+          "sha256": "82ff53b7796424e0e2886c9052ecedaa16a72f291d957e44915b83ac93d227b6"
         },
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/images/judge/verify_attn_qat.py",
-          "sha256": "e4cad0cd23de4a4303ad38747362ac3665032bcaba2d74ce25efa9e7f1cc8f26"
+          "sha256": "d2ed705fa9dd315ecff87cc444bc622c039bc2240f994c57859b0f8f4edae843"
         },
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/scripts/run_single_gpu_fixed_budget.sh",
@@ -60,7 +60,7 @@
         },
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/tasks/attn_qat_nvfp4_training_attention_h100_seed_v1.json",
-          "sha256": "265b5bdddf2c3c07e499630713fae43cc0908c690fe8d847f8bfcb0cb1219499"
+          "sha256": "097ed9dcab3a2616aa87a4cb23e1d24bbe742dab226bb6c44cde5d0901ff92d4"
         }
       ],
       "result_intro": "This task accelerates the forward and backward attention operator used to fine-tune video diffusion models with NVFP4 quantization-aware training.",
@@ -152,31 +152,31 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-k-grouped-fp8-wgrad-h100-v2-scratch/README.md",
-          "sha256": "d59de9267ca1dc644a8a8af4bfb7be966e52ab9d2adde88c220c501fc9b248dc"
+          "sha256": "86d49e2992ea1121cf0d143fff1a327d3d02a0d745aa6a2d59e000370bbaeee6"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/standalone-k-grouped-fp8-wgrad-h100-v2-scratch/images/work/AGENT_TASK.md",
-          "sha256": "7b530b9ca10c5417d34bbd12ac7c98c43d8f9b7de9ab2dddfa68fbb51f06e083"
+          "sha256": "8a34072496c9bb6b01a39bdb964319146ab91ba42116974cdd5108905e7d37d5"
         },
         {
           "doc": "tasks/latest/standalone-k-grouped-fp8-wgrad-h100-v2-scratch/images/work/benchmark/run_public_tests.sh",
-          "sha256": "43d42d675bc869c05ea275259a0491bd3b1e86a6633058e441fccd89114925fd"
+          "sha256": "7a12b6d52341ed897baf57ee63bf862a928662d3a86408ce28c94e6828190194"
         },
         {
           "doc": "tasks/latest/standalone-k-grouped-fp8-wgrad-h100-v2-scratch/assets/manifest.json",
-          "sha256": "ae322d22f11acc5856127d97cdf6f24d1785d933b261a62f2e277ab7163768dd"
+          "sha256": "e4e222ad4a8a1477f0de386f3ab302501d28d446e6a7ea1ca3de60f25f00819f"
         },
         {
           "doc": "launch/standalone-kgrouped-wgrad/run.sh",
-          "sha256": "8c1b591f0e3a037d3f41aae70b1bc888b89b4c5aac22c30ca2a356dc402aed41"
+          "sha256": "ed5fdba79ea18d21590c6ab8d99d4324d58282aaf072ff39cfdaf4420244c040"
         },
         {
           "doc": "tasks/latest/standalone-k-grouped-fp8-wgrad-h100-v2-scratch/images/judge/verify_wgrad.py",
-          "sha256": "4e702637dd8c8013166590d3b247032a6116e1b52854200c901e0cd924b6d756"
+          "sha256": "6ac0d6ed5865d8014e898c672b701163c50aa3f86527d1a93de59ce10bb68bd4"
         },
         {
           "doc": "tasks/latest/standalone-k-grouped-fp8-wgrad-h100-v2-scratch/scripts/run_single_gpu_fixed_budget.sh",
@@ -184,7 +184,7 @@
         },
         {
           "doc": "tasks/latest/standalone-k-grouped-fp8-wgrad-h100-v2-scratch/tasks/standalone_k_grouped_fp8_wgrad_h100_scratch_v2.json",
-          "sha256": "0725ea38d01df0504aa5e71f0dbb2146979ea72c16bfa68d0cff32c927ff85f8"
+          "sha256": "4800922f5a65c46e32d586dff2fa1684f90453b4ac6ad7736574fe724d112ee7"
         }
       ],
       "result_intro": "Implement the weight-gradient matrix multiplication used by mixture-of-experts training, starting from an empty Triton candidate.",
@@ -276,39 +276,39 @@
       "sources": [
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/README.md",
-          "sha256": "3691eb7a28787a81deb61d668e9b091bb76e0592f48ef631eb9ffef774401ca1"
+          "sha256": "85d5c8bad3d256c09f13a3f28b6c870c415b5a3faa0ee2f5c3308968ba3d2656"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/images/work/AGENT_TASK.md",
-          "sha256": "074d91df0eb6d610e2285f03d84048419f5fbc7af5108ea287a5db035280cb08"
+          "sha256": "2963c7c540eea425b52d61f008458a62f1ea6ccf21be3f65930fd48f381c722a"
         },
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/scripts/preflight.py",
-          "sha256": "65bc8ec8f9beb610f363e9ca67a62aae30f90e9e9956b1454d0b4166ccb380eb"
+          "sha256": "ecbb5d5ea8ce49e2cd26637f995aec8c4c1f0246fe4199da57367fd0eee34937"
         },
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/scripts/launch_fixed_budget_after_gpu_pair_idle.sh",
-          "sha256": "8cecf0cd5ede408ebb83a27c7f7eefb84be0663aa6cc5644482683daf7b34560"
+          "sha256": "0affe450e79eda06cdb16d992d3dc6668440638591325f86f75a5b2cae444b37"
         },
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/assets/manifest.json",
-          "sha256": "f22232283c20f46447d1afeb47a23b5a997004565f4eb5ada9a42c3f294c04de"
+          "sha256": "67532508d0a03120d54fb1267a968e135efc93e77f02b8565bb6deaa6e174099"
         },
         {
           "doc": "launch/flux-moe-ag/run.sh",
-          "sha256": "bc5015493a18ce067aa9779569771813cd723aa53c194d2aeae31d53c422f360"
+          "sha256": "613f38d6e525cb1d4d179f64b400c2467771d4f6984f4870cd6e96b4ed1fde75"
         },
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/images/judge/verify_moe_ag.py",
-          "sha256": "af4504934240fbac1eaa8635df7c1690161a1f5bbddda575fddec6b43885f2b0"
+          "sha256": "91b13c458e8334d8002e10eb286ef1d51503ccce8dcf136855443d8a9d115e55"
         },
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/tasks/flux_moe_ag_scatter_grouped_gemm_dual_h100_seed_v1.json",
-          "sha256": "4e2aebd0d20ff87a469d1637f9b11d7501acdeeee82006f972e027625d5441ef"
+          "sha256": "1ef7e017f986a2f6186a89cb3c0e6a59a3f4d94f7edf9937c331bc916ae531ac"
         }
       ],
       "result_intro": "Optimize the input-side primitive of a tensor-parallel mixture-of-experts layer on two GPUs.",
@@ -404,23 +404,23 @@
       "sources": [
         {
           "doc": "tasks/latest/qwen3-1p7b-orpo-training-optimizer-dual-h100-v4-cross-matrix-seed/README.md",
-          "sha256": "6ed147b7e7f6269eb9fdf5f167fe3f83e4a46e747ef8607bc012531950e0c793"
+          "sha256": "27363406c14c6d95518d65645306d249c723921f334090d4c73120af8644fef4"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/qwen3-1p7b-orpo-training-optimizer-dual-h100-v4-cross-matrix-seed/images/work/public_tests/run_public_tests.sh",
-          "sha256": "85c947475150f515f3dd15b6f8815996f2eb6e2eb4b88fdd6472cc45938480c9"
+          "sha256": "3808d6fdf095148eff0841447765583d5ce21bafe76ab164a2cf51216078d62e"
         },
         {
           "doc": "tasks/latest/qwen3-1p7b-orpo-training-optimizer-dual-h100-v4-cross-matrix-seed/assets/manifest.json",
-          "sha256": "15e48e30d03776cd165464ec83b326321d55e58fe53a8d699f227a50d4c896d8"
+          "sha256": "89bae61192989c19e034d3b54ab7f0f7e39c6beb33cd59ea9c7068560169562e"
         },
         {
           "doc": "launch/qwen3-orpo/run.sh",
-          "sha256": "24731e7c57335794c4b0f8f6624fb08461b366007f92983de2dd50fcfd2c8280"
+          "sha256": "1cf7689ee38c3b107bc141ebd47b96c4124a8f1224f9146b9d30245e35faa72b"
         },
         {
           "doc": "tasks/latest/qwen3-1p7b-orpo-training-optimizer-dual-h100-v4-cross-matrix-seed/images/judge/verifier/e2e_formal_controller.py",
@@ -428,11 +428,11 @@
         },
         {
           "doc": "tasks/latest/qwen3-1p7b-orpo-training-optimizer-dual-h100-v4-cross-matrix-seed/scripts/launch_fixed_budget_after_gpu67_idle.sh",
-          "sha256": "c4eea9f72f3c30f17d762d3f6b98957e80bd1ef3aaffbed930a0fe7b9667cc23"
+          "sha256": "9292e2dba32d490a60dc97df5df5cd3bfe13cb2db713ed65aeaeb3a7d7873834"
         },
         {
           "doc": "tasks/latest/qwen3-1p7b-orpo-training-optimizer-dual-h100-v4-cross-matrix-seed/tasks/qwen3_1p7b_orpo_training_optimizer_dual_h100_v4.json",
-          "sha256": "2f1d803437e0cc9e0cfe8c97b243a0553da5a947c26b2a84ea029718203850cf"
+          "sha256": "c549eb298f10ddfbacb35500dfe4a1afb55d4e1d2050060178c8e0e1a31a587d"
         }
       ],
       "result_intro": "Accelerate complete Qwen3-1.7B preference-training steps while preserving the official TRL ORPO objective and full-parameter updates.",
@@ -530,11 +530,11 @@
       "sources": [
         {
           "doc": "tasks/latest/qwen3-4b-to-1p7b-gkd-distillation-optimizer-dual-h100-v1-official-trl-seed/README.md",
-          "sha256": "a968a6542501d6af11003d9aee0244be0fa48505c31e8b4efbbec1a3a9530283"
+          "sha256": "e7b75c3590e6d89da27cf563d709fb314b90474eb9b8e548ccc8e90f3e00e8a9"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/qwen3-4b-to-1p7b-gkd-distillation-optimizer-dual-h100-v1-official-trl-seed/assets/manifest.json",
@@ -542,15 +542,15 @@
         },
         {
           "doc": "launch/qwen3-gkd/run.sh",
-          "sha256": "cbcb947a6c234fdc184d5d9d6146c13ed35d1030e344851e48c24f7ad1bf1619"
+          "sha256": "63c6dddb596a9e591f72409afe2960f1c969c8b960514a69d03f28b629aa5c4e"
         },
         {
           "doc": "tasks/latest/qwen3-4b-to-1p7b-gkd-distillation-optimizer-dual-h100-v1-official-trl-seed/images/judge/verifier/e2e_formal_controller.py",
-          "sha256": "1c06be8324fb4cbf63e35820bfa99340f7caa57720068b70d1aa55fe97cc1d49"
+          "sha256": "9344c66b3e93160bee562dcf9b4b872b22a83eddc04f87273541e9d9d078f670"
         },
         {
           "doc": "tasks/latest/qwen3-4b-to-1p7b-gkd-distillation-optimizer-dual-h100-v1-official-trl-seed/tasks/qwen3_4b_to_1p7b_gkd_distillation_optimizer_dual_h100_v1.json",
-          "sha256": "cf9a1f1db21086d4fe9e3b5e9f5cc13423ae7334eaea4fcc1d9c5f1d76836d44"
+          "sha256": "4e68d4b37ef7a00661dcf60a3b054bc842367572718ec8dd22a9ea32754e1679"
         }
       ],
       "result_intro": "Accelerate off-policy knowledge-distillation steps from a frozen Qwen3-4B teacher into a trainable Qwen3-1.7B student.",
@@ -650,27 +650,27 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/README.md",
-          "sha256": "f7993d5a5f632b77e31f7767cd4501580dcfac312a8fd241c490a6c8076107ab"
+          "sha256": "1490f7c0f3a2e7f94fd1f0d9fc1a2fe3ea279a1ccf799fe3a6d34df6325326ac"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/docs/INTERFACE.md",
-          "sha256": "0456424116aca657f748c1b0fa28d0767004115217d7a2c738f67c71b3350fca"
+          "sha256": "8ccc81d97097efde523974251f6284fcc09de1d54185707743918f1920ca067d"
         },
         {
           "doc": "scripts/miles_opcd/v3/run_public_v3.py",
-          "sha256": "bf28e623c414cace353730e6363e9647396d36c8af290cfa116e097590464916"
+          "sha256": "4344500e747a698576b2fdd40ef94b268f82036908969be27ba984ad852e7b8d"
         },
         {
           "doc": "scripts/miles_common/host_config.py",
-          "sha256": "58e4a5039fd558c29799629d6b81f6536d30611c6550b3f3ab409191e39d1557"
+          "sha256": "cc2e99a0fdb02ecb2a2acdcd463c566a590eb30c304ff1fd24cd2887c4356670"
         },
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/scripts/run_task.py",
-          "sha256": "0257fd3da5a151c190ae530f0c4aeecc46fa6f0fca400f1e016d26dd89b1085f"
+          "sha256": "f6fc8e62baeef178591f5e6f33eaa62b40791993faa9f00c4f6f0750fa0379ad"
         },
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/images/release.json",
@@ -678,11 +678,11 @@
         },
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/assets/manifest.json",
-          "sha256": "32128fac4c6e2e97e851b0095d9811f1e70e0f96419683f5d90b6c714f666ce2"
+          "sha256": "6784323829cfd9d34ba8ad38aab60066e1475b4a4d0ca3bfbb92500a41db99be"
         },
         {
           "doc": "launch/miles-opcd/run.sh",
-          "sha256": "f74c1d3f440a4bbb583bec7da4076ab0df8cb6fe3816ad151912ec989e98205b"
+          "sha256": "fa77b129306a69e9603282d12f97e52e5cf7a70b67b828bfeffb76fcad370adb"
         },
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/runtime/contract.json",
@@ -694,7 +694,7 @@
         },
         {
           "doc": "launch/miles-opcd/codex.env.example",
-          "sha256": "6daa867c6632f36763d98ab1f18afa95c886abb213ff04548a64d251dce8a004"
+          "sha256": "6722d03cfa100b1fe7acf6097857fd8b1136822dee54b4bd8ead541165fd00f9"
         },
         {
           "doc": "scripts/miles_common/cpu_pinning.py",
@@ -702,7 +702,7 @@
         },
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/tasks/miles_qwen3_opcd_2xh100_v3.json",
-          "sha256": "657e7a202fde4424a209893e527c8b4067873222b55eccfcaacdb43d583b3031"
+          "sha256": "adef26b87f52c766d7c1aa54efc59fdda1eea47e826391b69711c1b1b778a54e"
         }
       ],
       "result_intro": "Implement context distillation in Miles so a Qwen3-1.7B student learns medical answering behavior from its own initial weights acting as a frozen teacher with a medical system prompt.",
@@ -803,23 +803,23 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/README.md",
-          "sha256": "6d1f620a6c7941537be110e60ff6454172b1a88c0292301ca183fa0dd550cf0b"
+          "sha256": "b5d90d05fe7c34409425f3e5a961fe39f396c22b78230f98ad7c632f19afbeda"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/docs/INTERFACE.md",
-          "sha256": "158b87161f5091cb632bbfde42c3b1dd70790ee893777b9a21eb6ead1840fa72"
+          "sha256": "4b5bac0b070a0ac5e15e1752e46de03f4fda3010cc4cfc7c6b1c7d30aeb0bf41"
         },
         {
           "doc": "scripts/miles_common/host_config.py",
-          "sha256": "58e4a5039fd558c29799629d6b81f6536d30611c6550b3f3ab409191e39d1557"
+          "sha256": "cc2e99a0fdb02ecb2a2acdcd463c566a590eb30c304ff1fd24cd2887c4356670"
         },
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/scripts/run_task.py",
-          "sha256": "3d4707408f33bd069fb6f62f8150ef584783eaa25745d13750343e96b77dbd99"
+          "sha256": "5c8dbf90b7c3b4f5b7b7e36b371aaee9bc8ef9074aad7c57e1ea5f49fc52b685"
         },
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/images/release.json",
@@ -827,11 +827,11 @@
         },
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/assets/manifest.json",
-          "sha256": "464580527413a7de634cc2949682ff19e6a2c8d46c999cac0e6ba87415fc78d2"
+          "sha256": "8f8dc105da15468818758e811d34845ec06c3703c3ebceab0b9be884fdac0936"
         },
         {
           "doc": "launch/miles-opd/run.sh",
-          "sha256": "87d53b3169a2ab2cd506a2612d145a209ca0b38719cd4024835549f4a2fb83e3"
+          "sha256": "b54cfac111c0806c95f2a5debf274d4af3c7dd6792e60a81865bbd4c6c3058b5"
         },
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/runtime/contract.json",
@@ -843,11 +843,11 @@
         },
         {
           "doc": "launch/miles-opd/codex.env.example",
-          "sha256": "200b289720d56d6bc62e4d86eeda3bcec36c2739ad10d623804d2b456e399122"
+          "sha256": "ddf876dc99b0b09d4b48b6ed69ec039def34bc2650a223390a40d31a20c51e06"
         },
         {
           "doc": "scripts/miles_opd/v2/run_public.py",
-          "sha256": "6e8d372b89b13202af0b59ad56103e9b87d84247ee981b9b6fbd7e5732cb0065"
+          "sha256": "c1e01e62bf9dcf6d83c686fd0f0e027a155f0432ac7eb974330c2d84b694ae65"
         },
         {
           "doc": "scripts/miles_common/cpu_pinning.py",
@@ -855,7 +855,7 @@
         },
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/scripts/build_images.sh",
-          "sha256": "49b59d57870704400fbf0195fbe80f8494883d646ab8b5693fecf71d539af57c"
+          "sha256": "6050ec6a9d1a000a1f83c2dbb0304dae18f90f127ec57886747aac6f45eec034"
         },
         {
           "doc": "scripts/miles_opd/v2/make_split.py",
@@ -867,7 +867,7 @@
         },
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/tasks/miles_qwen3_opd_scratch_2xh100_v2.json",
-          "sha256": "e38b1a964762b453f33267a4844537588c5d0643c58621b3fe53eb88a927ba8f"
+          "sha256": "17f0cad97292689f99288c89b086c29de3dc28e66e3c68e58ddda32cf91e8e99"
         }
       ],
       "result_intro": "Build sampled-token on-policy distillation inside Miles: Qwen3-1.7B generates mathematical solutions, a frozen Qwen3-4B teacher scores the sampled tokens, and the student learns from their probability differences.",
@@ -968,27 +968,27 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/README.md",
-          "sha256": "102b34e81a20a7267113a808a1713ff24f79c738d45ef0d436308aa6612b4b18"
+          "sha256": "939887b017e463a4d415d0fd119d4e55d6e2b58498c753afb3410bdc104787a4"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/docs/INTERFACE.md",
-          "sha256": "615a28fa3d678dfa5fc6753dcc973e23e7776bc7ef8e5d52221b42144a8ed9b9"
+          "sha256": "58a12d358bc9cebc06acc3b77159b2e786ed658345dea174d66d0988da257273"
         },
         {
           "doc": "scripts/miles_alfworld/run_public.py",
-          "sha256": "9e69155901c6bf5577ddf7bd1947a753c99ee2056717663dc64b355ece0df7e5"
+          "sha256": "7110615ca4f5e6487f38f4782698f9abba3aa40a05f811d41206b252e6fb7e8f"
         },
         {
           "doc": "scripts/miles_common/host_config.py",
-          "sha256": "58e4a5039fd558c29799629d6b81f6536d30611c6550b3f3ab409191e39d1557"
+          "sha256": "cc2e99a0fdb02ecb2a2acdcd463c566a590eb30c304ff1fd24cd2887c4356670"
         },
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/scripts/run_task.py",
-          "sha256": "ed5a3e6cc99e32fd59e4a5d9233fc85ecc43158797b13c945a95703c771f3d4b"
+          "sha256": "cb36ae590c522a6af865f80b99d56d980884211b475d212a9b3d757108186311"
         },
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/images/release.json",
@@ -996,11 +996,11 @@
         },
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/assets/manifest.json",
-          "sha256": "401b4a1be4f03a0fa6bf4fc83551cc6a992ca99e58d70875bb1e425b7b46ff9a"
+          "sha256": "96c7029dfca8c54ddc4646e263212cdcb8dfe6e61116b68030586b093f7b2a9e"
         },
         {
           "doc": "launch/miles-alfworld/run.sh",
-          "sha256": "13441015a58faeac06dd881271b15b0bc5895b8d2adb18e1ef5df8bd533ce9cc"
+          "sha256": "d716e70b185bd2795ef72aa94ff927a4ac3677f7a125a23790e6f79ff96d97b0"
         },
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/runtime/contract.json",
@@ -1012,7 +1012,7 @@
         },
         {
           "doc": "launch/miles-alfworld/codex.env.example",
-          "sha256": "804a6c6b1a934de5ae3b97dbfb273ec75d837be06877bb11e729b551d60c6632"
+          "sha256": "37a8f603b62b739501d777dc4b92ffb6ca58783b9ed275157575991035338e8b"
         },
         {
           "doc": "scripts/miles_common/cpu_pinning.py",
@@ -1020,7 +1020,7 @@
         },
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/tasks/miles_qwen3_alfworld_agentic_rl_2xh100_v1.json",
-          "sha256": "d75522b682b63aa14e6e6fae74ba8d03ae324fa9a7d766f896302227492a9b9b"
+          "sha256": "39383713c22fc2a76ea29e4001697af1a0f693b25b812e70b2f08832a31ac7bd"
         }
       ],
       "result_intro": "Integrate ALFWorld’s text household games into Miles and train Qwen3-4B through multi-turn GRPO.",
@@ -1121,27 +1121,27 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/README.md",
-          "sha256": "6dc6e3046ea4b6c62f3c4edc26960abadd8aa704af7ba1888ccf7f1971a05355"
+          "sha256": "554a0dd56ec6567ac310890fdd6595876d5d2f1ab9c7926fbe6f178ea13356f2"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/docs/INTERFACE.md",
-          "sha256": "b8b44387ca5d44c33c08adc76e51290bb264c73572f26d326f53861a63841930"
+          "sha256": "d7550fe1a9a19f0ee41777eaf6ff49e4efb31067b3e9141a326d602b9f7f6ac1"
         },
         {
           "doc": "scripts/miles_diffusion_opd/judge_v2/run_public.py",
-          "sha256": "4144d69c70c0d768714d24fa560bb3732e2316087b69a299b123c89781fa3ba0"
+          "sha256": "cdb36293f03e2f7f5873c584d2b8acd177241f53716620ac030e63fe15422de9"
         },
         {
           "doc": "scripts/miles_common/host_config.py",
-          "sha256": "58e4a5039fd558c29799629d6b81f6536d30611c6550b3f3ab409191e39d1557"
+          "sha256": "cc2e99a0fdb02ecb2a2acdcd463c566a590eb30c304ff1fd24cd2887c4356670"
         },
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/scripts/run_task.py",
-          "sha256": "7bf3694cd3e7f7b63843442242421290f9758456abd182c2329c7c7109f6e673"
+          "sha256": "4558409f94f66515b696b2e0423f4741d315795adc9622b28c19c4b3cc6d10bb"
         },
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/images/release.json",
@@ -1149,19 +1149,19 @@
         },
         {
           "doc": "scripts/infrathon/assets.py",
-          "sha256": "d427226c34ffb242eeb198c7103e135d931c89363441df7d4b2410a3a8f892cc"
+          "sha256": "f8b0a39bc1b2e70fec3ddda7b6d1e8deea4ebf9e837e92b310ba19268e58af54"
         },
         {
           "doc": "scripts/infrathon/pull_images.sh",
-          "sha256": "fba75ad54f3bbd5d626bc091c15a81d225afdfd3ca8347b7fad18b228c0ac7ea"
+          "sha256": "0d7686bdd82a5418b1d29858f1c9fa18d8ab4a667dd828c0f731df56220f0e86"
         },
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/assets/manifest.json",
-          "sha256": "800d5d2d1538e0e8127756be325064899435ebfe1e0391a8c8fdf8f551aa2df8"
+          "sha256": "14251f39a94d0051b4ec3913af279780774eb4858105a501c2c212444beb5eba"
         },
         {
           "doc": "launch/miles-diffusion-opd/run.sh",
-          "sha256": "f58d0f4f5c663bd70f18fbcc45bdbbab7fa55d5d0e20e52385e9e0fb77322400"
+          "sha256": "baa5d133e97570a3ee7e5e4fb954746f645c37d0d07d8ae0613d9dff7503c3b0"
         },
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/runtime/contract.json",
@@ -1173,7 +1173,7 @@
         },
         {
           "doc": "launch/miles-diffusion-opd/codex.env.example",
-          "sha256": "3b9b2b5000f59a5157cdcbab480552ef146697017ec3b4ae83fe7459c5620861"
+          "sha256": "f941197581cd0dbb00aac090b1781cec4bdfc30d077d92562fd99e06c927b272"
         },
         {
           "doc": "scripts/miles_common/cpu_pinning.py",
@@ -1181,7 +1181,7 @@
         },
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/tasks/miles_diffusion_sd35m_mopd_2xh100_v2.json",
-          "sha256": "38f08740fe20aaa87b1001742e49136318cb099b5aa53768600de1d0892384d9"
+          "sha256": "b00b39ec252caad0c217b840f551250fb1013c7068a8231c5d00a6ad4c073b49"
         }
       ],
       "result_intro": "Implement multi-teacher on-policy distillation for Stable Diffusion 3.5 Medium in miles_diffusion.",
@@ -1287,27 +1287,27 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/README.md",
-          "sha256": "060c8276c543978b148c7d6b2a3f767d6e7f083472c2a4c802e6dd5eea28451a"
+          "sha256": "c7c9b05c1be62dbe5b50ed08fdf266b9e187a610cfea615c20312d13d5960f89"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/docs/INTERFACE.md",
-          "sha256": "7216261b302b761c4c92a9adef2426b9e8f0c9d0116b4bfded55a6c3c8400323"
+          "sha256": "746de37f4256835baa1d3bc1f4e97df8e2151582ac8b180aa91e709f083aa1b5"
         },
         {
           "doc": "scripts/miles_diffusion_wan/judge_v2/run_public.py",
-          "sha256": "1eb57a5ee73b8306aa966bb20a648137516a94df971b493f24e9da46ba9d877b"
+          "sha256": "689995c4d0c690b4491595b79e0ec21f988a6234bf1d723bcf9370fbc508c8c5"
         },
         {
           "doc": "scripts/miles_common/host_config.py",
-          "sha256": "58e4a5039fd558c29799629d6b81f6536d30611c6550b3f3ab409191e39d1557"
+          "sha256": "cc2e99a0fdb02ecb2a2acdcd463c566a590eb30c304ff1fd24cd2887c4356670"
         },
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/scripts/run_task.py",
-          "sha256": "f8061a23ed9f5748ad15f4f6db093ff91129f87dcbadb3f34066cba06a8e8cbc"
+          "sha256": "d1ec7fc9e31e4ba87dce32ead4680786c8288accf0cfd5833f9504a5c0fe3d8b"
         },
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/images/release.json",
@@ -1315,19 +1315,19 @@
         },
         {
           "doc": "scripts/infrathon/assets.py",
-          "sha256": "d427226c34ffb242eeb198c7103e135d931c89363441df7d4b2410a3a8f892cc"
+          "sha256": "f8b0a39bc1b2e70fec3ddda7b6d1e8deea4ebf9e837e92b310ba19268e58af54"
         },
         {
           "doc": "scripts/infrathon/pull_images.sh",
-          "sha256": "fba75ad54f3bbd5d626bc091c15a81d225afdfd3ca8347b7fad18b228c0ac7ea"
+          "sha256": "0d7686bdd82a5418b1d29858f1c9fa18d8ab4a667dd828c0f731df56220f0e86"
         },
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/assets/manifest.json",
-          "sha256": "1b8c6505c860ab4570c854aaea5c64de47b8077433cf5be006c680410d1437c9"
+          "sha256": "416d6838421c46afce4969c21a5bc35308ffc2f12405cdb81765364930e4bdb6"
         },
         {
           "doc": "launch/miles-diffusion-wan/run.sh",
-          "sha256": "ef6ac73663462b5c5a37982a3716847987b112e3f9af1d1f603db104838bac89"
+          "sha256": "dbe136dde5e82bbe27cbc5176faf6374e89b524ebafea47153bb1e5cb70ec941"
         },
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/runtime/contract.json",
@@ -1339,7 +1339,7 @@
         },
         {
           "doc": "launch/miles-diffusion-wan/codex.env.example",
-          "sha256": "c47d8aa2516f5bf33d2db287e961e5592abc94106ba30ebc0898a64bdd1e257e"
+          "sha256": "464fcf2a8796289200801ddd04a44f02b61d87e763ca6351da6680d631cc9a97"
         },
         {
           "doc": "scripts/miles_common/cpu_pinning.py",
@@ -1347,7 +1347,7 @@
         },
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/tasks/miles_diffusion_wan22_dancegrpo_2xh100_v2.json",
-          "sha256": "1f3a4418af27e9c9f42e11d13c9ea9faf6956e64e4ae44adbd188bcfed98bbc8"
+          "sha256": "9997dc6585774b8c38e267ce97dca2051c0a45384b04478853c7d33f40b90878"
         }
       ],
       "result_intro": "Implement DanceGRPO video training for Wan2.2-TI2V-5B in miles_diffusion, including stochastic sampling transitions, grouped noise and official HPSv3 frame rewards.",
@@ -1446,39 +1446,39 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/README.md",
-          "sha256": "de19714197495d359f6393416eaf743ff11d3d12d336f446e7e4e9f92315174e"
+          "sha256": "cf825033910c8d057e648088142e3487feebf2addf6bc8021e21cf3e4fda67a0"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/images/work/workdir/grouped_fp8_lab/README_AGENT.md",
-          "sha256": "1821a34f75b25f35c6ce2f1e6e01b28b3131c23011a99751a9d128d9afb275f8"
+          "sha256": "34dfc128e65a1f66f75eb836d3dfdadd8e6bcc4151954492dddb2e9ecd47001d"
         },
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/images/work/AGENT_TASK.md",
-          "sha256": "8795cf0953a230a8fe83cfd4495abb7619ee6f91017699dda4a94eabe9649989"
+          "sha256": "13b4149c15321c53496f33f936b20251e64e056b2f8fdafbc489a46900f92da5"
         },
         {
           "doc": "launch/standalone-fp8/run.sh",
-          "sha256": "565b059d615f37b6337af4d598dfc88226225eb654dfb635ff02962600e2cc8f"
+          "sha256": "f73847a30db9d16db2ee38ebaaa069ec86387eea170eca300f9e3ca8ed174e9d"
         },
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/images/judge/verify_grouped.py",
-          "sha256": "384d19117cd7ec6ca89e7638a798f6739bd2cfa4d903cf6b70ea752812f4db2a"
+          "sha256": "cc65ba596f6f2fc743d41c06bd59916b7ff6fe61f5826f8302b126e248520b7e"
         },
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/assets/manifest.json",
-          "sha256": "3185cca2edd1a05abccfff4fa89c576d25b4d4390bcf956d37cd315513ce24f3"
+          "sha256": "3ab14fe11373204382bcdd78ccbd6d84dd79773b3b798367a6dd6adfac8ccca4"
         },
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/runtime/grouped_fp8_runtime.py",
-          "sha256": "49eda08d00f422b7bfa0c928560547ddbf95e002218ad30732037cb9056cb740"
+          "sha256": "593c3ee9040293fc70cf3bbc267b5fee7ca0676c9101aebd0eb35701110789ad"
         },
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/images/work/benchmark/run_public_tests.sh",
-          "sha256": "caaead307c8b1f634a73c7a262efe88ddcd1e65b0bdd6078a2772b6ab3ffd384"
+          "sha256": "800c5348a24b7e22207c0809bede5fd56ebdb5174df608bca161413b545e7887"
         },
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/images/work/workdir/grouped_fp8_lab/tools/run_public_tests.sh",
@@ -1490,7 +1490,7 @@
         },
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/tasks/standalone_dynamic_grouped_fp8_h100_scratch_v3.json",
-          "sha256": "54a75bbcb9f03cde0bb1aee064050ea15f228af7be476f2a32feaa943df56320"
+          "sha256": "f9e8f439ef36db3760be4333712ebf59f6215fa816a276968db9372553ed426f"
         }
       ],
       "result_intro": "Implement the matrix multiplication used to process variable token batches in mixture-of-experts inference, starting from empty Triton code.",
@@ -1582,39 +1582,39 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/README.md",
-          "sha256": "94e67908631da94a7ae7a6c966c4a3ac0124efe516891bf2b6472a72586ff922"
+          "sha256": "8fa0f835a9265688f8198d47a13f069bb8e93fa0e327035ea2c133fe52b7cb67"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/images/work/workdir/sparse_mla_prefill_lab/README_AGENT.md",
-          "sha256": "ecb64f0fab848eaab25ae255a3d988fe300ec37fdd7e9700d06e41a3a5136c9b"
+          "sha256": "138e8d57c7b157bac397a84de8970714655690b4bceced836a9d382fe85eee12"
         },
         {
           "doc": "launch/standalone-sparse-mla-v2/run.sh",
-          "sha256": "0f3370a6e888ab42ace98386bec91701532d684efd874de671e51e68be63b020"
+          "sha256": "97213131526f26763b3d9aa2dcae363403d77db0becb5d87352fb92acef1c767"
         },
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/images/work/AGENT_TASK.md",
-          "sha256": "05e0c477db7f4966f4ce5f7be535491a4819fdc6253df4c00b68829fdfd04496"
+          "sha256": "0ebc075e4a7e0948c48220f14f24bc46ca76e77d3572dfd5ff7bd15f252c9eb8"
         },
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/images/judge/verify_sparse_mla.py",
-          "sha256": "fa4da42089b2df59ccfb6da0944f7004f4aa85ecf8f947d7c305784e69657877"
+          "sha256": "f9a96e6e7611d2c9450435262df21a60981b5f3a1095bef79c5f13dc0f67ec5d"
         },
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/assets/manifest.json",
-          "sha256": "d53b6b4fbbda4ff87e9016e8434f67002546502fc821784ac56b33aa9c321c36"
+          "sha256": "32cc799dae4f2e80e720848e6b34f9d2e802fbef87ea2d806fa66e7a3c1418f6"
         },
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/runtime/sparse_mla_prefill_runtime.py",
-          "sha256": "239200a520c0da3a64394625e4fd28efaca9f4425ff88bcf182a284c50b15c53"
+          "sha256": "f3739f917871e8832cc3065eb852c888a19ae315842b55da6528324203e9f01c"
         },
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/images/work/benchmark/run_public_tests.sh",
-          "sha256": "67f79e7158429b1381f9ad1d6c3a692657fc5bd35d3b0fa1dda85393ee7a4ab3"
+          "sha256": "f82e256e2ecd3fcfb42fc9d5c9bda6878a3f09b2b4a939d3841c8044275f6561"
         },
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/images/work/workdir/sparse_mla_prefill_lab/tools/run_public_tests.sh",
@@ -1626,7 +1626,7 @@
         },
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/tasks/standalone_sparse_mla_prefill_h100_scratch_v2.json",
-          "sha256": "eb64b79a44fb0b4c2eba72c7383b884ea196c7cdf9ea6a6e867b9ace7b2e7d99"
+          "sha256": "83cb2baa543e5261e015b77ff78f1ccaa5a5b54ca7e92feaae8255029676c52e"
         }
       ],
       "result_intro": "Implement sparse multi-head latent attention for prefill from an empty Triton candidate.",
@@ -1718,39 +1718,39 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/README.md",
-          "sha256": "ed7b697de0b36c2c69c5cd04ef58dcaf66a175c4001cb2e1e2084b1ab7d59f68"
+          "sha256": "84eedb57205de17f10ffc128a59a41278358acaea928bfd2c4a9df935752046c"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/images/work/workdir/paged_gqa_decode_lab/README_AGENT.md",
-          "sha256": "527619d9993a9d083e60e3553eb56ee52e63ca6f48a2cde868879ac5c688988b"
+          "sha256": "592bc2b381fafbe8e48e6704f1fa6d1cb8f5faf4b506cd72f3c9785ab023bc8d"
         },
         {
           "doc": "launch/standalone-paged-gqa-v2/run.sh",
-          "sha256": "ce1bde62712e933fec18267651897bc7866e3c38ea0a17655bb4a7bc24ce6c3a"
+          "sha256": "880f359f489dc98a208990014c6faa8f48892daad225fbc05dd9cf861e6dd628"
         },
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/images/work/AGENT_TASK.md",
-          "sha256": "3539026f199c695c2a962eedc68b448a307b7acb021d1062d825b838030d7ae6"
+          "sha256": "23181214fe4f05572e74bca996c3c7358bf8ce97ec068c8a2c0f746624fd11ef"
         },
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/images/judge/verify_paged_gqa.py",
-          "sha256": "ce59cf36c28728337a38fd80736b714f4bdaf0d75caee1cbcde47b091c37dbeb"
+          "sha256": "f712a5fb873276f05868312cd44c33895bef37b6f7e18da1ae699cc6c3c74ebc"
         },
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/assets/manifest.json",
-          "sha256": "af6d1926531f47ce34b403a2df562d09b75293ef5bf004a88970928137c51661"
+          "sha256": "8a0a4ade8040cd838268102d6e1b94af16d3f3289e37cfcd373718cc67159214"
         },
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/runtime/paged_gqa_decode_runtime.py",
-          "sha256": "1ca99863dc2a467df83d5a0d29b6c34c7a29229c53efec664b1563ecbe8ba064"
+          "sha256": "8a6ec9681b6c2ec472e7014eee00c9374a7bfe4451187aa47c6fc5d15514021f"
         },
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/images/work/benchmark/run_public_tests.sh",
-          "sha256": "40202ba44cf1ff03c5149c72e196b155c797efa570be1a408ae642a20f07bf6c"
+          "sha256": "80faedd760586a93e257966211714a507c9b94c77b9625037d4926fbfa9b2cd0"
         },
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/images/work/workdir/paged_gqa_decode_lab/tools/run_public_tests.sh",
@@ -1762,7 +1762,7 @@
         },
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/tasks/standalone_paged_gqa_decode_bf16_h100_scratch_v2.json",
-          "sha256": "6407907d318fdce60e9a5a4480e92b5f313deaf50a9477ca7197ea1c8a8aa062"
+          "sha256": "75f86490709e1b79955c0a377422025083ab77f5fe0d3f38d1aa0ddb9bceb19b"
         }
       ],
       "result_intro": "Implement grouped-query attention over a paged KV cache for single-token decode and short-query prefill.",
@@ -1854,39 +1854,39 @@
       "sources": [
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/README.md",
-          "sha256": "255b2fa610d0546f1c3958a05bed052ab256088f98e4fe5907ca1e93010fa3f4"
+          "sha256": "4df55fb2b0e6dde9b622a82989d2c46fb8ab290e68a59607210a0945e51a81ea"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/images/work/workdir/quant_attention_lab/README_AGENT.md",
-          "sha256": "f653e44e24c3e54d28765df80a22ee0954910c68d81034777865fd2bed0cca2d"
+          "sha256": "7cc651469084d01a13df516e124eb5a4f7bf0ed9f1aa90925a2ea66e9a4b85d1"
         },
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/images/work/AGENT_TASK.md",
-          "sha256": "ad1fe69bc87be4d57c06c5a510ba0ccd067e09a5339b0e5e1e0c3265db6d9732"
+          "sha256": "3df18801ea7f891efffd1d95ee74c5dd6a11983fcd74ababfc535283276d60ef"
         },
         {
           "doc": "launch/sageattention-qattn/run.sh",
-          "sha256": "c3f7a74f7d05c5e20fd85526bb0bbb7f2007a9ea34d8f2644be74e2cf9e8c2aa"
+          "sha256": "7a246531185b0ff2263b838edf8c293bbad33cba8bf9f34b4767e45b87bcdec9"
         },
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/images/judge/verify_quant_attention.py",
-          "sha256": "77afa45d8184a87405e5b904158fc2bb5eeda64b16cdf458563a7f693ea012e0"
+          "sha256": "69e4fbb0bb808a8e53f21c11347d5a33d8e3db5bb927f4285c2345faa6d2abc9"
         },
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/assets/manifest.json",
-          "sha256": "4acf9d16a9be24c1af3837e21ee40d4b9c92cd68ff45b578fbff8114ac150e5f"
+          "sha256": "f9a9261bb7350c9d2c1f5f0f0fcfc8d15d71b37d43bbc4a10281a5b4a12534a2"
         },
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/runtime/quant_attention_runtime.py",
-          "sha256": "7fcb896b08f159d107e39e942a5cbea11725517c2f4429aeafc9d4286dd4ed5f"
+          "sha256": "8936c3837ce1bcfe40cac959783a3e4e54883f9f41c9d62dbc8a136feb41b6be"
         },
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/images/work/benchmark/run_public_tests.sh",
-          "sha256": "bfdb0bbd4e9a11c42485806f4f7928ab012e3fafa0798847f2f2d5a59da21347"
+          "sha256": "147a8a99894719fb079821ab91aea802c4369355af96b84e883d65a201a8ddd6"
         },
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/images/work/workdir/quant_attention_lab/tools/run_public_tests.sh",
@@ -1898,7 +1898,7 @@
         },
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/tasks/sageattention_quantized_attention_bf16_h100_seed_v2.json",
-          "sha256": "5205097a91a750e78c3e0067ee64699f4ff2838321351ff1cf61d8141939754b"
+          "sha256": "1c83f297e25b242d49590849dfa5f735c75af1f2d9f4526fed90a5f6fb6a8ab3"
         }
       ],
       "result_intro": "Accelerate an attention forward pass from BF16 Q, K, and V to a BF16 output, starting from a working SageAttention-style Triton implementation.",
@@ -1993,23 +1993,23 @@
       "sources": [
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/README.md",
-          "sha256": "fe7a1bd80ff1e5246ad01ee5bee9a626081a18553512cb71c49e20b407889212"
+          "sha256": "73a15fe67dc372d1ecd19d1e557546fefece20a7b06125112fdf7b090ffbb6d5"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/images/work/workdir/minference_prefill_lab/README_AGENT.md",
-          "sha256": "1a820351169ed4a28137c3b16debd1a4c5b0637b6a88a6c8aafc3c8044dbd54f"
+          "sha256": "1c920be947a86275ce6d6396d8b5bb171d3bb116d7d410b06e2196a3ab5562ce"
         },
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/images/work/AGENT_TASK.md",
-          "sha256": "1a820351169ed4a28137c3b16debd1a4c5b0637b6a88a6c8aafc3c8044dbd54f"
+          "sha256": "1c920be947a86275ce6d6396d8b5bb171d3bb116d7d410b06e2196a3ab5562ce"
         },
         {
           "doc": "launch/minference-v3/run.sh",
-          "sha256": "312bcb03a589e834de841ce8b429e95b31e793a7e56b09062cc73439ff9e1d20"
+          "sha256": "6aff786e1771a02af2fa3e4a3a3ec690c1f634871a14afe0caa3881326ff2245"
         },
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/images/judge/verify_minference_prefill.py",
@@ -2017,7 +2017,7 @@
         },
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/assets/manifest.json",
-          "sha256": "7ec4fa7f2876bf02512dec1d3e8c93cbd87996ead03a0b7c52052255c4383df3"
+          "sha256": "bf5e48c1ff28247690d57c75516973be14aafaeb56590774e6dc75ff35c2f1d4"
         },
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/runtime/activation_archive_v3.py",
@@ -2057,7 +2057,7 @@
         },
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/images/work/benchmark/run_public_tests.sh",
-          "sha256": "97d7acb665887ab1753a45bbd456e0648f1b91d772a78003f1ef360a4e343ae2"
+          "sha256": "77f950a352772d70e75834a84f7bd7662a103662c695a964c1068470d0971657"
         },
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/images/work/workdir/minference_prefill_lab/tools/run_public_tests.sh",
@@ -2069,7 +2069,7 @@
         },
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/tasks/minference_sparse_prefill_h100_seed_v3.json",
-          "sha256": "deed9f92afe0605b4713577ef3532271b75664e72821414cf2a54ef7a1264f28"
+          "sha256": "15dfe47ae0f68e86cc7e2f4dd6387cff9ffe6a73effcc74ad22505ff8862e256"
         }
       ],
       "result_intro": "Optimize one long-context causal attention call on real Llama-3.1-8B activations, using a MInference-style sparse seed.",
@@ -2166,35 +2166,35 @@
       "sources": [
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/README.md",
-          "sha256": "7a2d8010fc5b0907ab314045d6b969604f079afc81836531a0b5620f699f4382"
+          "sha256": "8e9e43233408b58e6423a82eb68a1b1abff66fd9bf41300f646b95006c7cd2f7"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/images/work/workdir/kv_transfer_lab/README_AGENT.md",
-          "sha256": "2d05639a0729cc5f0a5675f6aa69930b4dd7ae56078a6151e91704b7aa4d4ef0"
+          "sha256": "921da17601273d510c82e3c6d42bc3800a1ae49d103a7f3afda3a6acfc8bffea"
         },
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/images/work/AGENT_TASK.md",
-          "sha256": "61fb3d0f97f8878ca72fa2806ad1b9f6b8f0a3c4e875a0d72e7ca472c9e54cae"
+          "sha256": "4ef6f3906490503e5cee78054ab49bb1e32e5bf0062815bb8cafcd5578cf473e"
         },
         {
           "doc": "launch/lmcache-kv-transfer/run.sh",
-          "sha256": "ef05962a95908d38d1e444cf7baee5567c7eb1a310fe89e297191b843e25f8c6"
+          "sha256": "d1fd339c8003129375d4a3216600047e55c09f58a15f36db13f3dae59cb43ae0"
         },
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/images/judge/verify_kv_transfer.py",
-          "sha256": "273f2e1982df5ebf693aa1d307528c8c4994cc5a4be9999b6397ba6c53a6eece"
+          "sha256": "75665b4da432965f44ce7896e81a1ab755f1ddeedd1047d80d22055043761ec6"
         },
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/assets/manifest.json",
-          "sha256": "d50d77027bec81e2f255392158802f73cb6ce81966fc8b3d0ee86138b5e2b805"
+          "sha256": "0f4d3f0e197ea87d19c74300019233be9f7a89239c655cfc7f86e904e5121093"
         },
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/runtime/kv_transfer_runtime.py",
-          "sha256": "aed973a841666a2870afe1d8d7000adb87d52b657edf544e1fe742e1c9f6136c"
+          "sha256": "3aeaba0476efac20997e24b0b15616744f930159bdf31da07772210ecb239b53"
         },
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/images/work/benchmark/run_public_tests.sh",
@@ -2210,11 +2210,11 @@
         },
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/images/work/workdir/kv_transfer_lab/transfer_abi.h",
-          "sha256": "f75a4c2ed2a14c74435ac0e5369a2345e69b5e0c7f3def6a8bcc94ca701de3b2"
+          "sha256": "06eaa0fcbe58e229c40d2447eef02bbdef9556257fb62bf51f7b0f664fc7de5e"
         },
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/tasks/lmcache_paged_kv_block_transfer_h100_seed_v1.json",
-          "sha256": "8af731a1574862d5a3bf4b0b0364910a304386d1eb01b302de22bd49306cbcd9"
+          "sha256": "a50493ea0eaf9da50c616d01b2cca23b260a9287361d9e20ecb7115e98e5b21e"
         }
       ],
       "result_intro": "Accelerate KV-cache movement between an inference engine’s paged buffers and LMCache’s contiguous chunks using the supplied CUDA seed.",
@@ -2310,23 +2310,23 @@
       "sources": [
         {
           "doc": "tasks/latest/flash-kmeans-paper-h100-v7-scratch/README.md",
-          "sha256": "2cf7e05397881ee8336ecc2ccd212d03edf6fb7301b8f74dc5bf1327a10fb8d4"
+          "sha256": "b238d2974f21cbdd92b6a5d1397da203ee42d43b7723fc2dffd1e15b38ecdfb3"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/flash-kmeans-paper-h100-v7-scratch/images/work/workdir/flash_kmeans_lab/README_AGENT.md",
-          "sha256": "92a119aa9af9a69b348da03ff956b2c4c9b94ddf914e36afb15ef95aed4a1e8d"
+          "sha256": "3b83842dfa10fcdd7bf6cd3145308e3f884e47cedeb061a560a39a2173647783"
         },
         {
           "doc": "tasks/latest/flash-kmeans-paper-h100-v7-scratch/images/work/AGENT_TASK.md",
-          "sha256": "8b95bd40f4b8df327a665d33b5c79d26c3a39054cae5441c294e974fafc620d9"
+          "sha256": "f112759688837f7fc0c4b501a0ba2fe0402f2f285a2f9efe7f1889e04f6c7e4f"
         },
         {
           "doc": "launch/flash-kmeans/run.sh",
-          "sha256": "e5136bbb08109a81f1d081f4463b9bf7d579c7a2b3805f53ca96e95effe9678a"
+          "sha256": "9da8c5c4cdc4564e6f272789951214709b507cfa02a304df20fae9adee89ec67"
         },
         {
           "doc": "tasks/latest/flash-kmeans-paper-h100-v7-scratch/images/judge/verify_flash_kmeans.py",
@@ -2350,7 +2350,7 @@
         },
         {
           "doc": "tasks/latest/flash-kmeans-paper-h100-v7-scratch/tasks/flash_kmeans_paper_h100_kernel_lab_v7_scratch.json",
-          "sha256": "267d7b4afe57ef134c60de404c7e617739ca23a301e460df13dc45bc738ec7bb"
+          "sha256": "b0e8c6b26815ff073c20ad6c18226ae9fe49d24d91fe3db56ceca7235f6612de"
         }
       ],
       "result_intro": "Implement one exact Euclidean K-Means iteration from an empty GPU workspace: assign each point to its nearest centroid, then update counts and centroid means.",
@@ -2443,39 +2443,39 @@
       "sources": [
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/README.md",
-          "sha256": "a5e834c15fa279758f0d8575823cfbea2c6b021072e3f0b5ed9258d5fcc73bb7"
+          "sha256": "0335dbc2c87fd9fe0131962edc4995d54ffff880935b3088834a58d5350228a0"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/images/work/workdir/mamba2_ssd_lab/README_AGENT.md",
-          "sha256": "034c9708bdd3380fc38d38b5c988e5c6499769b6924eab858d9cdd1be6cc42ae"
+          "sha256": "932069b26f5a12a3599d516a0c87ad48ecb3939c92594e905feb762349057af3"
         },
         {
           "doc": "launch/tilelang-mamba2-ssd-v2/run.sh",
-          "sha256": "e58aa44adf0dd798ca670f95f9432f978a0957e8c91c887e3fa0ab850b319dcb"
+          "sha256": "8f252756eba153570c57c4711b8bad220e2496d702c32ccd96fd73622de0d0b8"
         },
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/images/work/AGENT_TASK.md",
-          "sha256": "0a4835c3321c50a8e2f4f8db92ffb6344a647d1c26cd60f41368d8deae93a8b2"
+          "sha256": "be71886e390c9754b9d3b1a5f3663a56154302b7a39960c079f68cada0661916"
         },
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/images/judge/verify_ssd.py",
-          "sha256": "fe4e2461ec80a190bb7cf6fcd87ccfddbbf33c4e2f3ea59665f5942d782dc238"
+          "sha256": "60bbef3b006e69cbc181eb37bee7c7d95623bcee10c71938c5a28bd1c4051f9d"
         },
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/assets/manifest.json",
-          "sha256": "03a4639b9ae4e892b0be795e9b990ffe371c41e283c50f4c9d02689957101c73"
+          "sha256": "0cbd7d81dd0e8c1721e29f84a204919a9c729546005d700bc75d90b647fa08bf"
         },
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/runtime/mamba2_ssd_runtime.py",
-          "sha256": "b3fc301c63fec02f98ca9c773b2f863461bb1603b28062b1a484a4f536c50e82"
+          "sha256": "c8424a1f300e63d93d151abbca1fa07ab90395d8e2d0b8db8ce04e73d7984879"
         },
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/images/work/benchmark/run_public_tests.sh",
-          "sha256": "ddb01788174ea9fc4c56345c1074e612795f3cac3e0d901e2c522c4c9dfcaf89"
+          "sha256": "7486345c54e3a6e6b858218a973be1ac4092d06886dcf227652a03e3f430c95a"
         },
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/images/work/workdir/mamba2_ssd_lab/tools/run_public_tests.sh",
@@ -2487,7 +2487,7 @@
         },
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/tasks/tilelang_mamba2_ssd_forward_h100_seed_v2.json",
-          "sha256": "55225ec2f5c7397b59fa7667a7c4cd610d982cd4220265ed80c4e4dffe909db7"
+          "sha256": "521f9b83a6c327272ea3ad6c433265e40fe72d6436fa8294e02de327ed750e6b"
         }
       ],
       "result_intro": "Accelerate the Mamba-2 state-space forward operator from a correct four-stage TileLang seed.",
@@ -2587,19 +2587,19 @@
       "sources": [
         {
           "doc": "tasks/latest/kvpress-kv-eviction-policy-qwen3-8b-h100-v2-scratch/README.md",
-          "sha256": "72b4a39babd77a197003c4a16600ede3a6b1bd591bd17e48b2fa7881aff87e79"
+          "sha256": "90a5cc4efe4e13276ab6c1b4ebb330cb228d7528f038e58bdf8382509c6ba40d"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/kvpress-kv-eviction-policy-qwen3-8b-h100-v2-scratch/images/work/AGENT_TASK.md",
-          "sha256": "6ac1e70e5fece4a7bf8cf9ede50612d67016122f294caff98a124c746257349e"
+          "sha256": "1c2cbc391802d3945adaa26f554ea9aa72abe2ae130adc302903f1c1560ceb3b"
         },
         {
           "doc": "tasks/latest/kvpress-kv-eviction-policy-qwen3-8b-h100-v2-scratch/runtime/kv_eviction_runtime.py",
-          "sha256": "cee0175ecec3bb2eb087a7fae8a9982a3225b99ddd85dd7b3bda558b3b77d3dd"
+          "sha256": "3a2f6caf6b75bae06c7dc32fe818f771e193df862e7f96d03e3ec1ffc25804f0"
         },
         {
           "doc": "tasks/latest/kvpress-kv-eviction-policy-qwen3-8b-h100-v2-scratch/images/judge/verify_kv_eviction.py",
@@ -2615,11 +2615,11 @@
         },
         {
           "doc": "launch/kvpress-kv-eviction-scratch/run.sh",
-          "sha256": "3259c2ae0cb7ccddfbfc0a87962a59c5635cd70fb310caf24b6462999804634d"
+          "sha256": "0cbab69dbecbd43e9b7703ee4b817dd322b5ed94ff2739cb7b64689f2ea87622"
         },
         {
           "doc": "tasks/latest/kvpress-kv-eviction-policy-qwen3-8b-h100-v2-scratch/tasks/kvpress_kv_eviction_policy_qwen3_8b_h100_scratch_v2.json",
-          "sha256": "d5a6a23e20c00f50f5f5d58135e31f6b0fd08817d7ef157b94c57bb9a14b4651"
+          "sha256": "7b1a70c89c05e3254b775495b4a79707e9cd64d90f3a5fadf8351826cc1998be"
         }
       ],
       "result_intro": "Design a policy that chooses which Qwen3-8B KV-cache positions to retain after prefill.",
@@ -2714,15 +2714,15 @@
       "sources": [
         {
           "doc": "tasks/latest/kvzip-query-agnostic-kv-scoring-qwen3-8b-h100-v2-scratch/README.md",
-          "sha256": "e30783bc44fd45fdc5373b156b37c61570aa201075323d1235f9f55d699f53ad"
+          "sha256": "a0d14c4b67e9ea6d591b04ef30494ba30f7a9a1220e6fb37e5a81517d30e05ad"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/kvzip-query-agnostic-kv-scoring-qwen3-8b-h100-v2-scratch/images/work/AGENT_TASK.md",
-          "sha256": "c4f44d8870e6b5ec98f2f2c6dddc1db435e295c38dfd17333441a418fa136a0b"
+          "sha256": "de3ae1706a0d1bb1e33cc5d8b554c25b4ff2f52b3071d92e33094bedfd9c7b1f"
         },
         {
           "doc": "tasks/latest/kvzip-query-agnostic-kv-scoring-qwen3-8b-h100-v2-scratch/runtime/kv_scoring_runtime.py",
@@ -2742,11 +2742,11 @@
         },
         {
           "doc": "launch/kvzip-kv-scoring/run.sh",
-          "sha256": "84b91a8d9f88ef05e367eb6fe09673ea86f6d2bc77bf1a1caebcc207debfe39c"
+          "sha256": "5e5aff54a2e32ce804a05f00b571920c34ec81c78e3cf0c3dbaf77c52d3a21b0"
         },
         {
           "doc": "tasks/latest/kvzip-query-agnostic-kv-scoring-qwen3-8b-h100-v2-scratch/tasks/kvzip_query_agnostic_kv_scoring_qwen3_8b_h100_scratch_v2.json",
-          "sha256": "9edff9c8e726b1977cb45cb7eec67babf9e109e1a78271969903ec55980e01c7"
+          "sha256": "cb23674e1617a5f9b6da16f12bb5ba61d160fd6bf1993a68a0b1ca58ddb815df"
         }
       ],
       "result_intro": "Assign query-agnostic importance scores to Qwen3-8B context KV entries before the downstream question is supplied.",
@@ -2844,35 +2844,35 @@
       "sources": [
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/README.md",
-          "sha256": "164bb8775860f5d971de3500dfa368fe0d29c88c4ba27e92142447f1243037bf"
+          "sha256": "60bb31d06911d76fee592cc5d3783871b5218dbcbf719f3afc79804006e6f622"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/images/work/AGENT_TASK.md",
-          "sha256": "3eafe0c2c9d6d3ff273427d2ad8a21e729e93b3447b5d263805a5ce4e746462e"
+          "sha256": "801fc575573449457deecb77442c9bcb0bbbdc0fb5f244a16c71c49ba16c7d38"
         },
         {
           "doc": "docs/HOST_PREREQUISITES.md",
-          "sha256": "5a910d69ffebd435214cfb8668e00930d7c9b088bd0083237d393af6edd8d20c"
+          "sha256": "58ec4fa0c4052194894fd0043162f5269e3b7366a83d8dbda79fd64ed10d825f"
         },
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/judge/evaluate_hidden.py",
-          "sha256": "98907755f567af2ac0d5edd0e02b47d8820971f3ff9bd41893f53882b0cca7fb"
+          "sha256": "911653911c11060c4996bcc74caa57967c11e0a13ed367f9d31e5714fa9f268b"
         },
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/judge/run_judge.py",
-          "sha256": "2803902abd65aa0c824802b4f87c4dc0e770a1603a53dac88a6888fa583ea4a7"
+          "sha256": "aad780eed08e7a05bedb6099574f5d230ad524e02529a24ed53698d25384b051"
         },
         {
           "doc": "launch/quant-videogen/run.sh",
-          "sha256": "bdd00c33f832b928fc57fbbc8f8eed7e0fcb5870bb3df65d8e00edd29072a4a5"
+          "sha256": "3c626cb1914c38373f762c15d8f89c7e958b311c5eaca84c496fd0d854d6d60b"
         },
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/tasks/quant_videogen_cross_model_kv_codec_h100_scratch_v4.json",
-          "sha256": "b5feceba528bd66d244e8873d8940800cc794b21002b0c7c6a46627b8d03cc5d"
+          "sha256": "3a3bde5a797db90e708e3da3bb5758d87071fabbb5b0ffe54f0f83959b433de8"
         }
       ],
       "result_intro": "Implement a persistent KV-cache codec that compresses CUDA BF16 key and value tensors and reconstructs them for video generation.",
@@ -2972,15 +2972,15 @@
       "sources": [
         {
           "doc": "tasks/latest/eagle3-spec-decode-engine-qwen3-8b-h100-v1-seed/README.md",
-          "sha256": "0be7ca203ce5eea9b16fa900539d3bdaf2b159e5b8ab2c7b4623391e40c190d2"
+          "sha256": "8dc386ee85dadb53e7d62c979991a47f55e0fb619e6f84b42b5fdd9bf3097131"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/eagle3-spec-decode-engine-qwen3-8b-h100-v1-seed/images/work/AGENT_TASK.md",
-          "sha256": "b7f69cbade428d7af933b25cfa7a1ac6fc88c4598e5e5a0fa58a7e173be94a05"
+          "sha256": "4d99103659c0ccf822b1496aa4e06ad1b61626ccc83da6680e6185655a139850"
         },
         {
           "doc": "tasks/latest/eagle3-spec-decode-engine-qwen3-8b-h100-v1-seed/images/work/workdir/spec_lab/runtime/api.py",
@@ -2996,15 +2996,15 @@
         },
         {
           "doc": "tasks/latest/eagle3-spec-decode-engine-qwen3-8b-h100-v1-seed/images/work/public_tests/public_eval.py",
-          "sha256": "32885c01e0205f90b230777d60e73d385edc6b51c9cf73f712587da6a96ef7af"
+          "sha256": "cf965106b34a296526d06c98a78845ea94874c271505635f94a6ef82464fbb61"
         },
         {
           "doc": "launch/eagle3-spec-decode/run.sh",
-          "sha256": "be7fa1f8b0d0a2dfa11113a9559fd97c26d53d4aa38153a074b254958232a913"
+          "sha256": "752e58e106e6b627039763653fc9bb0ef4f6818c7bc10bb30f3fa6e74d052ed6"
         },
         {
           "doc": "tasks/latest/eagle3-spec-decode-engine-qwen3-8b-h100-v1-seed/tasks/eagle3_spec_decode_engine_qwen3_8b_h100_v1.json",
-          "sha256": "085fc60eb81a7bf19e15bcdb0a01306ace1d2400baee06d36cc489c04d0bf5df"
+          "sha256": "9bb6ca59e4bafb99e894e5db219039b192239bf39ee57dd6b72ff30e9c8c0e05"
         }
       ],
       "result_intro": "Accelerate the complete EAGLE-3 speculative-decoding engine for a frozen Qwen3-8B target and draft head.",
@@ -3100,15 +3100,15 @@
       "sources": [
         {
           "doc": "tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/README.md",
-          "sha256": "a61eb5e18943d15d6930cf1921c864f2ce04cd30851a6b654d5a3b0dfeb23e34"
+          "sha256": "73e9fb82a07ad59df006c6c6ec9a02a806c32b4f38ccde500878d7fee9f609ab"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/images/work/AGENT_TASK.md",
-          "sha256": "4fc8d9f0abe8a43c26b6de306750e08c33ea54c49f7ee0c86c2a0b085187a617"
+          "sha256": "a48d7f6fd327ca51c7f7d443b1522c6a76942987bfedf03427f23dc828088ab3"
         },
         {
           "doc": "tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/scripts/make_reference_archives.py",
@@ -3116,7 +3116,7 @@
         },
         {
           "doc": "scripts/infrathon/assets.py",
-          "sha256": "d427226c34ffb242eeb198c7103e135d931c89363441df7d4b2410a3a8f892cc"
+          "sha256": "f8b0a39bc1b2e70fec3ddda7b6d1e8deea4ebf9e837e92b310ba19268e58af54"
         },
         {
           "doc": "tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/images/work/workdir/decoder_lab/runtime/api.py",
@@ -3136,15 +3136,15 @@
         },
         {
           "doc": "tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/images/work/public_tests/public_eval.py",
-          "sha256": "03339056e438ae87b4834da33a66868be4c1d6ee6b93e489258d425f645fca09"
+          "sha256": "6b5699f222aeabde07a302bd7bd80bc5fb03901ced1bcf5db29e8a8ae42e7d52"
         },
         {
           "doc": "launch/llada-h100/run.sh",
-          "sha256": "399e16b100d0f3c59c874dbf6a8eb1c0e2bfc0a5c3b773c7756aa6ceb497ae01"
+          "sha256": "dab2d93f4b25848ece17f0a031b6925a3299aa8d063d6d87acf9065328bae150"
         },
         {
           "doc": "tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/tasks/llada_h100_decoder_optimization_v2.json",
-          "sha256": "d065f222659ed4dd7c346487f68451283d8f894d1103e7cc901e2f427307333c"
+          "sha256": "e91062b8e92026ab374d4aab7ed8c3811358d156a7cd69a6e89f65ea40e5047e"
         }
       ],
       "result_intro": "Accelerate the iterative masked-token decoder for frozen LLaDA-8B-Instruct.",
@@ -3237,19 +3237,19 @@
       "sources": [
         {
           "doc": "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/README.md",
-          "sha256": "6a4a132d828c74ba4d1d159aacc628ba9eb6052f3aad4476e96e152ed6ca5474"
+          "sha256": "aeb091e7fe37dc1d5663caffd682b33ac9a94b7bbb8ef21ad264a5d3031f4ff7"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/images/work/AGENT_TASK.md",
-          "sha256": "9c342ee7261eea61eba1eaf339137f055c558ea69c1c7d1504e790f31b937ada"
+          "sha256": "1938e8c6768e5ef496f39aba9811886f6357f36c08d4d201c08dd369a4fdf903"
         },
         {
           "doc": "docs/HOST_PREREQUISITES.md",
-          "sha256": "5a910d69ffebd435214cfb8668e00930d7c9b088bd0083237d393af6edd8d20c"
+          "sha256": "58ec4fa0c4052194894fd0043162f5269e3b7366a83d8dbda79fd64ed10d825f"
         },
         {
           "doc": "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/runtime/scoring.py",
@@ -3273,7 +3273,7 @@
         },
         {
           "doc": "launch/sdv2-pipeline/run.sh",
-          "sha256": "019b5a8abb9be704e4c3bdb849e619c96a87c07f81733aa0c4c0b5a0b6995f9e"
+          "sha256": "8b1d646a26cd3b18660134c245ba2b25d75b2930add5c1d2ae9ffd655ee76804"
         },
         {
           "doc": "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/tasks/streamdiffusionv2_dual_h100_pipeline_runtime_seed_v2.json",
@@ -3377,19 +3377,19 @@
       "sources": [
         {
           "doc": "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/README.md",
-          "sha256": "0940f43358dbf426b09ce12b8bf0109eaec0b0dbf5231aa6864dca34acccb1cf"
+          "sha256": "5a003a80e5b764c20ed09bd6d229dc678bb27fd54aca68b50b945b725a2c8ba3"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
-          "sha256": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8"
+          "sha256": "7fb0a9b7f0fff9b582c629319770623810fa6a5d2b9833a3049b031956306b33"
         },
         {
           "doc": "launch/concurrent-serving/run.sh",
-          "sha256": "f6f03c0b071b8f106523d0895374f7a66abe9a89b5fa88d054df1b7074fd3f0d"
+          "sha256": "0e2dae9d2470b31827553933da97e338137ab9fa47dae88a78aedd948a486fd7"
         },
         {
           "doc": "launch/common.sh",
-          "sha256": "e0bd20e4918d2e44b965ad0aaecacca51293fd84dbddc3a8a32d3dbe34b6414a"
+          "sha256": "ba313ad855920382d99db2793e26fed250dea7941eecc432b8f647b3ebf945f8"
         },
         {
           "doc": "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/scripts/host_vllm_backend.sh",
@@ -3397,7 +3397,7 @@
         },
         {
           "doc": "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/images/work/AGENT_TASK.md",
-          "sha256": "506e3126bcc32f0a94c2fd8613bae49109c8d07e0c7178826a0c904177944da2"
+          "sha256": "ee19caa0ffa35aa689cfc63250f2602865ca0e44cdf36df2d9fd726cd9583027"
         },
         {
           "doc": "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/runtime/frozen/harbor_tasks/concurrent-agent-serving-optimizer-qwen36-27b-swe192-v2.1-gpu45/environment/bench-controller/runner/workload.py",
@@ -3417,7 +3417,7 @@
         },
         {
           "doc": "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/tasks/concurrent_agent_serving_optimizer_qwen36_swe192_v24.json",
-          "sha256": "fd92c85d230e77284566fa550e4310141425c6ea8a547ac08d442d046a2d47c4"
+          "sha256": "7b8184a618acd49afc2ba9e6b8728dea880331a373f54ef5c54da7a3e979a6a3"
         }
       ],
       "result_intro": "Optimize an OpenAI-compatible scheduling gateway between concurrent coding agents and a fixed Qwen3.6-27B backend.",
