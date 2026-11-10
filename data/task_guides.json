@@ -1,8 +1,8 @@
 {
   "source": {
-    "project": "https://github.com/deepebe952/infrathon",
+    "project": "https://github.com/InfrathonX/Infrathon",
     "revision": "eb72a9ce8a4067766b0ffaf99ea23659102b617a",
-    "checkout": "../infrathon"
+    "checkout": "../Infrathon"
   },
   "tasks": {
     "attn-qat": {
@@ -107,7 +107,7 @@
       ],
       "test_commands": "# Replace 1 with your candidate version.\ncd /app/workdir/attn_qat_lab\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/attn-qat-train/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/attn-qat-train/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "Video models need attention calculations in both the forward pass and the gradient calculation during training. The agent speeds up this attention routine.",
       "reader_setup": [
         {
@@ -231,7 +231,7 @@
       ],
       "test_commands": "cd /app/workdir/k_grouped_wgrad_lab\n./tools/run_public_tests.sh --sanitize --candidate-version 1\n./tools/run_public_tests.sh --edge --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/standalone-kgrouped-wgrad/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/standalone-kgrouped-wgrad/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "Training a model with multiple experts requires calculating gradients that tell each expert how to adjust its weights. The agent builds a fast GPU routine for these grouped calculations, using eight-bit inputs.",
       "reader_setup": [
         {
@@ -522,7 +522,7 @@
       ],
       "requirements": [
         "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair.",
-        "Release hardware: H100 NVL 94 GB.",
+        "Release hardware: H100 NVL 94 GB or H100 SXM 80 GB.",
         "Frozen Qwen3-4B teacher, trainable Qwen3-1.7B student, and TL;DR prompt/completion data.",
         "Provided PyTorch 2.8 / CUDA 12.9 / FSDP runtime with the official TRL objective."
       ],
@@ -625,7 +625,7 @@
         "meaning": "Compares complete teacher–student training-step throughput with the reference implementation in the TRL training library. A score of 100 matches the reference.",
         "rule": "Score = 100 × geometric mean of training speedup across five workloads."
       },
-      "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB).",
+      "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
       "launch_note": "This launcher uses the same GPU pair for Worker and Judge."
     },
     "opcd": {
@@ -1537,7 +1537,7 @@
       ],
       "test_commands": "./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --edge --candidate-version 1\n./tools/run_public_tests.sh --sanitize --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/standalone-fp8/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/standalone-fp8/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "Mixture-of-experts inference sends different numbers of tokens to different expert networks, creating many matrix multiplications of uneven size. The agent builds a GPU implementation that processes these changing groups efficiently.",
       "reader_setup": [
         {
@@ -1673,7 +1673,7 @@
       ],
       "test_commands": "./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --sanitize --candidate-version 1\n./tools/run_public_tests.sh --edge --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/standalone-sparse-mla-v2/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/standalone-sparse-mla-v2/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "Sparse attention computes each query’s output from a selected list of context positions, reducing the number of attention interactions. The agent builds a GPU implementation that gathers those positions and computes the output faster.",
       "reader_setup": [
         {
@@ -1809,7 +1809,7 @@
       ],
       "test_commands": "./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --sanitize --candidate-version 1\n./tools/run_public_tests.sh --edge --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/standalone-paged-gqa-v2/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/standalone-paged-gqa-v2/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "Language model serving stores earlier attention keys and values in memory pages that may be scattered across the GPU. The agent builds a faster attention operation that follows those page mappings, shares cached data across query heads, and respects which earlier tokens each query may read.",
       "reader_setup": [
         {
@@ -1948,7 +1948,7 @@
       ],
       "test_commands": "./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/sageattention-qattn/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/sageattention-qattn/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "Attention can run faster when intermediate values use fewer bits, but this introduces numerical error. The agent improves a working quantized-attention implementation, speeding up the complete operation from input preprocessing through output generation.",
       "reader_setup": [
         {
@@ -2264,7 +2264,7 @@
       ],
       "test_commands": "./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/lmcache-kv-transfer/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/lmcache-kv-transfer/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "Language model serving reuses cached attention data, which must move between paged engine buffers and contiguous cache storage. The agent improves a GPU transfer kernel to move this data faster across device and host-memory paths.",
       "reader_setup": [
         {
@@ -2302,7 +2302,7 @@
       ],
       "requirements": [
         "Worker: 1 GPU; Judge: 1 separate GPU.",
-        "Release hardware: H100 NVL 94 GB.",
+        "Release hardware: H100 NVL 94 GB or H100 SXM 80 GB.",
         "PyTorch 2.7.1 / CUDA 12.8 task environment.",
         "GPU-resident points, centroids, and precomputed point norms."
       ],
@@ -2397,7 +2397,7 @@
       ],
       "test_commands": "bash /workspace/public_tests/run_public_tests.sh --quick\nbash /workspace/public_tests/run_public_tests.sh",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/flash-kmeans/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/flash-kmeans/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "One K-Means iteration assigns every point to its nearest cluster center and then updates each center from its assigned points. The agent implements these two operations efficiently on the GPU.",
       "reader_setup": [
         {
@@ -2421,7 +2421,7 @@
         "meaning": "The Judge measures execution latency across 14 workloads. The website converts that latency to equivalent TFLOPS using a fixed amount of work.",
         "rule": "Displayed score = fixed workload operation count ÷ weighted geometric-mean latency, expressed in TFLOPS."
       },
-      "reader_compute": "Worker: 1 GPU; Judge: 1 separate GPU. H100 NVL (94 GB)."
+      "reader_compute": "Worker: 1 GPU; Judge: 1 separate GPU. H100 NVL (94 GB) or H100 SXM (80 GB)."
     },
     "mamba2": {
       "task_id": "tilelang_mamba2_ssd_forward_h100_seed_v2",
@@ -2542,7 +2542,7 @@
       ],
       "test_commands": "./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/tilelang-mamba2-ssd-v2/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/tilelang-mamba2-ssd-v2/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --auth /path/to/auth.json",
       "reader_overview": "State-space models carry a compact state through a sequence to compute each token’s output. The agent speeds up this forward operation by improving how work is divided and intermediate states are stored.",
       "reader_setup": [
         {
@@ -2834,7 +2834,7 @@
       ],
       "requirements": [
         "Worker: 1 GPU; Judge: 6 separate GPUs (8 for GLM).",
-        "Release hardware: H100 NVL 94 GB.",
+        "Release hardware: H100 NVL 94 GB or H100 SXM 80 GB.",
         "LongCat-Video, HY-WorldPlay-8B, and the supplied video-generation inputs.",
         "PyTorch 2.8 / CUDA 12.8 runtime with video-quality evaluators; Judge supports 1–8 same-model GPUs.",
         "Host: git-lfs on PATH and about 200 GiB free under INFRATHON_ASSETS_ROOT.",
@@ -2950,7 +2950,7 @@
         "meaning": "Combines KV-cache storage savings with generated-video quality relative to the human codec. The human codec scores 6.82; Claude's best submitted solution scores 28.45.",
         "rule": "Per-model score = R × (1 + q), where q averages normalized frame fidelity and relative VBench margin. Take the geometric mean across both video models."
       },
-      "reader_compute": "Worker: 1 GPU; Judge: 6 separate GPUs (8 for GLM). H100 NVL (94 GB)."
+      "reader_compute": "Worker: 1 GPU; Judge: 6 separate GPUs (8 for GLM). H100 NVL (94 GB) or H100 SXM (80 GB)."
     },
     "eagle3": {
       "task_id": "eagle3_spec_decode_engine_qwen3_8b_h100_v1",
@@ -3053,7 +3053,7 @@
         "Formal evaluation also checks stopping, determinism, request isolation, source/model integrity, memory, and completed execution."
       ],
       "test_commands": "cd /app/workdir/spec_lab\n/workspace/public_tests/run_public_tests.sh --cpu-only\n/workspace/public_tests/run_public_tests.sh --quick --candidate-version 1\n/workspace/public_tests/run_public_tests.sh --full --candidate-version 1",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/eagle3-spec-decode/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 24 \\\n  --judge-port 18386 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/eagle3-spec-decode/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 24 \\\n  --judge-port 18386 \\\n  --auth /path/to/auth.json",
       "launch_setup": "nvidia-smi --query-gpu=index,uuid --format=csv,noheader",
       "reader_overview": "Speculative decoding uses a small drafting component to propose several tokens for a larger model to check together. The agent accelerates this complete proposal-and-check process.",
       "reader_setup": [
@@ -3189,7 +3189,7 @@
         "Determinism, cache isolation, model integrity, complete output buffers, timeouts, and memory limits also gate acceptance."
       ],
       "test_commands": "cd /app/workdir/decoder_lab\nbash /workspace/public_tests/run_public_tests.sh --cpu-only\nbash /workspace/public_tests/run_public_tests.sh --quick\nbash /workspace/public_tests/run_public_tests.sh",
-      "launch_command": "WORK_GPU=0 JUDGE_GPU=1 launch/llada-h100/run.sh \\\n  --legacy-dual-gpu \\\n  --model MODEL_ID --effort max --hours 24 \\\n  --judge-port 18384 \\\n  --auth /path/to/auth.json",
+      "launch_command": "launch/llada-h100/run.sh --work-gpu 0 --judge-gpu 1 \\\n  --model MODEL_ID --effort max --hours 24 \\\n  --judge-port 18384 \\\n  --auth /path/to/auth.json",
       "launch_setup": "export LLADA_MODEL_REPO=\"$(.venv/bin/python scripts/infrathon/assets.py hub-cache)/models--GSAI-ML--LLaDA-8B-Instruct\"\nnvidia-smi -L\npython3 tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/scripts/make_reference_archives.py --task-root tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed --stress-extra-mib 61440",
       "reader_overview": "LLaDA generates text by repeatedly filling missing positions in an output sequence using a diffusion language model. The agent speeds up this iterative process through better scheduling and reuse of computation while preserving useful completions and answer quality on math and coding tasks.",
       "reader_setup": [

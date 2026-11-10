@@ -26,7 +26,7 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECT = "https://github.com/deepebe952/infrathon"
+PROJECT = "https://github.com/InfrathonX/Infrathon"
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 LAUNCHER = re.compile(r"(?:\./)?launch/[^/\s]+/run\.sh\Z")
 COMMAND_FIELDS = (
@@ -116,7 +116,7 @@ class Audit:
                          f"{name}: expected a full Git revision")
             self.require(revision == head, f"{name}: recorded revision differs from --repo HEAD ({head})")
             # --repo may relocate the checkout; the stored project location remains portable.
-            self.require(record.get("checkout") == "../infrathon", f"{name}: unexpected checkout metadata")
+            self.require(record.get("checkout") == "../Infrathon", f"{name}: unexpected checkout metadata")
 
     def shell_syntax(self, guide: dict, key: str) -> None:
         # Do not inherit BASH_ENV, ENV or shell options that could source user code.
@@ -277,8 +277,8 @@ def check_paper(audit: Audit, paper: Path, metrics: dict) -> None:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--repo", type=Path, default=ROOT.parent / "infrathon",
-                        help="public source checkout (default: sibling ../infrathon)")
+    parser.add_argument("--repo", type=Path, default=ROOT.parent / "Infrathon",
+                        help="public source checkout (default: sibling ../Infrathon)")
     parser.add_argument("--paper", type=Path,
                         help="Overleaf ZIP (default: sibling archive recorded in task_metrics.json)")
     args = parser.parse_args(argv)

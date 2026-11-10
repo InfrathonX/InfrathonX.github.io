@@ -43,8 +43,8 @@ docker run --rm -e NVIDIA_VISIBLE_DEVICES=all \
     </section>
     <section class="doc-section" id="installation"><h2>Installation</h2>
       <p>Clone the repository and install its Python dependencies. Run the following setup commands in Bash from this checkout.</p>
-      <div class="doc-code"><pre><code>git clone https://github.com/deepebe952/infrathon.git
-cd infrathon
+      <div class="doc-code"><pre><code>git clone https://github.com/InfrathonX/Infrathon.git
+cd Infrathon
 uv sync --frozen --dev --python 3.12
 uv pip install --python .venv/bin/python numpy==2.5.2
 uv pip install --python .venv/bin/python \
@@ -117,7 +117,7 @@ SFORGE_LLM_JUDGE_API_KEY_FILE=/absolute/path/to/api.key</code></pre></div></deta
 <p>Select Dynamic grouped FP8 GEMM and download its task assets. The download scripts read <code>INFRATHON_ASSETS_ROOT</code> from the <a href="#configuration">configuration loaded into your shell</a>.</p><div class="doc-code"><pre><code>TASK=standalone-dynamic-grouped-fp8-h100-v3-scratch
 TASK_DIR="tasks/latest/$TASK"
 "$TASK_DIR/assets/fetch.sh"
-.venv/bin/python scripts/infrathon/assets.py check "$TASK"</code></pre></div><details class="metric-details"><summary>Dataset access and local assets</summary><p>For private or gated datasets and models, grant access to your Hugging Face account and sign in before fetching:</p><div class="doc-code"><pre><code>hf auth login</code></pre></div><p>Set <code>INFRATHON_HF_DATASET</code> to the release dataset name, or <code>INFRATHON_ASSETS_SOURCE</code> to an existing local copy. The repository’s default dataset is <code>pyrominddynamics/infrathon</code>.</p></details>
+.venv/bin/python scripts/infrathon/assets.py check "$TASK"</code></pre></div><details class="metric-details"><summary>Dataset access and local assets</summary><p>Task data comes from the gated Hugging Face dataset <a href="https://huggingface.co/datasets/Infrathon/Infrathon" target="_blank" rel="noopener noreferrer">Infrathon/Infrathon</a>. Request access on its page, and for gated models grant access to your account, then sign in before fetching:</p><div class="doc-code"><pre><code>hf auth login</code></pre></div><p>The repository’s default dataset is <code>Infrathon/Infrathon</code>. Set <code>INFRATHON_HF_DATASET</code> to use another dataset, or <code>INFRATHON_ASSETS_SOURCE</code> to install from an existing local copy.</p></details>
     </section>
     <section class="doc-section" id="containers"><h2>Docker images</h2>
 <p>With <code>TASK</code> and <code>TASK_DIR</code> selected in <a href="#assets">Models and data</a>, choose the host hardware: <code>h100-94gb-400w</code> for H100 NVL or <code>h100-80gb-700w</code> for H100 SXM.</p><div class="doc-code"><pre><code>export INFRATHON_HARDWARE=h100-94gb-400w
@@ -126,7 +126,7 @@ PUBLISHED="$TASK_DIR/images/published.json"
 WORK_TAG="$(jq -er --arg hw "$INFRATHON_HARDWARE" '.hardware[$hw].work_tag' "$PUBLISHED")"
 JUDGE_TAG="$(jq -er --arg hw "$INFRATHON_HARDWARE" '.hardware[$hw].judge_public_tag' "$PUBLISHED")"
 docker pull "$IMAGE_REPOSITORY:$WORK_TAG"
-docker pull "$IMAGE_REPOSITORY:$JUDGE_TAG"</code></pre></div><p>The default repository is <code>pyrominddynamics/sforge</code>. For FP8 on H100 NVL, the Work tag is <code>h100-94gb-400w-standalone-dynamic-grouped-fp8-h100-v3-scratch-work-r1</code>; the Judge tag ends in <code>judge-public-r1</code>. The helper above reuses these downloads to finish task preparation.</p></details>
+docker pull "$IMAGE_REPOSITORY:$JUDGE_TAG"</code></pre></div><p>The default repository is <code>infrathon/infrathon</code>. For FP8 on H100 NVL, the Work tag is <code>h100-94gb-400w-standalone-dynamic-grouped-fp8-h100-v3-scratch-work</code> and the public Judge tag is the same with <code>-judge</code> at the end. The helper above reuses these downloads to finish task preparation.</p></details>
 <details class="metric-details"><summary>Build from source</summary><div class="doc-code"><pre><code>bash "$TASK_DIR/scripts/build_images.sh"</code></pre></div></details>
     </section>
     <section class="doc-section" id="history"><h2>Candidate history</h2><p>Miles and Concurrent serving use a store for candidate versions. With <code>TASK_DIR</code> set to your task, initialize and register it:</p><details class="metric-details"><summary>Initialize the store</summary><div class="doc-code"><pre><code>export SFORGE_VERSION_STORE_ROOT=&quot;$PWD/../infrathon-version-store&quot;
@@ -162,9 +162,9 @@ PY
 set +a
 nvidia-smi --query-gpu=index,uuid --format=csv,noheader
 RUN_ID="fp8-$(date -u +%Y%m%d-%H%M%S)"
-WORK_GPU=0 JUDGE_GPU=1 launch/standalone-fp8/run.sh \
+launch/standalone-fp8/run.sh --work-gpu 0 --judge-gpu 1 \
   --model "$MODEL" --effort max --hours 12 \
-  --legacy-dual-gpu --judge-port 18096 --run-id "$RUN_ID" \
+  --judge-port 18096 --run-id "$RUN_ID" \
   --auth "$CODEX_AUTH_JSON_PATH"</code></pre></div><p>This starts the agent in the foreground. Add <code>--tmux</code> to run it in a detached session.</p>
 <details class="metric-details"><summary>Submit from the Work container</summary><p>The agent submits candidates during its run. In an interactive Work container session, these commands submit the current implementation and list submissions:</p><div class="doc-code"><pre><code>sforge-submit --details
 sforge-submit --list</code></pre></div></details><p>Other tasks have their setup and launch commands under <a href="tasks.html">Task List</a>.</p>

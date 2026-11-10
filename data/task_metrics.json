@@ -5,9 +5,9 @@
     "section": "Appendix A: task definitions, metrics, validity checks, and final scores"
   },
   "documentation": {
-    "project": "https://github.com/deepebe952/infrathon",
+    "project": "https://github.com/InfrathonX/Infrathon",
     "revision": "eb72a9ce8a4067766b0ffaf99ea23659102b617a",
-    "checkout": "../infrathon",
+    "checkout": "../Infrathon",
     "source_sha256": {
       "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/README.md": "8c01bd51323dbca1369976b878c3d56b7b38c2ffb806c15fa1c622a8033e127a",
       "scripts/infrathon/tasks.json": "c9a05bf640ff1bd397fe2b94ddfe88242b59e0de906bd684d5a90da76ac8cbf8",

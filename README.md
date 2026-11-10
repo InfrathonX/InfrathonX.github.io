@@ -18,9 +18,6 @@ before committing. The script synchronizes only the frontend files listed in
 CI rejects stale root copies. To preview the published root layout, serve
 the repository directory with `python3 -m http.server 8000`.
 
-Initial content was copied from `deepebe952/deepebe952.github.io` at
-commit `99bbc32`, preserving its source data and attribution.
-
 ```
 site/
   index.html                 paper identity, figures, interactive leaderboard, finding summaries, expandable task trajectories
@@ -172,7 +169,7 @@ The site uses one light theme. Charts use shared theme variables and responsive 
 
 ## Documentation
 
-The setup guide follows the `infrathon` repository at `https://github.com/deepebe952/infrathon`, revision `eb72a9ce8a4067766b0ffaf99ea23659102b617a`. The local source checkout is `../infrathon`. Its task READMEs, Work contracts, public tests, Judge code, task configurations, and launchers are the current code references; the former `ultrainfrabench-release/docs/tasks` directory is not the release documentation source. The guide covers host requirements, repository installation, Codex and Claude Code runtime downloads, agent login and CLI version selection, a complete first-run configuration including submission-review credentials, asset fetching and Hugging Face authentication, direct Docker pulls using recorded hardware-specific tags, local image preparation, candidate history, launching a kernel task, and submission outputs. Public Code, Docker, and Dataset links use the author-provided resource URLs, also recorded in `data/setup_sources.json`.
+The setup guide follows the `Infrathon` repository at `https://github.com/InfrathonX/Infrathon`, revision `eb72a9ce8a4067766b0ffaf99ea23659102b617a`. The local source checkout is `../Infrathon`. Its task READMEs, Work contracts, public tests, Judge code, task configurations, and launchers are the current code references; the former `ultrainfrabench-release/docs/tasks` directory is not the release documentation source. The guide covers host requirements, repository installation, Codex and Claude Code runtime downloads, agent login and CLI version selection, a complete first-run configuration including submission-review credentials, asset fetching and Hugging Face authentication, direct Docker pulls using recorded hardware-specific tags, local image preparation, candidate history, launching a kernel task, and submission outputs. Public Code, Docker, and Dataset links use the author-provided resource URLs, also recorded in `data/setup_sources.json`.
 
 Docs shows one setup section at a time, selected from its sidebar, with shareable section links and browser history. Tasks has its own searchable directory and 25 unified task pages. Each page presents the task introduction and metric summary once, followed by best scores, optimization trajectories, submission history, and the per-model results table. Task setup follows the results and explains the model and data or synthetic workload, workload settings, starting point, editable scope, and hardware. Detailed metric calculations and validity checks, then environment setup and launch commands, appear in disclosures. Document sidebars and contents collapse on mobile.
 

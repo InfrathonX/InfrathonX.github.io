@@ -1,7 +1,7 @@
 {
-  "project": "https://github.com/deepebe952/infrathon",
+  "project": "https://github.com/InfrathonX/Infrathon",
   "revision": "eb72a9ce8a4067766b0ffaf99ea23659102b617a",
-  "checkout": "../infrathon",
+  "checkout": "../Infrathon",
   "sources": [
     {
       "path": "README.md",
