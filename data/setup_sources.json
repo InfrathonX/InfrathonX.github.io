@@ -1,19 +1,19 @@
 {
   "project": "https://github.com/InfrathonX/Infrathon",
-  "revision": "4f907cf3e5c45ce25cbc6f1fb7c42450418c8515",
+  "revision": "73dcb5784fa31f07cb0387267d5d2b2df81cc339",
   "checkout": "../Infrathon",
   "sources": [
     {
       "path": "README.md",
-      "sha256": "f77b5d89bc4070f739caf74e2457fe1fc335dd8c5ff788663f917bc6a6b8a956"
+      "sha256": "f2f5fa34446f19c636f8916b85a63ff7c5d5508ce079716bb3a7cea720e523eb"
     },
     {
       "path": "docs/HOST_PREREQUISITES.md",
-      "sha256": "6d6af4671d6a6f5d8dcfc8058ce79f139e675ce9d475dfd43d03e6f6d263bf77"
+      "sha256": "b7d5a4921d2dc75d3362f3e758f6bd7ad689786e4e88f4cce61e97668dc3b6bd"
     },
     {
       "path": "scripts/infrathon/README.md",
-      "sha256": "15284df77cebd8e1d635abb9af0507bea704da20cffc0f4169f6bb4f48e3e4f1"
+      "sha256": "4376e7a0ed102f73204898595a927252d5aa638e462eb784833e5054736ed427"
     },
     {
       "path": "scripts/infrathon/registry.json",
@@ -45,7 +45,7 @@
     },
     {
       "path": "docs/LLM_JUDGE.md",
-      "sha256": "31f9885abb746361325cbacd7d0575bf64644760dd38d0c324ab6424c9887035"
+      "sha256": "9ee2d60eb7cb83d87204d25786ec1cee46a8dd3c85b8c79a7ffc27fe8bee92a7"
     },
     {
       "path": "launch/common.sh",
@@ -61,7 +61,7 @@
     },
     {
       "path": "launch/mlsysforge.env.example",
-      "sha256": "059043cee67e360a7c0c86dc6242bac85b4b9515d274050f69e7da8de9599064"
+      "sha256": "831f2b998203ed9d2ac312a5fd811e6f1cd925ee6393a9bb9ffdc8bdb3089bcf"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/images/published.json",

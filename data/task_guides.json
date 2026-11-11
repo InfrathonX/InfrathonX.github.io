@@ -1,7 +1,7 @@
 {
   "source": {
     "project": "https://github.com/InfrathonX/Infrathon",
-    "revision": "4f907cf3e5c45ce25cbc6f1fb7c42450418c8515",
+    "revision": "73dcb5784fa31f07cb0387267d5d2b2df81cc339",
     "checkout": "../Infrathon"
   },
   "tasks": {
@@ -24,7 +24,7 @@
       "sources": [
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/README.md",
-          "sha256": "c7ef1df4dd2670cb5c5f64ad322e363e0955147ae151221f79ffa851412ac631"
+          "sha256": "c1e8ce30feda5ebfcaaf8f03ee026d92b73b4425d0d901e6f2b642dd40fee6cc"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -276,7 +276,7 @@
       "sources": [
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/README.md",
-          "sha256": "0368f45c3ddf2693fc6dab33fc6735a8e77962b6e7da2886ff666e73b7bdc785"
+          "sha256": "69af153f4f1b240e7c7df75f6ac87f9a51c71af43ac8418a7ee34742463aa105"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -404,7 +404,7 @@
       "sources": [
         {
           "doc": "tasks/latest/qwen3-1p7b-orpo-training-optimizer-dual-h100-v4-cross-matrix-seed/README.md",
-          "sha256": "b419a54247726c9f52bcbac9bf1ff2eadd6d979d6fd7e0c151df8ab26015bc46"
+          "sha256": "328b2c36495238e4f96cec957c1915d9277c53ae1799e4d75a52dac959121e0d"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -530,7 +530,7 @@
       "sources": [
         {
           "doc": "tasks/latest/qwen3-4b-to-1p7b-gkd-distillation-optimizer-dual-h100-v1-official-trl-seed/README.md",
-          "sha256": "c8479727b36a3ce7ce71853595dd6ba97c392874d40e3ab9efef7e0bd7b567b3"
+          "sha256": "b70c6de3db382ff4c3373f2c49d43daa25b7d09aa33719978c49641ac788b86f"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -650,7 +650,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/README.md",
-          "sha256": "9518bebcc43086d07b39f0685d146177a52f5a90583d896d2cb65bd033242b0d"
+          "sha256": "2be93fb0333fc83c189c02cd74bdadfc20cadf12bc6186b684a8710c73be2b18"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -803,7 +803,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/README.md",
-          "sha256": "a0a0d25eef27272c468db1cb6f68159d9b7cc33f3411bfecfbb01399c9a63a64"
+          "sha256": "3889c214d8a0c61fbfa49eac567c0c8132e719b149bdc52f258b1d1ba3c11ea4"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -968,7 +968,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/README.md",
-          "sha256": "c4c054ab2171b752a9899437993f549cc9849d551fb0c8d1b31905985c688418"
+          "sha256": "202b644d29efed1831dfa12ad80ef9e122c937a53276b5b7229736d686c1b340"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1121,7 +1121,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/README.md",
-          "sha256": "3c81be0e1a27f578e1625f897139af14bfee7df1b07586ad4687995a68c5dcbd"
+          "sha256": "7ddbe090896c8974d3e5ac1f82129730d95b833e3c080f7b41d99c55d9fb55e9"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1287,7 +1287,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/README.md",
-          "sha256": "907de6c368cdcc53aa7778846b37c37b3cc7e8757d490cfc3a0159a5ceca4ddd"
+          "sha256": "d88ec2abdf8503fcd15e52f76b051513ff9f410540d6e387ec99fce464ac52af"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1718,7 +1718,7 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/README.md",
-          "sha256": "d2eda61e0e7462adeaf2a89bbf1a094f90e2726c57d200a63930bae08e468d41"
+          "sha256": "9923842873f55025695b65e10caa2797b779493662aac657a8360d08751459c2"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1854,7 +1854,7 @@
       "sources": [
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/README.md",
-          "sha256": "9128d7150fb5efff9f513e28757a4e9f4c2e4d95dbb6d81644e17e3d8d9c9b5e"
+          "sha256": "fdb4bd59c3e726e074c3f8efaceb0d93614589980fcd53fc8e9321b4142401a5"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1993,7 +1993,7 @@
       "sources": [
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/README.md",
-          "sha256": "ed48ebfbf95bb72b24b1625cc86051624e96cb5659d326522ff70e0dc5c7b3c3"
+          "sha256": "b161f31d3961c8f3105ac985223f74ea0817be494938884b78e1d3635092140c"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2310,7 +2310,7 @@
       "sources": [
         {
           "doc": "tasks/latest/flash-kmeans-paper-h100-v7-scratch/README.md",
-          "sha256": "f9290cdc958ab13dd16a405535bc3a8039674184d04bd6b1249ea428fda2ee73"
+          "sha256": "2b3d65d7f410344644efedcc27c38fe59e251d3e916a9ebecaa001ba3418618e"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2587,7 +2587,7 @@
       "sources": [
         {
           "doc": "tasks/latest/kvpress-kv-eviction-policy-qwen3-8b-h100-v2-scratch/README.md",
-          "sha256": "9bc0fd9f0e80a100411fb4f363a3708b6a905b3b3c69736c910a1b298e53175c"
+          "sha256": "2df5956af8c43f114432470b108dccf2c5d33c894bfe1dc3349fe4a2bd42bb65"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2714,7 +2714,7 @@
       "sources": [
         {
           "doc": "tasks/latest/kvzip-query-agnostic-kv-scoring-qwen3-8b-h100-v2-scratch/README.md",
-          "sha256": "804d9a99ca8ad61d13a3dd07ffeb58d834a19fffc174ccc48495dc19fd32d381"
+          "sha256": "45dad5e641cd7e367cc243baa69674d7f0f6e92adcede3464bb90e542a9e9440"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2844,7 +2844,7 @@
       "sources": [
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/README.md",
-          "sha256": "6fede55e991196da7e662d0bee2de2a936ebae99bdcdcb1dfaf21bfac04c16a7"
+          "sha256": "47f50842ce16a4106e1892cb773c62edc0d6511b6136195503afefddb7f111c0"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2856,7 +2856,7 @@
         },
         {
           "doc": "docs/HOST_PREREQUISITES.md",
-          "sha256": "6d6af4671d6a6f5d8dcfc8058ce79f139e675ce9d475dfd43d03e6f6d263bf77"
+          "sha256": "b7d5a4921d2dc75d3362f3e758f6bd7ad689786e4e88f4cce61e97668dc3b6bd"
         },
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/judge/evaluate_hidden.py",
@@ -2972,7 +2972,7 @@
       "sources": [
         {
           "doc": "tasks/latest/eagle3-spec-decode-engine-qwen3-8b-h100-v1-seed/README.md",
-          "sha256": "32d067fbb249150d2e12ceb6f21ce0beee5057935a95cb2ac441d571de1a6b82"
+          "sha256": "1a8c77954163ef4581d1007b1aa0fe0d188ad44633d9750b6fd5c23cca444310"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -3100,7 +3100,7 @@
       "sources": [
         {
           "doc": "tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/README.md",
-          "sha256": "87fceefa5e5f9579f92e9d7f9f3a8f25dada8c57d7bbc371c895c21143ec1f1a"
+          "sha256": "b0a58b90bbac87c768b5bb9847f552e49d7d36b8f1d8cd3a55c0b8d19458ceb5"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -3249,7 +3249,7 @@
         },
         {
           "doc": "docs/HOST_PREREQUISITES.md",
-          "sha256": "6d6af4671d6a6f5d8dcfc8058ce79f139e675ce9d475dfd43d03e6f6d263bf77"
+          "sha256": "b7d5a4921d2dc75d3362f3e758f6bd7ad689786e4e88f4cce61e97668dc3b6bd"
         },
         {
           "doc": "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/runtime/scoring.py",
@@ -3377,7 +3377,7 @@
       "sources": [
         {
           "doc": "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/README.md",
-          "sha256": "87cbb438b8375fa53d27afc776ca489b62c3e2485a3a631ce71d94e847c5c232"
+          "sha256": "3d5b10f5a3d1f925c8dfe601a134e93c3aa35675170819cec2a56c113fbeac12"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
