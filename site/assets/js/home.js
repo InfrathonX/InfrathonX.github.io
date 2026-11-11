@@ -34,7 +34,6 @@
   if (!sidebar) return;
   const entries = [
     ["overview", "Overview"],
-    ["how-it-works", "How a Run Works"],
     ["leaderboard", "Leaderboard"],
     ["results", "All Results"],
     ["knowledge-discovery", "Knowledge Discovery"],
