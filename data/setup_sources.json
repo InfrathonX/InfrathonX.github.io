@@ -1,19 +1,19 @@
 {
   "project": "https://github.com/InfrathonX/Infrathon",
-  "revision": "ad760e7d033028857d5c77e118a4829027934548",
+  "revision": "a90f38cd69ae69dac21280acb8db92fc80312374",
   "checkout": "../Infrathon",
   "sources": [
     {
       "path": "README.md",
-      "sha256": "0f97b85da8f9efef8917ec2880bc4dcda5004bd859485ee54bab02b1505a4a37"
+      "sha256": "f77b5d89bc4070f739caf74e2457fe1fc335dd8c5ff788663f917bc6a6b8a956"
     },
     {
       "path": "docs/HOST_PREREQUISITES.md",
-      "sha256": "58ec4fa0c4052194894fd0043162f5269e3b7366a83d8dbda79fd64ed10d825f"
+      "sha256": "6d6af4671d6a6f5d8dcfc8058ce79f139e675ce9d475dfd43d03e6f6d263bf77"
     },
     {
       "path": "scripts/infrathon/README.md",
-      "sha256": "c78137ae8cb69fc52fa0dbc993bcab62ef8a5bc0a81cf5544c49d5ac4ec5c1d8"
+      "sha256": "15284df77cebd8e1d635abb9af0507bea704da20cffc0f4169f6bb4f48e3e4f1"
     },
     {
       "path": "scripts/infrathon/registry.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "0dd200ea9444299a62dea6986ff078f1c750bf522ebb91598363d2ad432121ac"
+      "sha256": "25ff659d6ff676102d08e449ab7c22b2b036a67ed2aac7d4d5cf84524bb5da3f"
     },
     {
       "path": "uv.lock",
@@ -45,7 +45,7 @@
     },
     {
       "path": "docs/LLM_JUDGE.md",
-      "sha256": "0e39ce56c4e21baeaeddd8dce01cc38b9ad065a5b710fc2084e71a52e1484f59"
+      "sha256": "31f9885abb746361325cbacd7d0575bf64644760dd38d0c324ab6424c9887035"
     },
     {
       "path": "launch/common.sh",
@@ -61,7 +61,7 @@
     },
     {
       "path": "launch/mlsysforge.env.example",
-      "sha256": "6485b1fe6ded51244de975cc55b343dc9b97e55eda8c1dacc8fe867d3564490a"
+      "sha256": "059043cee67e360a7c0c86dc6242bac85b4b9515d274050f69e7da8de9599064"
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/images/published.json",
@@ -101,7 +101,7 @@
     },
     {
       "path": "launch/README.md",
-      "sha256": "a44d4cbef7c5f24fb994d9de95f6133dcb2a3b91eaf2223bd84cc1f6939b9d53"
+      "sha256": "105947873b491e737f2a68d65752f23567b713f04f735956ab3b50a1b6b3562b"
     },
     {
       "path": "sforge/harness/version_store.py",

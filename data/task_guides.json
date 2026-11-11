@@ -1,7 +1,7 @@
 {
   "source": {
     "project": "https://github.com/InfrathonX/Infrathon",
-    "revision": "ad760e7d033028857d5c77e118a4829027934548",
+    "revision": "a90f38cd69ae69dac21280acb8db92fc80312374",
     "checkout": "../Infrathon"
   },
   "tasks": {
@@ -2856,7 +2856,7 @@
         },
         {
           "doc": "docs/HOST_PREREQUISITES.md",
-          "sha256": "58ec4fa0c4052194894fd0043162f5269e3b7366a83d8dbda79fd64ed10d825f"
+          "sha256": "6d6af4671d6a6f5d8dcfc8058ce79f139e675ce9d475dfd43d03e6f6d263bf77"
         },
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/judge/evaluate_hidden.py",
@@ -3249,7 +3249,7 @@
         },
         {
           "doc": "docs/HOST_PREREQUISITES.md",
-          "sha256": "58ec4fa0c4052194894fd0043162f5269e3b7366a83d8dbda79fd64ed10d825f"
+          "sha256": "6d6af4671d6a6f5d8dcfc8058ce79f139e675ce9d475dfd43d03e6f6d263bf77"
         },
         {
           "doc": "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/runtime/scoring.py",
