@@ -357,7 +357,7 @@
         "Formal timing uses seven trials and includes communication waits; the public full run uses three trials and exposes per-rank and communication diagnostics."
       ],
       "test_commands": "# Replace 1 with your candidate version.\ncd /app/workdir/moe_ag_lab\n./tools/run_one.sh --version 1\n./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
-      "launch_setup": "# Select the NVLink pair allocated to this run.\nnvidia-smi --query-gpu=index,uuid --format=csv,noheader",
+      "launch_setup": "# The run holds all eight GPUs; check they are idle.\nnvidia-smi --query-gpu=index,uuid --format=csv,noheader",
       "launch_command": "launch/flux-moe-ag/run.sh \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --gpus 0,1,2,3,4,5,6,7 --no-wait --auth /path/to/auth.json",
       "reader_overview": "A mixture-of-experts model sends each token to a small selection of expert networks. This task speeds up gathering tokens across two GPUs, grouping them by expert, and multiplying them by the expert weights.",
       "reader_setup": [
@@ -482,7 +482,7 @@
         "Reference-relative checks cover loss trajectories, all auxiliary outputs, gradient coverage, optimizer states, nonzero updates and memory."
       ],
       "test_commands": "# Select your version with FINAL_VERSION first.\ncd /app/workdir/orpo_lab\nbash /workspace/public_tests/run_public_tests.sh --cpu-only\nbash /workspace/public_tests/run_public_tests.sh --quick\nbash /workspace/public_tests/run_public_tests.sh",
-      "launch_setup": "# Select an allocated NVLink pair and copy its UUIDs.\nnvidia-smi --query-gpu=index,uuid --format=csv,noheader\nexport ORPO_GPU_INDICES=0,1\nexport ORPO_GPU_UUIDS=GPU-...,GPU-...",
+      "launch_setup": "# Pick the Work pair and copy its UUIDs; the Judge uses GPUs 2,3 unless you pass --judge-gpus C,D.\nnvidia-smi --query-gpu=index,uuid --format=csv,noheader\nexport ORPO_GPU_INDICES=0,1\nexport ORPO_GPU_UUIDS=GPU-...,GPU-...",
       "launch_command": "launch/qwen3-orpo/run.sh \\\n  --model MODEL_ID --effort max --hours 24 \\\n  --no-wait --auth /path/to/auth.json",
       "reader_overview": "Qwen3-1.7B is trained on preferred and rejected summaries so that it learns to favor the preferred response. The agent accelerates the training computation.",
       "reader_setup": [
@@ -600,7 +600,7 @@
         "Checks compare loss, auxiliaries, gradients, optimizer states and updates, and verify every teacher parameter remains frozen."
       ],
       "test_commands": "# Select your version with FINAL_VERSION first.\ncd /app/workdir/gkd_lab\nbash /workspace/public_tests/run_public_tests.sh --cpu-only\nbash /workspace/public_tests/run_public_tests.sh --quick\nbash /workspace/public_tests/run_public_tests.sh",
-      "launch_setup": "# Select the NVLink pair allocated to this run.\nnvidia-smi --query-gpu=index,uuid --format=csv,noheader",
+      "launch_setup": "# Work runs on GPUs 0,1 and the Judge on 2,3 (--work-gpus A,B --judge-gpus C,D to change); check they are idle.\nnvidia-smi --query-gpu=index,uuid --format=csv,noheader",
       "launch_command": "launch/qwen3-gkd/run.sh \\\n  --model MODEL_ID --effort max --hours 24 \\\n  --no-wait --auth /path/to/auth.json",
       "reader_overview": "A smaller Qwen3-1.7B student learns from the predictions of a frozen Qwen3-4B teacher on supplied summaries. The agent accelerates the complete training step, including the teacher’s computation.",
       "reader_setup": [
@@ -779,7 +779,7 @@
       "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-opcd/run.sh --config launch/miles-opcd/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
-      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18650"
+      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# Two available NVLink pairs (Work, Judge) and a Judge port.\nGPU_INDICES=0,1\nJUDGE_GPU_INDICES=2,3\nJUDGE_PORT=18650"
     },
     "opd": {
       "task_id": "miles_qwen3_opd_scratch_2xh100_v2",
@@ -944,7 +944,7 @@
       "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-opd/run.sh --config launch/miles-opd/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
-      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18660"
+      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# Two available NVLink pairs (Work, Judge) and a Judge port.\nGPU_INDICES=0,1\nJUDGE_GPU_INDICES=2,3\nJUDGE_PORT=18660"
     },
     "alfworld": {
       "task_id": "miles_qwen3_alfworld_agentic_rl_2xh100_v1",
@@ -1097,7 +1097,7 @@
       "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-alfworld/run.sh --config launch/miles-alfworld/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
-      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18690"
+      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# Two available NVLink pairs (Work, Judge) and a Judge port.\nGPU_INDICES=0,1\nJUDGE_GPU_INDICES=2,3\nJUDGE_PORT=18690"
     },
     "sd35": {
       "task_id": "miles_diffusion_sd35m_mopd_2xh100_v2",
@@ -1263,7 +1263,7 @@
       "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-diffusion-opd/run.sh --config launch/miles-diffusion-opd/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
-      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18660"
+      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# Two available NVLink pairs (Work, Judge) and a Judge port.\nGPU_INDICES=0,1\nJUDGE_GPU_INDICES=2,3\nJUDGE_PORT=18632"
     },
     "wan22": {
       "task_id": "miles_diffusion_wan22_dancegrpo_2xh100_v2",
@@ -1425,7 +1425,7 @@
       "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-diffusion-wan/run.sh --config launch/miles-diffusion-wan/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
-      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18670"
+      "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# Two available NVLink pairs (Work, Judge) and a Judge port.\nGPU_INDICES=0,1\nJUDGE_GPU_INDICES=2,3\nJUDGE_PORT=18670"
     },
     "grouped-fp8": {
       "task_id": "standalone_dynamic_grouped_fp8_h100_scratch_v3",

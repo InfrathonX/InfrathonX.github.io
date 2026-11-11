@@ -81,7 +81,7 @@ read -rsp 'Claude OAuth token: ' CLAUDE_TOKEN; printf '\n'
 (umask 077; printf '%s\n' "$CLAUDE_TOKEN" &gt; "$HOME/.config/infrathon/claude.token")
 unset CLAUDE_TOKEN
 chmod 600 "$HOME/.config/infrathon/claude.token"</code></pre></div><p><a href="task.html#flux-moe/run">Flux/Comet MoE</a> accepts <code>--agent claude-code --claude-token "$HOME/.config/infrathon/claude.token"</code>. Set <code>SFORGE_AGENT_RUNTIME_DIR</code> to the Claude runtime for that launch. The FP8 launcher used in this guide runs Codex.</p>
-<p>For Miles, set <code>AGENT=claude-code</code>, <code>SFORGE_AGENT_RUNTIME_DIR</code>, and <code>CLAUDE_OAUTH_TOKEN_FILE</code> in the task’s <code>run.env</code>. The submission reviewer retains the separate Codex settings in <a href="#configuration">Configuration</a>.</p></details>
+<p>For Miles, set <code>AGENT=claude-code</code>, <code>SFORGE_AGENT_RUNTIME_DIR</code>, and <code>CLAUDE_OAUTH_TOKEN_FILE</code> in the task’s <code>run.env</code>, and delete <code>CODEX_AUTH_JSON_PATH</code> from it. The submission reviewer retains the separate Codex settings in <a href="#configuration">Configuration</a>.</p></details>
       <h4>Change the version</h4>
       <p>Change the version variable in the chosen example and build that runtime. Save its <code>SFORGE_AGENT_RUNTIME_DIR</code> in <code>launch/mlsysforge.env</code>; for Codex, also save <code>CODEX_CLI_VERSION</code>. Task images can be reused.</p>
       <p>Miles stores its runtime and version settings in the task’s <code>run.env</code>.</p>
@@ -107,7 +107,7 @@ SFORGE_LLM_JUDGE_CODEX_AUTH_JSON="$HOME/.codex/auth.json"
 EOF
 set -a
 . launch/mlsysforge.env
-set +a</code></pre></div><p>The FP8 example saves submission archives without a candidate-history store. Miles and Concurrent serving also need <a href="#history">Candidate history</a>. Use each task’s <a href="tasks.html">Run the task</a> section for its GPU, model, data, and launcher settings.</p>
+set +a</code></pre></div><p>The FP8 example saves submission archives without a candidate-history store. Miles, Concurrent serving, KVPress, KVzip and Quant-VideoGen also need <a href="#history">Candidate history</a>. Use each task’s <a href="tasks.html">Run the task</a> section for its GPU, model, data, and launcher settings.</p>
 <details class="metric-details"><summary>Custom model endpoint</summary><p>For the FP8 launcher’s OpenAI-compatible endpoint (<code>http://HOST:PORT/v1</code>, serving <code>/v1/responses</code>), set these values in <code>launch/mlsysforge.env</code>. The API key file contains the key and has mode <code>0600</code>.</p><div class="doc-code"><pre><code>MODEL=MODEL_ID
 MODEL_API_BASE_URL=http://ENDPOINT_HOST:PORT/v1
 MODEL_API_KEY_FILE=/absolute/path/to/api.key</code></pre></div><p>To use that endpoint for the reviewer too, remove <code>SFORGE_LLM_JUDGE_CODEX_AUTH_JSON</code> from the file, add the following settings, and load the configuration in a new shell:</p><div class="doc-code"><pre><code>SFORGE_LLM_JUDGE_MODEL=MODEL_ID
@@ -129,7 +129,7 @@ docker pull "$IMAGE_REPOSITORY:$WORK_TAG"
 docker pull "$IMAGE_REPOSITORY:$JUDGE_TAG"</code></pre></div><p>The default repository is <code>infrathon/infrathon</code>. For FP8 on H100 NVL, the Work tag is <code>h100-94gb-400w-standalone-dynamic-grouped-fp8-h100-v3-scratch-work</code> and the public Judge tag is the same with <code>-judge</code> at the end. The helper above reuses these downloads to finish task preparation.</p></details>
 <details class="metric-details"><summary>Build from source</summary><div class="doc-code"><pre><code>bash "$TASK_DIR/scripts/build_images.sh"</code></pre></div></details>
     </section>
-    <section class="doc-section" id="history"><h2>Candidate history</h2><p>Miles and Concurrent serving use a store for candidate versions. With <code>TASK_DIR</code> set to your task, initialize and register it:</p><details class="metric-details"><summary>Initialize the store</summary><div class="doc-code"><pre><code>export SFORGE_VERSION_STORE_ROOT=&quot;$PWD/../infrathon-version-store&quot;
+    <section class="doc-section" id="history"><h2>Candidate history</h2><p>Miles, Concurrent serving, KVPress, KVzip and Quant-VideoGen use a store for candidate versions. With <code>TASK_DIR</code> set to your task, initialize and register it:</p><details class="metric-details"><summary>Initialize the store</summary><div class="doc-code"><pre><code>export SFORGE_VERSION_STORE_ROOT=&quot;$PWD/../infrathon-version-store&quot;
 .venv/bin/python - &quot;$SFORGE_VERSION_STORE_ROOT&quot; &quot;$TASK_DIR&quot; &lt;&lt;&#x27;PY&#x27;
 import json, sys, uuid
 from pathlib import Path
@@ -170,7 +170,7 @@ launch/standalone-fp8/run.sh --work-gpu 0 --judge-gpu 1 \
 sforge-submit --list</code></pre></div></details><p>Other tasks have their setup and launch commands under <a href="tasks.html">Task List</a>.</p>
     </section>
     <section class="doc-section" id="outputs"><h2>Results and logs</h2>
-      <p>Runs are saved under <code>outputs/&lt;task-directory&gt;/runs/&lt;run-id&gt;/</code>.</p>
+      <p>Runs are saved under <code>outputs/&lt;task-directory&gt;/runs/&lt;run-id&gt;/</code>. Flux, ORPO, GKD and StreamDiffusionV2 use <code>tasks/latest/&lt;task&gt;/logs/runs/&lt;run-id&gt;/</code>; the Miles tasks use <code>$MILES_SCRATCH_ROOT/&lt;task&gt;/</code>.</p>
       <div class="scroll-x"><table class="doc-table"><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody>
         <tr><td><code>sforge-run.log</code></td><td>Agent run log.</td></tr>
         <tr><td><code>&lt;task-id&gt;/submissions/agent-N/report.json</code></td><td>Score, validation results, and feedback.</td></tr>
