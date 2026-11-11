@@ -336,7 +336,7 @@ window.IX = (() => {
   }
 
   /* ---------- chrome ---------- */
-  const PAGES = [["tasks.html", "Task List"], ["docs.html", "Docs"], ["index.html", "Blog"]];
+  const PAGES = [["tasks.html", "Task List"], ["docs.html", "Docs"], ["blog.html", "Blog"]];
   function chrome() {
     const page = document.body.dataset.page;
     const activePage = page === "task" ? "tasks" : page;
@@ -347,7 +347,7 @@ window.IX = (() => {
       Blog: "M5 3h10l4 4v14H5z M15 3v5h4 M8 12h8 M8 16h8"
     };
     function navigationLink(href, label) {
-      const attributes = { href, "aria-current": label !== "Blog" && href === `${activePage}.html` ? "page" : null };
+      const attributes = { href, "aria-current": href === `${activePage}.html` ? "page" : null };
       if (!usesSidebar) return h("a", { ...attributes, text: label });
       const icon = s("svg", { class: "nav-icon", viewBox: "0 0 24 24", "aria-hidden": "true" });
       s("path", { d: navigationIcons[label], fill: "none", stroke: "currentColor", "stroke-width": 1.6, "stroke-linecap": "round", "stroke-linejoin": "round" }, icon);
