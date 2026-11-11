@@ -1,7 +1,7 @@
 {
   "source": {
     "project": "https://github.com/InfrathonX/Infrathon",
-    "revision": "73dcb5784fa31f07cb0387267d5d2b2df81cc339",
+    "revision": "1f538125ee399f8401d76d752ef302b8f67dd859",
     "checkout": "../Infrathon"
   },
   "tasks": {
@@ -3370,14 +3370,14 @@
         "Qwen3.6-27B served by vLLM 0.24.0 and 192 SWE-bench Lite tool environments.",
         "Disk: about 230 GB for SWE-bench images, 55.6 GB for model files, and 30 GB for the backend image.",
         "Host tools: Docker with Compose v2, the repository virtual environment, jq, and flock.",
-        "A CONNECT proxy at 127.0.0.1:18080 that reaches the agent model API.",
+        "A CONNECT proxy at 127.0.0.1:18080 that reaches the agent model API; scripts/infrathon/host_connect_proxy.py starts one.",
         "Hidden and public Direct baselines measured on the current backend boot, plus a registered candidate-history store."
       ],
       "evaluation": "Measures valid executable tool steps per minute across all workflows. Protocol transparency, one-to-one forwarding, request success, valid-step proportion, waiting, backend work per step, and accounting checks must pass.",
       "sources": [
         {
           "doc": "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/README.md",
-          "sha256": "3d5b10f5a3d1f925c8dfe601a134e93c3aa35675170819cec2a56c113fbeac12"
+          "sha256": "226e7c658e98ad1793eab7f6e47f85260d3f16bc8e159cdaee784e3eeb2263f4"
         },
         {
           "doc": "scripts/infrathon/tasks.json",

@@ -1,11 +1,11 @@
 {
   "project": "https://github.com/InfrathonX/Infrathon",
-  "revision": "73dcb5784fa31f07cb0387267d5d2b2df81cc339",
+  "revision": "1f538125ee399f8401d76d752ef302b8f67dd859",
   "checkout": "../Infrathon",
   "sources": [
     {
       "path": "README.md",
-      "sha256": "f2f5fa34446f19c636f8916b85a63ff7c5d5508ce079716bb3a7cea720e523eb"
+      "sha256": "4052f732b606089e6ec27bff6af42ce9aaad2e5ae8924d6a01e36c72edce59bb"
     },
     {
       "path": "docs/HOST_PREREQUISITES.md",
@@ -13,7 +13,7 @@
     },
     {
       "path": "scripts/infrathon/README.md",
-      "sha256": "4376e7a0ed102f73204898595a927252d5aa638e462eb784833e5054736ed427"
+      "sha256": "8e129ef25682e1400d440ea2d052214ed9a396d064a57d73b469f00d9f5e3ce4"
     },
     {
       "path": "scripts/infrathon/registry.json",

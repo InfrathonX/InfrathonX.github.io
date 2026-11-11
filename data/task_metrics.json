@@ -6,7 +6,7 @@
   },
   "documentation": {
     "project": "https://github.com/InfrathonX/Infrathon",
-    "revision": "73dcb5784fa31f07cb0387267d5d2b2df81cc339",
+    "revision": "1f538125ee399f8401d76d752ef302b8f67dd859",
     "checkout": "../Infrathon",
     "source_sha256": {
       "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/README.md": "c1e8ce30feda5ebfcaaf8f03ee026d92b73b4425d0d901e6f2b642dd40fee6cc",
@@ -255,7 +255,7 @@
       "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/images/work/workdir/sdv2_pipeline_lab/tools/run_one.sh": "263c1f9643d7b02e411d7700f2869a16e03a9e01455b811cd5155199dffb917a",
       "launch/sdv2-pipeline/run.sh": "8b1d646a26cd3b18660134c245ba2b25d75b2930add5c1d2ae9ffd655ee76804",
       "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/tasks/streamdiffusionv2_dual_h100_pipeline_runtime_seed_v2.json": "84dc0cd0c895dc65f1eab3f916d741650d35cc579a7284f45fcb6a48a0dc223c",
-      "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/README.md": "3d5b10f5a3d1f925c8dfe601a134e93c3aa35675170819cec2a56c113fbeac12",
+      "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/README.md": "226e7c658e98ad1793eab7f6e47f85260d3f16bc8e159cdaee784e3eeb2263f4",
       "launch/concurrent-serving/run.sh": "0e2dae9d2470b31827553933da97e338137ab9fa47dae88a78aedd948a486fd7",
       "launch/common.sh": "ba313ad855920382d99db2793e26fed250dea7941eecc432b8f647b3ebf945f8",
       "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/scripts/host_vllm_backend.sh": "fdd78681eb08f814b5cd02213a3080ddd62cea0fcacdef56b333df50c08a7bd5",
