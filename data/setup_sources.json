@@ -1,6 +1,6 @@
 {
   "project": "https://github.com/InfrathonX/Infrathon",
-  "revision": "a90f38cd69ae69dac21280acb8db92fc80312374",
+  "revision": "4f907cf3e5c45ce25cbc6f1fb7c42450418c8515",
   "checkout": "../Infrathon",
   "sources": [
     {
@@ -93,7 +93,7 @@
     },
     {
       "path": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/README.md",
-      "sha256": "cf825033910c8d057e648088142e3487feebf2addf6bc8021e21cf3e4fda67a0"
+      "sha256": "947ceafe6e6b839d78036a3303c50e31cf0cb79727a4df0cf6ffe42c542093c8"
     },
     {
       "path": "sforge/harness/evolve_scripts.py",

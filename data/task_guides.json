@@ -1,7 +1,7 @@
 {
   "source": {
     "project": "https://github.com/InfrathonX/Infrathon",
-    "revision": "a90f38cd69ae69dac21280acb8db92fc80312374",
+    "revision": "4f907cf3e5c45ce25cbc6f1fb7c42450418c8515",
     "checkout": "../Infrathon"
   },
   "tasks": {
@@ -24,7 +24,7 @@
       "sources": [
         {
           "doc": "tasks/latest/attn-qat-nvfp4-training-attention-h100-v1-seed/README.md",
-          "sha256": "deea52d06ff61a115d7dfbf6e19a42a63fc809133aaedb6fdd907eb976c9e288"
+          "sha256": "c7ef1df4dd2670cb5c5f64ad322e363e0955147ae151221f79ffa851412ac631"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -152,7 +152,7 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-k-grouped-fp8-wgrad-h100-v2-scratch/README.md",
-          "sha256": "86d49e2992ea1121cf0d143fff1a327d3d02a0d745aa6a2d59e000370bbaeee6"
+          "sha256": "9f628fa9894740212b9e2bf8cfa1a4bbfeca8baf2f6acdd38192c77f6b42e0bb"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -225,7 +225,7 @@
         "Use self-contained Triton kernels rather than existing GEMM libraries or host-side matrix multiplication."
       ],
       "validation": [
-        "Public tests expose seven timing shapes and 40 boundary cases, including two small cases for `compute-sanitizer`.",
+        "Public tests expose 123 timing cases and 43 boundary cases, four of which run under `compute-sanitizer`.",
         "The Judge adds 160 correctness cases, compares with dequantized FP64 and BF16 references, and checks finite complete writes, byte-identical inputs and guard bands.",
         "Each scored case uses five fresh-input trials; the larger of synchronized host-wall and CUDA-event time is charged."
       ],
@@ -261,22 +261,22 @@
       "task_id": "flux_moe_ag_scatter_grouped_gemm_dual_h100_seed_v1",
       "directory": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed",
       "launcher": "launch/flux-moe-ag/run.sh",
-      "objective": "Accelerate a two-GPU MoE input-side primitive that gathers tokens, scatters them by expert routing, and performs grouped matrix multiplication.",
+      "objective": "Accelerate a multi-GPU MoE input-side primitive (placement groups of 2 to 8 GPUs) that gathers tokens, scatters them by expert routing, and performs grouped matrix multiplication.",
       "workspace": [
         "Seed: kernel_v001 is a self-contained port of the Flux Triton layer-0 path.",
         "Edit the candidate submission.py to change communication/computation scheduling, tiling, staging, and synchronization."
       ],
       "requirements": [
-        "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair.",
+        "Worker and Judge share 8 GPUs of one host; the Judge pauses Work while it measures.",
         "Release hardware: H100 NVL 94 GB or H100 SXM 80 GB.",
         "PyTorch 2.8 / CUDA 12.9 runtime with bidirectional GPU peer access.",
-        "Host CUDA PyTorch with NCCL and symmetric-memory support for the GPU-pair preflight."
+        "Host CUDA PyTorch with NCCL and symmetric-memory support for the peer-access preflight."
       ],
       "evaluation": "Measures useful per-rank throughput using the slower rank’s time. Output accuracy, complete writes, fresh-input execution, input preservation, and rank agreement must pass.",
       "sources": [
         {
           "doc": "tasks/latest/flux-moe-ag-scatter-grouped-gemm-dual-h100-v1-seed/README.md",
-          "sha256": "85d5c8bad3d256c09f13a3f28b6c870c415b5a3faa0ee2f5c3308968ba3d2656"
+          "sha256": "0368f45c3ddf2693fc6dab33fc6735a8e77962b6e7da2886ff666e73b7bdc785"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -358,7 +358,7 @@
       ],
       "test_commands": "# Replace 1 with your candidate version.\ncd /app/workdir/moe_ag_lab\n./tools/run_one.sh --version 1\n./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
       "launch_setup": "# Select the NVLink pair allocated to this run.\nnvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "launch/flux-moe-ag/run.sh \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --gpus 0,1 --no-wait --auth /path/to/auth.json",
+      "launch_command": "launch/flux-moe-ag/run.sh \\\n  --model MODEL_ID --effort max --hours 12 \\\n  --gpus 0,1,2,3,4,5,6,7 --no-wait --auth /path/to/auth.json",
       "reader_overview": "A mixture-of-experts model sends each token to a small selection of expert networks. This task speeds up gathering tokens across two GPUs, grouping them by expert, and multiplying them by the expert weights.",
       "reader_setup": [
         {
@@ -382,8 +382,8 @@
         "meaning": "Measures how quickly the two GPUs complete token collection, expert routing, and matrix multiplication together. Each measurement uses the slower GPU’s time, and the two communication-load families have equal weight.",
         "rule": "Score = useful matrix operations per GPU ÷ complete execution time, expressed in TFLOPS and combined across cases."
       },
-      "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge."
+      "reader_compute": "Worker and Judge share 8 GPUs of one host; the Judge pauses Work while it measures. H100 NVL (94 GB) or H100 SXM (80 GB).",
+      "launch_note": "Work and the Judge share the same eight GPUs; the Judge pauses Work while it measures."
     },
     "orpo": {
       "task_id": "qwen3_1p7b_orpo_training_optimizer_dual_h100_v4",
@@ -404,7 +404,7 @@
       "sources": [
         {
           "doc": "tasks/latest/qwen3-1p7b-orpo-training-optimizer-dual-h100-v4-cross-matrix-seed/README.md",
-          "sha256": "27363406c14c6d95518d65645306d249c723921f334090d4c73120af8644fef4"
+          "sha256": "b419a54247726c9f52bcbac9bf1ff2eadd6d979d6fd7e0c151df8ab26015bc46"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -508,7 +508,7 @@
         "rule": "Score = 100 × geometric mean of training speedup across five workloads."
       },
       "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge."
+      "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures."
     },
     "gkd": {
       "task_id": "qwen3_4b_to_1p7b_gkd_distillation_optimizer_dual_h100_v1",
@@ -530,7 +530,7 @@
       "sources": [
         {
           "doc": "tasks/latest/qwen3-4b-to-1p7b-gkd-distillation-optimizer-dual-h100-v1-official-trl-seed/README.md",
-          "sha256": "e7b75c3590e6d89da27cf563d709fb314b90474eb9b8e548ccc8e90f3e00e8a9"
+          "sha256": "c8479727b36a3ce7ce71853595dd6ba97c392874d40e3ab9efef7e0bd7b567b3"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -601,7 +601,7 @@
       ],
       "test_commands": "# Select your version with FINAL_VERSION first.\ncd /app/workdir/gkd_lab\nbash /workspace/public_tests/run_public_tests.sh --cpu-only\nbash /workspace/public_tests/run_public_tests.sh --quick\nbash /workspace/public_tests/run_public_tests.sh",
       "launch_setup": "# Select the NVLink pair allocated to this run.\nnvidia-smi --query-gpu=index,uuid --format=csv,noheader",
-      "launch_command": "launch/qwen3-gkd/run.sh \\\n  --model MODEL_ID --effort max --hours 24 \\\n  --gpus 0,1 --no-wait --auth /path/to/auth.json",
+      "launch_command": "launch/qwen3-gkd/run.sh \\\n  --model MODEL_ID --effort max --hours 24 \\\n  --no-wait --auth /path/to/auth.json",
       "reader_overview": "A smaller Qwen3-1.7B student learns from the predictions of a frozen Qwen3-4B teacher on supplied summaries. The agent accelerates the complete training step, including the teacher’s computation.",
       "reader_setup": [
         {
@@ -626,7 +626,7 @@
         "rule": "Score = 100 × geometric mean of training speedup across five workloads."
       },
       "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge."
+      "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures."
     },
     "opcd": {
       "task_id": "miles_qwen3_opcd_2xh100_v3",
@@ -650,7 +650,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-opcd-2xh100-v3-seed/README.md",
-          "sha256": "1490f7c0f3a2e7f94fd1f0d9fc1a2fe3ea279a1ccf799fe3a6d34df6325326ac"
+          "sha256": "9518bebcc43086d07b39f0685d146177a52f5a90583d896d2cb65bd033242b0d"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -776,7 +776,7 @@
         "rule": "Score = accuracy gain in percentage points ÷ training hours."
       },
       "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge.",
+      "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-opcd/run.sh --config launch/miles-opcd/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
       "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18650"
@@ -803,7 +803,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-opd-scratch-2xh100-v2-seed/README.md",
-          "sha256": "b5d90d05fe7c34409425f3e5a961fe39f396c22b78230f98ad7c632f19afbeda"
+          "sha256": "a0a0d25eef27272c468db1cb6f68159d9b7cc33f3411bfecfbb01399c9a63a64"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -941,7 +941,7 @@
         "rule": "Score = accuracy gain in percentage points ÷ training hours."
       },
       "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge.",
+      "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-opd/run.sh --config launch/miles-opd/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
       "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18660"
@@ -968,7 +968,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-qwen3-alfworld-agentic-rl-2xh100-v1-seed/README.md",
-          "sha256": "939887b017e463a4d415d0fd119d4e55d6e2b58498c753afb3410bdc104787a4"
+          "sha256": "c4c054ab2171b752a9899437993f549cc9849d551fb0c8d1b31905985c688418"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1094,7 +1094,7 @@
         "rule": "Score = game-success gain in percentage points ÷ training hours."
       },
       "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge.",
+      "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-alfworld/run.sh --config launch/miles-alfworld/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
       "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18690"
@@ -1121,7 +1121,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-diffusion-sd35m-mopd-2xh100-v2-seed/README.md",
-          "sha256": "554a0dd56ec6567ac310890fdd6595876d5d2f1ab9c7926fbe6f178ea13356f2"
+          "sha256": "3c81be0e1a27f578e1625f897139af14bfee7df1b07586ad4687995a68c5dcbd"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1260,7 +1260,7 @@
         "rule": "Score = average fraction of the teacher quality gap closed ÷ replay hours."
       },
       "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge.",
+      "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-diffusion-opd/run.sh --config launch/miles-diffusion-opd/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
       "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18660"
@@ -1287,7 +1287,7 @@
       "sources": [
         {
           "doc": "tasks/latest/miles-diffusion-wan22-dancegrpo-2xh100-v2-seed/README.md",
-          "sha256": "c7c9b05c1be62dbe5b50ed08fdf266b9e187a610cfea615c20312d13d5960f89"
+          "sha256": "907de6c368cdcc53aa7778846b37c37b3cc7e8757d490cfc3a0159a5ceca4ddd"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1422,7 +1422,7 @@
         "rule": "Score = 1 ÷ median replay duration in hours."
       },
       "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge.",
+      "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures.",
       "launch_check_command": "launch/miles-diffusion-wan/run.sh --config launch/miles-diffusion-wan/run.env --dry-run",
       "launch_description": "Start the full run in the current terminal:",
       "config_values": "MODEL=MODEL_ID\nREASONING_EFFORT=max\nCODEX_AUTH_JSON_PATH=/absolute/path/to/auth.json\n\n# Agent runtime and candidate-history store from the setup guide.\nCODEX_CLI_VERSION=0.159.3\nSFORGE_AGENT_RUNTIME_DIR=/absolute/path/to/agent_runtimes/codex-0.159.3\nSFORGE_VERSION_STORE_ROOT=/absolute/path/to/infrathon-version-store\n\n# 24 hours; 5 minutes between submissions.\nTASK_TIMEOUT=86400\nSUBMISSION_COOLDOWN=300\n\n# An available NVLink GPU pair and Judge port.\nGPU_INDICES=0,1\nJUDGE_PORT=18670"
@@ -1446,7 +1446,7 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-dynamic-grouped-fp8-h100-v3-scratch/README.md",
-          "sha256": "cf825033910c8d057e648088142e3487feebf2addf6bc8021e21cf3e4fda67a0"
+          "sha256": "947ceafe6e6b839d78036a3303c50e31cf0cb79727a4df0cf6ffe42c542093c8"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1531,7 +1531,7 @@
         "Write every valid output element, preserve inputs, and keep accesses within the supplied tensors and allocated scratch."
       ],
       "validation": [
-        "The full public performance grid covers 32 shapes; separate modes exercise 40 public boundary cases and four sanitizer cases.",
+        "The full public performance grid has 60 cases; separate modes exercise 32 public boundary cases and four sanitizer cases.",
         "The Judge evaluates 32 scored cases and 158 correctness-only cases. It checks dequantized arithmetic against FP64 and BF16 references, complete finite writes, input preservation, and memory boundaries.",
         "Formal submissions return the aggregate and both layout scores after the required checks pass."
       ],
@@ -1582,7 +1582,7 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-sparse-mla-prefill-h100-v2-scratch/README.md",
-          "sha256": "8fa0f835a9265688f8198d47a13f069bb8e93fa0e327035ea2c133fe52b7cb67"
+          "sha256": "e9ced0d3cdb762df52fb1eac44c3979aef1c350dec9fcb8c8d870cb354fda676"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1667,7 +1667,7 @@
         "Preserve inputs, fully write all outputs, and use safe tail masks and 64-bit offsets over the declared support domain."
       ],
       "validation": [
-        "Public testing provides 13 scored shapes, 334 edge cases, and six sanitizer cases; the quick grid includes one case from each geometry.",
+        "Public testing provides 108 scored cases, 73 edge cases, and seven sanitizer cases; the quick grid includes one case from each group.",
         "The Judge checks 13 scored configurations and 401 correctness-only cases against an independent FP32 reference, including the required infinity patterns in normalization statistics.",
         "Guard bands, input comparisons, and the configured memory-safety pass check accesses in addition to numerical agreement."
       ],
@@ -1718,7 +1718,7 @@
       "sources": [
         {
           "doc": "tasks/latest/standalone-paged-gqa-decode-bf16-h100-v2-scratch/README.md",
-          "sha256": "84eedb57205de17f10ffc128a59a41278358acaea928bfd2c4a9df935752046c"
+          "sha256": "d2eda61e0e7462adeaf2a89bbf1a094f90e2726c57d200a63930bae08e468d41"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1803,7 +1803,7 @@
         "Handle actual page-table strides and large offsets, preserve inputs, and write every output element within its allocation."
       ],
       "validation": [
-        "The public suite offers ten scored cases, 40 edge cases, and a memory-sanitizer subset using disclosed lengths and seeds.",
+        "The public suite offers 127 scored cases, 44 edge cases, and a memory-sanitizer subset using disclosed lengths and seeds.",
         "The Judge evaluates ten scored configurations and 160 correctness-only cases, comparing against de-paged FP32 and BF16 references with complete-write and input-preservation checks.",
         "Boundary tests include shared pages, unusual head groups, nonfinite masked values, and large address ranges."
       ],
@@ -1854,7 +1854,7 @@
       "sources": [
         {
           "doc": "tasks/latest/sageattention-quantized-attention-bf16-h100-v2-seed/README.md",
-          "sha256": "4df55fb2b0e6dde9b622a82989d2c46fb8ab290e68a59607210a0945e51a81ea"
+          "sha256": "9128d7150fb5efff9f513e28757a4e9f4c2e4d95dbb6d81644e17e3d8d9c9b5e"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -1993,7 +1993,7 @@
       "sources": [
         {
           "doc": "tasks/latest/minference-sparse-prefill-h100-v3-seed/README.md",
-          "sha256": "73a15fe67dc372d1ecd19d1e557546fefece20a7b06125112fdf7b090ffbb6d5"
+          "sha256": "ed48ebfbf95bb72b24b1625cc86051624e96cb5659d326522ff70e0dc5c7b3c3"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2166,7 +2166,7 @@
       "sources": [
         {
           "doc": "tasks/latest/lmcache-paged-kv-block-transfer-h100-v1-seed/README.md",
-          "sha256": "8e9e43233408b58e6423a82eb68a1b1abff66fd9bf41300f646b95006c7cd2f7"
+          "sha256": "03b8057aa8547c295905f1725b1d67cba9e8285ed2dd1f123292635dc76e19e4"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2310,7 +2310,7 @@
       "sources": [
         {
           "doc": "tasks/latest/flash-kmeans-paper-h100-v7-scratch/README.md",
-          "sha256": "b238d2974f21cbdd92b6a5d1397da203ee42d43b7723fc2dffd1e15b38ecdfb3"
+          "sha256": "f9290cdc958ab13dd16a405535bc3a8039674184d04bd6b1249ea428fda2ee73"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2443,7 +2443,7 @@
       "sources": [
         {
           "doc": "tasks/latest/tilelang-mamba2-ssd-forward-h100-v2-seed/README.md",
-          "sha256": "0335dbc2c87fd9fe0131962edc4995d54ffff880935b3088834a58d5350228a0"
+          "sha256": "994865f562a970061e0ddb8ac038af54e6e97674fa6d2c414590f3d26b892f69"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2537,7 +2537,7 @@
       ],
       "validation": [
         "The public suite checks 18 edge fixtures and 18 scored shapes with disclosed seeds; quick mode selects length 4096 in each family.",
-        "The Judge uses the same scored geometry with private inputs and checks every trial against a blocked FP32 reference, including whole-tensor relative L2 <= 0.006.",
+        "The Judge uses the same scored geometry with private inputs and checks every trial against a blocked FP32 reference, including whole-tensor relative L2 <= 0.006; captured real layers are checked on relative L2 <= 0.013 alone.",
         "Operator records verify the TileLang computation boundary; finite writes, unchanged inputs, warm-up time, and temporary memory are also checked."
       ],
       "test_commands": "./tools/run_public_tests.sh --quick --candidate-version 1\n./tools/run_public_tests.sh --candidate-version 1",
@@ -2587,7 +2587,7 @@
       "sources": [
         {
           "doc": "tasks/latest/kvpress-kv-eviction-policy-qwen3-8b-h100-v2-scratch/README.md",
-          "sha256": "90a5cc4efe4e13276ab6c1b4ebb330cb228d7528f038e58bdf8382509c6ba40d"
+          "sha256": "9bc0fd9f0e80a100411fb4f363a3708b6a905b3b3c69736c910a1b298e53175c"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2714,7 +2714,7 @@
       "sources": [
         {
           "doc": "tasks/latest/kvzip-query-agnostic-kv-scoring-qwen3-8b-h100-v2-scratch/README.md",
-          "sha256": "a0d14c4b67e9ea6d591b04ef30494ba30f7a9a1220e6fb37e5a81517d30e05ad"
+          "sha256": "804d9a99ca8ad61d13a3dd07ffeb58d834a19fffc174ccc48495dc19fd32d381"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2833,10 +2833,10 @@
         "Use notes.md to record compression, reconstruction, and video-quality experiments."
       ],
       "requirements": [
-        "Worker: 1 GPU; Judge: 6 separate GPUs (8 for GLM).",
+        "Worker: 1 GPU; Judge: 6 separate GPUs.",
         "Release hardware: H100 NVL 94 GB or H100 SXM 80 GB.",
         "LongCat-Video, HY-WorldPlay-8B, and the supplied video-generation inputs.",
-        "PyTorch 2.8 / CUDA 12.8 runtime with video-quality evaluators; Judge supports 1–8 same-model GPUs.",
+        "PyTorch 2.8 / CUDA 12.8 runtime with video-quality evaluators; the Judge uses exactly six identical GPUs.",
         "Host: git-lfs on PATH and about 200 GiB free under INFRATHON_ASSETS_ROOT.",
         "Before fetching assets, accept the FLUX.1-Redux-dev license and authenticate with hf auth login or HF_TOKEN."
       ],
@@ -2844,7 +2844,7 @@
       "sources": [
         {
           "doc": "tasks/latest/quant-videogen-cross-model-kv-codec-h100-v4-scratch/README.md",
-          "sha256": "60bb31d06911d76fee592cc5d3783871b5218dbcbf719f3afc79804006e6f622"
+          "sha256": "6fede55e991196da7e662d0bee2de2a936ebae99bdcdcb1dfaf21bfac04c16a7"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -2950,7 +2950,7 @@
         "meaning": "Combines KV-cache storage savings with generated-video quality relative to the human codec. The human codec scores 6.82; Claude's best submitted solution scores 28.45.",
         "rule": "Per-model score = R × (1 + q), where q averages normalized frame fidelity and relative VBench margin. Take the geometric mean across both video models."
       },
-      "reader_compute": "Worker: 1 GPU; Judge: 6 separate GPUs (8 for GLM). H100 NVL (94 GB) or H100 SXM (80 GB)."
+      "reader_compute": "Worker: 1 GPU; Judge: 6 separate GPUs. H100 NVL (94 GB) or H100 SXM (80 GB)."
     },
     "eagle3": {
       "task_id": "eagle3_spec_decode_engine_qwen3_8b_h100_v1",
@@ -2972,7 +2972,7 @@
       "sources": [
         {
           "doc": "tasks/latest/eagle3-spec-decode-engine-qwen3-8b-h100-v1-seed/README.md",
-          "sha256": "8dc386ee85dadb53e7d62c979991a47f55e0fb619e6f84b42b5fdd9bf3097131"
+          "sha256": "32d067fbb249150d2e12ceb6f21ce0beee5057935a95cb2ac441d571de1a6b82"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -3100,7 +3100,7 @@
       "sources": [
         {
           "doc": "tasks/latest/llada-h100-decoder-optimization-v2-vanilla-seed/README.md",
-          "sha256": "73e9fb82a07ad59df006c6c6ec9a02a806c32b4f38ccde500878d7fee9f609ab"
+          "sha256": "87fceefa5e5f9579f92e9d7f9f3a8f25dada8c57d7bbc371c895c21143ec1f1a"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -3237,7 +3237,7 @@
       "sources": [
         {
           "doc": "tasks/latest/streamdiffusionv2-dual-h100-pipeline-runtime-v2-seed/README.md",
-          "sha256": "aeb091e7fe37dc1d5663caffd682b33ac9a94b7bbb8ef21ad264a5d3031f4ff7"
+          "sha256": "6ce0dd13f733f98584316f1e644bb2d426287e631a86c528035257b39056134b"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
@@ -3326,7 +3326,7 @@
         "Every latent and decoded frame must match bit for bit. First-frame/tail latency, construction time, memory, ordering, and cleanup also gate the score."
       ],
       "test_commands": "cd /app/workdir/sdv2_pipeline_lab\ntools/run_one.sh --version 1 --case public_bbb_480p_129_s2\ntools/run_public_tests.sh --candidate-version 1 --quick\ntools/run_public_tests.sh --candidate-version 1",
-      "launch_command": "JUDGE_PORT=18612 launch/sdv2-pipeline/run.sh \\\n  --model MODEL_ID \\\n  --effort max \\\n  --hours 24 \\\n  --gpus 0,1 \\\n  --auth /path/to/auth.json",
+      "launch_command": "JUDGE_PORT=18612 launch/sdv2-pipeline/run.sh \\\n  --model MODEL_ID \\\n  --effort max \\\n  --hours 24 \\\n  --auth /path/to/auth.json",
       "launch_setup": "",
       "reader_overview": "Live video transformation must process incoming frames quickly without allowing delays to build up. The agent improves how StreamDiffusionV2 schedules model stages, moves data, and reuses memory, increasing sustained output speed.",
       "reader_setup": [
@@ -3352,7 +3352,7 @@
         "rule": "Per-stream score = FPS × fourth root of (reference tail latency ÷ candidate tail latency); score = geometric mean across streams."
       },
       "reader_compute": "Worker: 2 GPUs; Judge: 2 GPUs on a separate NVLink pair. H100 NVL (94 GB) or H100 SXM (80 GB).",
-      "launch_note": "This launcher uses the same GPU pair for Worker and Judge."
+      "launch_note": "Worker and Judge use separate NVLink pairs (four GPUs); Work keeps running while the Judge measures."
     },
     "serving": {
       "task_id": "concurrent_agent_serving_optimizer_qwen36_swe192_v24",
@@ -3377,7 +3377,7 @@
       "sources": [
         {
           "doc": "tasks/latest/concurrent-agent-serving-optimizer-qwen36-swe192-v24/README.md",
-          "sha256": "5a003a80e5b764c20ed09bd6d229dc678bb27fd54aca68b50b945b725a2c8ba3"
+          "sha256": "87cbb438b8375fa53d27afc776ca489b62c3e2485a3a631ce71d94e847c5c232"
         },
         {
           "doc": "scripts/infrathon/tasks.json",
