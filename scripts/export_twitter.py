@@ -18,14 +18,14 @@ ASSETS = SITE / "assets/img/twitter"
 MANIFEST = ROOT / "data/twitter_assets.json"
 RAW = "https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/"
 FIGURES = [
-    ("task-categories", "[2/7]"),
-    ("framework", "[3/7]"),
-    ("model-rankings", "[4/7]"),
-    ("knowledge-discovery", "[5/7]"),
-    ("long-vs-short", "[6/7]"),
+    ("task-categories", "[2/7]", "Task categories"),
+    ("framework", "[3/7]", "Infrathon framework"),
+    ("model-rankings", "[4/7]", "Model rankings"),
+    ("knowledge-discovery", "[5/7]", "Codec comparison and optimization trajectory"),
+    ("long-vs-short", "[6/7]", "Long vs. short horizons"),
 ]
-TABLES = [("knowledge-discovery-metrics", "[5/7]", "压缩率与视频质量对比表"),
-          ("horizon-comparison", "[6/7]", "长短程最终得分比例表")]
+TABLES = [("knowledge-discovery-metrics", "[5/7]", "Compression and video quality"),
+          ("horizon-comparison", "[6/7]", "Long- vs. short-run performance ratios")]
 
 
 def digest(content: bytes) -> str:
@@ -72,7 +72,7 @@ def export(source: Path) -> None:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
         page = browser.new_page()
-        for figure, (name, post) in zip(figures, FIGURES):
+        for figure, (name, post, alt) in zip(figures, FIGURES):
             image = figure.find("img")
             uri = image["src"]
             header, encoded = uri.split(",", 1)
@@ -95,7 +95,7 @@ def export(source: Path) -> None:
                     image_data.save(png_path)
             optimize(png_path)
             manifest["assets"].append({"key": name, "post": post, "kind": "original-figure",
-                                       "alt": image.get("alt", name), "png": png_info(png_path),
+                                       "alt": alt, "png": png_info(png_path),
                                        "original": {"file": original_path.relative_to(SITE).as_posix(),
                                                     "sha256": digest(original)}})
         page.close()
@@ -125,17 +125,17 @@ def export(source: Path) -> None:
     manifest["archive"] = {"file": archive.relative_to(SITE).as_posix(),
                            "sha256": digest(archive.read_bytes())}
     lines = ["# Infrathon Twitter Thread", "",
-             "保留 `twitter.html` 的 1 条开场帖和 7 条串文，包括原文、列表和表格。",
-             "每帖末尾的配图、下载链接属于发布说明，不是发帖正文。下载 PNG 后，在 X 发帖时将它们作为媒体附件上传。",
-             "原稿多条正文超过普通推文的 280 字符；这里保留完整长推文稿，未改写或拆帖。[X 发帖说明](https://help.x.com/en/using-x/how-to-post)。", "",
-             "## 配图下载", "", f'[一次下载全部 PNG（ZIP）]({RAW}{manifest["archive"]["file"]})', "",
-             "| 帖子 | 附件 | PNG |", "| --- | --- | --- |"]
+             "This file preserves the opening post and seven replies from `twitter.html`, including the original wording, lists, and tables.",
+             "Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.",
+             "Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without rewriting or splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).", "",
+             "## Image downloads", "", f'[Download all PNGs (ZIP)]({RAW}{manifest["archive"]["file"]})', "",
+             "| Post | Attachment | PNG |", "| --- | --- | --- |"]
     for item in manifest["assets"]:
-        lines.append(f'| {item["post"]} | {item["alt"]} | [下载]({url(item)}) |')
-    lines += ["", "第 [5/7]、[6/7] 帖各附一张表格 PNG，发推时可用表格图代替 Markdown 表格。",
-              "所有 PNG 均小于 5 MB。[X 图片上传说明](https://help.x.com/en/using-x/posting-gifs-and-pictures)。", "", "---", ""]
-    for heading in headings:
-        post = heading.get_text(" ", strip=True)
+        lines.append(f'| {item["post"]} | {item["alt"]} | [Download]({url(item)}) |')
+    lines += ["", "Posts [5/7] and [6/7] each include a table PNG that can replace the Markdown table when posting.",
+              "All PNGs are smaller than 5 MB. [X image upload guidance](https://help.x.com/en/using-x/posting-gifs-and-pictures).", "", "---", ""]
+    for index, heading in enumerate(headings):
+        post = "Opening post" if index == 0 else heading.get_text(" ", strip=True)
         nodes = []
         for sibling in heading.next_siblings:
             if getattr(sibling, "name", None) in ("hr", "h2"):
@@ -147,7 +147,7 @@ def export(source: Path) -> None:
         lines += [f"## {post}", "", article, ""]
         attached = [item for item in manifest["assets"] if item["post"] == post]
         if attached:
-            lines.append("> 配图附件（不属于正文）：" + " · ".join(f'[{item["alt"]} PNG]({url(item)})' for item in attached))
+            lines.append("> Media attachments (not part of the post text): " + " · ".join(f'[{item["alt"]} PNG]({url(item)})' for item in attached))
             lines.append("")
             for item in attached:
                 if item["kind"] == "original-figure":
@@ -171,7 +171,7 @@ def export(source: Path) -> None:
 def check() -> None:
     manifest = json.loads(MANIFEST.read_text())
     assert len(manifest["assets"]) == 7
-    assert [post["heading"] for post in manifest["posts"]] == ["开场帖"] + [f"[{i}/7]" for i in range(1, 8)]
+    assert [post["heading"] for post in manifest["posts"]] == ["Opening post"] + [f"[{i}/7]" for i in range(1, 8)]
     for item in manifest["assets"]:
         assert png_info(SITE / item["png"]["file"]) == item["png"], item["key"]
         if "original" in item:
@@ -179,6 +179,7 @@ def check() -> None:
     markdown = (SITE / manifest["markdown"]["file"]).read_bytes()
     assert digest(markdown) == manifest["markdown"]["sha256"]
     assert b"data:image" not in markdown
+    assert not any("\u3400" <= char <= "\u9fff" or "\uf900" <= char <= "\ufaff" for char in markdown.decode("utf-8")), "Markdown must be in English."
     for item in manifest["assets"]:
         assert (RAW + item["png"]["file"]).encode() in markdown
     archive = SITE / manifest["archive"]["file"]

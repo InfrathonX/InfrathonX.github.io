@@ -1,29 +1,29 @@
 # Infrathon Twitter Thread
 
-保留 `twitter.html` 的 1 条开场帖和 7 条串文，包括原文、列表和表格。
-每帖末尾的配图、下载链接属于发布说明，不是发帖正文。下载 PNG 后，在 X 发帖时将它们作为媒体附件上传。
-原稿多条正文超过普通推文的 280 字符；这里保留完整长推文稿，未改写或拆帖。[X 发帖说明](https://help.x.com/en/using-x/how-to-post)。
+This file preserves the opening post and seven replies from `twitter.html`, including the original wording, lists, and tables.
+Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.
+Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without rewriting or splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).
 
-## 配图下载
+## Image downloads
 
-[一次下载全部 PNG（ZIP）](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/infrathon-twitter-images.zip)
+[Download all PNGs (ZIP)](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/infrathon-twitter-images.zip)
 
-| 帖子 | 附件 | PNG |
+| Post | Attachment | PNG |
 | --- | --- | --- |
-| [2/7] | 任务类别图 | [下载](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/task-categories.png) |
-| [3/7] | Infrathon 框架图 | [下载](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/framework.png) |
-| [4/7] | 模型排名图 | [下载](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/model-rankings.png) |
-| [5/7] | Codec 对比与优化过程 | [下载](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery.png) |
-| [6/7] | 长短运行对比图 | [下载](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/long-vs-short.png) |
-| [5/7] | 压缩率与视频质量对比表 | [下载](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery-metrics.png) |
-| [6/7] | 长短程最终得分比例表 | [下载](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/horizon-comparison.png) |
+| [2/7] | Task categories | [Download](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/task-categories.png) |
+| [3/7] | Infrathon framework | [Download](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/framework.png) |
+| [4/7] | Model rankings | [Download](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/model-rankings.png) |
+| [5/7] | Codec comparison and optimization trajectory | [Download](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery.png) |
+| [6/7] | Long vs. short horizons | [Download](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/long-vs-short.png) |
+| [5/7] | Compression and video quality | [Download](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery-metrics.png) |
+| [6/7] | Long- vs. short-run performance ratios | [Download](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/horizon-comparison.png) |
 
-第 [5/7]、[6/7] 帖各附一张表格 PNG，发推时可用表格图代替 Markdown 表格。
-所有 PNG 均小于 5 MB。[X 图片上传说明](https://help.x.com/en/using-x/posting-gifs-and-pictures)。
+Posts [5/7] and [6/7] each include a table PNG that can replace the Markdown table when posting.
+All PNGs are smaller than 5 MB. [X image upload guidance](https://help.x.com/en/using-x/posting-gifs-and-pictures).
 
 ---
 
-## 开场帖
+## Opening post
 
 **Infrathon** benchmarks frontier agents on real-world AI infrastructure tasks over **12–24 hours**. **Claude Opus 5.5 increases KV-cache compression from 6.82× to 19.86× with better video quality**, and longer runs outperform short-run scaling on module and system tasks.
 
@@ -61,9 +61,9 @@ We construct **25 real-world tasks** with human experts using **Infrathon-build*
 
 Tasks use metrics like **TFLOP/s** without fixed upper bounds.
 
-> 配图附件（不属于正文）：[任务类别图 PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/task-categories.png)
+> Media attachments (not part of the post text): [Task categories PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/task-categories.png)
 
-![任务类别图](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/task-categories.png)
+![Task categories](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/task-categories.png)
 
 ---
 
@@ -77,9 +77,9 @@ Infrathon supports continuous optimization through three components:
 
 Agents use the feedback to revise their code and continue optimizing within the time budget.
 
-> 配图附件（不属于正文）：[Infrathon 框架图 PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/framework.png)
+> Media attachments (not part of the post text): [Infrathon framework PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/framework.png)
 
-![Infrathon 框架图](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/framework.png)
+![Infrathon framework](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/framework.png)
 
 ---
 
@@ -91,9 +91,9 @@ Across **150 runs** covering all **25 tasks**, with over **10,000 GPU-hours**, C
 
 Because tasks use different metrics, we aggregate within-task ranks with equal task weights.
 
-> 配图附件（不属于正文）：[模型排名图 PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/model-rankings.png)
+> Media attachments (not part of the post text): [Model rankings PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/model-rankings.png)
 
-![模型排名图](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/model-rankings.png)
+![Model rankings](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/model-rankings.png)
 
 ---
 
@@ -112,9 +112,9 @@ Mean values: Human → Claude. Quality metrics use the uncompressed BF16 referen
 
 The human codec quantizes residual values individually after clustering. Claude transforms the residuals using **principal component analysis** and applies **entropy coding after quantization**.
 
-> 配图附件（不属于正文）：[Codec 对比与优化过程 PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery.png) · [压缩率与视频质量对比表 PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery-metrics.png)
+> Media attachments (not part of the post text): [Codec comparison and optimization trajectory PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery.png) · [Compression and video quality PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery-metrics.png)
 
-![Codec 对比与优化过程](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery.png)
+![Codec comparison and optimization trajectory](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/knowledge-discovery.png)
 
 ---
 
@@ -136,9 +136,9 @@ Geometric means of task–model score ratios. 100% means equal performance at eq
 
 The long run wins **nine of 12 task–model comparisons**, including **all four system comparisons**.
 
-> 配图附件（不属于正文）：[长短运行对比图 PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/long-vs-short.png) · [长短程最终得分比例表 PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/horizon-comparison.png)
+> Media attachments (not part of the post text): [Long vs. short horizons PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/long-vs-short.png) · [Long- vs. short-run performance ratios PNG](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/horizon-comparison.png)
 
-![长短运行对比图](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/long-vs-short.png)
+![Long vs. short horizons](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/long-vs-short.png)
 
 ---
 

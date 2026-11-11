@@ -7,7 +7,7 @@
       "key": "task-categories",
       "post": "[2/7]",
       "kind": "original-figure",
-      "alt": "任务类别图",
+      "alt": "Task categories",
       "png": {
         "file": "assets/img/twitter/task-categories.png",
         "width": 1564,
@@ -24,7 +24,7 @@
       "key": "framework",
       "post": "[3/7]",
       "kind": "original-figure",
-      "alt": "Infrathon 框架图",
+      "alt": "Infrathon framework",
       "png": {
         "file": "assets/img/twitter/framework.png",
         "width": 2165,
@@ -41,7 +41,7 @@
       "key": "model-rankings",
       "post": "[4/7]",
       "kind": "original-figure",
-      "alt": "模型排名图",
+      "alt": "Model rankings",
       "png": {
         "file": "assets/img/twitter/model-rankings.png",
         "width": 1944,
@@ -58,7 +58,7 @@
       "key": "knowledge-discovery",
       "post": "[5/7]",
       "kind": "original-figure",
-      "alt": "Codec 对比与优化过程",
+      "alt": "Codec comparison and optimization trajectory",
       "png": {
         "file": "assets/img/twitter/knowledge-discovery.png",
         "width": 1716,
@@ -75,7 +75,7 @@
       "key": "long-vs-short",
       "post": "[6/7]",
       "kind": "original-figure",
-      "alt": "长短运行对比图",
+      "alt": "Long vs. short horizons",
       "png": {
         "file": "assets/img/twitter/long-vs-short.png",
         "width": 1944,
@@ -92,7 +92,7 @@
       "key": "knowledge-discovery-metrics",
       "post": "[5/7]",
       "kind": "table-screenshot",
-      "alt": "压缩率与视频质量对比表",
+      "alt": "Compression and video quality",
       "png": {
         "file": "assets/img/twitter/knowledge-discovery-metrics.png",
         "width": 1440,
@@ -128,7 +128,7 @@
       "key": "horizon-comparison",
       "post": "[6/7]",
       "kind": "table-screenshot",
-      "alt": "长短程最终得分比例表",
+      "alt": "Long- vs. short-run performance ratios",
       "png": {
         "file": "assets/img/twitter/horizon-comparison.png",
         "width": 1440,
@@ -162,7 +162,7 @@
   ],
   "posts": [
     {
-      "heading": "开场帖",
+      "heading": "Opening post",
       "source_text_sha256": "9549146f9449e231bc7178c58e1eef73f83bd57359e48489c09d27925a4a2dc1",
       "unicode_characters": 562,
       "attachment_keys": []
@@ -228,6 +228,6 @@
   },
   "markdown": {
     "file": "twitter-thread.md",
-    "sha256": "7e1ac560ab844a667e24ba6445b214a87bfa9428ff61c3026d0ada9d4110e1df"
+    "sha256": "6aa8bdfa74117a04feec8b4e3038495194406353129ebe57ff3c80e9f4983781"
   }
 }
