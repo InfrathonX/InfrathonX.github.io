@@ -84,9 +84,9 @@
       "budget_h": 12,
       "metric": "TFLOPS",
       "start": "seed",
-      "gpus": "2×H100 (NVLink)",
+      "gpus": "8×H100 (shared with Judge)",
       "target": "All-gather, token scatter and grouped GEMM",
-      "summary": "A fused tensor-parallel MoE operator across two peer-connected H100s: each rank all-gathers the other's token shard over NVLink, scatters rows into expert order and runs a grouped BF16 GEMM. The seed is a Triton implementation derived from ByteDance Flux; the result must stay exact.",
+      "summary": "A fused tensor-parallel MoE operator across 2 to 8 peer-connected H100s of one host: each rank all-gathers the other ranks' token shards, scatters rows into expert order and runs a grouped BF16 GEMM. The seed is a Triton implementation derived from ByteDance Flux; the result must stay exact.",
       "flags": {}
     },
     {
@@ -99,7 +99,7 @@
       "budget_h": 24,
       "metric": "Score",
       "start": "seed",
-      "gpus": "2×H100",
+      "gpus": "2×H100 + Judge",
       "target": "Vocabulary projection and ORPO loss",
       "summary": "Speed up one full-parameter ORPO training step for Qwen3-1.7B under FSDP on two GPUs. The agent replaces the ORPO objective and may patch some layers; model, data, optimizer and timing stay under the trusted runtime. Score is end-to-end throughput relative to the official TRL implementation (100 = parity).",
       "flags": {}
@@ -114,7 +114,7 @@
       "budget_h": 24,
       "metric": "Score",
       "start": "seed",
-      "gpus": "2×H100",
+      "gpus": "2×H100 + Judge",
       "target": "Teacher/student projection and distillation loss",
       "summary": "Generalized knowledge distillation from a frozen Qwen3-4B teacher into a trainable Qwen3-1.7B student, sharded with FSDP. Raise training-step throughput while staying numerically equivalent to TRL's generalized JSD loss. Score is throughput relative to the official TRL step (100 = parity).",
       "flags": {}
@@ -129,7 +129,7 @@
       "budget_h": 24,
       "metric": "Score",
       "start": "seed",
-      "gpus": "2×H100 (NVLink)",
+      "gpus": "2×H100 (NVLink) + Judge",
       "target": "Context-conditioned online distillation loop",
       "summary": "Implement on-policy context distillation inside the Miles RL framework (SGLang rollouts, Megatron-Core, Ray): Qwen3-1.7B learns to behave without a system prompt the way it does with one. Then make the fixed-size training run fast while it keeps learning. Score is accuracy points gained per training hour.",
       "flags": {}
@@ -144,7 +144,7 @@
       "budget_h": 24,
       "metric": "Score",
       "start": "seed",
-      "gpus": "2×H100 (NVLink)",
+      "gpus": "2×H100 (NVLink) + Judge",
       "target": "Online distillation integration and execution",
       "summary": "Re-implement sampled-token on-policy distillation in a Miles checkout where it was removed: a Qwen3-1.7B student samples, a frozen Qwen3-4B teacher scores the same tokens, and the student trains toward the teacher. Score is accuracy points gained per training hour, zero below a 1.6-point gain.",
       "flags": {}
@@ -159,7 +159,7 @@
       "budget_h": 24,
       "metric": "Score",
       "start": "seed",
-      "gpus": "2×H100 (NVLink)",
+      "gpus": "2×H100 (NVLink) + Judge",
       "target": "Environment rollouts, GRPO updates and publication",
       "summary": "Integrate the ALFWorld text household environment into Miles so Qwen3-4B trains with multi-turn GRPO on whether it wins each game, then make the run fast while it keeps learning. Score is success-rate points gained per training hour, zero below a 15-point gain.",
       "flags": {}
@@ -174,7 +174,7 @@
       "budget_h": 24,
       "metric": "Score",
       "start": "seed",
-      "gpus": "2×H100 (NVLink)",
+      "gpus": "2×H100 (NVLink) + Judge",
       "target": "Teacher routing, training and student publication",
       "summary": "Add multi-teacher on-policy distillation to miles_diffusion for Stable Diffusion 3.5 Medium: OCR and aesthetics LoRA teachers are distilled into one student LoRA on the student's own trajectories. Score is teacher-gap closure per replay hour, behind quality and KL gates.",
       "flags": {}
@@ -189,7 +189,7 @@
       "budget_h": 24,
       "metric": "Score",
       "start": "seed",
-      "gpus": "2×H100 (NVLink)",
+      "gpus": "2×H100 (NVLink) + Judge",
       "target": "Video rewards, policy updates and publication",
       "summary": "Implement DanceGRPO for Wan2.2-TI2V-5B text-to-video with full-parameter training: the Dance-SDE transition, shared-noise seed groups and the official HPSv3 video reward. Score is fixed replay workloads completed per hour, behind a video-quality gate.",
       "flags": {
@@ -408,7 +408,7 @@
       "budget_h": 24,
       "metric": "FPS",
       "start": "seed",
-      "gpus": "2×H100",
+      "gpus": "2×H100 + Judge",
       "target": "Multi-GPU video-pipeline orchestration",
       "summary": "Rewrite the runtime around frozen StreamDiffusionV2 / Wan2.1 math on two GPUs (stage placement, transfers, overlap, rolling-KV bookkeeping, CUDA graphs) to maximize latency-weighted frames per second while every output stays bit-exact.",
       "flags": {}

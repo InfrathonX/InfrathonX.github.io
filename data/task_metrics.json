@@ -272,11 +272,11 @@
     "attn-qat": {
       "label": "Effective TFLOPS",
       "home_label": "TFLOPS",
-      "formula": "F = 26 × B × H × S_q × S_k × d_h\nt = 2 × t_forward + t_backward\nq_case = median₇(F / t / 10¹²)\nscore = (G_Wan × G_LTX2 × G_Kandinsky5)^(1/3)",
+      "formula": "F = 26 × B × H × pairs × d_h\nt = 2 × t_forward + t_backward\nq_case = median₃(F / t / 10¹²)\nscore = √(G_video × G_LLM)",
       "details": [
-        "B is batch size, H head count, S_q/S_k query/key lengths, and d_h head size. Times are in seconds; doubling forward time accounts for activation recomputation.",
-        "Each case takes the median throughput of seven trials, combining forward and backward time within each trial.",
-        "G is the geometric mean of case TFLOPS within a family. Wan2.1-T2V-1.3B has two scored cases, LTX-2 and Kandinsky5 one each; families have equal weight.",
+        "B is batch size, H query-head count, and d_h head size; pairs is S_q × S_kv, or S(S + 1)/2 under a causal mask. Times are in seconds; doubling forward time accounts for activation recomputation.",
+        "Each synthetic case takes the median throughput of three fresh-input trials after one warm-up, combining forward and backward time within each trial; a captured real layer is one timed step.",
+        "G_video and G_LLM are geometric means over each domain’s families: Wan2.1 1.3B and 14B, LTX-2, Kandinsky5, CogVideoX, HunyuanVideo and real video layers; LLM pretraining, long-context, fine-tuning, D = 256 and real LLM layers. Each family is the geometric mean of its recipe and sweep tiers; the two domains have equal weight.",
         "Timing includes scheduling and synchronization; reference computation and validation are excluded."
       ],
       "conditions": [
@@ -294,11 +294,11 @@
     "wgrad": {
       "label": "Effective TFLOPS",
       "home_label": "TFLOPS",
-      "formula": "F_trial = 2 × M × N × Σ_g K_g\nq_case = median₅(F_trial / t_trial / 10¹²)\nscore = √(G_coarse × G_fine)",
+      "formula": "F_trial = 2 × M × N × Σ_g K_g\nq_case = median₃(F_trial / t_trial / 10¹²)\nscore = (G_large × G_many_groups × G_small_batch × G_sequence)^(1/4)",
       "details": [
         "M and N are output dimensions; K_g is group g’s actual reduction length, drawn anew each trial. Times are in seconds.",
-        "Each case uses five trials, timing the complete grouped computation and writes with the larger of synchronized host-wall and CUDA-event time.",
-        "G_coarse and G_fine are geometric means of four and three cases, respectively; both families have equal weight."
+        "Single-call cases use three trials and sequence cases three rounds of back-to-back calls, summing work over a round; each times the complete grouped computation and writes with the larger of synchronized host-wall and CUDA-event time.",
+        "Each family’s G averages cases geometrically per model, then across models; the large, many_groups, small_batch and sequence families have equal weight."
       ],
       "conditions": [
         "Grouped FP8 scaling and FP32 gradient accumulation must satisfy high-precision and BF16 references.",
@@ -315,14 +315,14 @@
     "flux-moe": {
       "label": "Effective TFLOPS",
       "home_label": "TFLOPS",
-      "formula": "F = 4 × M_local × top_k × N × K\nt_trial = max(t_rank1, t_rank2)\nq_case = F / median₇(t_trial) / 10¹²\nscore = √(G_heavy × G_moderate)",
+      "formula": "F = 2 × M × top_k × N × K / EP (summed over layers in sequence cases)\nt_trial = max over ranks r of t_r\nq_case = F / median₇(t_trial) / 10¹²\nS_f = √(G_evidence × G_model) (or the one group’s GM)\nscore = (S_tp8 × S_tp4 × S_tp2 × S_ep × S_decode × S_sequence)^(1/6)",
       "details": [
-        "M_local is tokens per rank, top_k experts per token, K input width, and N output width per rank. F counts matrix work on one rank.",
-        "Each case uses seven trials and charges the slower rank. Time includes all-gather, expert scatter, grouped multiplication, and synchronization.",
-        "G_heavy and G_moderate are geometric means of two and three cases; both families have equal weight."
+        "M is the total token count of the placement group, top_k experts per token, K input width, N output width per rank, and EP the expert-parallel degree. F is the mean per-rank matrix work and does not depend on the routing draw.",
+        "Each case uses seven trials after one warm-up and charges the slowest rank’s max(host wall, CUDA-event) time. Time includes all-gather, expert scatter, grouped multiplication, and synchronization.",
+        "Six families (tp8, tp4, tp2, ep, decode, sequence) have equal weight. In each family, evidence cases (paper and real tiers) and model cases each give a geometric mean, combined geometrically."
       ],
       "conditions": [
-        "All scored and correctness cases must pass FP32/BF16-reference accuracy and complete-write checks.",
+        "All scored and correctness cases must pass random-projection, FP32/BF16-reference accuracy and complete-write checks.",
         "Preserve local and remote inputs, use fresh inputs, and satisfy rank-agreement checks."
       ],
       "sources": [
@@ -489,12 +489,12 @@
     "grouped-fp8": {
       "label": "Effective TFLOPS",
       "home_label": "TFLOPS",
-      "formula": "F = 2 × N × K × Σg M_g\nq_i = median of 5 trials [F / (10¹² × t)]\nG_masked = GM(16 masked cases); G_psum = GM(16 packed cases)\nscore = √(G_masked × G_psum)",
+      "formula": "F = 2 × N × K × Σg M_g\nq_i = median of 5 trials [F / (10¹² × t)]  (sequence: median of 3 rounds)\nG_f = GM(cases in family f), f ∈ {prefill, decode, latency, sequence}\nscore = (G_prefill × G_decode × G_latency × G_sequence)^(1/4)",
       "details": [
         "M_g is expert g’s valid row count, N output width, and K the reduction dimension.",
-        "Each trial uses fresh row counts; compute throughput per trial before taking the five-trial median.",
+        "Each trial uses fresh row counts; compute throughput per trial before taking the five-trial median. Sequence cases time rounds of many consecutive calls, summing work over a round, and take the median of three rounds.",
         "t is the larger of synchronized host-wall and CUDA-event seconds for dispatch, scaling, multiplication, conversion, writes, and synchronization. Preparation, validation, and warm-up are excluded.",
-        "GM denotes geometric mean. Cases have equal weight within each layout, and layouts have equal weight."
+        "GM denotes geometric mean. Cases have equal weight within each family, and the four families have equal weight."
       ],
       "conditions": [
         "All scored and correctness cases must pass.",
@@ -512,11 +512,11 @@
     "sparse-mla": {
       "label": "Sparse-attention TFLOPS",
       "home_label": "TFLOPS",
-      "formula": "A_s = S_q × k\nF = 2 × H_q × A_s × (d_qk + 512)\nq_i = median of 7 trials [F / (10¹² × t)]\nscore = (G_V3.2 × G_V4-Flash × G_V4-Pro)^(1/3)",
+      "formula": "A_s = S_q × k  (or Σ topk_length)\nF = 2 × H_q × A_s × (d_qk + 512)\nq_i = median of 3 trials [F / (10¹² × t)]; stream: ΣF / Σt\nG_family = √(G_evidence × G_sweep)\nscore = (G_V3.2 × G_GLM-5 × G_V4-Flash × G_V4-Pro)^(1/4)",
       "details": [
         "S_q is query length, k selected keys per query, H_q query-head count, and d_qk query/key width. Values have width 512; F counts selected interactions.",
-        "G_V3.2, G_V4-Flash, and G_V4-Pro are geometric means of 5, 4, and 4 cases; families have equal weight.",
-        "t is the larger of synchronized host-wall and CUDA-event seconds for the complete call, including scheduling, temporary allocations, computation, writes, and synchronization.",
+        "Within each family, each group is the geometric mean of its cases; the evidence tier (anchor, trace, replay, multi, pattern) and sweep tier (sweep, heads, length) are geometric means of their groups. The four families have equal weight.",
+        "t is the larger of synchronized host-wall and CUDA-event seconds for the complete call, including scheduling, temporary allocations, computation, writes, and synchronization; streams time every call, compilation included.",
         "Input preparation, reference checks, and warm-up are excluded."
       ],
       "conditions": [
@@ -535,12 +535,12 @@
     "paged-gqa": {
       "label": "Attention TFLOPS",
       "home_label": "TFLOPS",
-      "formula": "A = Σb [S_q × L_b − S_q(S_q − 1)/2]\nF = 4 × H_q × 128 × A\nq_i = median of 7 trials [F / (10¹² × t)]\nscore = √(GM(5 one-query cases) × GM(5 16-query cases))",
+      "formula": "A = Σb [S_q × L_b − S_q(S_q − 1)/2]\nF = 4 × H_q × 128 × A\nq_i = median of 3 trials [F / (10¹² × t)]; stream: ΣF / Σt\nscore = (G_decode × G_spec × G_long × G_stream)^(1/4)",
       "details": [
         "L_b is request b’s cache length, S_q query length, and H_q query-head count. Head width is 128; A counts pairs allowed by the bottom-right causal mask.",
         "The factor 4 counts QK and PV multiply-add work; timing also includes page lookup and softmax.",
         "t is the larger of synchronized host-wall and CUDA-event seconds for the complete call, including dispatch, temporary allocations, writes, and synchronization.",
-        "Seven-trial median throughputs are combined geometrically within each query-length family, then families receive equal weight. Preparation, reference checks, and warm-up are excluded."
+        "Three-trial median throughputs (total work over total time for decode-step streams) are combined geometrically within each family (decode, spec, long, stream), then families receive equal weight. Preparation, reference checks, and warm-up are excluded."
       ],
       "conditions": [
         "All scored and correctness cases must pass.",
@@ -558,10 +558,10 @@
     "sageattention": {
       "label": "Dense-equivalent TFLOPS",
       "home_label": "TFLOPS",
-      "formula": "A = B × L² (noncausal), or B × L(L + 1)/2 (causal)\nF = 4 × H_q × d_h × A\nq_i = median of 7 trials [F / (10¹² × t)]\nscore = √(GM(3 video-DiT cases) × GM(2 causal cases))",
+      "formula": "A = B × L² (noncausal), or B × L(L + 1)/2 (causal)\nF = 4 × H_q × d_h × A\nq_i = median of 3 trials [F / (10¹² × t)]\nS_f = √(GM(recipe) × GM(sweep)) for video, image, llm; S_real = GM of source GMs\nscore = (S_video × S_image × S_llm × S_real)^(1/4)",
       "details": [
         "B is batch size, L sequence length, H_q query-head count, and d_h head width. F is fixed dense-equivalent QK/PV work.",
-        "Video and causal families receive equal geometric weight; individual case weights are 1/6 and 1/4, respectively.",
+        "The video, image, llm and real families receive equal geometric weight. In each synthetic family, recipe cases (published default settings) and sweep cases (other supported settings) share it equally; real layers are averaged per source model first.",
         "t is the larger of synchronized host-wall and CUDA-event seconds for smoothing, quantization, attention, dequantization, writes, dispatch, allocation, and synchronization.",
         "Input preparation, compilation/warm-up, and reference checks are excluded."
       ],
@@ -604,12 +604,12 @@
     "lmcache": {
       "label": "KV bandwidth (GB/s)",
       "home_label": "GB/s",
-      "formula": "P_i = Σwaves [(blocks − skip) × kv × NL × BS × NH × W × 2]\nb_i = P_i / (10⁹ × median of 5 trial durations in seconds)\nG_a = geometric mean of case bandwidths in group a\nscore = G_device^0.55 × G_host^0.15 × G_trace^0.30",
+      "formula": "P_i = Σwaves [(blocks − skip) × kv × NL × BS × NH × W × 2]\nb_i = P_i / (10⁹ × median of 3 trial seconds); overlap: b_i × (1 − loss)\nG_f = exp(mean over tiers of mean log stratum GM), per family f\nG_device = GM(large, small); G_host = GM(large, small, duplex)\nscore = G_device^0.35 × G_host^0.25 × G_trace^0.10 × G_overlap^0.30",
       "details": [
         "P_i is total logical payload. NL = layers, BS = tokens per block, NH = heads, and W = vector width. Split layout uses kv=2 and head width; fused layout uses kv=1 and combined KV width. Elements occupy 2 bytes.",
-        "Each transfer counts its payload once. GB uses decimal 10⁹ bytes.",
-        "Trials time the full call sequence using the larger of synchronized host-wall and CUDA-event time. Compilation, preparation, warm-up, and validation are excluded.",
-        "Case bandwidths have equal weight within device, host, and trace groups; group weights are 0.55, 0.15, and 0.30."
+        "Each transfer counts its payload once; duplex cases count both directions. GB uses decimal 10⁹ bytes.",
+        "Trials time the full call sequence using the larger of synchronized host-wall and CUDA-event time. Compilation, preparation, warm-up, and validation are excluded. For overlap cases, loss is the concurrent foreground’s extra time divided by the transfer time, clamped to [0, 0.95].",
+        "Cases are averaged geometrically per shape stratum, then per tier (paper, other); tiers count equally in each family. Group weights are 0.35 device (device-large, device-small), 0.25 host (host-large, host-small, host-duplex), 0.10 trace and 0.30 overlap."
       ],
       "conditions": [
         "All scored and correctness cases must pass.",
@@ -651,11 +651,11 @@
     "mamba2": {
       "label": "Effective TFLOPS",
       "home_label": "TFLOPS",
-      "formula": "F = 4 × B × L × H × d_h × d_s\nq_i = median of 7 trials [F / (10¹² × t)]\nG_f = geometric mean of 6 sequence-length cases in family f\nscore = (G_Mamba-2 × G_Codestral × G_Falcon-H1)^(1/3)",
+      "formula": "F = 4 × B × L × H × d_h × d_s\nq_i = median of 3 trials [F / (10¹² × t)] (real layers: 1 trial)\nG_f = geometric mean of the cases in family f\nscore = (G_batch × G_serving × G_long × G_real)^(1/4)",
       "details": [
         "B is batch size, L sequence length, H heads, d_h channels per head, and d_s state dimension. F counts recurrent state-update and output-projection work.",
-        "Each of three families has six lengths from 1K to 32K. Cases and families have equal weight, yielding the geometric mean of all 18 throughputs.",
-        "t is the larger of synchronized host-wall and CUDA-event seconds for the complete forward call. Seven trials are timed after warm-up."
+        "Four workload families: batch (training-length and padded batches), serving (batch 1 at real request lengths), long (batch 1 from 60K tokens to each model’s context limit) and real (captured layers). Cases have equal weight within a family, and families have equal weight.",
+        "t is the larger of synchronized host-wall and CUDA-event seconds for the complete forward call. Three trials are timed after warm-up, each on fresh inputs; a captured real layer is timed once."
       ],
       "conditions": [
         "All scored and boundary cases must pass.",
@@ -683,7 +683,7 @@
       "conditions": [
         "Selections must satisfy index/cache budgets and preserve inputs; reference continuations contain at least 16 tokens and fidelity is finite.",
         "Selection time is capped at 30% of total prefill and 60% per item/setting; policy memory is capped at 8 GiB.",
-        "Determinism checks must pass."
+        "Inputs and the CPU and CUDA RNG state must be left unchanged."
       ],
       "sources": [
         {
@@ -775,7 +775,7 @@
       ],
       "conditions": [
         "Reference-relative correctness, parseability, and token-retention checks apply per row, benchmark, and suite; retention is at least 90% overall and 75% per benchmark.",
-        "Useful-token counts are capped at 1.5× reference counts per row, benchmark, and suite; frozen quality thresholds must pass.",
+        "Useful-token retention above 150% of the reference makes the run invalid; frozen quality thresholds must pass.",
         "Determinism, cache isolation, source/model integrity, complete outputs, timing, memory, and reference qualification must pass."
       ],
       "sources": [
