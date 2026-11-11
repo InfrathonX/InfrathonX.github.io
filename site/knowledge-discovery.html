@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
-<link rel="stylesheet" href="assets/css/home.css?v=78a9bf9c17a7">
+<link rel="stylesheet" href="assets/css/home.css?v=03d8e97f7a6d">
 <link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
 </head>
 <body class="paper-page" data-page="knowledge-discovery">
@@ -29,6 +29,10 @@
   <div class="paper-figure-head"><h3>An example of optimization with Infrathon</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: An example of optimization with Infrathon">Expand ↗</button></div>
   <div class="paper-art"><img src="assets/img/homepage/qvg-intro.svg" width="1030" height="503" alt="The upper examples compare BF16, the human codec, and Claude’s codec. The lower trajectory combines compression and video quality; red annotations report compression ratios." loading="lazy" decoding="async"></div>
   <figcaption>The upper examples compare BF16, the human codec, and Claude’s codec. The lower trajectory combines compression and video quality; red annotations report compression ratios.</figcaption>
+</figure><figure class="paper-figure" id="qvg_six_agents">
+  <div class="paper-figure-head"><h3>Six agents on the same task</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Six agents on the same task">Expand ↗</button></div>
+  <div class="paper-art"><img src="assets/img/homepage/qvg-six-agents.svg" width="1000" height="500" alt="Best valid score over 24 hours for six agents on Quant-VideoGen KV Codec. Claude Opus 5.5 climbs to 28.45 through five annotated submissions; GPT-6 Astra ends at 11.34 and the other four agents between 5.82 and 11.28, around the human codec's 6.82." loading="lazy" decoding="async"></div>
+  <figcaption>Each agent’s best valid score over its 24-hour run. Claude Opus 5.5 reaches 28.45, about four times the human codec’s 6.82 (dashed); the other five agents end between 5.82 and 11.34. Numbered points match the figure above; × marks Claude’s submissions the Judge rejected as invalid.</figcaption>
 </figure></div></section><section class="paper-section" id="iterations"><div class="wrap"><h2>Improvements across submissions</h2><figure class="paper-figure" id="qvg_submission_comparison">
   <div class="paper-figure-head"><h3>Iterative optimization of the KV codec</h3><button class="figure-expand" type="button" data-expand-figure aria-label="Expand: Iterative optimization of the KV codec">Expand ↗</button></div>
   <div class="paper-art"><img src="assets/img/paper/qvg_submission_comparison.svg" width="515" height="461" alt="Claude Opus 5.5’s 6th, 7th, 16th, and 22nd submissions are compared with BF16 and the human codec on two LongCat-Video samples. Parentheses show compression ratios." loading="lazy" decoding="async"></div>

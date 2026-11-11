@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=713802b7d90f">
-<link rel="stylesheet" href="assets/css/home.css?v=78a9bf9c17a7">
+<link rel="stylesheet" href="assets/css/home.css?v=03d8e97f7a6d">
 <link rel="stylesheet" href="assets/css/paper.css?v=b0a734ddd5bc">
 <link rel="stylesheet" href="assets/css/tts.css?v=d604fde94ae9">
 </head>
@@ -98,6 +98,16 @@
     </aside>
   </section>
 
+  <section class="sec home-results" id="how-it-works" aria-labelledby="how-it-works-title"><div class="wrap">
+    <div class="home-section-head"><h2 id="how-it-works-title">How a run works</h2><a href="framework.html">Framework ↗</a></div>
+    <figure class="home-paper-figure home-paper-figure--animated">
+      <a class="home-figure-art" href="assets/img/homepage/run-overview.svg" target="_blank" rel="noopener" aria-label="Open the run overview at full size">
+        <img src="assets/img/homepage/run-overview.svg" width="1000" height="548" decoding="async" alt="A task is a workspace, public tests, private tests, resources and a time budget. The agent edits and tests in the Work container and submits; the Controller's LLM integrity review passes or rejects each submission; the Judge runs the private tests in its own container and scores it. Feedback returns to the agent, and the run keeps its best valid score within the time budget.">
+      </a>
+      <figcaption><strong>Work, Controller, Judge.</strong> The agent edits the system and runs the public tests in its own container, then submits. The Controller reviews the code against the task’s rules before any GPU time is spent; the Judge runs held-out workloads in a separate container, checks correctness and fidelity, and measures. Every submission gets a score or a reason for rejection, and the run’s result is its best valid score within the 12- or 24-hour budget.</figcaption>
+    </figure>
+  </div></section>
+
   <section class="sec home-results" id="leaderboard"><div class="wrap">
     <div class="home-section-head"><h2>Leaderboard</h2><a href="#score-notes">Scoring details ↗</a></div>
     <article class="home-finding-summary" id="findings">
@@ -155,10 +165,12 @@
       <div class="home-finding-copy"><p>Claude designs a new compression method that increases the compression ratio from the human codec’s <strong class="finding-emphasis">6.82× to 19.86×</strong>, while <strong class="finding-emphasis">improving video quality</strong>.</p></div>
     </div>
     <figure class="home-paper-figure" id="optimization-example">
-      <a class="home-figure-art" href="assets/img/homepage/qvg-intro.svg" target="_blank" rel="noopener" aria-label="Open the optimization example at full size">
-        <img src="assets/img/homepage/qvg-intro.svg" width="1030" height="503" loading="lazy" decoding="async" alt="Two video cases compare the BF16 reference, human codec, and Claude Opus 5.5 codec. Below, Claude's quality-weighted Quant-VideoGen KV Codec score improves over 24 hours, with five submissions annotated by their code changes and compression ratios.">
-      </a>
-      <figcaption><strong>An example of optimization with Infrathon.</strong> On Quant-VideoGen KV Codec, agents compress the KV cache to reduce memory use during video generation. Claude Opus 5.5 develops a codec with higher compression ratios and better video quality than the human codec. Top: two video examples; red values show compression ratios. Bottom: Claude's scores over time combine compression ratio and video quality, with the Human Solution as the dashed baseline. Five numbered points mark selected submissions; boxes summarize their code changes.</figcaption>
+      <div class="home-figure-art">
+        <video class="home-figure-video" width="1600" height="1334" autoplay muted loop playsinline preload="auto" poster="assets/img/homepage/qvg-run-poster.webp" aria-label="Two LongCat-Video examples play side by side for the BF16 reference, the human codec and Claude Opus 5.5's codec, labeled with their compression ratios. Below, Claude's quality-weighted Quant-VideoGen KV Codec score rises over 24 hours past the human codec's 6.82, with five submissions annotated by their code changes and compression ratios.">
+          <source src="assets/img/homepage/qvg-run.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption><strong>An example of optimization with Infrathon.</strong> On Quant-VideoGen KV Codec, agents compress the KV cache to reduce memory use during video generation. Claude Opus 5.5 develops a codec with higher compression ratios and better video quality than the human codec. Top: two LongCat-Video examples, each generated with the BF16 cache, the human codec and Claude’s codec; labels give the compression ratio. Bottom: Claude’s score over the 24 hours combines compression ratio and video quality, with the human codec as the dashed baseline. Five numbered points mark selected submissions; boxes summarize their code changes.</figcaption>
     </figure>
   </div></section>
 
@@ -196,6 +208,6 @@
 <script src="assets/js/paper.js"></script>
 <script src="data/tts.js?v=c379df8be2fa"></script>
 <script src="assets/js/tts.js?v=1bce8e496262"></script>
-<script src="assets/js/home.js?v=5c1eeaf2de75"></script>
+<script src="assets/js/home.js?v=c7562820e1d1"></script>
 </body>
 </html>

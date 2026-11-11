@@ -34,6 +34,7 @@
   if (!sidebar) return;
   const entries = [
     ["overview", "Overview"],
+    ["how-it-works", "How a Run Works"],
     ["leaderboard", "Leaderboard"],
     ["results", "All Results"],
     ["knowledge-discovery", "Knowledge Discovery"],
@@ -67,4 +68,14 @@
   window.addEventListener("resize", queueHighlight);
   window.addEventListener("hashchange", queueHighlight);
   highlightSection();
+})();
+
+(() => {
+  "use strict";
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  for (const video of document.querySelectorAll("video[autoplay]")) {
+    video.removeAttribute("autoplay");
+    video.pause();
+    video.controls = true;
+  }
 })();
