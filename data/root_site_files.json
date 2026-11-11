@@ -90,6 +90,19 @@
   "assets/img/tts/claude.pdf",
   "assets/img/tts/claude.png",
   "assets/img/tts/claude.svg",
+  "assets/img/twitter/framework.png",
+  "assets/img/twitter/horizon-comparison.png",
+  "assets/img/twitter/infrathon-twitter-images.zip",
+  "assets/img/twitter/knowledge-discovery-metrics.png",
+  "assets/img/twitter/knowledge-discovery.png",
+  "assets/img/twitter/long-vs-short.png",
+  "assets/img/twitter/model-rankings.png",
+  "assets/img/twitter/sources/framework.svg",
+  "assets/img/twitter/sources/knowledge-discovery.webp",
+  "assets/img/twitter/sources/long-vs-short.svg",
+  "assets/img/twitter/sources/model-rankings.svg",
+  "assets/img/twitter/sources/task-categories.svg",
+  "assets/img/twitter/task-categories.png",
   "assets/js/agent-behavior.js",
   "assets/js/core.js",
   "assets/js/docs-sections.js",
@@ -125,5 +138,6 @@
   "task-results.html",
   "task.html",
   "tasks.html",
-  "trajectories.html"
+  "trajectories.html",
+  "twitter-thread.md"
 ]

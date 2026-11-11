@@ -41,4 +41,5 @@ jobs:
           python scripts/export_behavior_figures.py --check
           python scripts/export_paper_figures.py --check
           python scripts/build_tts_figures.py --check
+          python scripts/export_twitter.py --check
           python scripts/sync_root_site.py --check

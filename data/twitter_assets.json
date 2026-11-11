@@ -1,0 +1,233 @@
+{
+  "source_file": "twitter.html",
+  "source_sha256": "d1d0aee78b5ed40b2d63422517528e3337d843f0392703eb8ccc3b91e6d20a2e",
+  "method": "Original embedded figures extracted without modification; SVGs rendered at 4x with Chromium on white, WebP decoded losslessly to PNG; original HTML tables captured at 2x.",
+  "assets": [
+    {
+      "key": "task-categories",
+      "post": "[2/7]",
+      "kind": "original-figure",
+      "alt": "任务类别图",
+      "png": {
+        "file": "assets/img/twitter/task-categories.png",
+        "width": 1564,
+        "height": 1564,
+        "bytes": 496350,
+        "sha256": "b6a62361debb73c58530d20a6f641af1a1bab28a35b0e4676309a926c43ee590"
+      },
+      "original": {
+        "file": "assets/img/twitter/sources/task-categories.svg",
+        "sha256": "811c3f72e3d8d8ddddb5846cd0b3870ff7eb745e3248e94671c5a236d49db864"
+      }
+    },
+    {
+      "key": "framework",
+      "post": "[3/7]",
+      "kind": "original-figure",
+      "alt": "Infrathon 框架图",
+      "png": {
+        "file": "assets/img/twitter/framework.png",
+        "width": 2165,
+        "height": 972,
+        "bytes": 205697,
+        "sha256": "1ce3e304ca6138c6613b575602e624f939552c30452a35b35af5d1868aee83c5"
+      },
+      "original": {
+        "file": "assets/img/twitter/sources/framework.svg",
+        "sha256": "7734a340e55725bb0b8ff7439dfd9b7c50b88c487e94b06a96660d76fa0a9ace"
+      }
+    },
+    {
+      "key": "model-rankings",
+      "post": "[4/7]",
+      "kind": "original-figure",
+      "alt": "模型排名图",
+      "png": {
+        "file": "assets/img/twitter/model-rankings.png",
+        "width": 1944,
+        "height": 1140,
+        "bytes": 192217,
+        "sha256": "45a2e9ad0ae52ed5c6ddf6d82348f0e111bd04f453527c930c7f13c5f68228a1"
+      },
+      "original": {
+        "file": "assets/img/twitter/sources/model-rankings.svg",
+        "sha256": "95a228a199823be9ce268cfbb0d32a416b6c13e93005fa7d79036cac0c0f8938"
+      }
+    },
+    {
+      "key": "knowledge-discovery",
+      "post": "[5/7]",
+      "kind": "original-figure",
+      "alt": "Codec 对比与优化过程",
+      "png": {
+        "file": "assets/img/twitter/knowledge-discovery.png",
+        "width": 1716,
+        "height": 837,
+        "bytes": 675776,
+        "sha256": "55b64f95a2121dc2b943970aab6bb4794d15b19d3ba71067cdf6cbb8198b20f4"
+      },
+      "original": {
+        "file": "assets/img/twitter/sources/knowledge-discovery.webp",
+        "sha256": "cf7883a527c3b888431f7b87f1b65c563862932efab5acf1627feff5c07be9c7"
+      }
+    },
+    {
+      "key": "long-vs-short",
+      "post": "[6/7]",
+      "kind": "original-figure",
+      "alt": "长短运行对比图",
+      "png": {
+        "file": "assets/img/twitter/long-vs-short.png",
+        "width": 1944,
+        "height": 2247,
+        "bytes": 468832,
+        "sha256": "687055e69b9a3ae27166f66c8022209b25a842b6461442c179368dcdc3487c82"
+      },
+      "original": {
+        "file": "assets/img/twitter/sources/long-vs-short.svg",
+        "sha256": "ca7a5bd841e88b16f887b544cf4f313e9427c0a86fb1d35361bfc0f35200964b"
+      }
+    },
+    {
+      "key": "knowledge-discovery-metrics",
+      "post": "[5/7]",
+      "kind": "table-screenshot",
+      "alt": "压缩率与视频质量对比表",
+      "png": {
+        "file": "assets/img/twitter/knowledge-discovery-metrics.png",
+        "width": 1440,
+        "height": 266,
+        "bytes": 53480,
+        "sha256": "f4b46ff69ffbd8de41c493a5dc628d18be203f806e55ac2cfa5f8dc56e467aea"
+      },
+      "cells": [
+        [
+          "Dataset / video model",
+          "Compression (×) ↑",
+          "PSNR (dB) ↑",
+          "SSIM ↑",
+          "LPIPS ↓"
+        ],
+        [
+          "WorldScore / HY-WorldPlay",
+          "6.75 → 20.89",
+          "31.15 → 36.33",
+          "0.923 → 0.975",
+          "0.059 → 0.023"
+        ],
+        [
+          "MovieGen / LongCat-Video",
+          "6.88 → 18.83",
+          "23.67 → 26.95",
+          "0.836 → 0.884",
+          "0.126 → 0.085"
+        ]
+      ]
+    },
+    {
+      "key": "horizon-comparison",
+      "post": "[6/7]",
+      "kind": "table-screenshot",
+      "alt": "长短程最终得分比例表",
+      "png": {
+        "file": "assets/img/twitter/horizon-comparison.png",
+        "width": 1440,
+        "height": 352,
+        "bytes": 33982,
+        "sha256": "f346af988aec4e89020a2afda544f22fe442533d932dacc96f4c760aa238ca8c"
+      },
+      "cells": [
+        [
+          "Task level",
+          "Best of two / one long run",
+          "Best of four / one long run"
+        ],
+        [
+          "Operator",
+          "101.3%",
+          "102.6%"
+        ],
+        [
+          "Module",
+          "96.5%",
+          "96.9%"
+        ],
+        [
+          "System",
+          "79.4%",
+          "77.3%"
+        ]
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "heading": "开场帖",
+      "source_text_sha256": "9549146f9449e231bc7178c58e1eef73f83bd57359e48489c09d27925a4a2dc1",
+      "unicode_characters": 562,
+      "attachment_keys": []
+    },
+    {
+      "heading": "[1/7]",
+      "source_text_sha256": "1a4864bc49a9ff3d0984310df02ff6d7eed3f41cf41918173d4cf38d047af49d",
+      "unicode_characters": 472,
+      "attachment_keys": []
+    },
+    {
+      "heading": "[2/7]",
+      "source_text_sha256": "1a7721fe862476ba6beeb07c429076497a6665c1beb1437161983ed76354e136",
+      "unicode_characters": 445,
+      "attachment_keys": [
+        "task-categories"
+      ]
+    },
+    {
+      "heading": "[3/7]",
+      "source_text_sha256": "6ac7605afbf4b1910af09d1e04f99fc278ed1551bc46117bd2d06f2f38ade2bb",
+      "unicode_characters": 400,
+      "attachment_keys": [
+        "framework"
+      ]
+    },
+    {
+      "heading": "[4/7]",
+      "source_text_sha256": "9da43bb1cae72b40f17b1c62c76d0103733a550cec8236aa613432133215967e",
+      "unicode_characters": 330,
+      "attachment_keys": [
+        "model-rankings"
+      ]
+    },
+    {
+      "heading": "[5/7]",
+      "source_text_sha256": "59fb5607aa1ccfa03023b3bc416c6b75b66f0afc05c64840becb04635694ad89",
+      "unicode_characters": 799,
+      "attachment_keys": [
+        "knowledge-discovery",
+        "knowledge-discovery-metrics"
+      ]
+    },
+    {
+      "heading": "[6/7]",
+      "source_text_sha256": "a1e1a149496104a531034d1e0ced4b818dd000af292f92a33ca87040e23b4383",
+      "unicode_characters": 653,
+      "attachment_keys": [
+        "long-vs-short",
+        "horizon-comparison"
+      ]
+    },
+    {
+      "heading": "[7/7]",
+      "source_text_sha256": "00ddfb6cd7d96f4ffd7ab5c996215a324dcfb73a65306ea010fa8d974eb6b669",
+      "unicode_characters": 215,
+      "attachment_keys": []
+    }
+  ],
+  "archive": {
+    "file": "assets/img/twitter/infrathon-twitter-images.zip",
+    "sha256": "9f052e91bb3b66b8ff6efba4aad10ed04a90da2d0f96e2d58175933d3d6d90b0"
+  },
+  "markdown": {
+    "file": "twitter-thread.md",
+    "sha256": "7e1ac560ab844a667e24ba6445b214a87bfa9428ff61c3026d0ada9d4110e1df"
+  }
+}

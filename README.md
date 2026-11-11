@@ -22,6 +22,7 @@ the repository directory with `python3 -m http.server 8000`.
 site/
   index.html                 paper identity, figures, interactive leaderboard, finding summaries, expandable task trajectories
   blog.html                  author-provided standalone blog, embedded figures, model tabs, and image expansion
+  twitter-thread.md           author-provided eight-post thread with hosted PNG attachment links
   framework.html             task definition, task inventory, Work/Controller/Judge execution
   main-results.html          current manuscript setup, trajectories, plateaus, and rankings
   knowledge-discovery.html   Quant-VideoGen discovery, two-dataset comparison, submission evidence
@@ -60,6 +61,7 @@ site/
   assets/img/institutions/   institution artwork extracted from the paper
   assets/img/homepage/       latest paper optimization example and framework SVGs
   assets/img/paper/          current manuscript original PDFs and vector SVGs
+  assets/img/twitter/        five thread figures, two table PNGs, original assets, and a PNG download ZIP
   assets/img/experimental-results/  original figure PDFs and vector SVG conversions
   data/infrathon.js          generated results and cost bundle
   data/docs.js               generated guides for all 25 tasks
@@ -83,6 +85,7 @@ data/
   paper_figures.json         current manuscript source hash and original figure provenance
   tts_runs.json              author-supplied TTS report data: 84 runs and 36 grouped curves
   tts_figures.json           validated TTS comparisons, geometric means, and plot hashes
+  twitter_assets.json        Twitter HTML source hash, figure provenance, PNG dimensions, and thread attachments
 scripts/
   extract_dashboard.py      dashboard ZIP → selected runs
   build_data.py             results, ranks, summaries → infrathon.js
@@ -94,6 +97,7 @@ scripts/
   extract_paper_distributions.py  archived 41-page manuscript Figure 5 extraction
   export_paper_figures.py    current Overleaf directory → original PDFs, SVGs, and source manifest
   build_tts_figures.py       author TTS HTML → validated data and SVG/PDF/PNG comparisons
+  export_twitter.py          author Twitter HTML → PNGs, original figures, an image ZIP, and Markdown
   sync_root_site.py          site/ → committed domain-root frontend, with a CI freshness check
   check_site.py              local links, anchors, bundle structure, leaked local paths
   check_documentation_sources.py  task and setup sources against the public repository and paper
@@ -167,6 +171,18 @@ Task pages have a visible Back button. Visits from Home or the task directory re
 Agent Behavior Analysis follows the current manuscript's three issues: task-requirement violations, tests that do not execute the changed code, and premature completion. It uses the current original task-fidelity figure and the three selected continuation examples: GLM/SageAttention +24.8%, Astra/Flux +7.3%, and DeepSeek/SD3.5-M +14.0%. Historical figure and digitized-data manifests remain for archive integrity checks and do not render this page.
 
 The site uses one light theme. Charts use shared theme variables and responsive dimensions.
+
+## Twitter materials
+
+[twitter-thread.md](twitter-thread.md) preserves the author's opening post and seven replies. It includes GitHub-hosted image links and a ZIP of seven PNG attachments: five original figures and two screenshots of the original data tables. Original SVG/WebP files are retained in `site/assets/img/twitter/sources/`; source and export hashes are recorded in `data/twitter_assets.json`.
+
+```bash
+python3 scripts/export_twitter.py /path/to/twitter.html
+python3 scripts/sync_root_site.py
+python3 scripts/export_twitter.py --check
+```
+
+Export uses BeautifulSoup, Markdownify, Pillow, and Chromium through Playwright. `--check` only needs the Python standard library and verifies file hashes, PNG dimensions and size, the ZIP contents, and Markdown attachment links. Posts retain the source wording and numbering, including posts longer than 280 characters.
 
 ## Documentation
 
