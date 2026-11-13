@@ -19,11 +19,7 @@ MANIFEST = ROOT / "data/twitter_assets.json"
 SOCIAL_AUTHORS = ROOT / "data/author_social_accounts.json"
 ORIGINAL_THANKS = "Huge thanks to all our collaborators and the human experts who helped build Infrathon!"
 OLD_SUPPORT_REQUEST = " If you find this work useful, please consider starring the repository and citing our paper."
-HUGGING_FACE_SUPPORT = (
-    "If you find Infrathon interesting, we’d appreciate an upvote on Hugging Face Daily Papers "
-    "to help more people discover the work!\n\n"
-    "<https://huggingface.co/papers/2611.11995>"
-)
+HUGGING_FACE_PAPER_LINK = "🤗 Hugging Face Daily Papers: <https://huggingface.co/papers/2611.11995>"
 OPENING_QUESTION = "Can long-horizon agents keep improving real-world AI infrastructure?"
 RAW = "https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/"
 FIGURES = [
@@ -173,7 +169,7 @@ def export(source: Path) -> None:
     manifest["archive"] = {"file": archive.relative_to(SITE).as_posix(),
                            "sha256": digest(archive.read_bytes())}
     lines = ["# Infrathon Twitter Thread", "",
-             "This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question and collaborating organizations; the closing post credits all 21 authors with verified X handles and links to Hugging Face Daily Papers. See the [account reference](author-social-accounts.md).",
+             "This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post credits all 21 authors with verified X handles. See the [account reference](author-social-accounts.md).",
              "Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.",
              "Before posting, replace **@[PYROMIND_X_HANDLE]** with Pyromind Dynamics' official X handle.",
              "Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).", "",
@@ -201,13 +197,14 @@ def export(source: Path) -> None:
                 "**" + OPENING_QUESTION + "**\n\n" + collaboration_intro("x")
                 + "**Infrathon**, a benchmark of **25 real-world AI infrastructure tasks** across operators, "
                 "modules, and complete training or serving workflows, with **12–24-hour** budgets.\n\n"
+                + HUGGING_FACE_PAPER_LINK + "\n\n"
                 + article.removeprefix(original_intro)
             )
         if index == len(headings) - 1:
             if ORIGINAL_THANKS not in article:
                 raise ValueError("The source closing acknowledgment changed; review the author credits before exporting.")
             article = article.replace(ORIGINAL_THANKS, author_acknowledgment("x"))
-            article = article.replace(OLD_SUPPORT_REQUEST, "") + "\n\n" + HUGGING_FACE_SUPPORT
+            article = article.replace(OLD_SUPPORT_REQUEST, "")
         lines += [f"## {post}", "", article, ""]
         attached = [item for item in manifest["assets"] if item["post"] == post]
         if attached:
@@ -246,7 +243,7 @@ def check() -> None:
     assert digest(markdown) == manifest["markdown"]["sha256"]
     assert manifest["acknowledgments"]["sha256"] == digest(SOCIAL_AUTHORS.read_bytes())
     assert author_acknowledgment("x") in markdown.decode("utf-8")
-    assert HUGGING_FACE_SUPPORT in markdown.decode("utf-8")
+    assert markdown.decode("utf-8").count(HUGGING_FACE_PAPER_LINK) == 1
     assert "## Opening post\n\n**" + OPENING_QUESTION + "**\n\n" + collaboration_intro("x") in markdown.decode("utf-8")
     assert b"data:image" not in markdown
     assert not any("\u3400" <= char <= "\u9fff" or "\uf900" <= char <= "\ufaff" for char in markdown.decode("utf-8")), "Markdown must be in English."
