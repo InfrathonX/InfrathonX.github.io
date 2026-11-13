@@ -424,13 +424,15 @@
       "x": null,
       "linkedin": {
         "display_name": "Pyromind Dynamics Inc.",
-        "url": "https://www.linkedin.com/company/pyromind-dynamics-inc/",
+        "url": "https://www.linkedin.com/company/pyromind-dynamics-inc/home/",
         "sources": [
+          "https://www.linkedin.com/company/pyromind-dynamics-inc/home/",
           "https://www.linkedin.com/company/pyromind-dynamics-inc/"
         ],
-        "verification": "The company page links to pyromind.ai and describes its agentic-model training platform."
+        "verification": "The author confirmed the company page URL. Its profile links to pyromind.ai and describes its agentic-model training platform."
       },
-      "notes": "The official X account was not verified. Use the organization name linked to its homepage in the X draft."
+      "notes": "The official X account was not verified. Replace the @[PYROMIND_X_HANDLE] placeholder with its official handle before posting.",
+      "x_placeholder": "@[PYROMIND_X_HANDLE]"
     }
   ]
 }

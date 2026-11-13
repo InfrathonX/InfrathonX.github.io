@@ -69,7 +69,9 @@ def collaboration_intro(platform: str) -> str:
     for organization in organizations:
         account = organization[platform]
         if account is None:
-            labels.append(f'[{organization["name"]}]({organization["homepage"]})')
+            placeholder = organization.get(f"{platform}_placeholder")
+            labels.append(f'{organization["name"]} (**{placeholder}**)' if placeholder
+                          else f'[{organization["name"]}]({organization["homepage"]})')
         elif platform == "x":
             labels.append(f'[@{account["handle"]}]({account["url"]})')
         else:
@@ -173,6 +175,7 @@ def export(source: Path) -> None:
     lines = ["# Infrathon Twitter Thread", "",
              "This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question and collaborating organizations; the closing post credits all 21 authors with verified X handles and links to Hugging Face Daily Papers. See the [account reference](author-social-accounts.md).",
              "Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.",
+             "Before posting, replace **@[PYROMIND_X_HANDLE]** with Pyromind Dynamics' official X handle.",
              "Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).", "",
              "## Image downloads", "", f'[Download all PNGs (ZIP)]({RAW}{manifest["archive"]["file"]})', "",
              "| Post | Attachment | PNG |", "| --- | --- | --- |"]

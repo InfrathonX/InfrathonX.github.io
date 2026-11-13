@@ -2,6 +2,7 @@
 
 This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question and collaborating organizations; the closing post credits all 21 authors with verified X handles and links to Hugging Face Daily Papers. See the [account reference](author-social-accounts.md).
 Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.
+Before posting, replace **@[PYROMIND_X_HANDLE]** with Pyromind Dynamics' official X handle.
 Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).
 
 ## Image downloads
@@ -27,7 +28,7 @@ All PNGs are smaller than 5 MB. [X image upload guidance](https://help.x.com/en/
 
 **Can long-horizon agents keep improving real-world AI infrastructure?**
 
-In collaboration with [@allen_ai](https://x.com/allen_ai), [@radixark](https://x.com/radixark), and [Pyromind Dynamics](https://pyromind.ai/), we introduce **Infrathon**, a benchmark of **25 real-world AI infrastructure tasks** across operators, modules, and complete training or serving workflows, with **12–24-hour** budgets.
+In collaboration with [@allen_ai](https://x.com/allen_ai), [@radixark](https://x.com/radixark), and Pyromind Dynamics (**@[PYROMIND_X_HANDLE]**), we introduce **Infrathon**, a benchmark of **25 real-world AI infrastructure tasks** across operators, modules, and complete training or serving workflows, with **12–24-hour** budgets.
 
 **Claude Opus 5.5 increases KV-cache compression from 6.82× to 19.86× with better video quality**, and longer runs outperform short-run scaling on module and system tasks.
 

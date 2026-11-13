@@ -47,9 +47,9 @@ The opening paragraphs name Ai2, RadixArk, and Pyromind Dynamics as collaborator
 | --- | --- | --- | --- |
 | Ai2 | [@allen_ai](https://x.com/allen_ai) | [@Ai2](https://www.linkedin.com/company/allen-ai/) | [Website](https://allenai.org/) |
 | RadixArk | [@radixark](https://x.com/radixark) | [@RadixArk](https://www.linkedin.com/company/radixark/) | [Website](https://www.radixark.com/) · [Company page](https://www.linkedin.com/company/radixark/) |
-| Pyromind Dynamics | Not verified; organization name links to its website | [@Pyromind Dynamics Inc.](https://www.linkedin.com/company/pyromind-dynamics-inc/) | [Website](https://pyromind.ai/) · [Company page](https://www.linkedin.com/company/pyromind-dynamics-inc/) |
+| Pyromind Dynamics | Pending: **@[PYROMIND_X_HANDLE]** | [@Pyromind Dynamics Inc.](https://www.linkedin.com/company/pyromind-dynamics-inc/home/) | [Website](https://pyromind.ai/) · [Company page](https://www.linkedin.com/company/pyromind-dynamics-inc/home/) |
 
-Pyromind Dynamics has a verified LinkedIn company page. Its official X account was not confirmed, so the X introduction uses its organization name and website instead of an assumed handle.
+Pyromind Dynamics has a verified LinkedIn company page. Its official X account was not confirmed. The X introduction uses **@[PYROMIND_X_HANDLE]** as an explicit placeholder; replace it with the official handle before posting.
 
 ## Verification notes
 
