@@ -137,7 +137,7 @@ INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
   .paper-links a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 8px 14px; border-radius: 999px; color: white; font-size: 12px; font-weight: 600; line-height: 1; background: #24292f; text-decoration: none; transition: transform .15s ease; }
   .paper-links a:hover { transform: translateY(-1px); }
   .paper-links .paper { background: #b31b1b; }
-  .paper-links img { width: 16px; height: 16px; flex-shrink: 0; object-fit: contain; }
+  .paper-links img, .paper-links svg { width: 16px; height: 16px; flex-shrink: 0; object-fit: contain; }
   .paper-links .arxiv-mark { width: 36px; }
   .tldr { background: var(--tint); border-left: 7px solid var(--accent); border-radius: 0 6px 6px 0; padding: .95rem 1.1rem; margin: 0 0 2rem; font-size: .98rem; }
   .tldr p { margin: 0; }
@@ -244,6 +244,9 @@ INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
   </header>
 
   <div class="paper-links">
+    <a href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21V12h6v9"/></svg>Homepage
+    </a>
     <a class="paper" href="https://arxiv.org/abs/2611.11995" target="_blank" rel="noopener noreferrer">
       <img class="arxiv-mark" src="assets/img/resources/arxiv.svg" alt="arXiv" width="36" height="16">
     </a>
