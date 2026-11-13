@@ -1,8 +1,8 @@
 # Infrathon Twitter Thread
 
-This file preserves the opening post and seven replies from `twitter.html`, including the original wording, lists, and tables.
+This file preserves the opening post and seven replies from `twitter.html`, including the original research wording, lists, and tables. The closing post adds all 21 authors and their verified X handles; see [author accounts](author-social-accounts.md).
 Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.
-Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without rewriting or splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).
+Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).
 
 ## Image downloads
 
@@ -146,6 +146,8 @@ The long run wins **nine of 12 task–model comparisons**, including **all four 
 
 Questions and feedback are welcome! If you find this work useful, please consider starring the repository and citing our paper.
 
-Huge thanks to all our collaborators and the human experts who helped build Infrathon!
+Huge thanks to the entire Infrathon author team: Zhengyu Hu ([@ZhengyuHu477](https://x.com/ZhengyuHu477)), Zheyuan Xiao, Yike Wang ([@yikewang_](https://x.com/yikewang_)), Hamish Ivison ([@hamishivi](https://x.com/hamishivi)), Haoyu Wang ([@Haoyu_Wang_97](https://x.com/Haoyu_Wang_97)), Yige Yuan ([@1t4chiii](https://x.com/1t4chiii)), Rulin Shao ([@RulinShao](https://x.com/RulinShao)), Yuetai Li ([@yuetai12575](https://x.com/yuetai12575)), Niqi Lyu, Yicheng Ding, Shu Yang ([@shuyhere](https://x.com/shuyhere)), Zhichen Zeng ([@zz30gs](https://x.com/zz30gs)), Banghua Zhu ([@banghuaz](https://x.com/banghuaz)), Jiaxin Pei ([@jiaxin_pei](https://x.com/jiaxin_pei)), Kaize Ding ([@kaize0409](https://x.com/kaize0409)), Pradeep Dasigi ([@pdasigi](https://x.com/pdasigi)), Dan Roth ([@DanRothNLP](https://x.com/DanRothNLP)), Hannaneh Hajishirzi ([@HannaHajishirzi](https://x.com/HannaHajishirzi)), Noah A. Smith ([@nlpnoah](https://x.com/nlpnoah)), Teng Xiao ([@TengX6](https://x.com/TengX6)), and Radha Poovendran ([@RadhaPoovendran](https://x.com/RadhaPoovendran))!
+
+Thanks also to the human experts who helped build Infrathon!
 
 ---

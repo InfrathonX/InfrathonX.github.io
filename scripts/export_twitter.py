@@ -16,6 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 ASSETS = SITE / "assets/img/twitter"
 MANIFEST = ROOT / "data/twitter_assets.json"
+SOCIAL_AUTHORS = ROOT / "data/author_social_accounts.json"
+ORIGINAL_THANKS = "Huge thanks to all our collaborators and the human experts who helped build Infrathon!"
 RAW = "https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/"
 FIGURES = [
     ("task-categories", "[2/7]", "Task categories"),
@@ -30,6 +32,25 @@ TABLES = [("knowledge-discovery-metrics", "[5/7]", "Compression and video qualit
 
 def digest(content: bytes) -> str:
     return hashlib.sha256(content).hexdigest()
+
+
+def author_acknowledgment(platform: str) -> str:
+    """Render all paper authors, adding only verified platform-specific accounts."""
+    if platform not in ("x", "linkedin"):
+        raise ValueError(f"Unknown social platform: {platform}")
+    authors = json.loads(SOCIAL_AUTHORS.read_text())["authors"]
+    labels = []
+    for author in authors:
+        name, account = author["name"], author[platform]
+        if account is None:
+            labels.append(name)
+        elif platform == "x":
+            labels.append(f'{name} ([@{account["handle"]}]({account["url"]}))')
+        else:
+            labels.append(f'[@{name}]({account["url"]})')
+    names = ", ".join(labels[:-1]) + ", and " + labels[-1]
+    return ("Huge thanks to the entire Infrathon author team: " + names + "!\n\n"
+            "Thanks also to the human experts who helped build Infrathon!")
 
 
 def png_info(path: Path) -> dict:
@@ -125,9 +146,9 @@ def export(source: Path) -> None:
     manifest["archive"] = {"file": archive.relative_to(SITE).as_posix(),
                            "sha256": digest(archive.read_bytes())}
     lines = ["# Infrathon Twitter Thread", "",
-             "This file preserves the opening post and seven replies from `twitter.html`, including the original wording, lists, and tables.",
+             "This file preserves the opening post and seven replies from `twitter.html`, including the original research wording, lists, and tables. The closing post adds all 21 authors and their verified X handles; see [author accounts](author-social-accounts.md).",
              "Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.",
-             "Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without rewriting or splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).", "",
+             "Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).", "",
              "## Image downloads", "", f'[Download all PNGs (ZIP)]({RAW}{manifest["archive"]["file"]})', "",
              "| Post | Attachment | PNG |", "| --- | --- | --- |"]
     for item in manifest["assets"]:
@@ -144,6 +165,10 @@ def export(source: Path) -> None:
                 nodes.append(sibling)
         article = "\n\n".join(markdownify(str(node), heading_style="ATX", bullets="-", escape_underscores=False).strip()
                                for node in nodes)
+        if index == len(headings) - 1:
+            if ORIGINAL_THANKS not in article:
+                raise ValueError("The source closing acknowledgment changed; review the author credits before exporting.")
+            article = article.replace(ORIGINAL_THANKS, author_acknowledgment("x"))
         lines += [f"## {post}", "", article, ""]
         attached = [item for item in manifest["assets"] if item["post"] == post]
         if attached:
@@ -162,6 +187,8 @@ def export(source: Path) -> None:
     destination = SITE / "twitter-thread.md"
     destination.write_text(markdown, encoding="utf-8")
     manifest["markdown"] = {"file": "twitter-thread.md", "sha256": digest(markdown.encode())}
+    manifest["acknowledgments"] = {"authors_file": SOCIAL_AUTHORS.relative_to(ROOT).as_posix(),
+                                    "sha256": digest(SOCIAL_AUTHORS.read_bytes())}
     if digest(source.read_bytes()) != manifest["source_sha256"]:
         raise ValueError("The source HTML changed during export; rerun with the latest file.")
     MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -178,6 +205,8 @@ def check() -> None:
             assert digest((SITE / item["original"]["file"]).read_bytes()) == item["original"]["sha256"]
     markdown = (SITE / manifest["markdown"]["file"]).read_bytes()
     assert digest(markdown) == manifest["markdown"]["sha256"]
+    assert manifest["acknowledgments"]["sha256"] == digest(SOCIAL_AUTHORS.read_bytes())
+    assert author_acknowledgment("x") in markdown.decode("utf-8")
     assert b"data:image" not in markdown
     assert not any("\u3400" <= char <= "\u9fff" or "\uf900" <= char <= "\ufaff" for char in markdown.decode("utf-8")), "Markdown must be in English."
     for item in manifest["assets"]:

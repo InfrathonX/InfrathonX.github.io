@@ -25,6 +25,7 @@ site/
   twitter-thread.md           author-provided eight-post thread with hosted PNG attachment links
   linkedin-post.md            LinkedIn main post with inline hosted figures
   linkedin-reposts.md         RadixArk and AI2 LinkedIn repost drafts for review
+  author-social-accounts.md   paper-order author accounts, verification sources, and mention instructions
   framework.html             task definition, task inventory, Work/Controller/Judge execution
   main-results.html          current manuscript setup, trajectories, plateaus, and rankings
   knowledge-discovery.html   Quant-VideoGen discovery, two-dataset comparison, submission evidence
@@ -176,7 +177,7 @@ The site uses one light theme. Charts use shared theme variables and responsive 
 
 ## Twitter materials
 
-[twitter-thread.md](twitter-thread.md) preserves the author's opening post and seven replies. It includes GitHub-hosted image links and a ZIP of seven PNG attachments: five original figures and two screenshots of the original data tables. Original SVG/WebP files are retained in `site/assets/img/twitter/sources/`; source and export hashes are recorded in `data/twitter_assets.json`.
+[twitter-thread.md](twitter-thread.md) preserves the author's opening post and seven replies, with the closing acknowledgment expanded to credit all 21 authors and their verified X handles. It includes GitHub-hosted image links and a ZIP of seven PNG attachments: five original figures and two screenshots of the original data tables. Original SVG/WebP files are retained in `site/assets/img/twitter/sources/`; source and export hashes are recorded in `data/twitter_assets.json`. Author identities and verification sources are recorded in `data/author_social_accounts.json` and summarized in [author-social-accounts.md](author-social-accounts.md). The exporter reapplies these credits when the thread is regenerated.
 
 ```bash
 python3 scripts/export_twitter.py /path/to/twitter.html
@@ -184,11 +185,11 @@ python3 scripts/sync_root_site.py
 python3 scripts/export_twitter.py --check
 ```
 
-Export uses BeautifulSoup, Markdownify, Pillow, and Chromium through Playwright. `--check` only needs the Python standard library and verifies file hashes, PNG dimensions and size, the ZIP contents, and Markdown attachment links. Posts retain the source wording and numbering, including posts longer than 280 characters.
+Export uses BeautifulSoup, Markdownify, Pillow, and Chromium through Playwright. `--check` only needs the Python standard library and verifies file hashes, PNG dimensions and size, the ZIP contents, Markdown attachment links, and author credits. Posts retain the source research wording and numbering, including posts longer than 280 characters.
 
 ## LinkedIn materials
 
-[linkedin-post.md](linkedin-post.md) contains the author's main post with four inline GitHub-hosted PNGs. [linkedin-reposts.md](linkedin-reposts.md) contains the separate RadixArk and AI2 repost drafts for review. Edit the files under `site/` and run `python3 scripts/sync_root_site.py` to update their root copies.
+[linkedin-post.md](linkedin-post.md) contains the author's main post with four inline GitHub-hosted PNGs and a closing acknowledgment of all 21 authors. Verified LinkedIn profiles are linked as `@Name` references; the publisher must select the matching member in LinkedIn's composer to create a real mention. [linkedin-reposts.md](linkedin-reposts.md) contains the separate RadixArk and AI2 repost drafts for review. Edit the files under `site/` and run `python3 scripts/sync_root_site.py` to update their root copies.
 
 ## Documentation
 

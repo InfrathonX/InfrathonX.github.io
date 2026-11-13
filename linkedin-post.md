@@ -1,5 +1,7 @@
 # Infrathon LinkedIn Post
 
+> Publishing note (not part of the post): linked `@Name` labels below identify the correct profiles. In LinkedIn, type `@` and select the matching member from the suggestions to create each mention. Pasting Markdown or plain text does not create mentions. See [LinkedIn mention instructions](https://www.linkedin.com/help/linkedin/answer/a525082/mention-people-in-your-posts) and the [author account reference](author-social-accounts.md).
+
 Can long-horizon agents keep improving real-world AI infrastructure?
 
 We introduce Infrathon, a benchmark of 25 real-world tasks across operators, modules, and complete training or serving workflows. Built with human experts using Infrathon-build, the tasks give agents 12–24 hours to implement, profile, and test solutions.
@@ -32,8 +34,6 @@ Longer horizons are more effective for module and system tasks, while short-hori
 
 ![Long- vs. short-horizon performance comparison](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/horizon-comparison.png)
 
-Huge thanks to all our collaborators and the human experts who helped build Infrathon! Questions and feedback are welcome.
-
 Homepage: <https://infrathonx.github.io/>
 
 Blog: <https://infrathonx.github.io/blog.html>
@@ -45,3 +45,9 @@ Paper: <https://arxiv.org/abs/2611.11995>
 Hugging Face: <https://huggingface.co/datasets/Infrathon/Infrathon>
 
 Docker Hub: <https://hub.docker.com/r/infrathon/infrathon>
+
+Huge thanks to the entire Infrathon author team: Zhengyu Hu, [@Zheyuan Xiao](https://www.linkedin.com/in/zheyuan-xiao-5a03b2195/), [@Yike Wang](https://www.linkedin.com/in/yikee/), [@Hamish Ivison](https://www.linkedin.com/in/hamish-ivison-6a17a1118/), [@Haoyu Wang](https://www.linkedin.com/in/haoyu-alex-wang-a66149116/), Yige Yuan, [@Rulin Shao](https://www.linkedin.com/in/rulin-shao-966435191/), [@Yuetai Li](https://www.linkedin.com/in/yuetai-li-81a000309/), Niqi Lyu, Yicheng Ding, [@Shu Yang](https://www.linkedin.com/in/shu-yang-ba3739265/), [@Zhichen Zeng](https://www.linkedin.com/in/zhichen-zeng/), [@Banghua Zhu](https://www.linkedin.com/in/banghua-zhu-171902aa/), [@Jiaxin Pei](https://www.linkedin.com/in/jiaxin-pei-632b07147/), [@Kaize Ding](https://www.linkedin.com/in/kaize-ding-605a44109/), [@Pradeep Dasigi](https://www.linkedin.com/in/pradeepdasigi/), [@Dan Roth](https://www.linkedin.com/in/dan-roth-8667361/), [@Hannaneh Hajishirzi](https://www.linkedin.com/in/hanna-hajishirzi-83359816b/), [@Noah A. Smith](https://www.linkedin.com/in/noah-smith-0322511a4/), [@Teng Xiao](https://www.linkedin.com/in/teng-xiao-598176298/), and [@Radha Poovendran](https://www.linkedin.com/in/rpoovendran/)!
+
+Thanks also to the human experts who helped build Infrathon!
+
+Questions and feedback are welcome.

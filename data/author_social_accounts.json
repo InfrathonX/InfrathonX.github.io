@@ -1,0 +1,380 @@
+{
+  "checked_on": "2026-11-14",
+  "author_order": "Paper author order, as provided by the author.",
+  "unverified_policy": "Keep the full author name without a tag when a matching public account has not been verified.",
+  "linkedin_mention_help": "https://www.linkedin.com/help/linkedin/answer/a525082/mention-people-in-your-posts",
+  "authors": [
+    {
+      "name": "Zhengyu Hu",
+      "homepage": "https://huzhengyu477.github.io/",
+      "x": {
+        "handle": "ZhengyuHu477",
+        "url": "https://x.com/ZhengyuHu477",
+        "sources": [
+          "https://huzhengyu477.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": null
+    },
+    {
+      "name": "Zheyuan Xiao",
+      "homepage": "https://zxia545.github.io/",
+      "x": null,
+      "linkedin": {
+        "display_name": "Zheyuan Xiao",
+        "url": "https://www.linkedin.com/in/zheyuan-xiao-5a03b2195/",
+        "sources": [
+          "https://zxia545.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Yike Wang",
+      "homepage": "https://yikee.github.io/",
+      "x": {
+        "handle": "yikewang_",
+        "url": "https://x.com/yikewang_",
+        "sources": [
+          "https://yikee.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Yike Wang",
+        "url": "https://www.linkedin.com/in/yikee/",
+        "sources": [
+          "https://www.linkedin.com/in/yikee/"
+        ],
+        "verification": "UW and AI2 match; the profile links to yikee.github.io."
+      }
+    },
+    {
+      "name": "Hamish Ivison",
+      "homepage": "https://ivison.id.au/",
+      "x": {
+        "handle": "hamishivi",
+        "url": "https://x.com/hamishivi",
+        "sources": [
+          "https://ivison.id.au/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Hamish Ivison",
+        "url": "https://www.linkedin.com/in/hamish-ivison-6a17a1118/",
+        "sources": [
+          "https://ivison.id.au/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Haoyu Wang",
+      "homepage": "https://why2011btv.github.io/",
+      "x": {
+        "handle": "Haoyu_Wang_97",
+        "url": "https://x.com/Haoyu_Wang_97",
+        "sources": [
+          "https://why2011btv.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Haoyu Wang",
+        "url": "https://www.linkedin.com/in/haoyu-alex-wang-a66149116/",
+        "sources": [
+          "https://www.linkedin.com/in/haoyu-alex-wang-a66149116/"
+        ],
+        "verification": "The profile identifies a UPenn CS PhD student and lists the same complex-event identification research as the author homepage."
+      }
+    },
+    {
+      "name": "Yige Yuan",
+      "homepage": "https://yuanyige.github.io/",
+      "x": {
+        "handle": "1t4chiii",
+        "url": "https://x.com/1t4chiii",
+        "sources": [
+          "https://yuanyige.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": null
+    },
+    {
+      "name": "Rulin Shao",
+      "homepage": "https://rulinshao.github.io/",
+      "x": {
+        "handle": "RulinShao",
+        "url": "https://x.com/RulinShao",
+        "sources": [
+          "https://rulinshao.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Rulin Shao",
+        "url": "https://www.linkedin.com/in/rulin-shao-966435191/",
+        "sources": [
+          "https://rulinshao.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Yuetai Li",
+      "homepage": "https://yuetl9.github.io/",
+      "x": {
+        "handle": "yuetai12575",
+        "url": "https://x.com/yuetai12575",
+        "sources": [
+          "https://yuetl9.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Yuetai Li",
+        "url": "https://www.linkedin.com/in/yuetai-li-81a000309/",
+        "sources": [
+          "https://www.linkedin.com/in/yuetai-li-81a000309/"
+        ],
+        "verification": "The profile name and Meta/UW affiliations match the author homepage."
+      }
+    },
+    {
+      "name": "Niqi Lyu",
+      "homepage": "https://pyromind.ai/",
+      "x": null,
+      "linkedin": null
+    },
+    {
+      "name": "Yicheng Ding",
+      "homepage": "https://pyromind.ai/",
+      "x": null,
+      "linkedin": null
+    },
+    {
+      "name": "Shu Yang",
+      "homepage": "https://shuyhere.github.io/",
+      "x": {
+        "handle": "shuyhere",
+        "url": "https://x.com/shuyhere",
+        "sources": [
+          "https://shuyhere.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Shu Yang",
+        "url": "https://www.linkedin.com/in/shu-yang-ba3739265/",
+        "sources": [
+          "https://www.linkedin.com/in/shu-yang-ba3739265/"
+        ],
+        "verification": "The profile name and Stanford HAI affiliation match the author homepage."
+      }
+    },
+    {
+      "name": "Zhichen Zeng",
+      "homepage": "https://zhichenzzz.github.io/",
+      "x": {
+        "handle": "zz30gs",
+        "url": "https://x.com/zz30gs",
+        "sources": [
+          "https://source.twstalker.com/zz30gs"
+        ],
+        "verification": "Profile bio links to the author homepage and matches UW and RadixArk."
+      },
+      "linkedin": {
+        "display_name": "Zhichen Zeng",
+        "url": "https://www.linkedin.com/in/zhichen-zeng/",
+        "sources": [
+          "https://zhichenzzz.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Banghua Zhu",
+      "homepage": "https://banghua.me/",
+      "x": {
+        "handle": "banghuaz",
+        "url": "https://x.com/banghuaz",
+        "sources": [
+          "https://banghua.me/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Banghua Zhu",
+        "url": "https://www.linkedin.com/in/banghua-zhu-171902aa/",
+        "sources": [
+          "https://banghua.me/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Jiaxin Pei",
+      "homepage": "https://jiaxin-pei.github.io/",
+      "x": {
+        "handle": "jiaxin_pei",
+        "url": "https://x.com/jiaxin_pei",
+        "sources": [
+          "https://jiaxin-pei.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Jiaxin Pei",
+        "url": "https://www.linkedin.com/in/jiaxin-pei-632b07147/",
+        "sources": [
+          "https://jiaxin-pei.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Kaize Ding",
+      "homepage": "https://kaize0409.github.io/",
+      "x": {
+        "handle": "kaize0409",
+        "url": "https://x.com/kaize0409",
+        "sources": [
+          "https://kaize0409.github.io/Home.html"
+        ],
+        "verification": "The author homepage uses data-href attributes for its social links."
+      },
+      "linkedin": {
+        "display_name": "Kaize Ding",
+        "url": "https://www.linkedin.com/in/kaize-ding-605a44109/",
+        "sources": [
+          "https://kaize0409.github.io/Home.html"
+        ],
+        "verification": "The author homepage links to this profile through a data-href attribute."
+      }
+    },
+    {
+      "name": "Pradeep Dasigi",
+      "homepage": "https://pdasigi.github.io/",
+      "x": {
+        "handle": "pdasigi",
+        "url": "https://x.com/pdasigi",
+        "sources": [
+          "https://pdasigi.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Pradeep Dasigi",
+        "url": "https://www.linkedin.com/in/pradeepdasigi/",
+        "sources": [
+          "https://pdasigi.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Dan Roth",
+      "homepage": "https://www.cis.upenn.edu/~danroth/",
+      "x": {
+        "handle": "DanRothNLP",
+        "url": "https://x.com/DanRothNLP",
+        "sources": [
+          "https://teapawt.org/DanRothNLP"
+        ],
+        "verification": "Profile bio links to the Penn homepage and identifies the Penn professor and Oracle chief AI scientist."
+      },
+      "linkedin": {
+        "display_name": "Dan Roth",
+        "url": "https://www.linkedin.com/in/dan-roth-8667361/",
+        "sources": [
+          "https://podcasts.fame.so/e/x8y7k918-the-myths-holding-enterprise-ai-back-with-professor-dan-roth-chief-ai-scientist-at-oracle",
+          "https://www.linkedin.com/in/dan-roth-8667361/"
+        ],
+        "verification": "The profile is linked in an interview with Professor Dan Roth, Chief AI Scientist at Oracle."
+      }
+    },
+    {
+      "name": "Hannaneh Hajishirzi",
+      "homepage": "https://hannaneh.ai/",
+      "x": {
+        "handle": "HannaHajishirzi",
+        "url": "https://x.com/HannaHajishirzi",
+        "sources": [
+          "https://hannaneh.ai/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Hanna Hajishirzi",
+        "url": "https://www.linkedin.com/in/hanna-hajishirzi-83359816b/",
+        "sources": [
+          "https://hannaneh.ai/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Noah A. Smith",
+      "homepage": "https://nasmith.github.io/",
+      "x": {
+        "handle": "nlpnoah",
+        "url": "https://x.com/nlpnoah",
+        "sources": [
+          "https://nasmith.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Noah Smith",
+        "url": "https://www.linkedin.com/in/noah-smith-0322511a4/",
+        "sources": [
+          "https://nasmith.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      }
+    },
+    {
+      "name": "Teng Xiao",
+      "homepage": "https://tengxiao1.github.io/",
+      "x": {
+        "handle": "TengX6",
+        "url": "https://x.com/TengX6",
+        "sources": [
+          "https://tengxiao1.github.io/"
+        ],
+        "verification": "Linked from the author homepage."
+      },
+      "linkedin": {
+        "display_name": "Teng Xiao",
+        "url": "https://www.linkedin.com/in/teng-xiao-598176298/",
+        "sources": [
+          "https://www.linkedin.com/in/teng-xiao-598176298/"
+        ],
+        "verification": "The profile identifies Ai2 and a 2021–2025 Penn State PhD, matching the author homepage."
+      }
+    },
+    {
+      "name": "Radha Poovendran",
+      "homepage": "https://people.ece.uw.edu/radha/",
+      "x": {
+        "handle": "RadhaPoovendran",
+        "url": "https://x.com/RadhaPoovendran",
+        "sources": [
+          "https://teapawt.org/RulinShao/status/2105282444270448647"
+        ],
+        "verification": "Coauthor Rulin Shao credits this account on their shared Context Language Models paper; UW department accounts were excluded."
+      },
+      "linkedin": {
+        "display_name": "Radha Poovendran",
+        "url": "https://www.linkedin.com/in/rpoovendran/",
+        "sources": [
+          "https://www.linkedin.com/in/rpoovendran/"
+        ],
+        "verification": "The indexed profile identifies the University of Washington Electrical & Computer Engineering professor."
+      }
+    }
+  ]
+}

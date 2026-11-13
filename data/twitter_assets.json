@@ -228,6 +228,10 @@
   },
   "markdown": {
     "file": "twitter-thread.md",
-    "sha256": "6aa8bdfa74117a04feec8b4e3038495194406353129ebe57ff3c80e9f4983781"
+    "sha256": "15e8eb978f2e01368a1fa121f0bf278b7495f22789800ed4fbd7d052a0c9b80f"
+  },
+  "acknowledgments": {
+    "authors_file": "data/author_social_accounts.json",
+    "sha256": "efed54a12b47266d31f96c0448699ca646e84f406b6ce38cda96722275a203fe"
   }
 }
