@@ -23,6 +23,8 @@ site/
   index.html                 paper identity, figures, interactive leaderboard, finding summaries, expandable task trajectories
   blog.html                  author-provided standalone blog, embedded figures, model tabs, and image expansion
   twitter-thread.md           author-provided eight-post thread with hosted PNG attachment links
+  linkedin-post.md            LinkedIn main post with inline hosted figures
+  linkedin-reposts.md         RadixArk and AI2 LinkedIn repost drafts for review
   framework.html             task definition, task inventory, Work/Controller/Judge execution
   main-results.html          current manuscript setup, trajectories, plateaus, and rankings
   knowledge-discovery.html   Quant-VideoGen discovery, two-dataset comparison, submission evidence
@@ -183,6 +185,10 @@ python3 scripts/export_twitter.py --check
 ```
 
 Export uses BeautifulSoup, Markdownify, Pillow, and Chromium through Playwright. `--check` only needs the Python standard library and verifies file hashes, PNG dimensions and size, the ZIP contents, and Markdown attachment links. Posts retain the source wording and numbering, including posts longer than 280 characters.
+
+## LinkedIn materials
+
+[linkedin-post.md](linkedin-post.md) contains the author's main post with four inline GitHub-hosted PNGs. [linkedin-reposts.md](linkedin-reposts.md) contains the separate RadixArk and AI2 repost drafts for review. Edit the files under `site/` and run `python3 scripts/sync_root_site.py` to update their root copies.
 
 ## Documentation
 
