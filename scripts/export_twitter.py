@@ -24,6 +24,7 @@ HUGGING_FACE_SUPPORT = (
     "to help more people discover the work!\n\n"
     "<https://huggingface.co/papers/2611.11995>"
 )
+OPENING_QUESTION = "Can long-horizon agents keep improving real-world AI infrastructure?"
 RAW = "https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/"
 FIGURES = [
     ("task-categories", "[2/7]", "Task categories"),
@@ -57,6 +58,24 @@ def author_acknowledgment(platform: str) -> str:
     names = ", ".join(labels[:-1]) + ", and " + labels[-1]
     return ("Huge thanks to the entire Infrathon author team: " + names + "!\n\n"
             "Thanks also to the human experts who helped build Infrathon!")
+
+
+def collaboration_intro(platform: str) -> str:
+    """Use verified organization accounts in the shared collaboration sentence."""
+    if platform not in ("x", "linkedin"):
+        raise ValueError(f"Unknown social platform: {platform}")
+    organizations = json.loads(SOCIAL_AUTHORS.read_text())["organizations"]
+    labels = []
+    for organization in organizations:
+        account = organization[platform]
+        if account is None:
+            labels.append(f'[{organization["name"]}]({organization["homepage"]})')
+        elif platform == "x":
+            labels.append(f'[@{account["handle"]}]({account["url"]})')
+        else:
+            labels.append(f'[@{account["display_name"]}]({account["url"]})')
+    names = ", ".join(labels[:-1]) + ", and " + labels[-1]
+    return "In collaboration with " + names + ", we introduce "
 
 
 def png_info(path: Path) -> dict:
@@ -152,7 +171,7 @@ def export(source: Path) -> None:
     manifest["archive"] = {"file": archive.relative_to(SITE).as_posix(),
                            "sha256": digest(archive.read_bytes())}
     lines = ["# Infrathon Twitter Thread", "",
-             "This file preserves the opening post and seven replies from `twitter.html`, including the original research wording, lists, and tables. The closing post adds all 21 authors and their verified X handles; see [author accounts](author-social-accounts.md).",
+             "This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question and collaborating organizations; the closing post credits all 21 authors with verified X handles and links to Hugging Face Daily Papers. See the [account reference](author-social-accounts.md).",
              "Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.",
              "Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).", "",
              "## Image downloads", "", f'[Download all PNGs (ZIP)]({RAW}{manifest["archive"]["file"]})', "",
@@ -171,6 +190,16 @@ def export(source: Path) -> None:
                 nodes.append(sibling)
         article = "\n\n".join(markdownify(str(node), heading_style="ATX", bullets="-", escape_underscores=False).strip()
                                for node in nodes)
+        if index == 0:
+            original_intro = "**Infrathon** benchmarks frontier agents on real-world AI infrastructure tasks over **12–24 hours**. "
+            if not article.startswith(original_intro):
+                raise ValueError("The source opening changed; review the collaboration introduction before exporting.")
+            article = (
+                "**" + OPENING_QUESTION + "**\n\n" + collaboration_intro("x")
+                + "**Infrathon**, a benchmark of **25 real-world AI infrastructure tasks** across operators, "
+                "modules, and complete training or serving workflows, with **12–24-hour** budgets.\n\n"
+                + article.removeprefix(original_intro)
+            )
         if index == len(headings) - 1:
             if ORIGINAL_THANKS not in article:
                 raise ValueError("The source closing acknowledgment changed; review the author credits before exporting.")
@@ -215,6 +244,7 @@ def check() -> None:
     assert manifest["acknowledgments"]["sha256"] == digest(SOCIAL_AUTHORS.read_bytes())
     assert author_acknowledgment("x") in markdown.decode("utf-8")
     assert HUGGING_FACE_SUPPORT in markdown.decode("utf-8")
+    assert "## Opening post\n\n**" + OPENING_QUESTION + "**\n\n" + collaboration_intro("x") in markdown.decode("utf-8")
     assert b"data:image" not in markdown
     assert not any("\u3400" <= char <= "\u9fff" or "\uf900" <= char <= "\ufaff" for char in markdown.decode("utf-8")), "Markdown must be in English."
     for item in manifest["assets"]:

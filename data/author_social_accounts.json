@@ -376,5 +376,61 @@
         "verification": "The indexed profile identifies the University of Washington Electrical & Computer Engineering professor."
       }
     }
+  ],
+  "organizations": [
+    {
+      "name": "Ai2",
+      "homepage": "https://allenai.org/",
+      "x": {
+        "handle": "allen_ai",
+        "url": "https://x.com/allen_ai",
+        "sources": [
+          "https://allenai.org/"
+        ],
+        "verification": "Linked from the official organization homepage."
+      },
+      "linkedin": {
+        "display_name": "Ai2",
+        "url": "https://www.linkedin.com/company/allen-ai/",
+        "sources": [
+          "https://allenai.org/"
+        ],
+        "verification": "Linked from the official organization homepage."
+      }
+    },
+    {
+      "name": "RadixArk",
+      "homepage": "https://www.radixark.com/",
+      "x": {
+        "handle": "radixark",
+        "url": "https://x.com/radixark",
+        "sources": [
+          "https://www.radixark.com/"
+        ],
+        "verification": "Linked from the official organization homepage."
+      },
+      "linkedin": {
+        "display_name": "RadixArk",
+        "url": "https://www.linkedin.com/company/radixark/",
+        "sources": [
+          "https://www.linkedin.com/company/radixark/"
+        ],
+        "verification": "The company page links to radixark.ai, which redirects to the official organization homepage."
+      }
+    },
+    {
+      "name": "Pyromind Dynamics",
+      "homepage": "https://pyromind.ai/",
+      "x": null,
+      "linkedin": {
+        "display_name": "Pyromind Dynamics Inc.",
+        "url": "https://www.linkedin.com/company/pyromind-dynamics-inc/",
+        "sources": [
+          "https://www.linkedin.com/company/pyromind-dynamics-inc/"
+        ],
+        "verification": "The company page links to pyromind.ai and describes its agentic-model training platform."
+      },
+      "notes": "The official X account was not verified. Use the organization name linked to its homepage in the X draft."
+    }
   ]
 }

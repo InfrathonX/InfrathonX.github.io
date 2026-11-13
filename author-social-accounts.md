@@ -39,6 +39,18 @@ LinkedIn profile display names may differ from the paper author name; use the pr
 
 “Not verified” means a sufficiently matched public account was not found in this search; it does not mean the author has no account. Institutional accounts and same-name profiles with different affiliations were excluded.
 
+## Organization accounts
+
+The opening paragraphs name Ai2, RadixArk, and Pyromind Dynamics as collaborators. Verified organization accounts use the same platform-specific mention formats as the authors.
+
+| Organization | X / Twitter | LinkedIn | Verification sources |
+| --- | --- | --- | --- |
+| Ai2 | [@allen_ai](https://x.com/allen_ai) | [@Ai2](https://www.linkedin.com/company/allen-ai/) | [Website](https://allenai.org/) |
+| RadixArk | [@radixark](https://x.com/radixark) | [@RadixArk](https://www.linkedin.com/company/radixark/) | [Website](https://www.radixark.com/) · [Company page](https://www.linkedin.com/company/radixark/) |
+| Pyromind Dynamics | Not verified; organization name links to its website | [@Pyromind Dynamics Inc.](https://www.linkedin.com/company/pyromind-dynamics-inc/) | [Website](https://pyromind.ai/) · [Company page](https://www.linkedin.com/company/pyromind-dynamics-inc/) |
+
+Pyromind Dynamics has a verified LinkedIn company page. Its official X account was not confirmed, so the X introduction uses its organization name and website instead of an assumed handle.
+
 ## Verification notes
 
 - **Yike Wang:** LinkedIn: UW and AI2 match; the profile links to yikee.github.io.

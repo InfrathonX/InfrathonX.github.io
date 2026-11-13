@@ -1,10 +1,10 @@
 # Infrathon LinkedIn Post
 
-> Publishing note (not part of the post): linked `@Name` labels below identify the correct profiles. In LinkedIn, type `@` and select the matching member from the suggestions to create each mention. Pasting Markdown or plain text does not create mentions. See [LinkedIn mention instructions](https://www.linkedin.com/help/linkedin/answer/a525082/mention-people-in-your-posts) and the [author account reference](author-social-accounts.md).
+> Publishing note (not part of the post): linked `@Name` labels below identify the correct individual and organization profiles. In LinkedIn, type `@` and select the matching member or Page from the suggestions to create each mention. Pasting Markdown or plain text does not create mentions. See [LinkedIn mention instructions](https://www.linkedin.com/help/linkedin/answer/a525082/mention-people-in-your-posts) and the [author account reference](author-social-accounts.md).
 
 Can long-horizon agents keep improving real-world AI infrastructure?
 
-We introduce Infrathon, a benchmark of 25 real-world tasks across operators, modules, and complete training or serving workflows. Built with human experts using Infrathon-build, the tasks give agents 12–24 hours to implement, profile, and test solutions.
+In collaboration with [@Ai2](https://www.linkedin.com/company/allen-ai/), [@RadixArk](https://www.linkedin.com/company/radixark/), and [@Pyromind Dynamics Inc.](https://www.linkedin.com/company/pyromind-dynamics-inc/), we introduce Infrathon, a benchmark of 25 real-world tasks across operators, modules, and complete training or serving workflows. Built with human experts using Infrathon-build, the tasks give agents 12–24 hours to implement, profile, and test solutions.
 
 ![Infrathon task categories](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/task-categories.png)
 
