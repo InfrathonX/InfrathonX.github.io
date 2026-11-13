@@ -134,10 +134,11 @@ INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
   button { font: inherit; cursor: pointer; }
   :focus-visible { outline: 2px solid #1f6feb; outline-offset: 4px; }
   .paper-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 1rem; font-family: var(--sans); }
-  .paper-links a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; color: white; font-size: 12px; font-weight: 600; line-height: 1; background: #24292f; text-decoration: none; transition: transform .15s ease; }
+  .paper-links a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 8px 14px; border-radius: 999px; color: white; font-size: 12px; font-weight: 600; line-height: 1; background: #24292f; text-decoration: none; transition: transform .15s ease; }
   .paper-links a:hover { transform: translateY(-1px); }
   .paper-links .paper { background: #b31b1b; }
-  .paper-links svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .paper-links img { width: 16px; height: 16px; flex-shrink: 0; object-fit: contain; }
+  .paper-links .arxiv-mark { width: 36px; }
   .tldr { background: var(--tint); border-left: 7px solid var(--accent); border-radius: 0 6px 6px 0; padding: .95rem 1.1rem; margin: 0 0 2rem; font-size: .98rem; }
   .tldr p { margin: 0; }
   .finding { border-left: 3px solid var(--accent); padding: .15rem 0 .15rem 1rem; margin: 1.4rem 0 1.6rem; font-style: italic; color: #3a3f45; }
@@ -243,11 +244,14 @@ INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
   </header>
 
   <div class="paper-links">
-    <a href="https://github.com/InfrathonX/Infrathon" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-16-4 20"/></svg>Code
-    </a>
     <a class="paper" href="https://arxiv.org/abs/2611.11995" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>Paper
+      <img class="arxiv-mark" src="assets/img/resources/arxiv.svg" alt="arXiv" width="36" height="16">
+    </a>
+    <a href="https://github.com/InfrathonX/Infrathon" target="_blank" rel="noopener noreferrer">
+      <img src="assets/img/resources/github.svg" alt="" width="16" height="16">GitHub
+    </a>
+    <a href="https://hub.docker.com/r/infrathon/infrathon" target="_blank" rel="noopener noreferrer">
+      <img src="assets/img/resources/docker.svg" alt="" width="16" height="16">Docker Hub
     </a>
   </div>
 
