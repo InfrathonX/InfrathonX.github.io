@@ -51,3 +51,7 @@ Huge thanks to the entire Infrathon author team: Zhengyu Hu, [@Zheyuan Xiao](htt
 Thanks also to the human experts who helped build Infrathon!
 
 Questions and feedback are welcome.
+
+If you find Infrathon interesting, we’d appreciate an upvote on Hugging Face Daily Papers to help more people discover the work!
+
+<https://huggingface.co/papers/2611.11995>

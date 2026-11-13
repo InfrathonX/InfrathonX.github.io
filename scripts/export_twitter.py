@@ -18,6 +18,12 @@ ASSETS = SITE / "assets/img/twitter"
 MANIFEST = ROOT / "data/twitter_assets.json"
 SOCIAL_AUTHORS = ROOT / "data/author_social_accounts.json"
 ORIGINAL_THANKS = "Huge thanks to all our collaborators and the human experts who helped build Infrathon!"
+OLD_SUPPORT_REQUEST = " If you find this work useful, please consider starring the repository and citing our paper."
+HUGGING_FACE_SUPPORT = (
+    "If you find Infrathon interesting, we’d appreciate an upvote on Hugging Face Daily Papers "
+    "to help more people discover the work!\n\n"
+    "<https://huggingface.co/papers/2611.11995>"
+)
 RAW = "https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/"
 FIGURES = [
     ("task-categories", "[2/7]", "Task categories"),
@@ -169,6 +175,7 @@ def export(source: Path) -> None:
             if ORIGINAL_THANKS not in article:
                 raise ValueError("The source closing acknowledgment changed; review the author credits before exporting.")
             article = article.replace(ORIGINAL_THANKS, author_acknowledgment("x"))
+            article = article.replace(OLD_SUPPORT_REQUEST, "") + "\n\n" + HUGGING_FACE_SUPPORT
         lines += [f"## {post}", "", article, ""]
         attached = [item for item in manifest["assets"] if item["post"] == post]
         if attached:
@@ -207,6 +214,7 @@ def check() -> None:
     assert digest(markdown) == manifest["markdown"]["sha256"]
     assert manifest["acknowledgments"]["sha256"] == digest(SOCIAL_AUTHORS.read_bytes())
     assert author_acknowledgment("x") in markdown.decode("utf-8")
+    assert HUGGING_FACE_SUPPORT in markdown.decode("utf-8")
     assert b"data:image" not in markdown
     assert not any("\u3400" <= char <= "\u9fff" or "\uf900" <= char <= "\ufaff" for char in markdown.decode("utf-8")), "Markdown must be in English."
     for item in manifest["assets"]:
