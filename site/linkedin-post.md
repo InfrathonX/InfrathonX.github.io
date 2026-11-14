@@ -6,8 +6,6 @@ Can long-horizon agents keep improving real-world AI infrastructure?
 
 In collaboration with [@Ai2](https://www.linkedin.com/company/allen-ai/), [@RadixArk](https://www.linkedin.com/company/radixark/), and [@Pyromind Dynamics Inc.](https://www.linkedin.com/company/pyromind-dynamics-inc/home/), we introduce Infrathon, a benchmark of 25 real-world tasks across operators, modules, and complete training or serving workflows. Built with human experts using Infrathon-build, the tasks give agents 12–24 hours to implement, profile, and test solutions.
 
-🤗 Hugging Face Daily Papers: <https://huggingface.co/papers/2611.11995>
-
 ![Infrathon task categories](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/task-categories.png)
 
 Public tests guide development, while a Controller checks instruction following and reward hacking before private evaluation.
@@ -41,6 +39,8 @@ Longer horizons are more effective for module and system tasks, while short-hori
 📝 Blog: <https://infrathonx.github.io/blog.html>
 
 📄 Paper: <https://arxiv.org/abs/2611.11995>
+
+🤗 Hugging Face Daily Papers: <https://huggingface.co/papers/2611.11995>
 
 💻 Code: <https://github.com/InfrathonX/Infrathon>
 
