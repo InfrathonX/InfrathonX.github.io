@@ -20,6 +20,7 @@ SOCIAL_AUTHORS = ROOT / "data/author_social_accounts.json"
 ORIGINAL_THANKS = "Huge thanks to all our collaborators and the human experts who helped build Infrathon!"
 OLD_SUPPORT_REQUEST = " If you find this work useful, please consider starring the repository and citing our paper."
 HUGGING_FACE_PAPER_LINK = "🤗 Hugging Face Daily Papers: <https://huggingface.co/papers/2611.11995>"
+LINK_ICONS = {"Homepage": "🏠", "Blog": "📝", "Paper": "📄", "Code": "💻", "Docker Hub": "🐳"}
 OPENING_QUESTION = "Can long-horizon agents keep improving real-world AI infrastructure?"
 RAW = "https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/"
 FIGURES = [
@@ -54,6 +55,20 @@ def author_acknowledgment(platform: str) -> str:
     names = ", ".join(labels[:-1]) + ", and " + labels[-1]
     return ("Huge thanks to the entire Infrathon author team: " + names + "!\n\n"
             "Thanks also to the human experts who helped build Infrathon!")
+
+
+def opening_links(article: str) -> str:
+    """Add icons to the opening post's resource links and list the Daily Papers page after the paper."""
+    for label, icon in LINK_ICONS.items():
+        article = article.replace(f"\n\n{label}: <", f"\n\n{icon} {label}: <", 1)
+    article = article.replace("\n\nHugging Face: <", "\n\n📦 Dataset: <", 1)
+    # The source lists Code before Paper; list Paper, then its Daily Papers page, then Code.
+    paper = "📄 Paper: <https://arxiv.org/abs/2611.11995>"
+    code = "💻 Code: <https://github.com/InfrathonX/Infrathon>"
+    if code + "\n\n" + paper not in article:
+        raise ValueError("The source opening links changed; review the resource links before exporting.")
+    article = article.replace(code + "\n\n" + paper, paper + "\n\n" + HUGGING_FACE_PAPER_LINK + "\n\n" + code, 1)
+    return article
 
 
 def collaboration_intro(platform: str) -> str:
@@ -197,9 +212,9 @@ def export(source: Path) -> None:
                 "**" + OPENING_QUESTION + "**\n\n" + collaboration_intro("x")
                 + "**Infrathon**, a benchmark of **25 real-world AI infrastructure tasks** across operators, "
                 "modules, and complete training or serving workflows, with **12–24-hour** budgets.\n\n"
-                + HUGGING_FACE_PAPER_LINK + "\n\n"
                 + article.removeprefix(original_intro)
             )
+            article = opening_links(article)
         if index == len(headings) - 1:
             if ORIGINAL_THANKS not in article:
                 raise ValueError("The source closing acknowledgment changed; review the author credits before exporting.")
@@ -244,6 +259,7 @@ def check() -> None:
     assert manifest["acknowledgments"]["sha256"] == digest(SOCIAL_AUTHORS.read_bytes())
     assert author_acknowledgment("x") in markdown.decode("utf-8")
     assert markdown.decode("utf-8").count(HUGGING_FACE_PAPER_LINK) == 1
+    assert "📄 Paper: <https://arxiv.org/abs/2611.11995>\n\n" + HUGGING_FACE_PAPER_LINK in markdown.decode("utf-8")
     assert "## Opening post\n\n**" + OPENING_QUESTION + "**\n\n" + collaboration_intro("x") in markdown.decode("utf-8")
     assert b"data:image" not in markdown
     assert not any("\u3400" <= char <= "\u9fff" or "\uf900" <= char <= "\ufaff" for char in markdown.decode("utf-8")), "Markdown must be in English."

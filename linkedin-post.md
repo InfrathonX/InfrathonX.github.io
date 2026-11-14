@@ -36,17 +36,17 @@ Longer horizons are more effective for module and system tasks, while short-hori
 
 ![Long- vs. short-horizon performance comparison](https://raw.githubusercontent.com/InfrathonX/InfrathonX.github.io/main/assets/img/twitter/horizon-comparison.png)
 
-Homepage: <https://infrathonx.github.io/>
+🏠 Homepage: <https://infrathonx.github.io/>
 
-Blog: <https://infrathonx.github.io/blog.html>
+📝 Blog: <https://infrathonx.github.io/blog.html>
 
-Code: <https://github.com/InfrathonX/Infrathon>
+📄 Paper: <https://arxiv.org/abs/2611.11995>
 
-Paper: <https://arxiv.org/abs/2611.11995>
+💻 Code: <https://github.com/InfrathonX/Infrathon>
 
-Hugging Face: <https://huggingface.co/datasets/Infrathon/Infrathon>
+📦 Dataset: <https://huggingface.co/datasets/Infrathon/Infrathon>
 
-Docker Hub: <https://hub.docker.com/r/infrathon/infrathon>
+🐳 Docker Hub: <https://hub.docker.com/r/infrathon/infrathon>
 
 Huge thanks to the entire Infrathon author team: Zhengyu Hu, [@Zheyuan Xiao](https://www.linkedin.com/in/zheyuan-xiao-5a03b2195/), [@Yike Wang](https://www.linkedin.com/in/yikee/), [@Hamish Ivison](https://www.linkedin.com/in/hamish-ivison-6a17a1118/), [@Haoyu Wang](https://www.linkedin.com/in/haoyu-alex-wang-a66149116/), Yige Yuan, [@Rulin Shao](https://www.linkedin.com/in/rulin-shao-966435191/), [@Yuetai Li](https://www.linkedin.com/in/yuetai-li-81a000309/), Niqi Lyu, Yicheng Ding, [@Shu Yang](https://www.linkedin.com/in/shu-yang-ba3739265/), [@Zhichen Zeng](https://www.linkedin.com/in/zhichen-zeng/), [@Banghua Zhu](https://www.linkedin.com/in/banghua-zhu-171902aa/), [@Jiaxin Pei](https://www.linkedin.com/in/jiaxin-pei-632b07147/), [@Kaize Ding](https://www.linkedin.com/in/kaize-ding-605a44109/), [@Pradeep Dasigi](https://www.linkedin.com/in/pradeepdasigi/), [@Dan Roth](https://www.linkedin.com/in/dan-roth-8667361/), [@Hannaneh Hajishirzi](https://www.linkedin.com/in/hanna-hajishirzi-83359816b/), [@Noah A. Smith](https://www.linkedin.com/in/noah-smith-0322511a4/), [@Teng Xiao](https://www.linkedin.com/in/teng-xiao-598176298/), and [@Radha Poovendran](https://www.linkedin.com/in/rpoovendran/)!
 

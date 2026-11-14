@@ -16,7 +16,7 @@ LinkedIn profile display names may differ from the paper author name; use the pr
 | # | Paper author | X / Twitter | LinkedIn | Verification sources |
 | --- | --- | --- | --- | --- |
 | 1 | Zhengyu Hu | [@ZhengyuHu477](https://x.com/ZhengyuHu477) | Not verified | [Homepage](https://huzhengyu477.github.io/) |
-| 2 | Zheyuan Xiao | Not verified | [Zheyuan Xiao](https://www.linkedin.com/in/zheyuan-xiao-5a03b2195/) | [Homepage](https://zxia545.github.io/) |
+| 2 | Zheyuan Xiao | [@XiaoZheyua87871](https://x.com/XiaoZheyua87871) | [Zheyuan Xiao](https://www.linkedin.com/in/zheyuan-xiao-5a03b2195/) | [Homepage](https://zxia545.github.io/) |
 | 3 | Yike Wang | [@yikewang_](https://x.com/yikewang_) | [Yike Wang](https://www.linkedin.com/in/yikee/) | [Homepage](https://yikee.github.io/) · [LinkedIn evidence](https://www.linkedin.com/in/yikee/) |
 | 4 | Hamish Ivison | [@hamishivi](https://x.com/hamishivi) | [Hamish Ivison](https://www.linkedin.com/in/hamish-ivison-6a17a1118/) | [Homepage](https://ivison.id.au/) |
 | 5 | Haoyu Wang | [@Haoyu_Wang_97](https://x.com/Haoyu_Wang_97) | [Haoyu Wang](https://www.linkedin.com/in/haoyu-alex-wang-a66149116/) | [Homepage](https://why2011btv.github.io/) · [LinkedIn evidence](https://www.linkedin.com/in/haoyu-alex-wang-a66149116/) |
@@ -53,6 +53,7 @@ Pyromind Dynamics has a verified LinkedIn company page. Its official X account w
 
 ## Verification notes
 
+- **Zheyuan Xiao:** X: The handle was provided by the author.
 - **Yike Wang:** LinkedIn: UW and AI2 match; the profile links to yikee.github.io.
 - **Haoyu Wang:** LinkedIn: The profile identifies a UPenn CS PhD student and lists the same complex-event identification research as the author homepage.
 - **Yuetai Li:** LinkedIn: The profile name and Meta/UW affiliations match the author homepage.

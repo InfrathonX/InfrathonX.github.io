@@ -20,7 +20,14 @@
     {
       "name": "Zheyuan Xiao",
       "homepage": "https://zxia545.github.io/",
-      "x": null,
+      "x": {
+        "handle": "XiaoZheyua87871",
+        "url": "https://x.com/XiaoZheyua87871",
+        "sources": [
+          "https://x.com/XiaoZheyua87871"
+        ],
+        "verification": "Provided by the author."
+      },
       "linkedin": {
         "display_name": "Zheyuan Xiao",
         "url": "https://www.linkedin.com/in/zheyuan-xiao-5a03b2195/",
