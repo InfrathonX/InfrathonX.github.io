@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Infrathon：让 Agent 连续优化 AI 基础设施 12–24 小时，我们看到了什么？</title><style>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Infrathon：面向 RSI，让 Agent 连续优化 AI 基础设施 12–24 小时</title><style>
 :root { color-scheme: light; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #f4f5f7; color: #222b37; font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
@@ -36,7 +36,9 @@ tr:nth-child(even) td { background: #f9fafc; }
   img, table { break-inside: avoid; }
   h2 { break-after: avoid; }
 }
-</style></head><body><main><h1>Infrathon：让 Agent 连续优化 AI 基础设施 12–24 小时，我们看到了什么？</h1>
+</style></head><body><main><h1>Infrathon：面向 RSI，让 Agent 连续优化 AI 基础设施 12–24 小时</h1>
+<p>华盛顿大学（UW）、艾伦人工智能研究所（AI2）、RadixArk、Pyromind Dynamics 等机构的研究者共同推出 Infrathon。</p>
+<p><strong>项目链接：</strong> <a href="https://infrathonx.github.io/">项目主页</a> · <a href="https://arxiv.org/abs/2611.11995">论文</a> · <a href="https://github.com/InfrathonX/Infrathon">代码</a> · <a href="https://huggingface.co/datasets/Infrathon/Infrathon">数据集</a> · <a href="https://hub.docker.com/r/infrathon/infrathon">Docker Hub</a> · <a href="https://infrathonx.github.io/blog.html">英文博客</a></p>
 <p><img alt="Claude 在视频 KV 缓存压缩任务中的结果与迭代过程" loading="eager" src="https://infrathonx.github.io/assets/img/homepage/qvg-intro.svg"/></p>
 <p><em>图 1｜上方展示两个 LongCat-Video 样例，红字为压缩比；下方展示 Claude 的优化轨迹，纵轴为结合压缩比与视频质量的任务分数。五个标记点对应选出的五次提交，虚线表示人工方案。</em></p>
 <p>在一项视频生成 KV 缓存压缩任务中，Claude Opus 5.5 经过 24 小时迭代，将两个评测数据集上的平均压缩比从人工设计方案的 <strong>6.82× 提升到 19.86×</strong>，视频质量指标也同时改善。</p>
@@ -223,14 +225,6 @@ tr:nth-child(even) td { background: #f9fafc; }
 <h2>用 Infrathon 构建自己的优化任务</h2>
 <p>Infrathon 提供了任务定义、持续执行和评测框架，Infrathon-build 则帮助研究者与工程师构建自己的长程优化任务。对于已有训练或推理系统，可以明确可修改范围、正确性与质量要求、测试集和资源预算，再让 Agent 在反馈中反复改进，并与现有实现比较。</p>
 <p>我们希望这套资源能帮助更多人研究：什么样的 Agent 能可靠地持续优化，以及哪些基础设施问题已经值得交给它们尝试。</p>
-<ul>
-<li><strong>论文：</strong> <a href="https://arxiv.org/abs/2611.11995">Infrathon: Benchmarking Language Agents for Real-World, Long-Horizon AI Infra Optimization</a></li>
-<li><strong>项目主页：</strong> https://infrathonx.github.io/</li>
-<li><strong>代码：</strong> https://github.com/InfrathonX/Infrathon</li>
-<li><strong>数据：</strong> https://huggingface.co/datasets/Infrathon/Infrathon</li>
-<li><strong>Docker 环境：</strong> https://hub.docker.com/r/infrathon/infrathon</li>
-<li><strong>英文博客：</strong> https://infrathonx.github.io/blog.html</li>
-</ul>
 <h2 id="authors">作者简介</h2>
 <p><strong><a href="https://huzhengyu477.github.io/">Zhengyu Hu</a></strong> 是华盛顿大学西雅图分校（University of Washington, Seattle）的博士生，导师为 Radha Poovendran 教授。研究方向为 Data-Centric AI 和 Long-Horizon Agents。</p>
 <p><strong><a href="https://tengxiao1.github.io/">Teng Xiao</a></strong> 现于艾伦人工智能研究所（Allen Institute for AI，AI2）和华盛顿大学工作，与 Noah A. Smith 教授和 Hanna Hajishirzi 教授合作。</p>

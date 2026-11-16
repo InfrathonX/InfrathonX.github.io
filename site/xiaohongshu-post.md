@@ -1,4 +1,20 @@
-# 给 Agent 一天，优化 AI 基础设施
+# 给Agent一天，探索RSI
+
+华盛顿大学（UW）、艾伦人工智能研究所（AI2）、RadixArk、Pyromind Dynamics 等机构的研究者共同推出 Infrathon。
+
+🏠 Homepage：<https://infrathonx.github.io/>
+
+📝 Blog：<https://infrathonx.github.io/blog.html>
+
+📄 Paper：<https://arxiv.org/abs/2611.11995>
+
+🤗 Hugging Face Daily Papers：<https://huggingface.co/papers/2611.11995>
+
+💻 Code：<https://github.com/InfrathonX/Infrathon>
+
+📦 Dataset：<https://huggingface.co/datasets/Infrathon/Infrathon>
+
+🐳 Docker Hub：<https://hub.docker.com/r/infrathon/infrathon>
 
 让 Agent 连续改代码、跑实验，能把 AI 基础设施优化到什么程度？
 
@@ -30,21 +46,7 @@
 
 做 Agent、推理加速、GPU 优化的朋友，欢迎试试 Infrathon，也欢迎交流你最想交给 Agent 的优化任务！
 
-🏠 Homepage：<https://infrathonx.github.io/>
-
-📝 Blog：<https://infrathonx.github.io/blog.html>
-
-📄 Paper：<https://arxiv.org/abs/2611.11995>
-
-🤗 Hugging Face Daily Papers：<https://huggingface.co/papers/2611.11995>
-
-💻 Code：<https://github.com/InfrathonX/Infrathon>
-
-📦 Dataset：<https://huggingface.co/datasets/Infrathon/Infrathon>
-
-🐳 Docker Hub：<https://hub.docker.com/r/infrathon/infrathon>
-
-#AIAgent #AIInfra #大模型 #推理加速 #GPU优化 #论文分享
+#RSI #AIAgent #AIInfra #大模型 #推理加速 #GPU优化 #论文分享
 
 ---
 
