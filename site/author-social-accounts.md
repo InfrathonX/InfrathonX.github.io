@@ -15,7 +15,7 @@ LinkedIn profile display names may differ from the paper author name; use the pr
 
 | # | Paper author | X / Twitter | LinkedIn | Verification sources |
 | --- | --- | --- | --- | --- |
-| 1 | Zhengyu Hu | [@ZhengyuHu477](https://x.com/ZhengyuHu477) | Not verified | [Homepage](https://huzhengyu477.github.io/) |
+| 1 | Zhengyu Hu | [@ZhengyuHu477](https://x.com/ZhengyuHu477) | [Zhengyu Hu](https://www.linkedin.com/in/zhengyu-hu-b6277244b/) | [Homepage](https://huzhengyu477.github.io/) · [X account](https://x.com/ZhengyuHu477) · [LinkedIn account](https://www.linkedin.com/in/zhengyu-hu-b6277244b/) |
 | 2 | Zheyuan Xiao | [@XiaoZheyua87871](https://x.com/XiaoZheyua87871) | [Zheyuan Xiao](https://www.linkedin.com/in/zheyuan-xiao-5a03b2195/) | [Homepage](https://zxia545.github.io/) |
 | 3 | Yike Wang | [@yikewang_](https://x.com/yikewang_) | [Yike Wang](https://www.linkedin.com/in/yikee/) | [Homepage](https://yikee.github.io/) · [LinkedIn evidence](https://www.linkedin.com/in/yikee/) |
 | 4 | Hamish Ivison | [@hamishivi](https://x.com/hamishivi) | [Hamish Ivison](https://www.linkedin.com/in/hamish-ivison-6a17a1118/) | [Homepage](https://ivison.id.au/) |
@@ -53,6 +53,7 @@ Pyromind Dynamics' official X account, [@PyromindHS](https://x.com/PyromindHS), 
 
 ## Verification notes
 
+- **Zhengyu Hu:** X and LinkedIn accounts were confirmed by the author on 2026-11-16.
 - **Zheyuan Xiao:** X: The handle was provided by the author.
 - **Yike Wang:** LinkedIn: UW and AI2 match; the profile links to yikee.github.io.
 - **Haoyu Wang:** LinkedIn: The profile identifies a UPenn CS PhD student and lists the same complex-event identification research as the author homepage.

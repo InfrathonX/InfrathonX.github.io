@@ -11,11 +11,19 @@
         "handle": "ZhengyuHu477",
         "url": "https://x.com/ZhengyuHu477",
         "sources": [
-          "https://huzhengyu477.github.io/"
+          "https://huzhengyu477.github.io/",
+          "https://x.com/ZhengyuHu477"
         ],
-        "verification": "Linked from the author homepage."
+        "verification": "Linked from the author homepage and confirmed by the author on 2026-11-16."
       },
-      "linkedin": null
+      "linkedin": {
+        "display_name": "Zhengyu Hu",
+        "url": "https://www.linkedin.com/in/zhengyu-hu-b6277244b/",
+        "sources": [
+          "https://www.linkedin.com/in/zhengyu-hu-b6277244b/"
+        ],
+        "verification": "Provided by the author on 2026-11-16."
+      }
     },
     {
       "name": "Zheyuan Xiao",
