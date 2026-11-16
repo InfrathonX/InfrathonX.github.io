@@ -47,7 +47,7 @@ def author_acknowledgment(platform: str) -> str:
         author = next(author for author in authors if author["name"] == "Zhengyu Hu")
         account = author["x"]
         return (
-            "Huge thanks to the entire Infrathon author team!\n\n"
+            "Huge thanks to the entire Infrathon author team! "
             f'It\'s been a pleasure working with {author["name"]} ([@{account["handle"]}]({account["url"]})) '
             "on Infrathon! He just started his PhD at UW. "
             "A talented researcher and a fantastic collaborator!"
