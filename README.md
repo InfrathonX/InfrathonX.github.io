@@ -181,6 +181,8 @@ The site uses one light theme. Charts use shared theme variables and responsive 
 
 [Download the homepage optimization animation as MP4](assets/img/twitter/qvg-optimization.mp4) for the Twitter thread: 18.2 seconds, 1280 × 1068, H.264 with a silent AAC track. It preserves the original 15 fps comparison footage and complete optimization trajectory, packaged at 30 fps. Export settings and source/output hashes are recorded in `data/twitter_video.json`.
 
+[Download the "How a run works" animation as MP4](assets/img/twitter/run-overview.mp4): a complete 15-second cycle at 1920 × 1052 and 30 fps, rendered directly from the SVG's native animation. Regenerate it with `python3 scripts/export_run_overview_video.py` (Playwright/Chromium and FFmpeg or `imageio-ffmpeg`); source/output hashes and export settings are recorded in `data/run_overview_video.json`.
+
 ```bash
 python3 scripts/export_twitter.py /path/to/twitter.html
 python3 scripts/sync_root_site.py

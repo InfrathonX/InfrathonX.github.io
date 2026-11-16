@@ -1,0 +1,17 @@
+{
+  "file": "assets/img/twitter/run-overview.mp4",
+  "sha256": "5bdd7e8d26f8fffd6785f7cc2eafe3da4f5b6a24593becb954fbcaf33cd64540",
+  "bytes": 1113922,
+  "duration_seconds": 15,
+  "width": 1920,
+  "height": 1052,
+  "frames_per_second": 30,
+  "frames": 450,
+  "video_codec": "H.264 High, yuv420p",
+  "audio_codec": "AAC, 48 kHz stereo, silent",
+  "source_file": "site/assets/img/homepage/run-overview.svg",
+  "source_sha256": "ed1aa60dc97c21e0bd72f29725aab8815a8728516f9da970d7f0ffb20b90b8ea",
+  "source_animation_count": 60,
+  "export_script": "scripts/export_run_overview_video.py",
+  "method": "Pause the SVG's native CSS animations in Chromium and render each frame at its exact 30 fps timestamp. Encode one complete 15-second cycle without screen-recording frame drops or GIF conversion."
+}
