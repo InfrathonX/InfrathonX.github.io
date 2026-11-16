@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Infrathon：让 Agent 连续优化 AI 基础设施 12–24 小时，我们看到了什么？</title><style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f4f5f7; color: #222b37; font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
+main { max-width: 880px; margin: 36px auto; padding: 54px 60px; background: #fff; border: 1px solid #e7eaf0; border-radius: 12px; }
+h1 { margin: 0 0 30px; font-size: 32px; line-height: 1.5; letter-spacing: -.03em; color: #142842; }
+h2 { margin: 42px 0 18px; font-size: 23px; line-height: 1.6; color: #193d78; }
+p, li { font-size: 17px; line-height: 1.95; overflow-wrap: anywhere; }
+p { margin: 18px 0; }
+li { margin: 6px 0; }
+ul { padding-left: 1.45em; }
+strong { font-weight: 650; color: #143b70; }
+a { color: #2459b4; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+code { font-size: .9em; background: #f0f3f8; padding: 2px 5px; border-radius: 4px; }
+img { display: block; width: 100%; height: auto; margin: 26px auto 10px; }
+p:has(img) + p { margin-top: 6px; }
+p > em:only-child { display: block; color: #626e7e; font-size: 14px; line-height: 1.8; font-style: normal; }
+.table-wrap { width: 100%; overflow-x: auto; margin: 22px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.8; }
+th { background: #eaf0fb; color: #233f68; text-align: left; }
+th, td { padding: 10px 12px; border-bottom: 1px solid #dfe5ee; vertical-align: top; min-width: 86px; }
+td:first-child, th:first-child { min-width: 145px; }
+tr:nth-child(even) td { background: #f9fafc; }
+@media (max-width: 640px) {
+  body { background: #fff; }
+  main { margin: 0; padding: 30px 20px 48px; border: 0; border-radius: 0; }
+  h1 { font-size: 27px; }
+  h2 { font-size: 21px; margin-top: 34px; }
+  p, li { font-size: 16px; }
+  table { min-width: 620px; }
+}
+@media print {
+  body { background: white; }
+  main { border: 0; margin: 0; padding: 0; max-width: none; }
+  img, table { break-inside: avoid; }
+  h2 { break-after: avoid; }
+}
+</style></head><body><main><h1>Infrathon：让 Agent 连续优化 AI 基础设施 12–24 小时，我们看到了什么？</h1>
+<p><img alt="Claude 在视频 KV 缓存压缩任务中的结果与迭代过程" loading="eager" src="https://infrathonx.github.io/assets/img/homepage/qvg-intro.svg"/></p>
+<p><em>图 1｜上方展示两个 LongCat-Video 样例，红字为压缩比；下方展示 Claude 的优化轨迹，纵轴为结合压缩比与视频质量的任务分数。五个标记点对应选出的五次提交，虚线表示人工方案。</em></p>
+<p>在一项视频生成 KV 缓存压缩任务中，Claude Opus 5.5 经过 24 小时迭代，将两个评测数据集上的平均压缩比从人工设计方案的 <strong>6.82× 提升到 19.86×</strong>，视频质量指标也同时改善。</p>
+<p>这项结果来自 <strong>Infrathon</strong>。我们与人类专家共同构建了 <strong>25 项真实 AI 基础设施优化任务</strong>，覆盖算子、模块和系统三个层级，对 <strong>6 个模型进行了 150 次运行评测</strong>，主实验的 GPU 预算超过 <strong>10,000 GPU 小时</strong>。</p>
+<p>我们关心的是：当 Agent 获得足够的时间来阅读代码、定位瓶颈、设计实验和修正失败，它能否持续改进训练与推理基础设施？</p>
+<p>实验呈现了两方面的进展。Agent 能通过多轮迭代找到优于已有人工方案的实现；长时间运行也暴露出短评测不容易观察到的问题，包括测试了错误的代码、改变任务规定的计算过程，以及过早宣布完成。</p>
+<h2>1. 真实的 AI Infra 优化，需要跨越三个层级</h2>
+<p>AI 基础设施决定了模型训练和推理的效率。FlashAttention 对注意力计算的优化、推理服务中的调度与缓存管理，都属于这一范畴。</p>
+<p>这类工作通常需要反复经历“实现—测量—修改”的过程。一个算子提速后，瓶颈可能转移到数据传输；一项局部优化，也可能影响完整流程的数值结果或吞吐量。工程师需要根据执行反馈决定下一步，并持续检查正确性。</p>
+<p>Infrathon 将这一过程放进可运行的任务环境。我们使用 <strong>Infrathon-build</strong> 与人类专家共同构建任务，参考 DeepGEMM、FlashMLA、Liger-Kernel 等开源基础设施，以及 FlashAttention、SageAttention、Flash-KMeans 等研究项目。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>优化层级</th>
+<th style="text-align: right;">任务数量</th>
+<th>优化对象</th>
+<th style="text-align: right;">每次运行的时间预算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>算子级</td>
+<td style="text-align: right;">11</td>
+<td>单项计算或数据传输，如矩阵运算、注意力计算</td>
+<td style="text-align: right;">12 小时</td>
+</tr>
+<tr>
+<td>模块级</td>
+<td style="text-align: right;">5</td>
+<td>固定训练或推理流程中的组件，如 KV 缓存压缩与淘汰</td>
+<td style="text-align: right;">24 小时</td>
+</tr>
+<tr>
+<td>系统级</td>
+<td style="text-align: right;">9</td>
+<td>完整训练或推理流程，如训练流水线与并发服务</td>
+<td style="text-align: right;">24 小时</td>
+</tr>
+</tbody>
+</table></div>
+<p>这 25 项任务包括 <strong>10 项训练任务和 15 项推理任务</strong>。每个任务都设置正确性或质量要求，再用 TFLOP/s、吞吐量、压缩比等任务指标衡量优化效果。</p>
+<p><img alt="Infrathon 的任务分布" loading="lazy" src="https://infrathonx.github.io/assets/img/paper/taskstat.svg"/></p>
+<p><em>图 2｜Infrathon 的 25 项任务。由内向外依次展示训练或推理类别、优化层级和具体任务。</em></p>
+<h2>2. 让每一次修改进入可检验的反馈循环</h2>
+<p>每项任务都明确五件事：<strong>工作区与修改范围、公开测试、私有测试、硬件和软件资源、时间预算</strong>。执行过程中，三个组件共同支持 Agent 反复优化：</p>
+<ul>
+<li><strong>Work：开发与实验。</strong> Agent 阅读和修改代码，运行公开测试，分析性能，并保存或恢复不同版本。</li>
+<li><strong>Controller：提交检查。</strong> 检查方案是否遵守任务要求、是否存在利用评分机制取巧的行为；通过检查的方案才进入私有评测。</li>
+<li><strong>Judge：独立评测。</strong> 在与开发环境分离的容器中运行私有测试，返回允许提供的结果，供 Agent 继续修改。</li>
+</ul>
+<p><img alt="Infrathon 的任务定义与执行框架" loading="lazy" src="https://infrathonx.github.io/assets/img/paper/framework.svg"/></p>
+<p><em>图 3｜Infrathon 的执行流程。Agent 在 Work 中开发，通过 Controller 提交方案，由 Judge 运行私有测试并返回反馈。</em></p>
+<p>以 <strong>KVzip KV Scoring</strong> 为例，Agent 要为冻结的 Qwen3-8B 实现一种与查询无关的 KV 重要性评分方法，用来支持缓存压缩。公开测试包含 <strong>63 段上下文、419 个问题</strong>；私有测试使用不同样本，扩展到 <strong>1,812 段上下文、6,956 个问题</strong>，并覆盖更多任务类型。</p>
+<p>Agent 可以根据反馈继续优化，但无法直接读取私有测试样本和评分代码。每次运行最终记录的是<strong>时间预算内取得的最高有效私有测试分数</strong>；代码执行和等待反馈都计入这份预算。</p>
+<h2>3. 谁优化得最好，取决于看多长时间</h2>
+<p>主实验使用 NVIDIA H100 GPU，每张显存 80 GB。Claude Opus 5.5 通过 Claude Code 运行，其余五个模型通过 Codex CLI 运行，推理强度均设为 <code>max</code>。</p>
+<p>由于不同任务的指标和单位各不相同，我们先将每个模型在单项任务中的名次转换为排名分数，再对 25 项任务等权平均。<strong>平均排名分数为 100，表示在所有任务中均排名第一。</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>模型</th>
+<th style="text-align: right;">平均排名分数 ↑</th>
+<th style="text-align: right;">获得第一的任务数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Claude Opus 5.5</strong></td>
+<td style="text-align: right;"><strong>91.2</strong></td>
+<td style="text-align: right;"><strong>17</strong></td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">75.2</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">54.4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Qwen 3.8 Flash</td>
+<td style="text-align: right;">40.8</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>DeepSeek V4.1 Flash</td>
+<td style="text-align: right;">30.4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>GLM 5.3 Flash</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Claude 在整体上领先，获得了 11 项算子任务中的 9 项、5 项模块任务中的 2 项，以及 9 项系统任务中的 6 项第一。不同任务也有不同赢家：Qwen 在 Concurrent Agent Serving 上取得了最高的有效步骤吞吐量。</p>
+<p><strong>评测时间改变了我们看到的排名。</strong> 当运行只进行到预算的 25% 时，Astra 的平均排名分数为 84.0，高于 Claude 的 79.2；到预算的 50% 时，Claude 以 89.6 超过 Astra 的 80.0。</p>
+<p>性能本身也在继续变化：<strong>150 次运行中，有 135 次在后半程刷新了最佳分数。</strong> 在前半程分数为正的运行中，后半程增益的中位数为 3.05%，其中 33 次的增益超过 10%。</p>
+<p>一些进展出现在长时间停滞之后。Qwen 在 Quant-VideoGen KV Codec 上的最佳分数曾停留在 6.05，持续 6.78 小时后才提升到 8.58。短时间观察可能恰好结束在这段平台期，错过后续改进。</p>
+<h2>4. 一个具体案例：视频 KV 缓存压缩到近 20 倍</h2>
+<p>视频生成中的 KV 缓存保存了注意力计算需要的历史信息。压缩这些数据可以减少缓存占用，同时需要控制压缩误差对生成结果的影响。</p>
+<p>在 <strong>Quant-VideoGen KV Codec</strong> 任务中，我们将 Claude 在 24 小时内开发的编解码方案，与 Quant-VideoGen 的人工设计方案进行比较。评测使用两组模型与数据集：HY-WorldPlay 搭配 WorldScore，LongCat-Video 搭配 MovieGen，<strong>每个数据集各 200 个样本</strong>。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>数据集 / 视频模型</th>
+<th>KV 缓存压缩比 ↑</th>
+<th>PSNR（dB）↑</th>
+<th>SSIM ↑</th>
+<th>LPIPS ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WorldScore / HY-WorldPlay</td>
+<td>6.75× → <strong>20.89×</strong></td>
+<td>31.15 → <strong>36.33</strong></td>
+<td>0.923 → <strong>0.975</strong></td>
+<td>0.059 → <strong>0.023</strong></td>
+</tr>
+<tr>
+<td>MovieGen / LongCat-Video</td>
+<td>6.88× → <strong>18.83×</strong></td>
+<td>23.67 → <strong>26.95</strong></td>
+<td>0.836 → <strong>0.884</strong></td>
+<td>0.126 → <strong>0.085</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>表中均为样本均值，箭头表示“人工方案 → Claude 方案”。质量指标以相同输入和生成设置下的未压缩 BF16 视频为参考，在开始使用压缩 KV 后生成的第一个片段上计算。PSNR、SSIM 越高，LPIPS 越低，表示与参考结果越接近。</em></p>
+<p>两个数据集的平均压缩比由 <strong>6.82× 提升至 19.86×</strong>。压缩得更多的同时，三项视频质量指标都得到改善。</p>
+<p>图 1 展示了这一方案的迭代过程。人工方案先对缓存聚类，再逐个量化聚类后的残差。Claude 则对残差加入 <strong>PCA 变换</strong>，并在量化之后使用 <strong>熵编码</strong>：前者在保留全部维度的情况下重新组织残差信息，后者利用量化符号出现频率的差异进行压缩。后续迭代还改进了量化方式、不同注意力头的量化步长，以及元数据的存储。</p>
+<p>这一案例展示了 Infrathon 支持方案发现的方式：把基础设施问题变成具有明确约束和可执行评测的任务，让 Agent 利用实验反馈，逐步探索和验证更好的实现。</p>
+<h2>5. 同样的 GPU 预算，系统任务更受益于连续优化</h2>
+<p>延长运行时间会增加资源投入。为了考察<strong>预算如何分配</strong>，我们进一步在相同 GPU 小时预算下，对比一次长运行与多次独立短运行。</p>
+<p>实验选取 Astra 和 Claude，以及三个优化层级各一项训练任务和一项推理任务，共 <strong>6 项任务、12 个任务—模型组合</strong>。每个组合分别采用：</p>
+<ul>
+<li>一次完整的 <strong>T 小时</strong>运行；</li>
+<li>两次独立的 <strong>T/2 小时</strong>运行，取最佳结果；</li>
+<li>四次独立的 <strong>T/4 小时</strong>运行，取最佳结果。</li>
+</ul>
+<p>其中，算子任务的 T 为 12 小时，模块和系统任务为 24 小时。例如，一个系统任务可以连续优化 24 小时，也可以独立尝试两次 12 小时或四次 6 小时。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>任务层级</th>
+<th style="text-align: right;">两次短运行的最佳分数 / 一次长运行</th>
+<th style="text-align: right;">四次短运行的最佳分数 / 一次长运行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>算子级</td>
+<td style="text-align: right;">101.3%</td>
+<td style="text-align: right;">102.6%</td>
+</tr>
+<tr>
+<td>模块级</td>
+<td style="text-align: right;">96.5%</td>
+<td style="text-align: right;">96.9%</td>
+</tr>
+<tr>
+<td>系统级</td>
+<td style="text-align: right;"><strong>79.4%</strong></td>
+<td style="text-align: right;"><strong>77.3%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>数值为同一层级中任务—模型分数比值的几何平均；100% 表示两种预算分配方式取得相同表现。</em></p>
+<p>在这组实验中，<strong>长运行在 12 个任务—模型组合中的 9 个上取得更高分数，包含全部 4 个系统级组合</strong>。系统任务中，四次短运行择优的表现约为一次长运行的 77.3%；算子任务中，多次短运行则仍有竞争力。</p>
+<p><img alt="相同 GPU 小时预算下，长运行与多次短运行的比较" loading="lazy" src="https://infrathonx.github.io/assets/img/paper/long_vs_short_runs.svg"/></p>
+<p><em>图 4｜Astra 与 Claude 在六项任务上的长短运行对比。每条曲线取对应配置下截至该时刻的最高私有测试分数。为呈现早期变化，横轴将预算前半程放大至图宽的 75%，刻度标注实际小时数。</em></p>
+<p>长运行还可能在后半程反超。KVzip KV Scoring 上，两个模型在第 12 小时时都落后于各自“两次短运行取最佳”的结果，但 Astra 在第 13.90 小时、Claude 在第 12.67 小时完成了反超。</p>
+<p>这说明，为 Agent 分配优化预算时，需要结合任务层级和模型考虑持续运行与多次独立尝试的取舍。</p>
+<h2>6. 持续改进，还要解决实验过程中的失误</h2>
+<p>分析 150 次运行的轨迹，我们观察到三类会影响持续优化的行为。</p>
+<p><strong>第一，方案通过公开测试，却改变了任务要求。</strong> 在 Attn-QAT NVFP4 Attention 任务中，DeepSeek 和 Claude 曾将规定的“先舍入再求和”改为“先求和再舍入”。这两个实现通过了公开测试中的数值误差检查，但 Controller 因计算过程不符合要求而拒绝了提交。</p>
+<p><strong>第二，性能实验没有执行预期修改。</strong> 在 Mamba-2 SSD Forward 上，Qwen 比较了 20 种内核配置，实际却一直复用了同一个缓存实现。发现问题后，它清理缓存并重新比较。这样的失误会让 Agent 用不可靠的实验结果选择下一步优化。</p>
+<p><strong>第三，Agent 会过早宣布完成。</strong> Infrathon 的 stop hook 会在预算尚未用完时提示 Agent 继续工作。在选出的案例中，GLM 在 SageAttention 上宣布完成后，又通过进一步修改将分数从 365.43 提升到 456.03，增幅为 <strong>24.8%</strong>。这段改进发生在原定时间预算内。</p>
+<p>这些案例为改进 Agent 提供了具体方向：检查代码是否符合任务语义，确认实验执行的是预期版本，并根据实际优化进展判断是否结束。</p>
+<h2>用 Infrathon 构建自己的优化任务</h2>
+<p>Infrathon 提供了任务定义、持续执行和评测框架，Infrathon-build 则帮助研究者与工程师构建自己的长程优化任务。对于已有训练或推理系统，可以明确可修改范围、正确性与质量要求、测试集和资源预算，再让 Agent 在反馈中反复改进，并与现有实现比较。</p>
+<p>我们希望这套资源能帮助更多人研究：什么样的 Agent 能可靠地持续优化，以及哪些基础设施问题已经值得交给它们尝试。</p>
+<ul>
+<li><strong>论文：</strong> <a href="https://arxiv.org/abs/2611.11995">Infrathon: Benchmarking Language Agents for Real-World, Long-Horizon AI Infra Optimization</a></li>
+<li><strong>项目主页：</strong> https://infrathonx.github.io/</li>
+<li><strong>代码：</strong> https://github.com/InfrathonX/Infrathon</li>
+<li><strong>数据：</strong> https://huggingface.co/datasets/Infrathon/Infrathon</li>
+<li><strong>Docker 环境：</strong> https://hub.docker.com/r/infrathon/infrathon</li>
+<li><strong>英文博客：</strong> https://infrathonx.github.io/blog.html</li>
+</ul></main></body></html>
