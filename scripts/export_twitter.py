@@ -53,8 +53,7 @@ def author_acknowledgment(platform: str) -> str:
         else:
             labels.append(f'[@{name}]({account["url"]})')
     names = ", ".join(labels[:-1]) + ", and " + labels[-1]
-    return ("Huge thanks to the entire Infrathon author team: " + names + "!\n\n"
-            "Thanks also to the human experts who helped build Infrathon!")
+    return "Huge thanks to the entire Infrathon author team: " + names + "!"
 
 
 def opening_links(article: str) -> str:
