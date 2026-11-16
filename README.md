@@ -179,6 +179,8 @@ The site uses one light theme. Charts use shared theme variables and responsive 
 
 [twitter-thread.md](twitter-thread.md) preserves the author's eight-post structure and research results. Its opening asks the research question, introduces Infrathon with collaborating organizations, and links to Hugging Face Daily Papers; its closing acknowledgment mentions five selected collaborators, followed by a general shout-out. It includes GitHub-hosted image links and a ZIP of seven PNG attachments: five original figures and two screenshots of the original data tables. Original SVG/WebP files are retained in `site/assets/img/twitter/sources/`; source and export hashes are recorded in `data/twitter_assets.json`. Author and organization identities and verification sources are recorded in `data/author_social_accounts.json` and summarized in [author-social-accounts.md](author-social-accounts.md). The exporter reapplies the collaboration introduction, opening paper link, and selected collaborator mentions when the thread is regenerated.
 
+[Download the homepage optimization animation as MP4](assets/img/twitter/qvg-optimization.mp4) for the Twitter thread: 18.2 seconds, 1280 × 1068, H.264 with a silent AAC track. It preserves the original 15 fps comparison footage and complete optimization trajectory, packaged at 30 fps. Export settings and source/output hashes are recorded in `data/twitter_video.json`.
+
 ```bash
 python3 scripts/export_twitter.py /path/to/twitter.html
 python3 scripts/sync_root_site.py
