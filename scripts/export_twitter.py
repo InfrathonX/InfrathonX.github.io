@@ -39,17 +39,23 @@ def digest(content: bytes) -> str:
 
 
 def author_acknowledgment(platform: str) -> str:
-    """Render all paper authors, adding only verified platform-specific accounts."""
+    """Render the platform-specific closing acknowledgment."""
     if platform not in ("x", "linkedin"):
         raise ValueError(f"Unknown social platform: {platform}")
     authors = json.loads(SOCIAL_AUTHORS.read_text())["authors"]
+    if platform == "x":
+        author = next(author for author in authors if author["name"] == "Zhengyu Hu")
+        account = author["x"]
+        return (
+            f'It\'s been a pleasure working with {author["name"]} ([@{account["handle"]}]({account["url"]})) '
+            "on Infrathon! He just started his PhD at UW. "
+            "A talented researcher and a fantastic collaborator!"
+        )
     labels = []
     for author in authors:
         name, account = author["name"], author[platform]
         if account is None:
             labels.append(name)
-        elif platform == "x":
-            labels.append(f'{name} ([@{account["handle"]}]({account["url"]}))')
         else:
             labels.append(f'[@{name}]({account["url"]})')
     names = ", ".join(labels[:-1]) + ", and " + labels[-1]
@@ -183,7 +189,7 @@ def export(source: Path) -> None:
     manifest["archive"] = {"file": archive.relative_to(SITE).as_posix(),
                            "sha256": digest(archive.read_bytes())}
     lines = ["# Infrathon Twitter Thread", "",
-             "This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post credits all 21 authors with verified X handles. See the [account reference](author-social-accounts.md).",
+             "This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post thanks Zhengyu Hu for the collaboration on Infrathon. See the [account reference](author-social-accounts.md).",
              "Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.",
              "Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).", "",
              "## Image downloads", "", f'[Download all PNGs (ZIP)]({RAW}{manifest["archive"]["file"]})', "",

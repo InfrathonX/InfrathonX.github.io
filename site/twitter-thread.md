@@ -1,6 +1,6 @@
 # Infrathon Twitter Thread
 
-This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post credits all 21 authors with verified X handles. See the [account reference](author-social-accounts.md).
+This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post thanks Zhengyu Hu for the collaboration on Infrathon. See the [account reference](author-social-accounts.md).
 Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.
 Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).
 
@@ -152,6 +152,6 @@ The long run wins **nine of 12 task–model comparisons**, including **all four 
 
 Questions and feedback are welcome!
 
-Huge thanks to the entire Infrathon author team: Zhengyu Hu ([@ZhengyuHu477](https://x.com/ZhengyuHu477)), Zheyuan Xiao ([@XiaoZheyua87871](https://x.com/XiaoZheyua87871)), Yike Wang ([@yikewang_](https://x.com/yikewang_)), Hamish Ivison ([@hamishivi](https://x.com/hamishivi)), Haoyu Wang ([@Haoyu_Wang_97](https://x.com/Haoyu_Wang_97)), Yige Yuan ([@1t4chiii](https://x.com/1t4chiii)), Rulin Shao ([@RulinShao](https://x.com/RulinShao)), Yuetai Li ([@yuetai12575](https://x.com/yuetai12575)), Niqi Lyu ([@lvniqi](https://x.com/lvniqi)), Yicheng Ding ([@KevinDi39556921](https://x.com/KevinDi39556921)), Shu Yang ([@shuyhere](https://x.com/shuyhere)), Zhichen Zeng ([@zz30gs](https://x.com/zz30gs)), Banghua Zhu ([@banghuaz](https://x.com/banghuaz)), Jiaxin Pei ([@jiaxin_pei](https://x.com/jiaxin_pei)), Kaize Ding ([@kaize0409](https://x.com/kaize0409)), Pradeep Dasigi ([@pdasigi](https://x.com/pdasigi)), Dan Roth ([@DanRothNLP](https://x.com/DanRothNLP)), Hannaneh Hajishirzi ([@HannaHajishirzi](https://x.com/HannaHajishirzi)), Noah A. Smith ([@nlpnoah](https://x.com/nlpnoah)), Teng Xiao ([@TengX6](https://x.com/TengX6)), and Radha Poovendran ([@RadhaPoovendran](https://x.com/RadhaPoovendran))!
+It's been a pleasure working with Zhengyu Hu ([@ZhengyuHu477](https://x.com/ZhengyuHu477)) on Infrathon! He just started his PhD at UW. A talented researcher and a fantastic collaborator!
 
 ---

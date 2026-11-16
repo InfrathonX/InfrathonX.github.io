@@ -2,7 +2,7 @@
 
 Checked on 2026-11-14. Authors are listed in paper order.
 
-All 21 authors are credited in the closing acknowledgments of the [X thread](twitter-thread.md) and [LinkedIn post](linkedin-post.md). Only verified accounts receive tags; names without a verified account remain in the text.
+This reference lists all 21 authors in paper order. The [X thread](twitter-thread.md) closes with a personal acknowledgment of Zhengyu Hu; the [LinkedIn post](linkedin-post.md) credits the full author team. Only verified accounts receive tags; names without a verified account remain in the text.
 
 ## Posting formats
 
