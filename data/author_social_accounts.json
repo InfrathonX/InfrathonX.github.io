@@ -428,7 +428,14 @@
     {
       "name": "Pyromind Dynamics",
       "homepage": "https://pyromind.ai/",
-      "x": null,
+      "x": {
+        "handle": "PyromindHS",
+        "url": "https://x.com/PyromindHS",
+        "sources": [
+          "https://x.com/PyromindHS"
+        ],
+        "verification": "The author confirmed the official X account URL on 2026-11-16."
+      },
       "linkedin": {
         "display_name": "Pyromind Dynamics Inc.",
         "url": "https://www.linkedin.com/company/pyromind-dynamics-inc/home/",
@@ -437,9 +444,7 @@
           "https://www.linkedin.com/company/pyromind-dynamics-inc/"
         ],
         "verification": "The author confirmed the company page URL. Its profile links to pyromind.ai and describes its agentic-model training platform."
-      },
-      "notes": "The official X account was not verified. Replace the @[PYROMIND_X_HANDLE] placeholder with its official handle before posting.",
-      "x_placeholder": "@[PYROMIND_X_HANDLE]"
+      }
     }
   ]
 }

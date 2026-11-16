@@ -47,9 +47,9 @@ The opening paragraphs name Ai2, RadixArk, and Pyromind Dynamics as collaborator
 | --- | --- | --- | --- |
 | Ai2 | [@allen_ai](https://x.com/allen_ai) | [@Ai2](https://www.linkedin.com/company/allen-ai/) | [Website](https://allenai.org/) |
 | RadixArk | [@radixark](https://x.com/radixark) | [@RadixArk](https://www.linkedin.com/company/radixark/) | [Website](https://www.radixark.com/) · [Company page](https://www.linkedin.com/company/radixark/) |
-| Pyromind Dynamics | Pending: **@[PYROMIND_X_HANDLE]** | [@Pyromind Dynamics Inc.](https://www.linkedin.com/company/pyromind-dynamics-inc/home/) | [Website](https://pyromind.ai/) · [Company page](https://www.linkedin.com/company/pyromind-dynamics-inc/home/) |
+| Pyromind Dynamics | [@PyromindHS](https://x.com/PyromindHS) | [@Pyromind Dynamics Inc.](https://www.linkedin.com/company/pyromind-dynamics-inc/home/) | [Website](https://pyromind.ai/) · [X account](https://x.com/PyromindHS) · [Company page](https://www.linkedin.com/company/pyromind-dynamics-inc/home/) |
 
-Pyromind Dynamics has a verified LinkedIn company page. Its official X account was not confirmed. The X introduction uses **@[PYROMIND_X_HANDLE]** as an explicit placeholder; replace it with the official handle before posting.
+Pyromind Dynamics' official X account, [@PyromindHS](https://x.com/PyromindHS), was confirmed by the author on 2026-11-16. Its LinkedIn company page is also confirmed.
 
 ## Verification notes
 
