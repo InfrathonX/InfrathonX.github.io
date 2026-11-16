@@ -2,7 +2,7 @@
 
 Checked on 2026-11-14. Authors are listed in paper order.
 
-This reference lists all 21 authors in paper order. The [X thread](twitter-thread.md) thanks the author team and mentions 11 selected collaborators; the [LinkedIn post](linkedin-post.md) credits the full author team. Only verified accounts receive tags; names without a verified account remain in the text.
+This reference lists all 21 authors in paper order. The [X thread](twitter-thread.md) mentions 11 selected collaborators, followed by a general shout-out; the [LinkedIn post](linkedin-post.md) credits the full author team. Only verified accounts receive tags; names without a verified account remain in the text.
 
 ## Posting formats
 

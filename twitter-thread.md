@@ -1,6 +1,6 @@
 # Infrathon Twitter Thread
 
-This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post thanks the author team and mentions 11 selected collaborators. See the [account reference](author-social-accounts.md).
+This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post mentions 11 selected collaborators, followed by a general shout-out. See the [account reference](author-social-accounts.md).
 Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.
 Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).
 
@@ -152,6 +152,6 @@ The long run wins **nine of 12 task–model comparisons**, including **all four 
 
 Questions and feedback are welcome!
 
-Huge thanks to the entire Infrathon author team! Shout-out to our amazing collaborators [@ZhengyuHu477](https://x.com/ZhengyuHu477), [@XiaoZheyua87871](https://x.com/XiaoZheyua87871), [@yikewang_](https://x.com/yikewang_), [@hamishivi](https://x.com/hamishivi), [@Haoyu_Wang_97](https://x.com/Haoyu_Wang_97), [@pdasigi](https://x.com/pdasigi), [@DanRothNLP](https://x.com/DanRothNLP), [@HannaHajishirzi](https://x.com/HannaHajishirzi), [@nlpnoah](https://x.com/nlpnoah), [@TengX6](https://x.com/TengX6), and [@RadhaPoovendran](https://x.com/RadhaPoovendran)!
+Great working with [@ZhengyuHu477](https://x.com/ZhengyuHu477), [@XiaoZheyua87871](https://x.com/XiaoZheyua87871), [@yikewang_](https://x.com/yikewang_), [@hamishivi](https://x.com/hamishivi), [@Haoyu_Wang_97](https://x.com/Haoyu_Wang_97), [@pdasigi](https://x.com/pdasigi), [@DanRothNLP](https://x.com/DanRothNLP), [@HannaHajishirzi](https://x.com/HannaHajishirzi), [@nlpnoah](https://x.com/nlpnoah), [@TengX6](https://x.com/TengX6), and [@RadhaPoovendran](https://x.com/RadhaPoovendran)! And shout out to amazing collaborators!
 
 ---

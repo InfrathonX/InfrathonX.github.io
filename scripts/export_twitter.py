@@ -53,10 +53,7 @@ def author_acknowledgment(platform: str) -> str:
         accounts = [authors_by_name[name]["x"] for name in X_ACKNOWLEDGMENT_AUTHORS]
         handles = [f'[@{account["handle"]}]({account["url"]})' for account in accounts]
         mentions = ", ".join(handles[:-1]) + ", and " + handles[-1]
-        return (
-            "Huge thanks to the entire Infrathon author team! "
-            "Shout-out to our amazing collaborators " + mentions + "!"
-        )
+        return "Great working with " + mentions + "! And shout out to amazing collaborators!"
     labels = []
     for author in authors:
         name, account = author["name"], author[platform]
@@ -195,7 +192,7 @@ def export(source: Path) -> None:
     manifest["archive"] = {"file": archive.relative_to(SITE).as_posix(),
                            "sha256": digest(archive.read_bytes())}
     lines = ["# Infrathon Twitter Thread", "",
-             "This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post thanks the author team and mentions 11 selected collaborators. See the [account reference](author-social-accounts.md).",
+             "This file preserves the eight-post structure, research results, lists, and tables from `twitter.html`. The opening post adds a question, collaborating organizations, and the Hugging Face Daily Papers link; the closing post mentions 11 selected collaborators, followed by a general shout-out. See the [account reference](author-social-accounts.md).",
              "Attachment notes and download links after each post are publishing instructions. Download the PNGs and attach them as media when posting on X.",
              "Most posts exceed the standard 280-character limit. This file preserves the complete long-form draft without splitting posts. [Posting on X](https://help.x.com/en/using-x/how-to-post).", "",
              "## Image downloads", "", f'[Download all PNGs (ZIP)]({RAW}{manifest["archive"]["file"]})', "",
