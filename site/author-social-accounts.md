@@ -23,8 +23,8 @@ LinkedIn profile display names may differ from the paper author name; use the pr
 | 6 | Yige Yuan | [@1t4chiii](https://x.com/1t4chiii) | Not verified | [Homepage](https://yuanyige.github.io/) |
 | 7 | Rulin Shao | [@RulinShao](https://x.com/RulinShao) | [Rulin Shao](https://www.linkedin.com/in/rulin-shao-966435191/) | [Homepage](https://rulinshao.github.io/) |
 | 8 | Yuetai Li | [@yuetai12575](https://x.com/yuetai12575) | [Yuetai Li](https://www.linkedin.com/in/yuetai-li-81a000309/) | [Homepage](https://yuetl9.github.io/) · [LinkedIn evidence](https://www.linkedin.com/in/yuetai-li-81a000309/) |
-| 9 | Niqi Lyu | Not verified | Not verified | [Homepage](https://pyromind.ai/) |
-| 10 | Yicheng Ding | Not verified | Not verified | [Homepage](https://pyromind.ai/) |
+| 9 | Niqi Lyu | [@lvniqi](https://x.com/lvniqi) | [Frank Lyu](https://www.linkedin.com/in/frank-lyu-393054111/) | [Homepage](https://pyromind.ai/) · [X account](https://x.com/lvniqi) · [LinkedIn account](https://www.linkedin.com/in/frank-lyu-393054111/) |
+| 10 | Yicheng Ding | [@KevinDi39556921](https://x.com/KevinDi39556921) | [Kevin Ding](https://www.linkedin.com/in/yicheng-ding-8630aa273/) | [Homepage](https://pyromind.ai/) · [X account](https://x.com/KevinDi39556921) · [LinkedIn account](https://www.linkedin.com/in/yicheng-ding-8630aa273/) |
 | 11 | Shu Yang | [@shuyhere](https://x.com/shuyhere) | [Shu Yang](https://www.linkedin.com/in/shu-yang-ba3739265/) | [Homepage](https://shuyhere.github.io/) · [LinkedIn evidence](https://www.linkedin.com/in/shu-yang-ba3739265/) |
 | 12 | Zhichen Zeng | [@zz30gs](https://x.com/zz30gs) | [Zhichen Zeng](https://www.linkedin.com/in/zhichen-zeng/) | [Homepage](https://zhichenzzz.github.io/) · [X evidence](https://source.twstalker.com/zz30gs) |
 | 13 | Banghua Zhu | [@banghuaz](https://x.com/banghuaz) | [Banghua Zhu](https://www.linkedin.com/in/banghua-zhu-171902aa/) | [Homepage](https://banghua.me/) |
@@ -57,6 +57,8 @@ Pyromind Dynamics' official X account, [@PyromindHS](https://x.com/PyromindHS), 
 - **Yike Wang:** LinkedIn: UW and AI2 match; the profile links to yikee.github.io.
 - **Haoyu Wang:** LinkedIn: The profile identifies a UPenn CS PhD student and lists the same complex-event identification research as the author homepage.
 - **Yuetai Li:** LinkedIn: The profile name and Meta/UW affiliations match the author homepage.
+- **Niqi Lyu:** X and LinkedIn accounts were provided by the author on 2026-11-16. The LinkedIn display name is Frank Lyu.
+- **Yicheng Ding:** X and LinkedIn accounts were provided by the author on 2026-11-16. The LinkedIn display name is Kevin Ding.
 - **Shu Yang:** LinkedIn: The profile name and Stanford HAI affiliation match the author homepage.
 - **Zhichen Zeng:** X: Profile bio links to the author homepage and matches UW and RadixArk.
 - **Kaize Ding:** X: The author homepage uses data-href attributes for its social links. LinkedIn: The author homepage links to this profile through a data-href attribute.

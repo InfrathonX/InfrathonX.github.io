@@ -153,14 +153,42 @@
     {
       "name": "Niqi Lyu",
       "homepage": "https://pyromind.ai/",
-      "x": null,
-      "linkedin": null
+      "x": {
+        "handle": "lvniqi",
+        "url": "https://x.com/lvniqi",
+        "sources": [
+          "https://x.com/lvniqi"
+        ],
+        "verification": "Provided by the author on 2026-11-16."
+      },
+      "linkedin": {
+        "display_name": "Frank Lyu",
+        "url": "https://www.linkedin.com/in/frank-lyu-393054111/",
+        "sources": [
+          "https://www.linkedin.com/in/frank-lyu-393054111/"
+        ],
+        "verification": "The author confirmed this profile for Niqi Lyu on 2026-11-16; its display name is Frank Lyu."
+      }
     },
     {
       "name": "Yicheng Ding",
       "homepage": "https://pyromind.ai/",
-      "x": null,
-      "linkedin": null
+      "x": {
+        "handle": "KevinDi39556921",
+        "url": "https://x.com/KevinDi39556921",
+        "sources": [
+          "https://x.com/KevinDi39556921"
+        ],
+        "verification": "Provided by the author on 2026-11-16."
+      },
+      "linkedin": {
+        "display_name": "Kevin Ding",
+        "url": "https://www.linkedin.com/in/yicheng-ding-8630aa273/",
+        "sources": [
+          "https://www.linkedin.com/in/yicheng-ding-8630aa273/"
+        ],
+        "verification": "The author confirmed this profile for Yicheng Ding on 2026-11-16; its display name is Kevin Ding."
+      }
     },
     {
       "name": "Shu Yang",
