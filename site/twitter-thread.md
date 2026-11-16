@@ -152,6 +152,8 @@ The long run wins **nine of 12 task–model comparisons**, including **all four 
 
 Questions and feedback are welcome!
 
+Huge thanks to the entire Infrathon author team!
+
 It's been a pleasure working with Zhengyu Hu ([@ZhengyuHu477](https://x.com/ZhengyuHu477)) on Infrathon! He just started his PhD at UW. A talented researcher and a fantastic collaborator!
 
 ---
