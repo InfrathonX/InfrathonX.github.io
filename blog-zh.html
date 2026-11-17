@@ -29,6 +29,7 @@ tr:nth-child(even) td { background: #f9fafc; }
   h2 { font-size: 21px; margin-top: 34px; }
   p, li { font-size: 16px; }
   table { min-width: 620px; }
+  .model-rankings { min-width: 0; }
 }
 @media print {
   body { background: white; }
@@ -78,9 +79,9 @@ tr:nth-child(even) td { background: #f9fafc; }
 <p><img alt="Infrathon 的任务定义与执行框架" loading="lazy" src="https://infrathonx.github.io/assets/img/paper/framework.svg"/></p>
 <p><em>图 2｜Work → Controller → Judge 的提交与反馈循环。</em></p>
 <p><strong>我们得到三个主要结论：</strong></p>
-<h2>1️⃣ Claude Opus 5.5 整体领先，平均排名分数为 91.2</h2>
+<h2>1. Claude Opus 5.5 整体领先，平均排名分数为 91.2</h2>
 <p>我们在全部 25 项任务上评测 6 个模型，共 <strong>150 次运行</strong>，主实验超过 <strong>10,000 GPU 小时</strong>。不同任务的性能指标不同，因此先按单项任务排名换算分数，再对 25 项任务等权平均。</p>
-<div class="table-wrap"><table>
+<div class="table-wrap"><table class="model-rankings">
 <thead>
 <tr>
 <th>模型</th>
@@ -122,7 +123,7 @@ tr:nth-child(even) td { background: #f9fafc; }
 </tbody>
 </table></div>
 <p><em>排名分数范围为 0–100；100 表示所有任务均排名第一。Claude 在 25 项任务中获得 17 项第一。</em></p>
-<h2>2️⃣ Agent 能找到优于人工设计的优化方案</h2>
+<h2>2. Agent 能找到优于人工设计的优化方案</h2>
 <p>在 <strong>Quant-VideoGen KV Codec</strong> 任务中，Agent 压缩视频生成过程中的 KV 缓存。我们将 Claude 在 24 小时内开发的方案与人工编解码器比较，在 WorldScore / HY-WorldPlay 和 MovieGen / LongCat-Video 上各评测 200 个样本，生成设置保持一致。</p>
 <p><strong>平均压缩比从 6.82× 提升到 19.86×，同时两个数据集上的 PSNR、SSIM 提高，LPIPS 降低。</strong></p>
 <div class="table-wrap"><table>
@@ -156,7 +157,7 @@ tr:nth-child(even) td { background: #f9fafc; }
 <p>人工方案对聚类后的残差逐个量化；Claude 对残差做 <strong>PCA 变换</strong>，并在量化后使用<strong>熵编码</strong>，随后继续调整量化方式与元数据存储。</p>
 <p><img alt="Claude 在视频 KV 缓存压缩任务中的结果与迭代过程" loading="eager" src="https://infrathonx.github.io/assets/img/homepage/qvg-intro.svg"/></p>
 <p><em>图 3｜上方为两个视频样例，红字为压缩比；下方为结合压缩比与视频质量的任务分数。五个标记点对应选出的提交，虚线为人工方案。</em></p>
-<h2>3️⃣ 相同 GPU 预算下，长运行更有利于模块和系统任务</h2>
+<h2>3. 相同 GPU 预算下，长运行更有利于模块和系统任务</h2>
 <p>我们用 Astra 和 Claude，在三个优化层级各选一项训练任务和一项推理任务，共 6 项任务、12 个任务—模型组合。比较一次 T 小时长运行与两次 T/2 或四次 T/4 独立短运行取最佳，总 GPU 小时相同；算子任务的 T 为 12 小时，模块和系统任务为 24 小时。</p>
 <p><strong>长运行在 12 个组合中的 9 个上胜出，包括全部 4 个系统级组合；算子任务上，多次短运行仍有竞争力。</strong></p>
 <div class="table-wrap"><table>
